@@ -1,0 +1,73 @@
+<!DOCTYPE html> 
+<ui:composition template="/template/templatepesquisa.xhtml" 
+	xmlns="http://www.w3.org/1999/xhtml" 
+	xmlns:f="http://xmlns.jcp.org/jsf/core" 
+	xmlns:h="http://xmlns.jcp.org/jsf/html" 
+	xmlns:p="http://primefaces.org/ui" 
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"> 
+ 
+    <ui:define name="titulo"> 
+      <h1>Pesquisa de DocumentoInterno</h1> 
+      <ol class="breadcrumb"> 
+        <li><a href="mainmenu.xhtml"><i class="fa fa-dashboard"></i> Home</a></li> 
+        <li><a href="#">Cadastros</a></li> 
+        <li class="active">Documento Interno</li> 
+      </ol> 
+    </ui:define> 
+ 
+	<ui:define name="titulobotao"> 
+		<ui:param name="entityBean" value="#{documentoInternoController}" /> 
+		<h:panelGroup layout="block" styleClass="box-header col-md-12"> 
+			<p:commandButton value="Novo" ajax="true" 
+				action="#{documentoInternoController.novo}" process="@this" 
+				update=":formPrincipal:display" oncomplete="PF('dlg').show()" 
+				styleClass="btn btn-primary" />&#160; 
+ 
+                  <!--</h:panelGroup> 
+                  <h:panelGroup layout="block" styleClass="box-header col-md-2 col-md-offset-9" >--> 
+			<p:commandButton value="Pesquisar" 
+				action="#{documentoInternoController.getListAll}" ajax="false" update="@form" 
+				styleClass="btn btn-primary" >&#160; 
+                     <!-- <f:ajax execute=":TableId" render=":TableId" /> --> 
+			</p:commandButton> 
+		</h:panelGroup> 
+	</ui:define> 
+ 
+	<ui:define name="colunasdogrid"> 
+		<f:facet name="header"> 
+                            Lista de Usu�rios 
+                            <!-- <p:commandButton id="toggler" type="button" value="Columns" style="float:right" icon="ui-icon-calculator" /> 
+                            <p:columnToggler datasource="TableId" trigger="toggler" />--> 
+		</f:facet> 
+ 
+		<p:column width="9%" sortBy="#{entity.id}" style="text-align: center" 
+			headerText="Código" filterable="#{entityBean.habilitarPesquisa}" 
+			filterBy="#{entity.id}"> 
+			<h:outputText value="#{entity.id}" /> 
+		</p:column> 
+		<p:column width="41%" sortBy="#{entity.tipoDocumentoInterno.descricao}" style="text-align: center" 
+			headerText="Tipo Documento" filterable="#{entityBean.habilitarPesquisa}" 
+			filterBy="#{entity.tipoDocumentoInterno.descricao}"> 
+			<h:outputText value="#{entity.tipoDocumentoInterno.descricao}" /> 
+		</p:column> 
+		<p:column width="32%" sortBy="#{entity.usuario.nomeUsuario}" style="text-align: center" 
+			headerText="Usuário" filterable="#{entityBean.habilitarPesquisa}" 
+			filterBy="#{entity.usuario.nomeUsuario}"> 
+			<h:outputText value="#{entity.usuario.nomeUsuario}" /> 
+		</p:column> 
+		<p:column width="9%" sortBy="#{entity.dataCadastro.getTime()}" style="text-align: center" 
+			headerText="Data Cadastro" filterable="#{entityBean.habilitarPesquisa}" 
+			filterBy="#{entity.dataCadastro.getTime()}"> 
+			<h:outputText value="#{entity.dataCadastro.getTime()}" /> 
+		</p:column> 
+ 	</ui:define> 
+ 
+	<ui:define name="teladecadastro"> 
+		<p:row style="border: none"> 
+		<f:facet name="footer"> 
+ 
+		</f:facet> 
+		</p:row>
+	</ui:define> 
+ 
+</ui:composition> 

@@ -1,0 +1,204 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+
+<!-- Left side column. contains the logo and sidebar -->
+<aside class="main-sidebar"> <!-- sidebar: style can be found in sidebar.less -->
+  <section class="sidebar"> <!-- Sidebar user panel -->
+    <div class="user-panel">
+    <!--<center>
+          <img src="dist/img/logomarcapequena.png" alt="In Forma" height="84" width="84">
+    </center> //-->
+    </div>
+    
+	<!-- sidebar menu: : style can be found in sidebar.less -->
+    <ul class="sidebar-menu">
+      <li class="header">NAVEGAÇÃO</li>
+      <ui:fragment rendered="#{autenticacaoController.isAdministrador()}">
+        <li class="treeview">
+          <a href="#"> 
+            <i class="fa fa-edit"></i> <span>Cadastros</span>
+              <span class="pull-right-container"> 
+	            <i class="fa fa-angle-left pull-right">
+                </i>
+              </span>
+          </a>
+          <ul class="treeview-menu">
+                 
+            <li>
+              <a href="#">
+                <i class="fa fa-circle-o"></i> 
+                Usuários
+                <span class="pull-right-container">
+                  <i class="fa fa-angle-left pull-right"></i>
+                </span>
+              </a>
+              <ul class="treeview-menu">
+                <li class="active">
+		          <a href="#{request.contextPath}/administrador/grupousuario.xhtml">
+			        <i class="fa fa-circle-o"></i>
+                    Grupo Usuarios
+		          </a>
+                </li>
+                <li class="active">
+		          <a href="#{request.contextPath}/administrador/usuario.xhtml">
+			        <i class="fa fa-circle-o"></i>
+                    Usuarios
+		          </a>
+                </li>                
+              </ul>
+            </li>                  
+            
+            <li class="active">
+		      <a href="#{request.contextPath}/administrador/cargo.xhtml">
+			    <i class="fa fa-circle-o"></i>
+                Cargo
+		      </a>
+            </li>
+            
+            <li class="active">
+		      <a href="#{request.contextPath}/administrador/departamento.xhtml">
+			    <i class="fa fa-circle-o"></i>
+                Departamento
+		      </a>
+            </li>            
+
+            <li class="active">
+		      <a href="#{request.contextPath}/administrador/tipodocumentointerno.xhtml">
+			    <i class="fa fa-circle-o"></i>
+                Tipo de Documento
+		      </a>
+            </li>   
+                        
+          </ul>	
+        
+        </li>
+        <li class="treeview">          
+          <a href="#"> 
+            <i class="fa fa-heartbeat"></i> <span>Documentos</span>
+              <span class="pull-right-container"> 
+	            <i class="fa fa-angle-left pull-right">
+                </i>
+              </span>
+          </a>
+          <ul class="treeview-menu">          
+            <li class="active">
+		      <a href="#{request.contextPath}/pages/missaovisaovalores.xhtml">
+			    <i class="fa fa-circle-o"></i>
+                Missão, Visão..
+		      </a>
+            </li> 
+            
+            <li>
+              <a href="#">
+                <i class="fa fa-circle-o"></i> 
+                Política
+                <span class="pull-right-container">
+                  <i class="fa fa-angle-left pull-right"></i>
+                </span>
+              </a>
+              <ul class="treeview-menu">
+                <li class="active">
+		          <a href="#">
+			        <i class="fa fa-circle-o"></i>
+                    Viagem
+		          </a>
+                </li>
+                <li class="active">
+		          <a href="#">
+			        <i class="fa fa-circle-o"></i>
+                    Deslocamento
+		          </a>
+                </li>                
+              </ul>
+            </li>           
+                        
+          </ul>
+        </li>  
+
+        <li class="treeview">          
+          <a href="#"> 
+            <i class="fa fa-users"></i> <span>Colaborador</span>
+              <span class="pull-right-container"> 
+	            <i class="fa fa-angle-left pull-right">
+                </i>
+              </span>
+          </a>
+          <ul class="treeview-menu">          
+            <li class="active">
+		      <a href="#{request.contextPath}/pages/panoramacolaborador.xhtml">
+			    <i class="fa fa-circle-o"></i>
+                Panorama
+		      </a>
+            </li> 
+          </ul>
+        </li>         
+        
+                  
+      </ui:fragment>  
+    </ul>
+  </section> <!-- /.sidebar --> 
+</aside>		
+ <!--  ESCONDER A LI
+<ul>
+    <ui:fragment rendered="true"><li>Item1</li></ui:fragment>
+    <ui:fragment rendered="true"><li>Item2</li></ui:fragment>
+    <ui:fragment rendered="false"><li>Item3</li></ui:fragment>
+    <ui:fragment rendered="false"><li>Item4</li></ui:fragment>
+</ul>
+ -->
+
+
+
+    <!--<li class="treeview"><a href="#"> <i class="fa fa-laptop"></i>
+            <span>Gerencial</span> <span class="pull-right-container"> <i
+                class="fa fa-angle-left pull-right"></i>
+        </span>
+    </a>
+        <ul class="treeview-menu">
+            <li><a href="#"><i class="fa fa-circle-o"></i> Colaborador</a></li>
+            <li><a href="#"><i class="fa fa-circle-o"></i> Enviar Avisos</a></li>
+            <li><a href="#"><i class="fa fa-circle-o"></i> Viagem e
+                    Deslocamento</a></li>
+            <li><a href="#"><i class="fa fa-circle-o"></i> Aprovar
+                    Solicitação de Férias</a></li>
+        </ul></li>
+    <li class="treeview"><a href="#"> <i class="fa fa-users"></i>
+            <span>Colaborador</span> <span class="pull-right-container"> <i
+                class="fa fa-angle-left pull-right"></i>
+        </span>
+    </a>
+        <ul class="treeview-menu">
+            <li><a href="#"><i class="fa fa-circle-o"></i> Colaborador</a></li>
+            <li><a href="#"><i class="fa fa-circle-o"></i> Enviar Avisos</a></li>
+            <li><a href="#"><i class="fa fa-circle-o"></i> Viagem e
+                    Deslocamento</a></li>
+            <li><a href="#"><i class="fa fa-circle-o"></i> 
+                    Solicitação de Férias</a></li>
+        </ul></li>
+    <li class="treeview"><a href="#"> <i class="fa fa-gear"></i> <span>Configuração</span>
+            <span class="pull-right-container"> <i
+                class="fa fa-angle-left pull-right"></i>
+        </span>
+    </a>
+        <ul class="treeview-menu">
+            <li><a href="#"><i class="fa fa-circle-o"></i> Colaborador</a></li>
+            <li><a href="#"><i class="fa fa-circle-o"></i> Enviar Avisos</a></li>
+        </ul></li>
+    <li><a href="calendario.jsp"> <i class="fa fa-calendar"></i> <span>Calendário</span>
+            <span class="pull-right-container"> <small
+                class="label pull-right bg-red">3</small> <small
+                class="label pull-right bg-blue">17</small>
+        </span>
+    </a></li>
+    <li><a href="mailbox.xhtml"> <i class="fa fa-envelope"></i> <span>E-Mail</span>
+            <span class="pull-right-container"> <small
+                class="label pull-right bg-yellow">12</small> <small
+                class="label pull-right bg-green">16</small> <small
+                class="label pull-right bg-red">5</small>
+        </span>
+    </li></a>-->
+</html>

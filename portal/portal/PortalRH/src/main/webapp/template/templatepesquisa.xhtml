@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<ui:composition template="/template/template.xhtml"
+	xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+
+    <ui:define name="corpo">
+    
+    <style type="text/css">
+        .ui-growl {
+            position:absolute;
+            top:40%;
+            left:40%;
+            width:301px;
+            z-index:9999;
+        }
+    </style>    
+    
+      <!-- Content Header (Page header) -->
+      <section class="content-header">
+        <ui:insert name="titulo" />
+      </section>
+
+      
+      <h:form id="formpesquisa">  
+        <!-- Main content -->
+        <section class="content">
+          <div class="row col-md-12">
+            <div class="row">
+              <div class="box col-lg-12">   
+                <!-- /.box-header -->
+                <h:panelGroup layout="block" styleClass="row">
+                
+		          <!-- Botões de "novo", "Pesquisar"... será implementado quem usar o template -->		          	
+			      <ui:insert name="titulobotao" />
+                </h:panelGroup>
+						
+                <!-- /.box-body -->
+                <div class="divtabela row">                  
+                  <div class="box-body" >
+                  
+                    <!-- /.GRID -->
+                    <p:dataTable id="TableId"
+                                 value="#{entityBean.listaEntity}" 
+                                 var="entity" 
+                                 paginator="true" 
+                                 paginatorPosition="bottom"
+                                 rows="#{autenticacaoController.registrosPorPagina}" 
+                                 sortMode="single"
+                                 selectionMode="single"
+                                 selection="#{entityBean.entity}"
+                                 rowKey="#{entity.id}"
+                                 paginatorAlwaysVisible="#{autenticacaoController.paginacaoSempreVisivel}"                                 
+                                 scrollable="true"
+                                 draggableColumns="#{autenticacaoController.mudarColunaDeLugarNoGrid}"
+                                 lazy="false"
+                                 paginatorTemplate="{CurrentPageReport}
+                                                    {FirstPageLink}
+                                                    {PreviousPageLink} {PageLinks}
+                                                    {NextPageLink} {LastPageLink}
+                                                    {RowsPerPageDropdown}"
+                                 rowsPerPageTemplate="#{autenticacaoController.paginacao}" 
+                                 style="width: 100%" >                                
+                     
+                      <!-- Colunas no grid... será implementado quem usar o template -->		          	
+			          <ui:insert name="colunasdogrid" />      
+			          
+                      <p:column headerText="Ações" style="text-align: center;" width="10%" >
+
+                        <p:commandButton id="Editar" update=":formPrincipal:display" icon="fa fa-fw fa-edit" 
+                                         process="@this" ajax="true"
+                                         title="Visualizar" oncomplete="PF('dlg').show()">                          
+                          <f:setPropertyActionListener target="#{entityBean.entity}" value="#{entity}" />
+                        </p:commandButton>   
+                                                
+                        <p:commandButton id="excluir" 
+                                         icon="fa fa-fw fa-trash"
+                                         title="Excluir" 
+                                         process="@this" ajax="true"
+                                         action="#{entityBean.delete(entity)}"
+                                         oncomplete="PF('msgconfirmacao').show()" >
+                          <p:confirm header="Confirmation" message="Are you sure?" icon="ui-icon-alert" />
+                        </p:commandButton>       
+                        
+                        <p:confirmDialog global="true" showEffect="fade" hideEffect="fade">
+                          <p:commandButton value="Yes" type="button" styleClass="ui-confirmdialog-yes" icon="ui-icon-check"  />
+                          <p:commandButton value="No" type="button" styleClass="ui-confirmdialog-no" icon="ui-icon-close" />
+                        </p:confirmDialog>                        
+                                          
+                      </p:column>                                   
+                    </p:dataTable>							
+                    
+                  <!-- /.col -->
+                  </div>                 
+                </div>
+              <!-- /.box-body -->
+              </div>
+            <!-- /.box -->
+            </div>
+          <!-- /.col -->
+          </div>
+        <!-- /.row -->
+        </section>      
+     </h:form>          
+	 <!-- /.content -->
+	
+	<h:form id="formPrincipal"> 
+	    <p:growl id="growl" />
+        <p:dialog modal="true" widgetVar="dlg" 
+                  id="dlg"
+                  header="Editar"
+                  appendToBody="true" 
+                  width="40%" 
+                  height="40%" 
+                  minimizable="true">
+          
+          <p:panelGrid id="display" style="width: 100%; border: none; cellspacing: 10px;" >            
+            
+            <!-- Colunas no grid... será implementado quem usar o template -->		          	
+			<ui:insert name="teladecadastro" />             
+
+          </p:panelGrid><br/>
+          
+          <p:commandButton value=" Salvar "                                  
+                           action="#{entityBean.salvar}" 
+                           styleClass="btn btn-primary" 
+                           imediate="true"                        
+                           update="@form"
+                           process="@form"
+                           ajax="false"
+                           onclick="PF('dlg').hide()" />&#160;
+           <p:commandButton value="Cancelar" styleClass="btn btn-primary" onclick="dlg.hide()" ajax="false" />
+                
+        </p:dialog>	     
+	  </h:form>
+	    
+         
+    </ui:define>
+</ui:composition>

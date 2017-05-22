@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<ui:composition template="/template/templatepesquisa.xhtml"
+	xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+
+    <ui:define name="titulo">
+      <h1>Pesquisa de Usuários</h1>
+      <ol class="breadcrumb">
+        <li><a href="mainmenu.xhtml"><i class="fa fa-dashboard"></i> Home</a></li>
+        <li><a href="#">Cadastros</a></li>
+        <li class="active">Usuários</li>
+      </ol>      
+    </ui:define>
+
+	<ui:define name="titulobotao">
+		<ui:param name="entityBean" value="#{usuarioController}" />
+		<h:panelGroup layout="block" styleClass="box-header col-md-12">
+			<p:commandButton value="Novo" ajax="true"
+				action="#{usuarioController.novo}" process="@this" 
+				update=":formPrincipal:display" oncomplete="PF('dlg').show()"
+				styleClass="btn btn-primary" />&#160;                                                   
+                                                                               
+                  <!--</h:panelGroup> 
+                  <h:panelGroup layout="block" styleClass="box-header col-md-2 col-md-offset-9" >-->
+			<p:commandButton value="Pesquisar"
+				action="#{usuarioController.getListAll}" ajax="false" update="@form"
+				styleClass="btn btn-primary" >&#160;
+                     <!-- <f:ajax execute=":TableId" render=":TableId" /> -->
+			</p:commandButton>
+		</h:panelGroup>
+	</ui:define>
+
+	<ui:define name="colunasdogrid">
+		<f:facet name="header">
+                            Lista de Usuários
+                            <!-- <p:commandButton id="toggler" type="button" value="Columns" style="float:right" icon="ui-icon-calculator" />
+                            <p:columnToggler datasource="TableId" trigger="toggler" />-->
+		</f:facet>
+
+		<p:column width="9%" sortBy="#{usuario.id}" style="text-align: center"
+			headerText="Código" filterable="#{entityBean.habilitarPesquisa}"
+			filterBy="#{entity.id}">
+			<h:outputText value="#{entity.id}" />
+		</p:column>
+
+		<p:column sortBy="#{entity.nomeUsuario}" width="10%" headerText="Nome"
+			filterable="#{entityBean.habilitarPesquisa}"
+			filterBy="#{entity.nomeUsuario}">
+			<h:outputText value="#{entity.nomeUsuario}" />
+		</p:column>
+
+		<p:column sortBy="#{entity.sobreNome}" width="10%"
+			headerText="Sobrenome" filterable="#{entityBean.habilitarPesquisa}"
+			filterBy="#{entity.sobreNome}">
+			<h:outputText value="#{entity.sobreNome}" />
+		</p:column>
+
+		<p:column sortBy="#{entity.email}" width="24%" headerText="E-Mail"
+			filterable="#{entityBean.habilitarPesquisa}"
+			filterBy="#{entity.email}">
+			<h:outputText value="#{entity.email}" />
+		</p:column>
+
+		<p:column sortBy="#{entity.grupoUsuario.descricao}" width="15%"
+			headerText="Grupo" filterable="#{entityBean.habilitarPesquisa}"
+			filterBy="#{entity.grupoUsuario.descricao}">
+			<h:outputText value="#{entity.grupoUsuario.descricao}" />
+		</p:column>
+
+		<p:column sortBy="#{entity.celular}" width="10%" headerText="Celular"
+			filterable="#{entityBean.habilitarPesquisa}"
+			filterBy="#{entity.celular}">
+			<h:outputText value="#{entity.celular}" />
+		</p:column>
+
+		<p:column width="10%" sortBy="#{entity.dataCadastro.getTime()}"
+			style="text-align: center" headerText="Data Cadastro"
+			exportable="true" filterable="#{entityBean.habilitarPesquisa}"
+			filterBy="#{entity.dataCadastro.getTime()}">
+			<h:outputText value="#{entity.dataCadastro.getTime()}" >
+			  <f:convertDateTime pattern="dd/MM/yyyy" />
+			</h:outputText>
+		</p:column>
+	</ui:define>
+
+	<ui:define name="teladecadastro">
+		<p:row style="border: none">
+			<p:column style="width:50%; border: none">
+				<h:outputText value="Nome: " />
+				<p:inputText id="firstname"
+					value="#{usuarioController.entity.nomeUsuario}" required="true"
+					label="Firstname" styleClass="col-md-12" immediate="true">
+					<f:validateLength minimum="1" maximum="30" />
+					<p:clientValidator />
+				</p:inputText>
+				<h:message for="firstname" styleClass="RED" />
+			</p:column>
+			<p:column style="width:50%; border: none">
+				<h:outputText value="Sobrenome: " />
+				<p:inputText id="lasttname"
+					value="#{usuarioController.entity.sobreNome}"
+					required="true" label="lasttname" styleClass="col-md-12" />
+			</p:column>
+		</p:row>
+
+		<p:row style="border: none">
+			<p:column style="width:50%; border: none">
+				<h:outputText value="Sexo: " />
+				<h:selectOneMenu value="#{usuarioController.entity.sexo}"
+					styleClass="form-control select2">
+					<f:selectItems value="#{dominioController.sexo}" var="sexo" />
+				</h:selectOneMenu>
+			</p:column>
+			<p:column style="width:50%; border: none">
+				<h:outputText value="Celular: " />
+				<p:inputText id="celular"
+					value="#{usuarioController.entity.celular}" styleClass="col-md-12"
+					mask="(99) 99999-9999" />
+			</p:column>
+		</p:row>
+
+		<p:row style="border: none">
+			<p:column colspan="2" style="border: none">
+				<h:outputText value="E-Mail: " />
+				<p:inputText id="email" value="#{usuarioController.entity.email}"
+					styleClass="col-md-12" />
+			</p:column>
+		</p:row>
+
+		<p:row style="border: none">
+			<p:column style="width:50%; border: none">
+				<h:outputText value="Login: " />
+				<p:inputText id="login" value="#{usuarioController.entity.login}"
+					styleClass="col-md-12" />
+			</p:column>
+			<p:column style="width:50%; border: none">
+				<h:outputText value="Grupo: " />
+				<h:selectOneMenu value="#{usuarioController.entity.grupoUsuario.id}"
+					styleClass="form-control select2">
+					<f:selectItems value="#{grupoUsuarioController.listaEntity}"
+						var="grupo" itemValue="#{grupo.id}" itemLabel="#{grupo.descricao}" />
+				</h:selectOneMenu>
+			</p:column>
+		</p:row>
+
+		<p:row style="border: none">
+			<p:column style="width:50%; border: none">
+				<h:outputText value="Senha: " />
+				<p:password id="senha" value="#{usuarioController.entity.senha}"
+					styleClass="col-md-12" />
+			</p:column>
+			<p:column style="width:50%; border: none">
+				<h:outputText value="Confirmação de Senha: " />
+				<p:password id="confirmacaosenha"
+					value="#{usuarioController.entity.senha}" styleClass="col-md-12" />
+			</p:column>
+		</p:row>
+
+		<p:row style="border: none">
+			<p:column colspan="2" style="border: none">
+				<p:selectBooleanCheckbox value="#{usuarioController.entity.ativo}" />
+				<h:outputText value=" Ativo: " />
+			</p:column>
+		</p:row>
+
+		<f:facet name="footer">
+
+		</f:facet>
+	</ui:define>
+
+</ui:composition>

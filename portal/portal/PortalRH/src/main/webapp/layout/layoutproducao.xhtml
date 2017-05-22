@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<ui:composition template="/template/template.xhtml"
+	xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+
+    <ui:define name="corpo">
+      <!-- Content Header (Page header) -->
+      <section class="content-header">
+        <h1>Pesquisa de Usuários</h1>
+        <ol class="breadcrumb">
+          <li><a href="mainmenu.xhtml"><i class="fa fa-dashboard"></i> Home</a></li>
+          <li><a href="#">Cadastros</a></li>
+          <li class="active">Usuários</li>
+        </ol>
+      </section>
+
+      <h:form id="formPrincipal">
+        
+        <!-- Main content -->
+        <section class="content">
+          <div class="row col-md-12">
+            <div class="row">
+              <div class="box col-lg-12">
+              
+                <!-- /.box-body -->
+                <div class="divtabela row">                  
+                  <div class="box-body" >
+                    <!-- /.col -->
+                    <div class="col-md-2" /> <!-- /. Não apargar é o centralizador da tela -->
+                    <div class="col-md-8">
+                      <div class="nav-tabs-custom">
+                        <ul class="nav nav-tabs">
+                          <li class="active"><a href="#activity" data-toggle="tab">Principal</a></li>
+                        </ul>
+                        <div class="tab-content">
+                          <!-- /.tab-pane -->
+                          <div class="active tab-pane" id="activity">
+                            <div class="box-body">
+                              <div class="form-group">
+                              
+                                <div class="col-md-6">
+                                  <label for="exampleInputEmail1">Nome</label>
+                                  <p:inputText id="usuario" value="#{usuarioController.entity.nomeUsuario}" class="col-md-12" /> 
+                                </div>
+                                <div class="col-md-6">
+                                  <label for="exampleInputEmail1">Sobrenome</label>
+                                  <p:inputText id="sobreusuario" value="#{usuarioController.entity.sobreNomeUsuario}" class="col-md-12" />            
+                                </div> 	
+
+                                <div class="col-md-12">
+                                  <button type="button" class="btn btn-default" data-dismiss="modal">Fechar</button>			
+					 	          <h:commandButton value="Salvar" action="#{usuarioController.salvar}" styleClass="btn btn-primary" />          
+                                </div>                                
+                                														
+                              </div>
+                            </div>
+                          </div>
+                        <!-- /.tab-pane -->
+                        </div>
+                      <!-- /.tab-content -->
+                      </div>
+                    <!-- /.nav-tabs-custom -->
+                    </div>
+                  <!-- /.col -->
+                  </div>                 
+                </div>
+              <!-- /.box-body -->
+              </div>
+            <!-- /.box -->
+            </div>
+          <!-- /.col -->
+          </div>
+        <!-- /.row -->
+        </section>
+	    <!-- /.content -->
+	    
+      </h:form>   
+    </ui:define>
+</ui:composition>
