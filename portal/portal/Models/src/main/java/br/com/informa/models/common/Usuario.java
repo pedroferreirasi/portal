@@ -12,10 +12,13 @@ import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import br.com.informa.models.dominio.ESexo;
 import br.com.informa.models.portalrh.Cargo;
+import br.com.informa.models.portalrh.DadosPessoais;
+import br.com.informa.models.portalrh.DadosProfissionais;
 import br.com.informa.models.portalrh.Departamento;
 
 import java.io.Serializable;
@@ -30,12 +33,14 @@ public class Usuario implements Serializable {
 	
 	public Usuario() {
 		this.grupoUsuario = new GrupoUsuario();
+		this.cargo = new Cargo();
+		this.departamento = new Departamento();
 		this.ativo = true;
 	}
 	
 
 	@Id
-	@GeneratedValue
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	@Column(name="pk_usucad")
 	private int id;
 	
@@ -81,7 +86,13 @@ public class Usuario implements Serializable {
 	
 	@OneToOne(cascade = CascadeType.REFRESH, fetch = FetchType.LAZY)
 	@JoinColumn(name="fk_carcad", unique = false, nullable=false)
-	private Cargo cargo;	
+	private Cargo cargo;
+	
+	@OneToOne(mappedBy="usuario", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.LAZY)
+	private DadosPessoais dadosPessoais;	
+
+	@OneToOne(fetch = FetchType.LAZY, mappedBy = "usuario", cascade = CascadeType.ALL)
+	private DadosProfissionais dadosProfissionais;
 	
 	public int getId() {
 		return id;
@@ -187,6 +198,8 @@ public class Usuario implements Serializable {
 		entity.setSexo(this.sexo);
 		entity.setSobreNomeUsuario(this.sobreNome);
 		entity.setSenha(this.senha);
+		entity.setDadosPessoais(this.dadosPessoais);
+		entity.setDadosProfissionais(this.dadosProfissionais);
 		
 		return entity;
 	}
@@ -221,6 +234,22 @@ public class Usuario implements Serializable {
 
 	public void setCargo(Cargo cargo) {
 		this.cargo = cargo;
+	}
+
+	public DadosPessoais getDadosPessoais() {
+		return dadosPessoais;
+	}
+
+	public void setDadosPessoais(DadosPessoais dadosPessoais) {
+		this.dadosPessoais = dadosPessoais;
+	}
+
+	public DadosProfissionais getDadosProfissionais() {
+		return dadosProfissionais;
+	}
+
+	public void setDadosProfissionais(DadosProfissionais dadosProfissionais) {
+		this.dadosProfissionais = dadosProfissionais;
 	}
 	
 }
