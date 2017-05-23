@@ -51,7 +51,8 @@
 		</p:column> 
  	</ui:define> 
  
-	<ui:define name="teladecadastro"> 
+	<ui:define name="teladecadastro">
+      <p:panelGrid id="display" style="width: 100%; border: none; cellspacing: 10px;" > 	
 		<p:row style="border: none">
 			<p:column style="width:20%; border: none">
 				<h:outputText value="Código: " />
@@ -69,6 +70,7 @@
 					required="true" label="descricao" styleClass="col-md-12" />
 			</p:column>
 		</p:row> 
+	  </p:panelGrid><br/>
 	</ui:define> 
  
 </ui:composition> 
