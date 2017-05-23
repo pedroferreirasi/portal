@@ -81,84 +81,32 @@
 	</ui:define>
 
 	<ui:define name="teladecadastro">
-		<p:row style="border: none">
-			<p:column style="width:50%; border: none">
-				<h:outputText value="Nome: " />
-				<p:inputText id="firstname"
-					value="#{usuarioController.entity.nomeUsuario}" required="true"
-					label="Firstname" styleClass="col-md-12" immediate="true">
-					<f:validateLength minimum="1" maximum="30" />
-					<p:clientValidator />
-				</p:inputText>
-				<h:message for="firstname" styleClass="RED" />
-			</p:column>
-			<p:column style="width:50%; border: none">
-				<h:outputText value="Sobrenome: " />
-				<p:inputText id="lasttname"
-					value="#{usuarioController.entity.sobreNome}"
-					required="true" label="lasttname" styleClass="col-md-12" />
-			</p:column>
-		</p:row>
+	
+          <!-- Custom Tabs -->
+          <div class="nav-tabs-custom">
+            <ul class="nav nav-tabs">
+              <li class="active"><a href="#tab_1" data-toggle="tab">Tab 1</a></li>
+              <li><a href="#tab_2" data-toggle="tab">Tab 2</a></li>
+              <li><a href="#tab_3" data-toggle="tab">Tab 3</a></li>
+            </ul>
+            <div class="tab-content">
+              <div class="tab-pane active" id="tab_1">
+                <b>How to use:</b>
 
-		<p:row style="border: none">
-			<p:column style="width:50%; border: none">
-				<h:outputText value="Sexo: " />
-				<h:selectOneMenu value="#{usuarioController.entity.sexo}"
-					styleClass="form-control select2">
-					<f:selectItems value="#{dominioController.sexo}" var="sexo" />
-				</h:selectOneMenu>
-			</p:column>
-			<p:column style="width:50%; border: none">
-				<h:outputText value="Celular: " />
-				<p:inputText id="celular"
-					value="#{usuarioController.entity.celular}" styleClass="col-md-12"
-					mask="(99) 99999-9999" />
-			</p:column>
-		</p:row>
-
-		<p:row style="border: none">
-			<p:column colspan="2" style="border: none">
-				<h:outputText value="E-Mail: " />
-				<p:inputText id="email" value="#{usuarioController.entity.email}"
-					styleClass="col-md-12" />
-			</p:column>
-		</p:row>
-
-		<p:row style="border: none">
-			<p:column style="width:50%; border: none">
-				<h:outputText value="Login: " />
-				<p:inputText id="login" value="#{usuarioController.entity.login}"
-					styleClass="col-md-12" />
-			</p:column>
-			<p:column style="width:50%; border: none">
-				<h:outputText value="Grupo: " />
-				<h:selectOneMenu value="#{usuarioController.entity.grupoUsuario.id}"
-					styleClass="form-control select2">
-					<f:selectItems value="#{grupoUsuarioController.listaEntity}"
-						var="grupo" itemValue="#{grupo.id}" itemLabel="#{grupo.descricao}" />
-				</h:selectOneMenu>
-			</p:column>
-		</p:row>
-
-		<p:row style="border: none">
-			<p:column style="width:50%; border: none">
-				<h:outputText value="Senha: " />
-				<p:password id="senha" value="#{usuarioController.entity.senha}"
-					styleClass="col-md-12" />
-			</p:column>
-			<p:column style="width:50%; border: none">
-				<h:outputText value="Confirmação de Senha: " />
-				<p:password id="confirmacaosenha"
-					value="#{usuarioController.entity.senha}" styleClass="col-md-12" />
-			</p:column>
-		</p:row>
-
-		<p:row style="border: none">
-			<p:column colspan="2" style="border: none">
-				<p:selectBooleanCheckbox value="#{usuarioController.entity.ativo}" />
-				<h:outputText value=" Ativo: " />
-			</p:column>
-		</p:row>
+                Exactly like the original.
+              </div>
+              <!-- /.tab-pane -->
+              <div class="tab-pane" id="tab_2">
+                The European languages.
+              </div>
+              <!-- /.tab-pane -->
+              <div class="tab-pane" id="tab_3">
+                Lorem Ipsum.
+              </div>
+              <!-- /.tab-pane -->
+            </div>
+            <!-- /.tab-content -->
+          </div>
 
 		<f:facet name="footer">
 
