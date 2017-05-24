@@ -18,8 +18,9 @@ import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlRootElement;
 
 import br.com.informa.models.common.Usuario;
-import br.com.informa.models.dominio.EstadoCivil;
-import br.com.informa.models.dominio.EstadosBrasil;
+import br.com.informa.models.dominio.ETipoLogradouro;
+import br.com.informa.models.dominio.EEstadoCivil;
+import br.com.informa.models.dominio.EEstadosBrasil;
 
 import java.io.Serializable;
 import java.util.Calendar; 
@@ -49,7 +50,8 @@ public class DadosPessoais implements Serializable {
     private String cep;
 
     @Column(name="tipologradouro", nullable=true, length=45)
-    private String tipoLogradouro;
+    @Enumerated(EnumType.STRING)
+    private ETipoLogradouro tipoLogradouro;
 
     @Column(name="endereco", nullable=true, length=100)
     private String endereco;
@@ -68,7 +70,7 @@ public class DadosPessoais implements Serializable {
 
     @Column(name="estado", nullable=true, length=2)
     @Enumerated(EnumType.STRING)
-    private EstadosBrasil estado;
+    private EEstadosBrasil estado;
 
     @Column(name="nacionalidade", nullable=true, length=45)
     private String nacionalidade;
@@ -82,7 +84,7 @@ public class DadosPessoais implements Serializable {
 
     @Column(name="estadocivil", nullable=true, length=1)
     @Enumerated(EnumType.STRING)
-    private EstadoCivil estadoCivil;
+    private EEstadoCivil estadoCivil;
 
     @Column(name="raca", nullable=true, length=45)
     private String raca;
@@ -142,11 +144,11 @@ public class DadosPessoais implements Serializable {
 		this.cep = cep;
 	}
 
-	public String getTipoLogradouro() {
+	public ETipoLogradouro getTipoLogradouro() {
 		return tipoLogradouro;
 	}
 
-	public void setTipoLogradouro(String tipoLogradouro) {
+	public void setTipoLogradouro(ETipoLogradouro tipoLogradouro) {
 		this.tipoLogradouro = tipoLogradouro;
 	}
 
@@ -190,11 +192,11 @@ public class DadosPessoais implements Serializable {
 		this.cidade = cidade;
 	}
 
-	public EstadosBrasil getEstado() {
+	public EEstadosBrasil getEstado() {
 		return estado;
 	}
 
-	public void setEstado(EstadosBrasil estado) {
+	public void setEstado(EEstadosBrasil estado) {
 		this.estado = estado;
 	}
 
@@ -222,11 +224,11 @@ public class DadosPessoais implements Serializable {
 		this.dataNascimento = dataNascimento;
 	}
 
-	public EstadoCivil getEstadoCivil() {
+	public EEstadoCivil getEstadoCivil() {
 		return estadoCivil;
 	}
 
-	public void setEstadoCivil(EstadoCivil estadoCivil) {
+	public void setEstadoCivil(EEstadoCivil estadoCivil) {
 		this.estadoCivil = estadoCivil;
 	}
 

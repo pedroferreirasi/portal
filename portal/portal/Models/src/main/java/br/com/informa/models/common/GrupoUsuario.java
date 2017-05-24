@@ -11,7 +11,7 @@ import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlRootElement;
 
-import br.com.informa.models.dominio.TipoGrupoUsuario;
+import br.com.informa.models.dominio.ETipoGrupoUsuario;
 
 import javax.xml.bind.annotation.XmlElement;
 
@@ -41,7 +41,7 @@ public class GrupoUsuario implements Serializable {
 	@Column(name="tp_grupousuario", nullable=false, length=20)
 	@XmlElement
 	@Enumerated(EnumType.STRING)
-	private TipoGrupoUsuario tipoGrupoUsuario;
+	private ETipoGrupoUsuario tipoGrupoUsuario;
 
 	public int getId() {
 		return id;
@@ -59,11 +59,11 @@ public class GrupoUsuario implements Serializable {
 		this.descricao = descricao;
 	}
 
-	public TipoGrupoUsuario getTipoGrupoUsuario() {
+	public ETipoGrupoUsuario getTipoGrupoUsuario() {
 		return tipoGrupoUsuario;
 	}
 
-	public void setTipoGrupoUsuario(TipoGrupoUsuario tipoGrupoUsuario) {
+	public void setTipoGrupoUsuario(ETipoGrupoUsuario tipoGrupoUsuario) {
 		this.tipoGrupoUsuario = tipoGrupoUsuario;
 	}
 	

@@ -7,7 +7,7 @@ import javax.faces.bean.SessionScoped;
 import javax.faces.context.FacesContext;
 import br.com.informa.models.common.Usuario;
 import br.com.informa.models.dominio.ESexo;
-import br.com.informa.models.dominio.TipoGrupoUsuario;
+import br.com.informa.models.dominio.ETipoGrupoUsuario;
 import br.com.informa.services.core.FactoryService;
 import br.com.informa.services.common.IUsuarioService;
 
@@ -64,11 +64,11 @@ public class AutenticacaoController implements Serializable {
 	}
 
 	public boolean isAdministrador() {
-		return this.entity.getGrupoUsuario().getTipoGrupoUsuario().equals(TipoGrupoUsuario.administrador);
+		return this.entity.getGrupoUsuario().getTipoGrupoUsuario().equals(ETipoGrupoUsuario.administrador);
 	}
 
 	public boolean isGerente() {
-		return this.entity.getGrupoUsuario().getTipoGrupoUsuario().equals(TipoGrupoUsuario.gerencial);
+		return this.entity.getGrupoUsuario().getTipoGrupoUsuario().equals(ETipoGrupoUsuario.gerencial);
 	}
 
 	// logout event, invalidate session

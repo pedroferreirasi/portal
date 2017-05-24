@@ -4,7 +4,7 @@ import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped; 
 import br.com.informa.core.GenericController; 
 import br.com.informa.models.portalrh.DocumentoInterno; 
-import br.com.informa.models.dominio.EstadoForm; 
+import br.com.informa.models.dominio.EEstadoForm; 
 import br.com.informa.services.core.FactoryService; 
  
 @ManagedBean(name = "documentoInternoController") 
@@ -26,7 +26,7 @@ public class DocumentoInternoController extends GenericController<DocumentoInter
 	public void novo() 
 	{ 
 		this.entity = new DocumentoInterno(); 
-		this.estado = EstadoForm.Incluir; 
+		this.estado = EEstadoForm.Incluir; 
 	} 
 	
 	public void getMissao() {

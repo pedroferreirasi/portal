@@ -84,7 +84,7 @@ public class Usuario implements Serializable {
 	@JoinColumn(name="fk_depcad", unique = false, nullable=false)
 	private Departamento departamento;
 	
-	@OneToOne(cascade = CascadeType.REFRESH, fetch = FetchType.LAZY)
+	@OneToOne(cascade = CascadeType.REFRESH, fetch = FetchType.EAGER)
 	@JoinColumn(name="fk_carcad", unique = false, nullable=false)
 	private Cargo cargo;
 	

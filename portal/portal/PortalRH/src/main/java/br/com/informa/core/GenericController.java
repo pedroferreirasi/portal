@@ -3,7 +3,7 @@ package br.com.informa.core;
 import java.io.Serializable;
 import java.util.List;
 
-import br.com.informa.models.dominio.EstadoForm;
+import br.com.informa.models.dominio.EEstadoForm;
 import br.com.informa.services.common.IService;
 
 public abstract class GenericController<T> implements Serializable {
@@ -16,20 +16,24 @@ public abstract class GenericController<T> implements Serializable {
 	protected T entity;
 	protected List<T> listaEntity;
 	protected IService<T, Integer> entityService;
-	protected EstadoForm estado;
+	protected EEstadoForm estado;
 	private boolean habilitarPesquisa;
 	private String percentualGrid;
+	private String widthModal;
+	private String heightModal;
 	
 	public GenericController()
 	{
 		habilitarPesquisa = true;
 		percentualGrid = "100";
-		estado = EstadoForm.Nenhum;		
+		estado = EEstadoForm.Nenhum;
+		this.widthModal = "40%";
+		this.heightModal = "40%";
 	}
 	
 	public void salvar() 
 	{		
-		if (this.estado == EstadoForm.Incluir) 
+		if (this.estado == EEstadoForm.Incluir) 
 		{
 			this.Add(entity);
 		} else {
@@ -128,6 +132,22 @@ public abstract class GenericController<T> implements Serializable {
 	}
 	public void setPercentualGrid(String percentualGrid) {
 		this.percentualGrid = percentualGrid;
+	}
+
+	public String getWidthModal() {
+		return widthModal;
+	}
+
+	public void setWidthModal(String widthModal) {
+		this.widthModal = widthModal;
+	}
+
+	public String getHeightModal() {
+		return heightModal;
+	}
+
+	public void setHeightModal(String heightModal) {
+		this.heightModal = heightModal;
 	}
 
 

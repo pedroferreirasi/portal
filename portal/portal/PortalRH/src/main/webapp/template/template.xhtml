@@ -172,7 +172,8 @@
 							<p>
 						      #{autenticacaoController.entity.nomeUsuario} 
 						      #{autenticacaoController.entity.sobreNomeUsuario} - 
-						      Gerente Financeiro <small>Membro desde #{autenticacaoController.entity.dataCadastro}</small>
+						      #{autenticacaoController.entity.cargo.descricao} 
+						      <small>Membro desde #{autenticacaoController.entity.dadosProfissionais.dataAdmissao.getTime()}</small>
 							</p></li>
 						<!-- Menu Body -->
 						<!-- Menu Footer-->

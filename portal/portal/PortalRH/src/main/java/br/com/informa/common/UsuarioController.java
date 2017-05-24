@@ -4,7 +4,7 @@ import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
 import br.com.informa.core.GenericController;
 import br.com.informa.models.common.Usuario;
-import br.com.informa.models.dominio.EstadoForm;
+import br.com.informa.models.dominio.EEstadoForm;
 import br.com.informa.services.core.FactoryService;
 
 @ManagedBean(name = "usuarioController")
@@ -25,6 +25,6 @@ public class UsuarioController extends GenericController<Usuario> {
 	public void novo()
 	{	
 		this.entity = new Usuario();
-		this.estado = EstadoForm.Incluir;
+		this.estado = EEstadoForm.Incluir;
 	}	
 }
