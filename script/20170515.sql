@@ -85,6 +85,17 @@ ENGINE = InnoDB
 AUTO_INCREMENT = 7
 DEFAULT CHARACTER SET = utf8;
 
+ALTER TABLE `db`.`tb_usuario` 
+DROP FOREIGN KEY `fk_usucad_carcad`;
+ALTER TABLE `db`.`tb_usuario` 
+CHANGE COLUMN `fk_carcad` `fk_carcad` INT(11) NOT NULL DEFAULT 36 ;
+ALTER TABLE `db`.`tb_usuario` 
+ADD CONSTRAINT `fk_usucad_carcad`
+  FOREIGN KEY (`fk_carcad`)
+  REFERENCES `db`.`cargos` (`id`)
+  ON DELETE CASCADE
+  ON UPDATE CASCADE;
+
 CREATE TABLE IF NOT EXISTS `db`.`tb_dados_pessoais` (
   `pk_pescad` INT(11) NOT NULL AUTO_INCREMENT,
   `fk_usucad` INT(11) NOT NULL,
@@ -231,5 +242,7 @@ DELIMITER ;
 CALL db.criarprocedure;
 DROP PROCEDURE IF EXISTS db.criarprocedure;
 
-INSERT INTO `tb_usuario` (`pk_usucad`,`ativo`,`celular`,`dataCadastro`,`email`,`login`,`nome`,`senha`,`sexo`,`sobrenome`,`fk_usgcad`) VALUES (3,true,'(81) 98855-3931','2017-05-15','phferreira@informa.com.br','pedro','Pedro','03ba0cf12ee5b9a4d7da021dee54117f966d5a6944d277b6f55c151eb3f227f4','M','Ferreira',2);
-  
+INSERT INTO cargos(id, descricao) values(36, "Nenhum");
+commit;  
+INSERT INTO `tb_usuario` (`pk_usucad`,`ativo`,`celular`,`dataCadastro`,`email`,`login`,`nome`,`senha`,`sexo`,`sobrenome`,`fk_usgcad`, 'fk_carcad') VALUES (3,true,'(81) 98855-3931','2017-05-15','phferreira@informa.com.br','pedro','Pedro','03ba0cf12ee5b9a4d7da021dee54117f966d5a6944d277b6f55c151eb3f227f4','M','Ferreira',2,36);
+commit;  
