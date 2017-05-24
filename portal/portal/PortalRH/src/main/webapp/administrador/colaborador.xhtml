@@ -84,7 +84,7 @@
 	
       <p:tabView id="display" style="width: 100%">
         <p:tab title="Dados Gerais">
-		  <p:panelGrid id="dg" style="width: 100%; border: none; cellspacing: 10px;" >
+		  <p:panelGrid id="dgcadgeral" style="width: 100%; border: none; cellspacing: 10px;" >
 			<p:row style="border: none">
 				<p:column style="width:50%; border: none">
 					<h:outputText value="Nome: " />
@@ -150,17 +150,42 @@
 					<h:outputText value=" Ativo: " />
 				</p:column>
 			</p:row>
-	
-			<f:facet name="footer">
-	
-			</f:facet>
 		  </p:panelGrid><br/>
         </p:tab>
-        <p:tab title="Dados Pessoais">
-            <h:panelGrid columns="2" cellpadding="10">
-                
-                <h:outputText value="Francis Ford Coppola's legendary..." />
-            </h:panelGrid>
+        
+        <!-- DADOS PESSOAIS -->
+        
+        <p:tab title="Dados Pessoais"> 
+		  <p:panelGrid id="dgcadpessoal" style="width: 100%; border: none; cellspacing: 10px;" >
+			<p:row style="border: none">
+				<p:column style="width:25%; border: none">
+					<h:outputText value="CEP: " />
+					<p:inputText id="cep"
+						value="#{colaboradorController.entity.dadosPessoais.CEP}"
+						label="CEP" styleClass="col-md-12" immediate="true" maxlength="9">
+						<f:validateLength minimum="1" maximum="9" />
+						<p:clientValidator />
+					</p:inputText>					
+				</p:column>
+				<p:column style="width:25%; border: none">
+					<h:outputText value="Logradouro: " />
+					<h:selectOneMenu value="#{colaboradorController.entity.dadosPessoais.tipoLogradouro}"
+						styleClass="form-control select2">
+						<f:selectItems value="#{dominioController.tipoLogradouro}" var="logradouro" />
+					</h:selectOneMenu>
+				</p:column>
+				<p:column colspan="2" style="width:50%; border: none">
+					<h:outputText value="Endereco: " />
+					<p:inputText id="endereco"
+						value="#{colaboradorController.entity.dadosPessoais.endereco}" 
+						label="endereco" styleClass="col-md-12" immediate="true" maxlength="100">
+						<f:validateLength minimum="1" maximum="30" />
+						<p:clientValidator />
+					</p:inputText>					
+				</p:column>			
+			</p:row>
+
+		  </p:panelGrid><br/>
         </p:tab>
         <p:tab title="Dados Profissionais">
             <h:panelGrid columns="2" cellpadding="10">

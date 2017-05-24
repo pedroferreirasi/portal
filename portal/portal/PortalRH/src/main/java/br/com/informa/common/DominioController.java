@@ -1,5 +1,8 @@
 package br.com.informa.common;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
 
@@ -18,6 +21,7 @@ public class DominioController {
 	private EEstadoCivil[] estadoCivil;
 	private EEstadosBrasil[] estadosBrasil;
 	private ETipoLogradouro[] tipoLogradouro;
+	private List<String> tipoLogradouroList;
 	
     public ESexo[] getSexo() {
     	sexo = ESexo.values();
@@ -47,5 +51,18 @@ public class DominioController {
     	tipoLogradouro = ETipoLogradouro.values(); 
     	return tipoLogradouro;
     }
+    
+    public List<String> getTipoLogradouroList()
+    {
+    	tipoLogradouro = ETipoLogradouro.values();
+    	if (tipoLogradouroList == null) {
+    		tipoLogradouroList = new ArrayList<String>();
+    	}
+
+    	for (int i = 0; i < tipoLogradouro.length; i++) {    	
+			tipoLogradouroList.add(tipoLogradouro[i].toString());
+		}
+    	return tipoLogradouroList;
+    }    
 
 }

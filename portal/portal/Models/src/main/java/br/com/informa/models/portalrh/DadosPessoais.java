@@ -47,7 +47,7 @@ public class DadosPessoais implements Serializable {
     private Usuario usuario;
 	
     @Column(name="cep", nullable=true, length=10)
-    private String cep;
+    private String CEP;
 
     @Column(name="tipologradouro", nullable=true, length=45)
     @Enumerated(EnumType.STRING)
@@ -134,22 +134,6 @@ public class DadosPessoais implements Serializable {
 
 	public void setUsuario(Usuario usuario) {
 		this.usuario = usuario;
-	}
-
-	public String getCep() {
-		return cep;
-	}
-
-	public void setCep(String cep) {
-		this.cep = cep;
-	}
-
-	public ETipoLogradouro getTipoLogradouro() {
-		return tipoLogradouro;
-	}
-
-	public void setTipoLogradouro(ETipoLogradouro tipoLogradouro) {
-		this.tipoLogradouro = tipoLogradouro;
 	}
 
 	public String getEndereco() {
@@ -318,6 +302,22 @@ public class DadosPessoais implements Serializable {
 
 	public void setCelularPessoal(String celularPessoal) {
 		this.celularPessoal = celularPessoal;
+	}
+
+	public String getCEP() {
+		return CEP;
+	}
+
+	public void setCEP(String cEP) {
+		CEP = cEP;
+	}
+
+	public ETipoLogradouro getTipoLogradouro() {
+		return tipoLogradouro;
+	}
+
+	public void setTipoLogradouro(ETipoLogradouro tipoLogradouro) {
+		this.tipoLogradouro = tipoLogradouro;
 	}
 
 }
