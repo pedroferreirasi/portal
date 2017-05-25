@@ -91,7 +91,7 @@ public class Usuario implements Serializable {
 	@OneToOne(mappedBy="usuario", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.LAZY)
 	private DadosPessoais dadosPessoais;	
 
-	@OneToOne(fetch = FetchType.LAZY, mappedBy = "usuario", cascade = CascadeType.ALL)
+	@OneToOne(mappedBy="usuario", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.LAZY)
 	private DadosProfissionais dadosProfissionais;
 	
 	public int getId() {

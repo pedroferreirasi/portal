@@ -83,8 +83,22 @@
 	<ui:define name="teladecadastro">
 	
       <p:tabView id="display" style="width: 100%">
+        
         <p:tab title="Dados Gerais">
 		  <p:panelGrid id="dgcadgeral" style="width: 100%; border: none; cellspacing: 10px;" >
+			
+			<p:row style="border: none">
+				<p:column colspan="2" style="border: none">
+					<h:outputText value="Nome Completo: " />
+					<p:inputText id="nomecompleto"
+						value="#{colaboradorController.entity.nomeCompleto}" required="true"
+						label="nomeCompleto" styleClass="col-md-12" immediate="true" maxlength="100">
+						<f:validateLength minimum="1" maximum="100" />
+						<p:clientValidator />
+					</p:inputText>
+				</p:column>
+			</p:row>
+					  
 			<p:row style="border: none">
 				<p:column style="width:50%; border: none">
 					<h:outputText value="Nome: " />
@@ -150,6 +164,25 @@
 					<h:outputText value=" Ativo: " />
 				</p:column>
 			</p:row>
+			
+			<p:row style="border: none">
+				<p:column colspan="2" style="border: none">
+
+				</p:column>
+			</p:row>
+			
+			<p:row style="border: none">
+				<p:column colspan="2" style="border: none">
+
+				</p:column>
+			</p:row>			
+
+			<p:row style="border: none">
+				<p:column colspan="2" style="border: none">
+
+				</p:column>
+			</p:row>
+														
 		  </p:panelGrid><br/>
         </p:tab>
         
@@ -157,6 +190,7 @@
         
         <p:tab title="Dados Pessoais"> 
 		  <p:panelGrid id="dgcadpessoal" style="width: 100%; border: none; cellspacing: 10px;" >
+			
 			<p:row style="border: none">
 				<p:column style="width:25%; border: none">
 					<h:outputText value="CEP: " />
@@ -184,14 +218,281 @@
 					</p:inputText>					
 				</p:column>			
 			</p:row>
-
+			
+			<p:row style="border: none">
+				<p:column style="width:25%; border: none">
+					<h:outputText value="Número: " />
+					<p:inputText id="numero"
+						value="#{colaboradorController.entity.dadosPessoais.numero}"
+						label="Numero" styleClass="col-md-12" immediate="true" maxlength="10">
+						<f:validateLength minimum="1" maximum="9" />
+						<p:clientValidator />
+					</p:inputText>					
+				</p:column>
+				<p:column style="width:25%; border: none">
+					<h:outputText value="Complemento: " />
+					<p:inputText id="complemento"
+						value="#{colaboradorController.entity.dadosPessoais.complemento}"
+						label="complemento" styleClass="col-md-12" immediate="true" maxlength="10">
+						<f:validateLength minimum="1" maximum="9" />
+						<p:clientValidator />
+					</p:inputText>	
+				</p:column>
+				<p:column colspan="2" style="width:50%; border: none">
+					<h:outputText value="Bairro: " />
+					<p:inputText id="bairro"
+						value="#{colaboradorController.entity.dadosPessoais.bairro}" 
+						label="bairro" styleClass="col-md-12" immediate="true" maxlength="50">
+						<f:validateLength minimum="1" maximum="30" />
+						<p:clientValidator />
+					</p:inputText>					
+				</p:column>							
+			</p:row>	
+			
+			<p:row style="border: none">
+				<p:column colspan="2" style="width:50%; border: none">
+					<h:outputText value="Cidade: " />
+					<p:inputText id="cidade"
+						value="#{colaboradorController.entity.dadosPessoais.cidade}" 
+						label="cidade" styleClass="col-md-12" immediate="true" maxlength="50">
+						<f:validateLength minimum="1" maximum="30" />
+						<p:clientValidator />
+					</p:inputText>					
+				</p:column>			
+				<p:column style="width:10%; border: none">
+					<h:outputText value="Estado: " />
+					<h:selectOneMenu value="#{colaboradorController.entity.dadosPessoais.estado}"
+						styleClass="form-control select2">
+						<f:selectItems value="#{dominioController.estadosBrasil}" var="estados" />
+					</h:selectOneMenu>
+				</p:column>
+				<p:column style="width:40%; border: none">
+					<h:outputText value="Nacionalidade: " />
+					<p:inputText id="nacionalidade"
+						value="#{colaboradorController.entity.dadosPessoais.nacionalidade}"
+						label="nacionalidade" styleClass="col-md-12" immediate="true" maxlength="45">
+						<f:validateLength minimum="1" maximum="45" />
+						<p:clientValidator />
+					</p:inputText>	
+				</p:column>							
+			</p:row>	
+			
+			<p:row style="border: none">
+				<p:column style="width:30%; border: none">
+					<h:outputText value="Naturalidade: " />
+					<p:inputText id="naturalidade"
+						value="#{colaboradorController.entity.dadosPessoais.naturalidade}" 
+						label="cidade" styleClass="col-md-12" immediate="true" maxlength="50">
+						<f:validateLength minimum="1" maximum="30" />
+						<p:clientValidator />
+					</p:inputText>					
+				</p:column>			
+				<p:column colspan="2" style="width:40%; border: none">
+					<h:outputText value="Raça: " />
+					<p:inputText id="raca"
+						value="#{colaboradorController.entity.dadosPessoais.raca}"
+						label="raca" styleClass="col-md-12" immediate="true" maxlength="45">
+						<f:validateLength minimum="1" maximum="45" />
+						<p:clientValidator />
+					</p:inputText>
+				</p:column>
+				<p:column style="width:30%; border: none">
+					<h:outputText value="Nascimento: " />
+					<p:inputText id="nascimento"
+						value="#{colaboradorController.entity.dadosPessoais.dataNascimento.getTime()}"
+						label="nascimento" styleClass="col-md-12" immediate="true" maxlength="45">
+						<f:convertDateTime pattern="dd/MM/yyyy" />
+					</p:inputText>	
+				</p:column>							
+			</p:row>
+			
+			<p:row style="border: none">
+				<p:column style="width:25%; border: none">
+					<h:outputText value="CPF: " />
+					<p:inputText id="cpf"
+						value="#{colaboradorController.entity.dadosPessoais.CPF}" 
+						label="cpf" styleClass="col-md-12" immediate="true" maxlength="15">
+						<f:validateLength minimum="1" maximum="15" />
+						<p:clientValidator />
+					</p:inputText>					
+				</p:column>			
+				<p:column style="width:25%; border: none">
+					<h:outputText value="RG: " />
+					<p:inputText id="rg"
+						value="#{colaboradorController.entity.dadosPessoais.RG}"
+						label="raca" styleClass="col-md-12" immediate="true" maxlength="10">
+						<f:validateLength minimum="1" maximum="10" />
+						<p:clientValidator />
+					</p:inputText>
+				</p:column>
+				<p:column style="width:25%; border: none">
+					<h:outputText value="Data Emissao: " />
+					<p:inputText id="dataemissao"
+						value="#{colaboradorController.entity.dadosPessoais.dataEmissaoRG.getTime()}"
+						label="dataemissao" styleClass="col-md-10" immediate="true" maxlength="10">
+						<f:convertDateTime pattern="dd/MM/yyyy" />
+					</p:inputText>	
+				</p:column>
+				<p:column style="width:30%; border: none">
+					<h:outputText value="Orgão Emissor: " />
+					<p:inputText id="orgaoemissor"
+						value="#{colaboradorController.entity.dadosPessoais.orgaoEmissorRG}"
+						label="orgaoemissor" styleClass="col-md-12" immediate="true" maxlength="10">
+						<f:convertDateTime pattern="dd/MM/yyyy" />
+					</p:inputText>	
+				</p:column>		
+            </p:row>				
+				
+			<p:row style="border: none">
+				<p:column style="width:25%; border: none">
+					<h:outputText value="UF Orgao Emissor: " />
+					<h:selectOneMenu value="#{colaboradorController.entity.dadosPessoais.estadoEmissorRG}"
+						styleClass="form-control select2">
+						<f:selectItems value="#{dominioController.estadosBrasil}" var="estados" />
+					</h:selectOneMenu>						
+				</p:column>			
+				<p:column style="width:25%; border: none">
+					<h:outputText value="Estado Civil: " />
+					<h:selectOneMenu value="#{colaboradorController.entity.dadosPessoais.estadoCivil}"
+						styleClass="form-control select2">
+						<f:selectItems value="#{dominioController.estadoCivil}" var="civil" />
+					</h:selectOneMenu>
+				</p:column>
+				<p:column style="width:25%; border: none">
+					<h:outputText value="Telefone: " />
+					<p:inputText id="telefonePessoal"
+						value="#{colaboradorController.entity.dadosPessoais.telefonePessoal}"
+						label="telefonepessoal" styleClass="col-md-10" immediate="true" maxlength="20">
+					</p:inputText>				
+				</p:column>
+				<p:column style="width:30%; border: none">
+					<h:outputText value="Celular: " />
+					<p:inputText id="celularpessoal"
+						value="#{colaboradorController.entity.dadosPessoais.celularPessoal}"
+						label="celularpessoal" styleClass="col-md-12" immediate="true" maxlength="20">						
+					</p:inputText>	
+				</p:column>											
+			</p:row>																
+													
 		  </p:panelGrid><br/>
         </p:tab>
+        
+        <!-- DADOS PROFISSIONAIS -->
+        
         <p:tab title="Dados Profissionais">
-            <h:panelGrid columns="2" cellpadding="10">
-                
-                <h:outputText value="After a break of more than 15 years..." />
-            </h:panelGrid>
+		  
+		  <p:panelGrid id="dgcadprofissional" style="width: 100%; border: none; cellspacing: 10px;" >
+			
+			<p:row style="border: none">
+				<p:column style="width:25%; border: none">
+					<h:outputText value="CTPS: " />
+					<p:inputText id="CTPS"
+						value="#{colaboradorController.entity.dadosProfissionais.CTPS}"
+						label="CEP" styleClass="col-md-12" immediate="true" maxlength="10">
+						<f:validateLength minimum="1" maximum="9" />
+						<p:clientValidator />
+					</p:inputText>					
+				</p:column>
+				<p:column style="width:25%; border: none">
+					<h:outputText value="Serie CTPS: " />
+					<p:inputText id="serieCTPS"
+						value="#{colaboradorController.entity.dadosProfissionais.serieCTPS}"
+						label="serieCTPS" styleClass="col-md-12" immediate="true" maxlength="10">
+						<f:validateLength minimum="1" maximum="9" />
+						<p:clientValidator />
+					</p:inputText>
+				</p:column>
+				<p:column style="width:25%; border: none">
+					<h:outputText value="Estado CTPS: " />
+					<h:selectOneMenu value="#{colaboradorController.entity.dadosProfissionais.estadoCTPS}"
+						styleClass="form-control select2">
+						<f:selectItems value="#{dominioController.estadosBrasil}" var="estadosctps" />
+					</h:selectOneMenu>						
+				</p:column>
+				<p:column style="width:25%; border: none">
+					<h:outputText value="Número PIS: " />
+					<p:inputText id="pis"
+						value="#{colaboradorController.entity.dadosProfissionais.PIS}" 
+						label="pis" styleClass="col-md-12" immediate="true" maxlength="100">
+						<f:validateLength minimum="1" maximum="30" />
+						<p:clientValidator />
+					</p:inputText>					
+				</p:column>			
+			</p:row>
+			
+			<p:row style="border: none">
+				<p:column style="width:25%; border: none">
+					<h:outputText value="Matricula: " />
+					<p:inputText id="matricula"
+						value="#{colaboradorController.entity.dadosProfissionais.matricula}"
+						label="matricula" styleClass="col-md-12" immediate="true" maxlength="30">
+						<f:validateLength minimum="1" maximum="30" />
+						<p:clientValidator />
+					</p:inputText>					
+				</p:column>
+				<p:column style="width:25%; border: none">
+					<h:outputText value="Código Ponto Eletrônico: " />
+					<p:inputText id="codigoPontoEletronico"
+						value="#{colaboradorController.entity.dadosProfissionais.codigoPontoEletronico}"
+						label="serieCTPS" styleClass="col-md-12" immediate="true" maxlength="30">
+						<f:validateLength minimum="1" maximum="30" />
+						<p:clientValidator />
+					</p:inputText>
+				</p:column>
+				<p:column style="width:25%; border: none">
+					<h:outputText value="Data Admissao: " />
+					<p:inputText id="dataadmissao"
+						value="#{colaboradorController.entity.dadosProfissionais.dataAdmissao.getTime()}"
+						label="serieCTPS" styleClass="col-md-12" immediate="true" maxlength="30">
+						<f:convertDateTime pattern="dd/MM/yyyy" />
+					</p:inputText>					
+				</p:column>
+				<p:column style="width:25%; border: none">
+					<h:outputText value="Carga horária: " />
+					<p:inputText id="cargahoraria"
+						value="#{colaboradorController.entity.dadosProfissionais.cargaHoraria}" 
+						label="cargahoraria" styleClass="col-md-12" immediate="true" maxlength="10">
+						<f:validateLength minimum="1" maximum="10" />
+						<p:clientValidator />
+					</p:inputText>					
+				</p:column>			
+			</p:row>		
+			
+			<p:row style="border: none">
+				<p:column style="width:25%; border: none">
+					<h:outputText value="Telefone Profissional: " />
+					<p:inputText id="telefoneprofissional"
+						value="#{colaboradorController.entity.dadosProfissionais.telefoneProfissional}"
+						label="celularpessoal" styleClass="col-md-12" immediate="true" maxlength="20">						
+					</p:inputText>						
+				</p:column>			
+				<p:column style="width:25%; border: none">
+					<h:outputText value="Ramal: " />
+					<p:inputText id="ramal"
+						value="#{colaboradorController.entity.dadosProfissionais.ramal}"
+						label="ramal" styleClass="col-md-12" immediate="true" maxlength="20">						
+					</p:inputText>
+				</p:column>
+				<p:column style="width:25%; border: none">
+					<h:outputText value="Celular Profissional: " />
+					<p:inputText id="celularprofissional"
+						value="#{colaboradorController.entity.dadosProfissionais.celularProfissional}"
+						label="telefonepessoal" styleClass="col-md-12" immediate="true" maxlength="20">
+					</p:inputText>				
+				</p:column>
+				<p:column style="width:25%; border: none">
+									
+				</p:column>														
+			</p:row>
+			
+			<p:row style="width:25%; border: none">
+				<p:column colspan="2" style="border: none">
+					<p:selectBooleanCheckbox value="#{colaboradorController.entity.dadosProfissionais.flagBatePonto}" />
+					<h:outputText value=" Bate ponto: " />
+				</p:column>
+			</p:row>																				
+													
+		  </p:panelGrid><br/>
         </p:tab>
       </p:tabView>
 	</ui:define>

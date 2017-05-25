@@ -30,6 +30,10 @@ public class DadosProfissionais implements Serializable {
 	 * 
 	 */
 	private static final long serialVersionUID = 7908641758488184138L;
+	
+	public DadosProfissionais() {
+		flagBatePonto = true;
+	}
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
@@ -70,8 +74,8 @@ public class DadosProfissionais implements Serializable {
     @Column(name="codigopontoeletronico", nullable=true, length=30)
     private String codigoPontoEletronico;
 
-    @Column(name="flbateponto", nullable=true, length=3)
-    private String flagBatePonto;
+    @Column(name="flbateponto", nullable=true)
+    private Boolean flagBatePonto;
 
     @Column(name="dataadminissao", nullable=true, length=0)
     @Temporal(TemporalType.DATE)
@@ -176,14 +180,6 @@ public class DadosProfissionais implements Serializable {
 		this.codigoPontoEletronico = codigoPontoEletronico;
 	}
 
-	public String getFlagBatePonto() {
-		return flagBatePonto;
-	}
-
-	public void setFlagBatePonto(String flagBatePonto) {
-		this.flagBatePonto = flagBatePonto;
-	}
-
 	public Calendar getDataAdmissao() {
 		return dataAdmissao;
 	}
@@ -198,6 +194,14 @@ public class DadosProfissionais implements Serializable {
 
 	public void setCargaHoraria(Integer cargaHoraria) {
 		this.cargaHoraria = cargaHoraria;
+	}
+
+	public Boolean getFlagBatePonto() {
+		return flagBatePonto;
+	}
+
+	public void setFlagBatePonto(Boolean flagBatePonto) {
+		this.flagBatePonto = flagBatePonto;
 	}
 
 }

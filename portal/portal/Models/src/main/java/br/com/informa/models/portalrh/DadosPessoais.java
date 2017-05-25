@@ -98,9 +98,9 @@ public class DadosPessoais implements Serializable {
     @Column(name="nuRG", nullable=true, length=10)
     private String RG;
 
-    @Column(name="dataexpiracaoRG", nullable=true, length=0)
+    @Column(name="dataemissaoRG", nullable=true, length=0)
     @Temporal(TemporalType.DATE)
-    private Calendar dataExpiracaoRG;
+    private Calendar dataEmissaoRG;
 
     @Column(name="orgaoemissorRG", nullable=true, length=5)
     private String orgaoEmissorRG;
@@ -248,14 +248,6 @@ public class DadosPessoais implements Serializable {
 		RG = rG;
 	}
 
-	public Calendar getDataExpiracaoRG() {
-		return dataExpiracaoRG;
-	}
-
-	public void setDataExpiracaoRG(Calendar dataExpiracaoRG) {
-		this.dataExpiracaoRG = dataExpiracaoRG;
-	}
-
 	public String getOrgaoEmissorRG() {
 		return orgaoEmissorRG;
 	}
@@ -318,6 +310,14 @@ public class DadosPessoais implements Serializable {
 
 	public void setTipoLogradouro(ETipoLogradouro tipoLogradouro) {
 		this.tipoLogradouro = tipoLogradouro;
+	}
+
+	public Calendar getDataEmissaoRG() {
+		return dataEmissaoRG;
+	}
+
+	public void setDataEmissaoRG(Calendar dataEmissaoRG) {
+		this.dataEmissaoRG = dataEmissaoRG;
 	}
 
 }
