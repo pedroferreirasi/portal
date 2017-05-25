@@ -2,7 +2,6 @@ package br.com.informa.core;
 
 import java.io.Serializable;
 import java.util.List;
-
 import br.com.informa.models.dominio.EEstadoForm;
 import br.com.informa.services.common.IService;
 
@@ -31,6 +30,11 @@ public abstract class GenericController<T> implements Serializable {
 		this.heightModal = "40%";
 	}
 	
+	public void editar(T entity) {
+		this.entity = entity;
+		this.estado = EEstadoForm.Editar;
+	}
+	
 	public void salvar() 
 	{		
 		if (this.estado == EEstadoForm.Incluir) 
@@ -39,6 +43,7 @@ public abstract class GenericController<T> implements Serializable {
 		} else {
 			this.Update(entity);
 		}
+		this.estado = EEstadoForm.Nenhum;
 		this.listaEntity = this.getListAll();
 	}
 	
@@ -148,6 +153,14 @@ public abstract class GenericController<T> implements Serializable {
 
 	public void setHeightModal(String heightModal) {
 		this.heightModal = heightModal;
+	}
+
+	public EEstadoForm getEstado() {
+		return estado;
+	}
+
+	public void setEstado(EEstadoForm estado) {
+		this.estado = estado;
 	}
 
 

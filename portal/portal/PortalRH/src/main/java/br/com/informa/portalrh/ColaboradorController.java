@@ -20,7 +20,7 @@ public class ColaboradorController extends GenericController<Usuario> {
 		entityService = FactoryService.getFactory().getUsuario();
 		this.novo();
 		listaEntity = this.getListAll();
-		this.setWidthModal("800");
+		this.setWidthModal("900");
 		this.setHeightModal("500");
 	}
 	
