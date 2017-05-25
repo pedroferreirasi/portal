@@ -71,8 +71,9 @@
 
                         <p:commandButton id="Editar" update=":formPrincipal:display" icon="fa fa-fw fa-edit" 
                                          process="@this" ajax="true"
-                                         title="Visualizar" oncomplete="PF('dlg').show()">                          
-                          <f:setPropertyActionListener target="#{entityBean.entity}" value="#{entity}" />
+                                         title="Visualizar" oncomplete="PF('dlg').show()"
+                                         actionListener="#{entityBean.editar(entity)}">                          
+
                         </p:commandButton>   
                                                 
                         <p:commandButton id="excluir" 
