@@ -56,8 +56,8 @@ public class AutenticacaoController implements Serializable {
 				return "pages/mainmenu?faces-redirect=true";
 			}
 		} catch (Exception e) {
-			FacesMessage mensagem = new FacesMessage(FacesMessage.SEVERITY_INFO, e.getMessage(), e.getMessage());
-			context.addMessage(null, mensagem);
+			FacesMessage mensagem = new FacesMessage(FacesMessage.SEVERITY_ERROR, e.getMessage(), e.getMessage());
+			context.addMessage("growl", mensagem);
 		}
 
 		return null;

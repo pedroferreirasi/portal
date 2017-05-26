@@ -1,6 +1,8 @@
 package br.com.informa.models.dominio;
 
-public enum EEstadoForm {
+import java.io.Serializable;
+
+public enum EEstadoForm implements Serializable {
 	Nenhum,
 	Incluir,
 	Editar,

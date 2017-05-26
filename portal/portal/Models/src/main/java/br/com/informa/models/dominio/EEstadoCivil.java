@@ -1,6 +1,8 @@
 package br.com.informa.models.dominio;
 
-public enum EEstadoCivil {
+import java.io.Serializable;
+
+public enum EEstadoCivil implements Serializable {
 	S,
 	C,
 	D;

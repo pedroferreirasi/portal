@@ -17,7 +17,7 @@ public class ColaboradorController extends GenericController<Usuario> {
 	private static final long serialVersionUID = -6576299296092551298L;
 	
 	public ColaboradorController() { 
-		entityService = FactoryService.getFactory().getUsuario();
+		entityService = FactoryService.getFactory().getColaborador();
 		this.novo();
 		listaEntity = this.getListAll();
 		this.setWidthModal("900");

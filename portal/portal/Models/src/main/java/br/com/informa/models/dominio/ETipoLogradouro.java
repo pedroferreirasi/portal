@@ -1,6 +1,8 @@
 package br.com.informa.models.dominio;
 
-public enum ETipoLogradouro {
+import java.io.Serializable;
+
+public enum ETipoLogradouro implements Serializable {
 	Aeroporto,
 	Alameda,
 	Área,

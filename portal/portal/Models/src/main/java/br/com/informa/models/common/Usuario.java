@@ -16,6 +16,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import br.com.informa.models.dominio.ESexo;
+import br.com.informa.models.dominio.ETipoUsuario;
 import br.com.informa.models.portalrh.Cargo;
 import br.com.informa.models.portalrh.DadosPessoais;
 import br.com.informa.models.portalrh.DadosProfissionais;
@@ -79,6 +80,10 @@ public class Usuario implements Serializable {
 	
 	@Column(name="ativo", nullable=false)
 	private Boolean ativo;
+	
+	@Enumerated(EnumType.STRING)
+	@Column(name="tipousuario", nullable=false)
+	private ETipoUsuario tipoUsuario;	
 
 	@OneToOne(cascade = CascadeType.REFRESH, fetch = FetchType.LAZY)
 	@JoinColumn(name="fk_depcad", unique = false, nullable=false)
@@ -250,6 +255,14 @@ public class Usuario implements Serializable {
 
 	public void setDadosProfissionais(DadosProfissionais dadosProfissionais) {
 		this.dadosProfissionais = dadosProfissionais;
+	}
+
+	public ETipoUsuario getTipoUsuario() {
+		return tipoUsuario;
+	}
+
+	public void setTipoUsuario(ETipoUsuario tipoUsuario) {
+		this.tipoUsuario = tipoUsuario;
 	}
 	
 }

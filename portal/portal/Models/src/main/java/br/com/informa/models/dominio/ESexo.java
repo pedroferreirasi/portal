@@ -1,6 +1,8 @@
 package br.com.informa.models.dominio;
 
-public enum ESexo {
+import java.io.Serializable;
+
+public enum ESexo implements Serializable {
 	M,
 	F;
 }

@@ -1,6 +1,8 @@
 package br.com.informa.models.dominio;
 
-public enum EEstadosBrasil {
+import java.io.Serializable;
+
+public enum EEstadosBrasil implements Serializable {
 	AC,
 	AL,
 	AP,

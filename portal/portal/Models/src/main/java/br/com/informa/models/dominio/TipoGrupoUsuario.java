@@ -1,6 +1,8 @@
 package br.com.informa.models.dominio;
 
-public enum TipoGrupoUsuario {
+import java.io.Serializable;
+
+public enum TipoGrupoUsuario implements Serializable {
 	administrador,
 	gerencial,
 	compartilhado;

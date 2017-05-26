@@ -201,7 +201,7 @@ public class DadosPessoais implements Serializable {
 	}
 
 	public Calendar getDataNascimento() {
-		return dataNascimento.getTime();
+		return dataNascimento;
 	}
 
 	public void setDataNascimento(Calendar dataNascimento) {
