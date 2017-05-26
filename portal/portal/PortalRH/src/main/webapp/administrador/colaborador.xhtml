@@ -93,7 +93,7 @@
 					<p:inputText id="nomecompleto"
 						value="#{colaboradorController.entity.nomeCompleto}" required="true"
 						label="nomeCompleto" styleClass="col-md-12" immediate="true" maxlength="100">
-						<f:validateLength minimum="1" maximum="100" />
+						
 						<p:clientValidator />
 					</p:inputText>
 				</p:column>
@@ -105,7 +105,7 @@
 					<p:inputText id="firstname"
 						value="#{colaboradorController.entity.nomeUsuario}" required="true"
 						label="Firstname" styleClass="col-md-12" immediate="true">
-						<f:validateLength minimum="1" maximum="30" />
+						
 						<p:clientValidator />
 					</p:inputText>
 					<h:message for="firstname" styleClass="RED" />
@@ -197,7 +197,7 @@
 					<p:inputText id="cep"
 						value="#{colaboradorController.entity.dadosPessoais.CEP}"
 						label="CEP" styleClass="col-md-12" immediate="true" maxlength="9">
-						<f:validateLength minimum="1" maximum="9" />
+						
 						<p:clientValidator />
 					</p:inputText>					
 				</p:column>
@@ -213,7 +213,7 @@
 					<p:inputText id="endereco"
 						value="#{colaboradorController.entity.dadosPessoais.endereco}" 
 						label="endereco" styleClass="col-md-12" immediate="true" maxlength="100">
-						<f:validateLength minimum="1" maximum="30" />
+						
 						<p:clientValidator />
 					</p:inputText>					
 				</p:column>			
@@ -225,7 +225,7 @@
 					<p:inputText id="numero"
 						value="#{colaboradorController.entity.dadosPessoais.numero}"
 						label="Numero" styleClass="col-md-12" immediate="true" maxlength="10">
-						<f:validateLength minimum="1" maximum="9" />
+						
 						<p:clientValidator />
 					</p:inputText>					
 				</p:column>
@@ -234,7 +234,7 @@
 					<p:inputText id="complemento"
 						value="#{colaboradorController.entity.dadosPessoais.complemento}"
 						label="complemento" styleClass="col-md-12" immediate="true" maxlength="10">
-						<f:validateLength minimum="1" maximum="9" />
+						
 						<p:clientValidator />
 					</p:inputText>	
 				</p:column>
@@ -243,7 +243,7 @@
 					<p:inputText id="bairro"
 						value="#{colaboradorController.entity.dadosPessoais.bairro}" 
 						label="bairro" styleClass="col-md-12" immediate="true" maxlength="50">
-						<f:validateLength minimum="1" maximum="30" />
+						
 						<p:clientValidator />
 					</p:inputText>					
 				</p:column>							
@@ -255,7 +255,7 @@
 					<p:inputText id="cidade"
 						value="#{colaboradorController.entity.dadosPessoais.cidade}" 
 						label="cidade" styleClass="col-md-12" immediate="true" maxlength="50">
-						<f:validateLength minimum="1" maximum="30" />
+						
 						<p:clientValidator />
 					</p:inputText>					
 				</p:column>			
@@ -271,7 +271,7 @@
 					<p:inputText id="nacionalidade"
 						value="#{colaboradorController.entity.dadosPessoais.nacionalidade}"
 						label="nacionalidade" styleClass="col-md-12" immediate="true" maxlength="45">
-						<f:validateLength minimum="1" maximum="45" />
+						
 						<p:clientValidator />
 					</p:inputText>	
 				</p:column>							
@@ -283,7 +283,7 @@
 					<p:inputText id="naturalidade"
 						value="#{colaboradorController.entity.dadosPessoais.naturalidade}" 
 						label="cidade" styleClass="col-md-12" immediate="true" maxlength="50">
-						<f:validateLength minimum="1" maximum="30" />
+						
 						<p:clientValidator />
 					</p:inputText>					
 				</p:column>			
@@ -292,16 +292,16 @@
 					<p:inputText id="raca"
 						value="#{colaboradorController.entity.dadosPessoais.raca}"
 						label="raca" styleClass="col-md-12" immediate="true" maxlength="45">
-						<f:validateLength minimum="1" maximum="45" />
+						
 						<p:clientValidator />
 					</p:inputText>
 				</p:column>
 				<p:column style="width:30%; border: none">
 					<h:outputText value="Nascimento: " />
 					<p:inputText id="nascimento"
-						value="#{colaboradorController.entity.dadosPessoais.dataNascimento.getTime()}"
+						value="#{colaboradorController.entity.dadosPessoais.dataNascimento}"
 						label="nascimento" styleClass="col-md-12" immediate="true" maxlength="45">
-						<f:convertDateTime pattern="dd/MM/yyyy" />
+						
 					</p:inputText>	
 				</p:column>							
 			</p:row>
@@ -312,7 +312,7 @@
 					<p:inputText id="cpf"
 						value="#{colaboradorController.entity.dadosPessoais.CPF}" 
 						label="cpf" styleClass="col-md-12" immediate="true" maxlength="15">
-						<f:validateLength minimum="1" maximum="15" />
+						
 						<p:clientValidator />
 					</p:inputText>					
 				</p:column>			
@@ -321,7 +321,7 @@
 					<p:inputText id="rg"
 						value="#{colaboradorController.entity.dadosPessoais.RG}"
 						label="raca" styleClass="col-md-12" immediate="true" maxlength="10">
-						<f:validateLength minimum="1" maximum="10" />
+						
 						<p:clientValidator />
 					</p:inputText>
 				</p:column>
@@ -330,7 +330,7 @@
 					<p:inputText id="dataemissao"
 						value="#{colaboradorController.entity.dadosPessoais.dataEmissaoRG.getTime()}"
 						label="dataemissao" styleClass="col-md-10" immediate="true" maxlength="10">
-						<f:convertDateTime pattern="dd/MM/yyyy" />
+						
 					</p:inputText>	
 				</p:column>
 				<p:column style="width:30%; border: none">
@@ -338,7 +338,7 @@
 					<p:inputText id="orgaoemissor"
 						value="#{colaboradorController.entity.dadosPessoais.orgaoEmissorRG}"
 						label="orgaoemissor" styleClass="col-md-12" immediate="true" maxlength="10">
-						<f:convertDateTime pattern="dd/MM/yyyy" />
+						
 					</p:inputText>	
 				</p:column>		
             </p:row>				
@@ -389,7 +389,7 @@
 					<p:inputText id="CTPS"
 						value="#{colaboradorController.entity.dadosProfissionais.CTPS}"
 						label="CEP" styleClass="col-md-12" immediate="true" maxlength="10">
-						<f:validateLength minimum="1" maximum="9" />
+						
 						<p:clientValidator />
 					</p:inputText>					
 				</p:column>
@@ -398,7 +398,7 @@
 					<p:inputText id="serieCTPS"
 						value="#{colaboradorController.entity.dadosProfissionais.serieCTPS}"
 						label="serieCTPS" styleClass="col-md-12" immediate="true" maxlength="10">
-						<f:validateLength minimum="1" maximum="9" />
+						
 						<p:clientValidator />
 					</p:inputText>
 				</p:column>
@@ -414,7 +414,7 @@
 					<p:inputText id="pis"
 						value="#{colaboradorController.entity.dadosProfissionais.PIS}" 
 						label="pis" styleClass="col-md-12" immediate="true" maxlength="100">
-						<f:validateLength minimum="1" maximum="30" />
+						
 						<p:clientValidator />
 					</p:inputText>					
 				</p:column>			
@@ -426,7 +426,7 @@
 					<p:inputText id="matricula"
 						value="#{colaboradorController.entity.dadosProfissionais.matricula}"
 						label="matricula" styleClass="col-md-12" immediate="true" maxlength="30">
-						<f:validateLength minimum="1" maximum="30" />
+						
 						<p:clientValidator />
 					</p:inputText>					
 				</p:column>
@@ -435,7 +435,7 @@
 					<p:inputText id="codigoPontoEletronico"
 						value="#{colaboradorController.entity.dadosProfissionais.codigoPontoEletronico}"
 						label="serieCTPS" styleClass="col-md-12" immediate="true" maxlength="30">
-						<f:validateLength minimum="1" maximum="30" />
+						
 						<p:clientValidator />
 					</p:inputText>
 				</p:column>
@@ -444,7 +444,7 @@
 					<p:inputText id="dataadmissao"
 						value="#{colaboradorController.entity.dadosProfissionais.dataAdmissao.getTime()}"
 						label="serieCTPS" styleClass="col-md-12" immediate="true" maxlength="30">
-						<f:convertDateTime pattern="dd/MM/yyyy" />
+						
 					</p:inputText>					
 				</p:column>
 				<p:column style="width:25%; border: none">
@@ -452,7 +452,7 @@
 					<p:inputText id="cargahoraria"
 						value="#{colaboradorController.entity.dadosProfissionais.cargaHoraria}" 
 						label="cargahoraria" styleClass="col-md-12" immediate="true" maxlength="10">
-						<f:validateLength minimum="1" maximum="10" />
+						
 						<p:clientValidator />
 					</p:inputText>					
 				</p:column>			

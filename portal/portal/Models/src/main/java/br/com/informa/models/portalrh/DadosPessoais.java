@@ -46,78 +46,78 @@ public class DadosPessoais implements Serializable {
     @JoinColumn(name = "fk_usucad")
     private Usuario usuario;
 	
-    @Column(name="cep", nullable=true, length=10)
+    @Column(name="cep", nullable=false, length=10)
     private String CEP;
 
-    @Column(name="tipologradouro", nullable=true, length=45)
+    @Column(name="tipologradouro", nullable=false, length=45)
     @Enumerated(EnumType.STRING)
     private ETipoLogradouro tipoLogradouro;
 
-    @Column(name="endereco", nullable=true, length=100)
+    @Column(name="endereco", nullable=false, length=100)
     private String endereco;
 
-    @Column(name="numero", nullable=true, length=45)
+    @Column(name="numero", nullable=false, length=45)
     private String numero;
 
-    @Column(name="complemento", nullable=true, length=45)
+    @Column(name="complemento", nullable=false, length=45)
     private String complemento;
 
-    @Column(name="bairro", nullable=true, length=100)
+    @Column(name="bairro", nullable=false, length=100)
     private String bairro;
 
-    @Column(name="cidade", nullable=true, length=45)
+    @Column(name="cidade", nullable=false, length=45)
     private String cidade;
 
-    @Column(name="estado", nullable=true, length=2)
+    @Column(name="estado", nullable=false, length=2)
     @Enumerated(EnumType.STRING)
     private EEstadosBrasil estado;
 
-    @Column(name="nacionalidade", nullable=true, length=45)
+    @Column(name="nacionalidade", nullable=false, length=45)
     private String nacionalidade;
 
-    @Column(name="naturalidade", nullable=true, length=45)
+    @Column(name="naturalidade", nullable=false, length=45)
     private String naturalidade;
-
-    @Column(name="datanascimento", nullable=true, length=0)
+    
     @Temporal(TemporalType.DATE)
+    @Column(name="datanascimento", nullable=false)
     private Calendar dataNascimento;
 
-    @Column(name="estadocivil", nullable=true, length=1)
+    @Column(name="estadocivil", nullable=false, length=1)
     @Enumerated(EnumType.STRING)
     private EEstadoCivil estadoCivil;
 
-    @Column(name="raca", nullable=true, length=45)
+    @Column(name="raca", nullable=false, length=45)
     private String raca;
 
-    @Column(name="nomemae", nullable=true, length=100)
+    @Column(name="nomemae", nullable=false, length=100)
     private String nomeMae;
 
-    @Column(name="nomepai", nullable=true, length=100)
+    @Column(name="nomepai", nullable=false, length=100)
     private String nomePai;
 
-    @Column(name="nuRG", nullable=true, length=10)
+    @Column(name="nuRG", nullable=false, length=10)
     private String RG;
 
-    @Column(name="dataemissaoRG", nullable=true, length=0)
+    @Column(name="dataemissaoRG", nullable=false, length=0)
     @Temporal(TemporalType.DATE)
     private Calendar dataEmissaoRG;
 
-    @Column(name="orgaoemissorRG", nullable=true, length=5)
+    @Column(name="orgaoemissorRG", nullable=false, length=5)
     private String orgaoEmissorRG;
 
-    @Column(name="estadoemissorRG", nullable=true, length=2)
+    @Column(name="estadoemissorRG", nullable=false, length=2)
     private String estadoEmissorRG;
 
-    @Column(name="nuCPF", nullable=true, length=15)
+    @Column(name="nuCPF", nullable=false, length=15)
     private String CPF;
 
-    @Column(name="emailpessoal", nullable=true, length=70)
+    @Column(name="emailpessoal", nullable=false, length=70)
     private String emailPessoal;
 
-    @Column(name="telefonepessoal", nullable=true, length=20)
+    @Column(name="telefonepessoal", nullable=false, length=20)
     private String telefonePessoal;
 
-    @Column(name="celularpessoal", nullable=true, length=20)
+    @Column(name="celularpessoal", nullable=false, length=20)
     private String celularPessoal;
 
 	public Integer getId() {
@@ -201,7 +201,7 @@ public class DadosPessoais implements Serializable {
 	}
 
 	public Calendar getDataNascimento() {
-		return dataNascimento;
+		return dataNascimento.getTime();
 	}
 
 	public void setDataNascimento(Calendar dataNascimento) {
