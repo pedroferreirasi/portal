@@ -62,6 +62,7 @@ CREATE TABLE IF NOT EXISTS `db`.`tb_usuario` (
   `email` VARCHAR(70) NOT NULL,
   `login` VARCHAR(30) NOT NULL,
   `sexo` VARCHAR(1) NULL DEFAULT NULL,
+  `tipousuario` VARCHAR(1) NOT NULL DEFAULT 'C',  
   `ativo` BIT(1) NOT NULL,
   PRIMARY KEY (`pk_usucad`),
   UNIQUE INDEX `UK_1vofibjsgo77e7km8wowva1qe` (`login` ASC),
