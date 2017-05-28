@@ -149,6 +149,9 @@ CREATE TABLE IF NOT EXISTS `db`.`tb_dados_profissionais` (
   `flbateponto` SMALLINT NULL DEFAULT 1,
   `dataadminissao` DATE NULL DEFAULT NULL,
   `cargahoraria` INT(11) NULL DEFAULT NULL,
+  `banco` VARCHAR(45) NULL DEFAULT NULL,
+  `agencia` VARCHAR(10) NULL DEFAULT NULL,
+  `conta` VARCHAR(10) NULL DEFAULT NULL,
   PRIMARY KEY (`pk_procad`),
   INDEX `fk_procad_usucad_idx` (`fk_usucad` ASC),
   CONSTRAINT `fk_procad_usucad`
