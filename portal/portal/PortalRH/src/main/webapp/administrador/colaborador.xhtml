@@ -70,18 +70,18 @@
 			<h:outputText value="#{entity.celular}" />
 		</p:column>
 
-		<p:column width="10%" sortBy="#{entity.dadosProfissionais.dataAdmissao.getTime()}"
+		<p:column width="10%" sortBy="#{entity.dadosProfissionais.dataAdmissao}"
 			style="text-align: center" headerText="Data Cadastro"
 			exportable="true" filterable="#{entityBean.habilitarPesquisa}"
-			filterBy="#{entity.dadosProfissionais.dataAdmissao.getTime()}">
-			<h:outputText value="#{entity.dadosProfissionais.dataAdmissao.getTime()}" >
+			filterBy="#{entity.dadosProfissionais.dataAdmissao}">
+			<h:outputText value="#{entity.dadosProfissionais.dataAdmissao}" >
 			  <f:convertDateTime pattern="dd/MM/yyyy" />
 			</h:outputText>
 		</p:column>
 	</ui:define>
 
-	<ui:define name="teladecadastro">
-	
+	<ui:define name="teladecadastro">	  
+    
       <p:tabView id="display" style="width: 100%">
         
         <p:tab title="Dados Gerais">
@@ -91,10 +91,9 @@
 				<p:column colspan="2" style="border: none">
 					<h:outputText value="Nome Completo: " />
 					<p:inputText id="nomecompleto"
-						value="#{colaboradorController.entity.nomeCompleto}" required="true"
-						label="nomeCompleto" styleClass="col-md-12" immediate="true" maxlength="100">
-						
-						<p:clientValidator />
+						value="#{colaboradorController.entity.nomeCompleto}"
+						label="Nome Completo" styleClass="col-md-12" 
+						maxlength="100" validatorMessage="Campo obrigatório">
 					</p:inputText>
 				</p:column>
 			</p:row>
@@ -103,10 +102,8 @@
 				<p:column style="width:50%; border: none">
 					<h:outputText value="Nome: " />
 					<p:inputText id="firstname"
-						value="#{colaboradorController.entity.nomeUsuario}" required="true"
-						label="Firstname" styleClass="col-md-12" immediate="true">
-						
-						<p:clientValidator />
+						value="#{colaboradorController.entity.nomeUsuario}"
+						label="Primeiro Nome" styleClass="col-md-12">
 					</p:inputText>
 					<h:message for="firstname" styleClass="RED" />
 				</p:column>
@@ -114,7 +111,7 @@
 					<h:outputText value="Sobrenome: " />
 					<p:inputText id="lasttname"
 						value="#{colaboradorController.entity.sobreNome}"
-						required="true" label="lasttname" styleClass="col-md-12" />
+						label="lasttname" styleClass="col-md-12" />
 				</p:column>
 			</p:row>
 	
@@ -152,8 +149,8 @@
 					<h:outputText value="Grupo: " />
 					<h:selectOneMenu value="#{colaboradorController.entity.grupoUsuario.id}"
 						styleClass="form-control select2">
-						<f:selectItems value="#{grupocolaboradorController.listaEntity}"
-							var="grupo" itemValue="#{grupo.id}" itemLabel="#{grupo.descricao}" />
+					<f:selectItems value="#{grupoUsuarioController.listaEntity}"
+						var="grupo" itemValue="#{grupo.id}" itemLabel="#{grupo.descricao}" />
 					</h:selectOneMenu>
 				</p:column>
 			</p:row>
@@ -301,7 +298,7 @@
 					<p:inputText id="nascimento"
 						value="#{colaboradorController.entity.dadosPessoais.dataNascimento}"
 						label="nascimento" styleClass="col-md-12" immediate="true" maxlength="45">
-						
+					  <f:convertDateTime pattern="dd/MM/yyyy" />	
 					</p:inputText>	
 				</p:column>							
 			</p:row>
@@ -311,9 +308,8 @@
 					<h:outputText value="CPF: " />
 					<p:inputText id="cpf"
 						value="#{colaboradorController.entity.dadosPessoais.CPF}" 
-						label="cpf" styleClass="col-md-12" immediate="true" maxlength="15">
+						label="cpf" styleClass="col-md-12" mask="999.999.999-99">
 						
-						<p:clientValidator />
 					</p:inputText>					
 				</p:column>			
 				<p:column style="width:25%; border: none">
@@ -328,9 +324,9 @@
 				<p:column style="width:25%; border: none">
 					<h:outputText value="Data Emissao: " />
 					<p:inputText id="dataemissao"
-						value="#{colaboradorController.entity.dadosPessoais.dataEmissaoRG.getTime()}"
+						value="#{colaboradorController.entity.dadosPessoais.dataEmissaoRG}"
 						label="dataemissao" styleClass="col-md-10" immediate="true" maxlength="10">
-						
+					  <f:convertDateTime pattern="dd/MM/yyyy" />	
 					</p:inputText>	
 				</p:column>
 				<p:column style="width:30%; border: none">
@@ -442,9 +438,9 @@
 				<p:column style="width:25%; border: none">
 					<h:outputText value="Data Admissao: " />
 					<p:inputText id="dataadmissao"
-						value="#{colaboradorController.entity.dadosProfissionais.dataAdmissao.getTime()}"
+						value="#{colaboradorController.entity.dadosProfissionais.dataAdmissao}"
 						label="serieCTPS" styleClass="col-md-12" immediate="true" maxlength="30">
-						
+					  <f:convertDateTime pattern="dd/MM/yyyy" />  	
 					</p:inputText>					
 				</p:column>
 				<p:column style="width:25%; border: none">
@@ -484,6 +480,30 @@
 									
 				</p:column>														
 			</p:row>
+			
+			<p:row style="border: none">
+				<p:column colspan="2" style="width:50%; border: none">
+					<h:outputText value="Banco: " />	
+					<h:selectOneMenu value="#{colaboradorController.entity.dadosProfissionais.banco}"
+						styleClass="form-control select2">					  
+					  <f:selectItems value="#{dominioController.bancos}" var="banco" />
+					</h:selectOneMenu>									
+				</p:column>			
+				<p:column style="width:25%; border: none">
+					<h:outputText value="Agencia: " />
+					<p:inputText id="agencia"
+						value="#{colaboradorController.entity.dadosProfissionais.agencia}"
+						label="agencial" styleClass="col-md-12" immediate="true" maxlength="10">						
+					</p:inputText>
+				</p:column>
+				<p:column style="width:25%; border: none">
+					<h:outputText value="Conta-Corrente: " />
+					<p:inputText id="conta"
+						value="#{colaboradorController.entity.dadosProfissionais.conta}"
+						label="conta" styleClass="col-md-12" immediate="true" maxlength="10">
+					</p:inputText>				
+				</p:column>														
+			</p:row>			
 			
 			<p:row style="width:25%; border: none">
 				<p:column colspan="2" style="border: none">

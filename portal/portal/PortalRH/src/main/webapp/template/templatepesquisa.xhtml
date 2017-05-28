@@ -106,9 +106,8 @@
         </section>      
      </h:form>          
 	 <!-- /.content -->
-	
-	<h:form id="formPrincipal"> 
-	    <p:growl id="growl" />
+	 <p:messages id="message" showDetail="true" autoUpdate="true" closable="true"/>
+	 	    
         <p:dialog modal="true" widgetVar="dlg" 
                   id="dlg"
                   header="Editar"
@@ -117,23 +116,34 @@
                   width="#{entityBean.widthModal}" 
                   height="#{entityBean.heightModal}" 
                   minimizable="true">     
-            
+          
+          <p:growl id="msg" sticky="true" autoUpdate="false" showDetail="true" escape="false" />        
+          <h:form id="formPrincipal">            
+                
             <!-- Colunas no grid... será implementado quem usar o template -->		          	
 			<ui:insert name="teladecadastro" />             
 
-          <p:commandButton value=" Salvar "                                  
-                           action="#{entityBean.salvar}" 
-                           styleClass="btn btn-primary" 
-                           imediate="true"                        
-                           update="@form"
-                           process="@form"
-                           ajax="false"
-                           onclick="PF('dlg').hide()" />&#160;
-           <p:commandButton type="button" value="Cancelar" styleClass="btn btn-primary" onclick="dlg.hide()" ajax="false" />
-      
+          <p:commandButton value=" Salvar "
+                           action="#{entityBean.salvar}"
+                           ajax="false" 
+                           update="msg, message"
+                           process="@this"                                                             
+                           styleClass="btn btn-primary" />&#160;
+           <p:commandButton type="button" value="Cancelar" styleClass="btn btn-primary" onclick="PF('dlg').hide()" ajax="false" />
+          </h:form>
         </p:dialog>	     
-	  </h:form>
+	  
 	    
+    <script type="text/javascript">
+    function closeDialogIfSucess(xhr, status, args, dialogWidget, dialogId) {
+        if (args.validationFailed || args.KEEP_DIALOG_OPENED) {
+            jQuery('#'+dialogId).effect("bounce", {times : 4, distance : 20}, 100);
+        } 
+        else {
+        dialogWidget.hide();
+        }
+    }
+    </script>	    
          
     </ui:define>
 </ui:composition>

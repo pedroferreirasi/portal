@@ -14,11 +14,9 @@ import javax.persistence.GenerationType;
 import javax.xml.bind.annotation.XmlAccessType; 
 import javax.xml.bind.annotation.XmlAccessorType; 
 import javax.xml.bind.annotation.XmlRootElement;
-
 import br.com.informa.models.common.Usuario;
-
 import java.io.Serializable;
-import java.util.Calendar; 
+import java.util.Date; 
  
 @Entity 
 @Table(name="tb_dados_profissionais") 
@@ -33,6 +31,7 @@ public class DadosProfissionais implements Serializable {
 	
 	public DadosProfissionais() {
 		flagBatePonto = true;
+		this.dataAdmissao = new Date();
 	}
 
 	@Id
@@ -79,10 +78,19 @@ public class DadosProfissionais implements Serializable {
 
     @Column(name="dataadminissao", nullable=true, length=0)
     @Temporal(TemporalType.DATE)
-    private Calendar dataAdmissao;
+    private Date dataAdmissao;
 
     @Column(name="cargahoraria", nullable=true, length=10)
     private Integer cargaHoraria;
+    
+    @Column(name="banco", nullable=true, length=45)
+    private String banco;
+    
+    @Column(name="agencia", nullable=true, length=10)
+    private String agencia;
+    
+    @Column(name="conta", nullable=true, length=10)
+    private String conta;
 
 	public Integer getId() {
 		return id;
@@ -180,11 +188,11 @@ public class DadosProfissionais implements Serializable {
 		this.codigoPontoEletronico = codigoPontoEletronico;
 	}
 
-	public Calendar getDataAdmissao() {
+	public Date getDataAdmissao() {
 		return dataAdmissao;
 	}
 
-	public void setDataAdmissao(Calendar dataAdmissao) {
+	public void setDataAdmissao(Date dataAdmissao) {
 		this.dataAdmissao = dataAdmissao;
 	}
 
@@ -202,6 +210,30 @@ public class DadosProfissionais implements Serializable {
 
 	public void setFlagBatePonto(Boolean flagBatePonto) {
 		this.flagBatePonto = flagBatePonto;
+	}
+
+	public String getBanco() {
+		return banco;
+	}
+
+	public void setBanco(String banco) {
+		this.banco = banco;
+	}
+
+	public String getAgencia() {
+		return agencia;
+	}
+
+	public void setAgencia(String agencia) {
+		this.agencia = agencia;
+	}
+
+	public String getConta() {
+		return conta;
+	}
+
+	public void setConta(String conta) {
+		this.conta = conta;
 	}
 
 }

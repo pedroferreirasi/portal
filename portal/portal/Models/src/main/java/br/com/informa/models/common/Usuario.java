@@ -1,6 +1,6 @@
 package br.com.informa.models.common;
 
-import java.util.Calendar;
+import java.util.Date;
 import javax.persistence.Table;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
@@ -37,6 +37,7 @@ public class Usuario implements Serializable {
 		this.cargo = new Cargo();
 		this.departamento = new Departamento();
 		this.ativo = true;
+		this.dataCadastro = new Date();
 	}
 	
 
@@ -76,7 +77,7 @@ public class Usuario implements Serializable {
 
 	@Temporal(TemporalType.DATE)
 	@Column(name="dataCadastro", nullable=false)
-	private Calendar dataCadastro;	
+	private Date dataCadastro;	
 	
 	@Column(name="ativo", nullable=false)
 	private Boolean ativo;
@@ -171,11 +172,11 @@ public class Usuario implements Serializable {
 		this.celular = celular;
 	}
 
-	public Calendar getDataCadastro() {		
+	public Date getDataCadastro() {		
 		return dataCadastro;
 	}
 
-	public void setDataCadastro(Calendar dataCadastro) {
+	public void setDataCadastro(Date dataCadastro) {
 		this.dataCadastro = dataCadastro;
 	}
 

@@ -1,9 +1,9 @@
 package br.com.informa.services.portalrh;
 
-import java.util.Calendar;
 import java.util.List;
 import br.com.informa.libraries.common.CommonMethods;
 import br.com.informa.models.common.Usuario;
+import br.com.informa.models.dominio.ETipoUsuario;
 import br.com.informa.repositories.dao.FactoryDao;
 import br.com.informa.repositories.dao.portalrh.IColaboradorDao;
 import br.com.informa.services.exception.CampoObrigatorioNullException;
@@ -11,31 +11,32 @@ import br.com.informa.services.exception.CampoObrigatorioNullException;
 public class ColaboradorService implements IColaboradorService {
 
 	@Override
-	public void Add(Usuario entity) {
-		try {
-			if (validarInsertUpdate(entity)) {
+	public void Add(Usuario entity) throws CampoObrigatorioNullException {
+		if (validarInsertUpdate(entity)) {
+			try {
 				String senha = entity.getSenha();
-				entity.setDataCadastro(Calendar.getInstance());
+				// entity.setDataCadastro(Calendar.getInstance());
 				entity.setSenha(CommonMethods.getInstance().SHA256(senha, entity.getLogin()));
+				entity.setTipoUsuario(ETipoUsuario.C);
 				IColaboradorDao entityDao = FactoryDao.getFactory().getColaboradorDao();
 				entityDao.Add(entity);
-			}
-		} catch (Exception e) {
+			} catch (Exception e) {
 
+			}
 		}
+
 	}
 
 	@Override
-	public void Update(Usuario entity) {
-		try {
-			if (validarInsertUpdate(entity)) {
-				String senha = entity.getSenha();
-				entity.setSenha(CommonMethods.getInstance().SHA256(senha, entity.getLogin()));
+	public void Update(Usuario entity) throws CampoObrigatorioNullException {
+
+		if (validarInsertUpdate(entity)) {
+			try {
 				IColaboradorDao entityDao = FactoryDao.getFactory().getColaboradorDao();
 				entityDao.Update(entity);
-			}
-		} catch (Exception e) {
+			} catch (Exception e) {
 
+			}
 		}
 	}
 
@@ -65,15 +66,15 @@ public class ColaboradorService implements IColaboradorService {
 
 	private Boolean validarInsertUpdate(Usuario entity) {
 		// Valida se foi passado o usuario
-		if (entity.getLogin() == null) {
+		if ((entity.getLogin() == null) || (entity.getLogin().equals(""))) {
 			throw new CampoObrigatorioNullException("Usuario");
 		}
 
-		if (entity.getSenha() == null) {
+		if ((entity.getSenha() == null) || (entity.getSenha().equals(""))) {
 			throw new CampoObrigatorioNullException("Usuario");
 		}
 
-		if (entity.getEmail() == null) {
+		if ((entity.getEmail() == null) || (entity.getEmail().equals(""))) {
 			throw new CampoObrigatorioNullException("E-Mail");
 		}
 
@@ -84,6 +85,5 @@ public class ColaboradorService implements IColaboradorService {
 		// ativo, login, senha, email e grupo de usuário
 		return true;
 	}
-
 
 }

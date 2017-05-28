@@ -44,22 +44,18 @@
 		<!--  /.login-logo -->
 		<div class="login-box-body">
 			<h:form>
-			  <p:growl id="growl" escape="true" />
+			  <p:growl id="growl" sticky="true" showDetail="true" />
 				<div class="form-group has-feedback">
 					Usuário
 					<h:inputText id="usuario" value="#{autenticacaoController.entity.login}"
 						title="Usuário"
-						required="true" styleClass="form-control" />
-					 <ui:fragment>
-                      <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
-                    </ui:fragment>	
+						required="true" styleClass="form-control" />	
 				</div>
 				<div class="form-group has-feedback">
 					Senha
 					<h:inputSecret id="senha" value="#{autenticacaoController.entity.senha}"
 						required="true"
 						styleClass="form-control" alt="Senha" />
-                    <span class="glyphicon glyphicon-lock form-control-feedback"></span>
 				</div>
 				<div class="row">
 					<div class="col-xs-8">

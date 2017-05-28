@@ -6,6 +6,7 @@ import java.util.List;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
 
+import br.com.informa.models.dominio.EBanco;
 import br.com.informa.models.dominio.EEstadoCivil;
 import br.com.informa.models.dominio.EEstadosBrasil;
 import br.com.informa.models.dominio.ESexo;
@@ -21,11 +22,17 @@ public class DominioController {
 	private EEstadoCivil[] estadoCivil;
 	private EEstadosBrasil[] estadosBrasil;
 	private ETipoLogradouro[] tipoLogradouro;
+	private EBanco[] bancos;
 	private List<String> tipoLogradouroList;
 	
     public ESexo[] getSexo() {
     	sexo = ESexo.values();
         return sexo;
+    }
+    
+    public EBanco[] getBancos() {
+    	bancos = EBanco.values();
+    	return bancos;
     }
     
     public ETipoGrupoUsuario[] getTipoGrupoUsuario()

@@ -16,14 +16,12 @@ import javax.persistence.GenerationType;
 import javax.xml.bind.annotation.XmlAccessType; 
 import javax.xml.bind.annotation.XmlAccessorType; 
 import javax.xml.bind.annotation.XmlRootElement;
-
 import br.com.informa.models.common.Usuario;
 import br.com.informa.models.dominio.ETipoLogradouro;
 import br.com.informa.models.dominio.EEstadoCivil;
 import br.com.informa.models.dominio.EEstadosBrasil;
-
 import java.io.Serializable;
-import java.util.Calendar; 
+import java.util.Date; 
  
 @Entity 
 @Table(name="tb_dados_pessoais") 
@@ -36,6 +34,11 @@ public class DadosPessoais implements Serializable {
 	 * 
 	 */
 	private static final long serialVersionUID = 8033642361287560373L;
+	
+	public DadosPessoais() {
+		this.dataEmissaoRG = new Date();
+		this.dataNascimento = new Date();
+	}
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
@@ -79,8 +82,8 @@ public class DadosPessoais implements Serializable {
     private String naturalidade;
     
     @Temporal(TemporalType.DATE)
-    @Column(name="datanascimento", nullable=false)
-    private Calendar dataNascimento;
+    @Column(name="datanascimento", nullable=false, columnDefinition="DATE")
+    private Date dataNascimento;
 
     @Column(name="estadocivil", nullable=false, length=1)
     @Enumerated(EnumType.STRING)
@@ -100,7 +103,7 @@ public class DadosPessoais implements Serializable {
 
     @Column(name="dataemissaoRG", nullable=false, length=0)
     @Temporal(TemporalType.DATE)
-    private Calendar dataEmissaoRG;
+    private Date dataEmissaoRG;
 
     @Column(name="orgaoemissorRG", nullable=false, length=5)
     private String orgaoEmissorRG;
@@ -200,11 +203,11 @@ public class DadosPessoais implements Serializable {
 		this.naturalidade = naturalidade;
 	}
 
-	public Calendar getDataNascimento() {
+	public Date getDataNascimento() {
 		return dataNascimento;
 	}
 
-	public void setDataNascimento(Calendar dataNascimento) {
+	public void setDataNascimento(Date dataNascimento) {
 		this.dataNascimento = dataNascimento;
 	}
 
@@ -312,11 +315,11 @@ public class DadosPessoais implements Serializable {
 		this.tipoLogradouro = tipoLogradouro;
 	}
 
-	public Calendar getDataEmissaoRG() {
+	public Date getDataEmissaoRG() {
 		return dataEmissaoRG;
 	}
 
-	public void setDataEmissaoRG(Calendar dataEmissaoRG) {
+	public void setDataEmissaoRG(Date dataEmissaoRG) {
 		this.dataEmissaoRG = dataEmissaoRG;
 	}
 

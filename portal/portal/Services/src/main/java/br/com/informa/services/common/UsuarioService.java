@@ -2,18 +2,17 @@ package br.com.informa.services.common;
 
 import java.io.UnsupportedEncodingException;
 import java.security.NoSuchAlgorithmException;
-import java.util.Calendar;
+import java.util.Date;
 import java.util.Hashtable;
 import java.util.List;
-
 import javax.naming.AuthenticationException;
 import javax.naming.Context;
 import javax.naming.NamingException;
 import javax.naming.directory.DirContext;
 import javax.naming.directory.InitialDirContext;
-
 import br.com.informa.libraries.common.CommonMethods;
 import br.com.informa.models.common.Usuario;
+import br.com.informa.models.dominio.ETipoUsuario;
 import br.com.informa.repositories.dao.FactoryDao;
 import br.com.informa.repositories.dao.common.IUsuarioDao;
 import br.com.informa.services.exception.UsuarioInvalidoException;
@@ -30,8 +29,9 @@ public class UsuarioService implements IUsuarioService {
 		try {
 			if (validarInsertUpdate(entity)) {
 				String senha = entity.getSenha();
-				entity.setDataCadastro(Calendar.getInstance());
+				entity.setDataCadastro(new Date());
 				entity.setSenha(CommonMethods.getInstance().SHA256(senha, entity.getLogin()));
+				entity.setTipoUsuario(ETipoUsuario.U);
 				IUsuarioDao entityDao = FactoryDao.getFactory().getUsuarioDao();
 				entityDao.Add(entity);
 			}
