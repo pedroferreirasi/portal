@@ -152,6 +152,7 @@ CREATE TABLE IF NOT EXISTS `db`.`tb_dados_profissionais` (
   `banco` VARCHAR(45) NULL DEFAULT NULL,
   `agencia` VARCHAR(10) NULL DEFAULT NULL,
   `conta` VARCHAR(10) NULL DEFAULT NULL,
+  `salario` FLOAT NULL DEFAULT 0,
   PRIMARY KEY (`pk_procad`),
   INDEX `fk_procad_usucad_idx` (`fk_usucad` ASC),
   CONSTRAINT `fk_procad_usucad`
@@ -216,6 +217,22 @@ CREATE TABLE IF NOT EXISTS `db`.`tb_mural` (
     REFERENCES `db`.`tb_mural` (`pk_murcad`)
     ON DELETE NO ACTION
     ON UPDATE RESTRICT)
+ENGINE = InnoDB
+
+CREATE TABLE IF NOT EXISTS `db`.`tb_dependentes` (
+  `pk_depcad` INT NOT NULL AUTO_INCREMENT,
+  `fk_usucad` INT NOT NULL,
+  `nome` VARCHAR(70) NULL,
+  `parentesco` VARCHAR(45) NULL,
+  `datanascimento` DATE NULL,
+  `documento` VARCHAR(20) NULL,
+  PRIMARY KEY (`pk_depcad`),
+  INDEX `fk_depcad_usucad_idx` (`fk_usucad` ASC),
+  CONSTRAINT `fk_depcad_usucad`
+    FOREIGN KEY (`fk_usucad`)
+    REFERENCES `db`.`tb_usuario` (`pk_usucad`)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE)
 ENGINE = InnoDB
 
 -- **********************************************************************************************
