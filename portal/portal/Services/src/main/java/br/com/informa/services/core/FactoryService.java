@@ -7,10 +7,12 @@ import br.com.informa.services.common.UsuarioService;
 import br.com.informa.services.portalrh.CargoService;
 import br.com.informa.services.portalrh.ColaboradorService;
 import br.com.informa.services.portalrh.DepartamentoService;
+import br.com.informa.services.portalrh.DependentesService;
 import br.com.informa.services.portalrh.DocumentoInternoService;
 import br.com.informa.services.portalrh.ICargoService;
 import br.com.informa.services.portalrh.IColaboradorService;
 import br.com.informa.services.portalrh.IDepartamentoService;
+import br.com.informa.services.portalrh.IDependentesService;
 import br.com.informa.services.portalrh.IDocumentoInternoService;
 import br.com.informa.services.portalrh.ITipoDocumentoInternoService;
 import br.com.informa.services.portalrh.TipoDocumentoInternoService;
@@ -54,5 +56,9 @@ public class FactoryService {
 	
 	public IColaboradorService getColaborador() {
 		return new ColaboradorService();
-	}	
+	}
+	
+	public IDependentesService getDependentes() {
+		return new DependentesService();
+	}		
 }

@@ -11,10 +11,12 @@ import br.com.informa.repositories.dao.hibernate.HibernateDaoFactory;
 import br.com.informa.repositories.dao.portalrh.CargoDao;
 import br.com.informa.repositories.dao.portalrh.ColaboradorDao;
 import br.com.informa.repositories.dao.portalrh.DepartamentoDao;
+import br.com.informa.repositories.dao.portalrh.DependentesDao;
 import br.com.informa.repositories.dao.portalrh.DocumentoInternoDao;
 import br.com.informa.repositories.dao.portalrh.ICargoDao;
 import br.com.informa.repositories.dao.portalrh.IColaboradorDao;
 import br.com.informa.repositories.dao.portalrh.IDepartamentoDao;
+import br.com.informa.repositories.dao.portalrh.IDependentesDao;
 import br.com.informa.repositories.dao.portalrh.IDocumentoInternoDao;
 import br.com.informa.repositories.dao.portalrh.ITipoDocumentoInternoDao;
 import br.com.informa.repositories.dao.portalrh.TipoDocumentoInternoDao;
@@ -62,5 +64,9 @@ public abstract class FactoryDao {
 	
 	public IColaboradorDao getColaboradorDao() {
 		return new ColaboradorDao();
-	}		
+	}
+	
+	public IDependentesDao getDependentesDao() {
+		return new DependentesDao();
+	}	
 }

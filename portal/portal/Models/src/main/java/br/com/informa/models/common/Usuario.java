@@ -1,9 +1,12 @@
 package br.com.informa.models.common;
 
 import java.util.Date;
+import java.util.List;
+
 import javax.persistence.Table;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -21,6 +24,7 @@ import br.com.informa.models.portalrh.Cargo;
 import br.com.informa.models.portalrh.DadosPessoais;
 import br.com.informa.models.portalrh.DadosProfissionais;
 import br.com.informa.models.portalrh.Departamento;
+import br.com.informa.models.portalrh.Dependentes;
 
 import java.io.Serializable;
 
@@ -99,6 +103,9 @@ public class Usuario implements Serializable {
 
 	@OneToOne(mappedBy="usuario", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.LAZY)
 	private DadosProfissionais dadosProfissionais;
+
+	@OneToMany(mappedBy="usuario", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.LAZY)
+	private List<Dependentes> dependentes;	
 	
 	public int getId() {
 		return id;
@@ -264,6 +271,14 @@ public class Usuario implements Serializable {
 
 	public void setTipoUsuario(ETipoUsuario tipoUsuario) {
 		this.tipoUsuario = tipoUsuario;
+	}
+
+	public List<Dependentes> getDependentes() {
+		return dependentes;
+	}
+
+	public void setDependentes(List<Dependentes> dependentes) {
+		this.dependentes = dependentes;
 	}
 	
 }

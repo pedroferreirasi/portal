@@ -91,6 +91,9 @@ public class DadosProfissionais implements Serializable {
     
     @Column(name="conta", nullable=true, length=10)
     private String conta;
+    
+    @Column(name="salario", nullable=true)
+    private Float salario;
 
 	public Integer getId() {
 		return id;
@@ -234,6 +237,14 @@ public class DadosProfissionais implements Serializable {
 
 	public void setConta(String conta) {
 		this.conta = conta;
+	}
+
+	public Float getSalario() {
+		return salario;
+	}
+
+	public void setSalario(Float salario) {
+		this.salario = salario;
 	}
 
 }

@@ -23,6 +23,7 @@
 		<mapping class="br.com.informa.models.portalrh.TipoDocumentoInterno" />
 		<mapping class="br.com.informa.models.portalrh.DocumentoInterno" />
 		<mapping class="br.com.informa.models.portalrh.DadosPessoais" />
-		<mapping class="br.com.informa.models.portalrh.DadosProfissionais" />  
+		<mapping class="br.com.informa.models.portalrh.DadosProfissionais" />
+		<mapping class="br.com.informa.models.portalrh.Dependentes" />  
 	</session-factory>
 </hibernate-configuration>
