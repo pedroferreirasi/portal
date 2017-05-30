@@ -94,7 +94,7 @@ public class Usuario implements Serializable {
 	@JoinColumn(name="fk_depcad", unique = false, nullable=false)
 	private Departamento departamento;
 	
-	@OneToOne(cascade = CascadeType.REFRESH, fetch = FetchType.EAGER)
+	@OneToOne(cascade = CascadeType.REFRESH, fetch = FetchType.LAZY)
 	@JoinColumn(name="fk_carcad", unique = false, nullable=false)
 	private Cargo cargo;
 	
@@ -201,6 +201,7 @@ public class Usuario implements Serializable {
 			entity = new Usuario();
 		}
 		entity.setAtivo(this.ativo);
+		entity.setNomeCompleto(this.nomeCompleto);
 		entity.setCelular(this.celular);
 		entity.setDataCadastro(this.dataCadastro);
 		entity.setEmail(this.email);
@@ -213,6 +214,7 @@ public class Usuario implements Serializable {
 		entity.setSenha(this.senha);
 		entity.setDadosPessoais(this.dadosPessoais);
 		entity.setDadosProfissionais(this.dadosProfissionais);
+		entity.setCargo(this.cargo);
 		
 		return entity;
 	}
