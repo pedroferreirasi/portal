@@ -3,17 +3,18 @@
 	xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:f="http://xmlns.jcp.org/jsf/core"
 	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
 	xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
 
 	<ui:define name="corpo">
 		<!-- Content Header (Page header) -->
 		<section class="content-header">
-			<h1>
-				Dashboard <small>Painel de Controle</small>
-			</h1>
+			<h1>Panorama do Colaborador</h1>
 			<ol class="breadcrumb">
-				<li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-				<li class="active">Dashboard</li>
+				<li><a href="mainmenu.xhtml"><i class="fa fa-dashboard"></i>
+						Home</a></li>
+				<li class="active">Colaborador</li>
+				<li class="active">Panorama do Colaborador</li>
 			</ol>
 		</section>
 
@@ -25,7 +26,7 @@
 				<section class="col-lg-12 connectedSortable">
 
 					<div class="row">
-						<div class="col-md-3" >
+						<div class="col-md-3">
 
 							<!-- Profile Image -->
 							<div class="box box-primary">
@@ -34,9 +35,12 @@
 										src="#{request.contextPath}/resources/dist/img/avatar3.png"
 										alt="User profile picture" height="128" width="128" />
 
-									<h3 class="profile-username text-center">Andrea Moutinho</h3>
+									<h3 class="profile-username text-center">
+										#{autenticacaoController.entity.nomeUsuario}
+										#{autenticacaoController.entity.sobreNomeUsuario}</h3>
 
-									<p class="text-muted text-center">Gerente Financeira</p>
+									<p class="text-muted text-center">
+										#{autenticacaoController.entity.cargo.descricao}</p>
 
 									<ul class="list-group list-group-unbordered">
 										<li class="list-group-item"><b>Faltas</b> <a
@@ -58,8 +62,7 @@
 								</div>
 								<!-- /.box-header -->
 								<div class="box-body">
-									<strong><i class="fa fa-book margin-r-5"></i>
-										Educação</strong>
+									<strong><i class="fa fa-book margin-r-5"></i> Educação</strong>
 
 									<p class="text-muted">B.S. in Computer Science from the
 										University of Tennessee at Knoxville</p>
@@ -92,178 +95,15 @@
 						<div class="col-md-9">
 							<div class="nav-tabs-custom">
 								<ul class="nav nav-tabs">
-									<li class="active"><a href="#activity" data-toggle="tab">Mural</a></li>
-									<li><a href="#dadospessoais" data-toggle="tab">Dados
-											Pessoais</a></li>
+									<li class="active"><a href="#dadospessoais"
+										data-toggle="tab">Dados Pessoais</a></li>
 									<li><a href="#dadosprofissionais" data-toggle="tab">Dados
 											Profissionais</a></li>
 								</ul>
 								<div class="tab-content">
-									<div class="active tab-pane" id="activity">
-
-										<!-- Post -->
-										<div class="post">
-											<div class="user-block">
-												<!-- Avisos -->
-												<div class="col-md-8">
-													<div class="box box-default">
-														<div class="box-header with-border">
-															<h3 class="box-title">Avisos</h3>
-
-															<div class="box-tools pull-right">
-																<button type="button" class="btn btn-box-tool"
-																	data-widget="collapse">
-																	<i class="fa fa-plus"></i>
-																</button>
-															</div>
-															<!-- /.box-tools -->
-														</div>
-														<!-- /.box-header -->
-														<div class="box-body">
-
-
-															<!-- Post -->
-															<div class="post">
-																<div class="user-block">
-																	<img class="img-circle img-bordered-sm"
-																		src="#{request.contextPath}/resources/dist/img/avatar3.png"
-																		alt="user image" /> <span class="username"> <a
-																		href="#">Andrea Moutinho</a> <a href="#"
-																		class="pull-right btn-box-tool"><i
-																			class="fa fa-times"></i></a>
-																	</span> <span class="description">Publicado - 14:30
-																		Hoje</span>
-																</div>
-																<!-- /.user-block -->
-																<p>Lorem ipsum represents a long-held tradition for
-																	designers, typographers and the like. Some people hate
-																	it and argue for its demise, but others ignore the hate
-																	as they create awesome tools to help create filler text
-																	for everyone from bacon lovers to Charlie Sheen fans.</p>
-
-															</div>
-															<!-- /.post -->
-															<!-- Post -->
-															<div class="post">
-																<div class="user-block">
-																	<img class="img-circle img-bordered-sm"
-																		src="#{request.contextPath}/resources/dist/img/avatar2.png"
-																		alt="user image" /> <span class="username"> <a
-																		href="#">Marinalva</a> <a href="#"
-																		class="pull-right btn-box-tool"><i
-																			class="fa fa-times"></i></a>
-																	</span> <span class="description">Publicado - 09:30
-																		Hoje</span>
-																</div>
-																<!-- /.user-block -->
-																<p>Lorem ipsum represents a long-held tradition for
-																	designers, typographers and the like. Some people hate
-																	it and argue for its demise, but others ignore the hate
-																	as they create awesome tools to help create filler text
-																	for everyone from bacon lovers to Charlie Sheen fans.</p>
-
-															</div>
-
-
-														</div>
-														<!-- /.box-body -->
-													</div>
-													<!-- /.box -->
-												</div>
-												<!-- Aniversariantes -->
-												<div class="col-md-4">
-													<div class="box box-default">
-														<div class="box-header with-border">
-															<h3 class="box-title">Aniversariantes</h3>
-
-															<div class="box-tools pull-right">
-																<button type="button" class="btn btn-box-tool"
-																	data-widget="collapse">
-																	<i class="fa fa-plus"></i>
-																</button>
-															</div>
-															<!-- /.box-tools -->
-														</div>
-														<!-- /.box-header -->
-														<div class="box-body">
-															04/12 - Pedro Henrique <br /> 10/12 - Luiz Costa<br />
-															15/12 - Gustavo Amorim<br /> 16/12 - Walter Gomes<br />
-															20/12 - Artulanez Souza<br />
-														</div>
-														<!-- /.box-body -->
-													</div>
-													<!-- /.box -->
-												</div>
-
-											</div>
-										</div>
-
-										<!-- Post -->
-										<div class="post">
-											<div class="user-block">
-												<div class="box box-default">
-													<div class="box-header with-border">
-														<h3 class="box-title">Notícias</h3>
-
-														<div class="box-tools pull-right">
-															<button type="button" class="btn btn-box-tool"
-																data-widget="collapse">
-																<i class="fa fa-plus"></i>
-															</button>
-														</div>
-														<!-- /.box-tools -->
-													</div>
-													<!-- /.box-header -->
-													<div class="box-body">
-
-														<!-- Post -->
-														<div class="post clearfix">
-															<div class="user-block">
-																<img class="img-circle img-bordered-sm"
-																	src="#{request.contextPath}/resources/dist/img/avatar5.png"
-																	alt="User Image" /> <span class="username"> <a
-																	href="#">Sarah Ross</a> <a href="#"
-																	class="pull-right btn-box-tool"><i
-																		class="fa fa-times"></i></a>
-																</span> <span class="description">Sent you a message - 3
-																	days ago</span>
-															</div>
-															<!-- /.user-block -->
-															<p>Lorem ipsum represents a long-held tradition for
-																designers, typographers and the like. Some people hate
-																it and argue for its demise, but others ignore the hate
-																as they create awesome tools to help create filler text
-																for everyone from bacon lovers to Charlie Sheen fans.</p>
-
-															<form class="form-horizontal">
-																<div class="form-group margin-bottom-none">
-																	<div class="col-sm-9">
-																		<input class="form-control input-sm"
-																			placeholder="Response" />
-																	</div>
-																	<div class="col-sm-3">
-																		<button type="submit"
-																			class="btn btn-danger pull-right btn-block btn-sm">Enviar</button>
-																	</div>
-																</div>
-															</form>
-														</div>
-														<!-- /.post -->
-
-
-													</div>
-													<!-- /.box-body -->
-												</div>
-												<!-- /.box -->
-											</div>
-										</div>
-
-									</div>
-									<!-- /.tab-pane -->
-									<div class="tab-pane" id="dadospessoais">
+									<div class="active tab-pane" id="dadospessoais">
 
 										<form class="form-horizontal">
-
 
 											<div class="box-group" id="accordion">
 												<!-- we are adding the .panel class so bootstrap.js collapse plugin detects it -->
@@ -276,85 +116,78 @@
 													</div>
 													<div id="collapseOne" class="panel-collapse collapse in">
 														<div class="box-body">
-															<div class="form-group">
-																<label for="inputName" class="col-sm-2 control-label">Nome</label>
+															<p:panelGrid id="dgcadgeral"
+																style="width: 100%; border: none; cellspacing: 10px;">
 
-																<div class="col-sm-10">
-																	<input type="email" class="form-control" id="inputName"
-																		placeholder="Name" value="Andrea Moutinho"
-																		readonly="true" />
-																</div>
-															</div>
-															<div class="form-group">
-																<label for="inputEmail" class="col-sm-2 control-label">Email</label>
+																<p:row style="border: none">
+																	<p:column colspan="2" style="border: none">
+																		<h:outputText value="Nome Completo: " />
+																		<p:inputText id="nomecompleto"
+																			value="#{autenticacaoController.entity.nomeCompleto}"
+																			label="nomeCompleto" styleClass="col-md-12"
+																			readonly="true" />
+																	</p:column>
+																</p:row>
 
-																<div class="col-sm-10">
-																	<input type="email" class="form-control"
-																		id="inputEmail" placeholder="Email"
-																		value="amoutinho@informa.com.br" readonly="true" />
-																</div>
-															</div>
-															<div class="form-group">
-																<label for="inputName" class="col-sm-2 control-label">Nacionalidade</label>
+																<p:row style="border: none">
+																	<p:column style="width:50%; border: none">
+																		<h:outputText value="Nome: " />
+																		<p:inputText id="firstname"
+																			value="#{autenticacaoController.entity.nomeUsuario}"
+																			label="Firstname" styleClass="col-md-12"
+																			readonly="true" />
+																	</p:column>
+																	<p:column style="width:50%; border: none">
+																		<h:outputText value="Sobrenome: " />
+																		<p:inputText id="lasttname"
+																			value="#{autenticacaoController.entity.sobreNome}"
+																			required="true" label="lasttname"
+																			styleClass="col-md-12" readonly="true" />
+																	</p:column>
+																</p:row>
 
-																<div class="col-sm-5">
-																	<input type="text" class="form-control" id="inputName"
-																		placeholder="Name" value="Brasileira" readonly="true" />
-																</div>
-															</div>
-															<div class="form-group">
-																<label for="inputName" class="col-sm-2 control-label">Nome
-																	do Pai</label>
+																<p:row style="border: none">
+																	<p:column style="width:50%; border: none">
+																		<h:outputText value="Sexo: " />
+																		<p:inputText id="sexo"
+																			value="#{autenticacaoController.entity.sexo}"
+																			label="Sexo" styleClass="col-md-12" readonly="true" />
+																	</p:column>
+																	<p:column style="width:50%; border: none">
+																		<h:outputText value="Celular: " />
+																		<p:inputText id="celular"
+																			value="#{autenticacaoController.entity.celular}"
+																			styleClass="col-md-12" mask="(99) 99999-9999"
+																			readonly="true" />
+																	</p:column>
+																</p:row>
 
-																<div class="col-sm-10">
-																	<input type="email" class="form-control" id="inputName"
-																		placeholder="Name" value="Andrea Moutinho"
-																		readonly="true" />
-																</div>
-															</div>
-															<div class="form-group">
-																<label for="inputName" class="col-sm-2 control-label">Nome
-																	da Mï¿½e</label>
+																<p:row style="border: none">
+																	<p:column colspan="2" style="border: none">
+																		<h:outputText value="E-Mail: " />
+																		<p:inputText id="email"
+																			value="#{autenticacaoController.entity.email}"
+																			styleClass="col-md-12" readonly="true" />
+																	</p:column>
+																</p:row>
 
-																<div class="col-sm-10">
-																	<input type="email" class="form-control" id="inputName"
-																		placeholder="Name" value="Andrea Moutinho"
-																		readonly="true" />
-																</div>
-															</div>
-															<div class="form-group">
-																<label for="inputName" class="col-sm-2 control-label">Nascimento</label>
+																<p:row style="border: none">
+																	<p:column style="width:50%; border: none">
+																		<h:outputText value="Login: " />
+																		<p:inputText id="login"
+																			value="#{autenticacaoController.entity.login}"
+																			styleClass="col-md-12" readonly="true" />
+																	</p:column>
+																	<p:column style="width:50%; border: none">
+																		<h:outputText value="Grupo: " />
+																		<p:inputText id="grupousuario"
+																			value="#{autenticacaoController.entity.grupoUsuario.descricao}"
+																			styleClass="col-md-12" readonly="true" />
+																	</p:column>
+																</p:row>
 
-																<div class="col-sm-10">
-																	<input type="email" class="form-control" id="inputName"
-																		placeholder="Name" value="04/12/1980" readonly="true" />
-																</div>
-															</div>
-															<div class="form-group">
-																<label for="inputName" class="col-sm-2 control-label">Est.
-																	Civil</label>
 
-																<div class="col-sm-4">
-																	<input type="email" class="form-control" id="inputName"
-																		placeholder="Name" value="Casada" readonly="true" />
-																</div>
-															</div>
-															<div class="form-group">
-																<label for="inputName" class="col-sm-2 control-label">Sexo</label>
-
-																<div class="col-sm-4">
-																	<input type="email" class="form-control" id="inputName"
-																		placeholder="Name" value="Feminino" readonly="true" />
-																</div>
-															</div>
-															<div class="form-group">
-																<label for="inputName" class="col-sm-2 control-label">Cor/Raï¿½a</label>
-
-																<div class="col-sm-5">
-																	<input type="email" class="form-control" id="inputName"
-																		placeholder="Name" value="Branco(a)" readonly="true" />
-																</div>
-															</div>
+															</p:panelGrid>
 														</div>
 													</div>
 												</div>
@@ -366,62 +199,214 @@
 														</h4>
 													</div>
 													<div id="collapseTwo" class="panel-collapse collapse in">
-														<div class="form-group">
-															<label for="inputName" class="col-sm-2 control-label">CEP</label>
 
-															<div class="col-sm-5">
-																<input type="email" class="form-control" id="inputName"
-																	placeholder="Name" value="50.030-200" readonly="true" />
-															</div>
-														</div>
-														<div class="form-group">
-															<label for="inputName" class="col-sm-2 control-label">Endereï¿½o</label>
+														<p:panelGrid id="dgcadpessoal"
+															style="width: 100%; border: none; cellspacing: 10px;">
 
-															<div class="col-sm-10">
-																<input type="email" class="form-control" id="inputName"
-																	placeholder="Name" value="R. da Guia" readonly="true" />
-															</div>
-														</div>
-														<div class="form-group">
-															<label for="inputName" class="col-sm-2 control-label">Nï¿½mero</label>
+															<p:row style="border: none">
+																<p:column style="width:25%; border: none">
+																	<h:outputText value="CEP: " />
+																	<p:inputText id="cep"
+																		value="#{autenticacaoController.entity.dadosPessoais.CEP}"
+																		label="CEP" styleClass="col-md-12" readonly="true">
 
-															<div class="col-sm-2">
-																<input type="email" class="form-control" id="inputName"
-																	placeholder="Name" value="142" readonly="true" />
-															</div>
-														</div>
-														<div class="form-group">
-															<label for="inputName" class="col-sm-2 control-label">Complemento</label>
+																		<p:clientValidator />
+																	</p:inputText>
+																</p:column>
+																<p:column style="width:25%; border: none">
+																	<h:outputText value="Logradouro: " />
+																	<h:selectOneMenu
+																		value="#{autenticacaoController.entity.dadosPessoais.tipoLogradouro}"
+																		styleClass="form-control select2">
+																		<f:selectItems
+																			value="#{dominioController.tipoLogradouro}"
+																			var="logradouro" />
+																	</h:selectOneMenu>
+																</p:column>
+																<p:column colspan="2" style="width:50%; border: none">
+																	<h:outputText value="Endereco: " />
+																	<p:inputText id="endereco"
+																		value="#{autenticacaoController.entity.dadosPessoais.endereco}"
+																		label="endereco" styleClass="col-md-12"
+																		readonly="true">
 
-															<div class="col-sm-7">
-																<input type="email" class="form-control" id="inputName"
-																	placeholder="Name" value="Sala 302" readonly="true" />
-															</div>
-														</div>
-														<div class="form-group">
-															<label for="inputName" class="col-sm-2 control-label">Cidade</label>
+																		<p:clientValidator />
+																	</p:inputText>
+																</p:column>
+															</p:row>
 
-															<div class="col-sm-7">
-																<input type="email" class="form-control" id="inputName"
-																	placeholder="Name" value="Recife" readonly="true" />
-															</div>
-														</div>
-														<div class="form-group">
-															<label for="inputName" class="col-sm-2 control-label">Estado</label>
+															<p:row style="border: none">
+																<p:column style="width:25%; border: none">
+																	<h:outputText value="Número: " />
+																	<p:inputText id="numero"
+																		value="#{autenticacaoController.entity.dadosPessoais.numero}"
+																		label="Numero" styleClass="col-md-12" readonly="true">
 
-															<div class="col-sm-1">
-																<input type="email" class="form-control" id="inputName"
-																	placeholder="Name" value="PE" readonly="true" />
-															</div>
-														</div>
-														<div class="form-group">
-															<label for="inputName" class="col-sm-2 control-label">Paï¿½s</label>
+																		<p:clientValidator />
+																	</p:inputText>
+																</p:column>
+																<p:column style="width:25%; border: none">
+																	<h:outputText value="Complemento: " />
+																	<p:inputText id="complemento"
+																		value="#{autenticacaoController.entity.dadosPessoais.complemento}"
+																		label="complemento" styleClass="col-md-12"
+																		readonly="true">
 
-															<div class="col-sm-4">
-																<input type="email" class="form-control" id="inputName"
-																	placeholder="Name" value="Brasil" readonly="true" />
-															</div>
-														</div>
+																		<p:clientValidator />
+																	</p:inputText>
+																</p:column>
+																<p:column colspan="2" style="width:50%; border: none">
+																	<h:outputText value="Bairro: " />
+																	<p:inputText id="bairro"
+																		value="#{autenticacaoController.entity.dadosPessoais.bairro}"
+																		label="bairro" styleClass="col-md-12" readonly="true">
+
+																		<p:clientValidator />
+																	</p:inputText>
+																</p:column>
+															</p:row>
+
+															<p:row style="border: none">
+																<p:column colspan="2" style="width:50%; border: none">
+																	<h:outputText value="Cidade: " />
+																	<p:inputText id="cidade"
+																		value="#{autenticacaoController.entity.dadosPessoais.cidade}"
+																		label="cidade" styleClass="col-md-12" readonly="true">
+
+																		<p:clientValidator />
+																	</p:inputText>
+																</p:column>
+																<p:column style="width:10%; border: none">
+																	<h:outputText value="Estado: " />
+																	<h:selectOneMenu
+																		value="#{autenticacaoController.entity.dadosPessoais.estado}"
+																		styleClass="form-control select2" readonly="true">
+																		<f:selectItems
+																			value="#{dominioController.estadosBrasil}"
+																			var="estados" />
+																	</h:selectOneMenu>
+																</p:column>
+																<p:column style="width:40%; border: none">
+																	<h:outputText value="Nacionalidade: " />
+																	<p:inputText id="nacionalidade"
+																		value="#{autenticacaoController.entity.dadosPessoais.nacionalidade}"
+																		label="nacionalidade" styleClass="col-md-12"
+																		readonly="true">
+
+																		<p:clientValidator />
+																	</p:inputText>
+																</p:column>
+															</p:row>
+
+															<p:row style="border: none">
+																<p:column style="width:30%; border: none">
+																	<h:outputText value="Naturalidade: " />
+																	<p:inputText id="naturalidade"
+																		value="#{autenticacaoController.entity.dadosPessoais.naturalidade}"
+																		label="cidade" styleClass="col-md-12" readonly="true">
+
+																		<p:clientValidator />
+																	</p:inputText>
+																</p:column>
+																<p:column colspan="2" style="width:40%; border: none">
+																	<h:outputText value="Raça: " />
+																	<p:inputText id="raca"
+																		value="#{autenticacaoController.entity.dadosPessoais.raca}"
+																		label="raca" styleClass="col-md-12" readonly="true">
+
+																		<p:clientValidator />
+																	</p:inputText>
+																</p:column>
+																<p:column style="width:30%; border: none">
+																	<h:outputText value="Nascimento: " />
+																	<p:inputText id="nascimento"
+																		value="#{autenticacaoController.entity.dadosPessoais.dataNascimento}"
+																		label="nascimento" styleClass="col-md-12"
+																		readonly="true">
+
+																	</p:inputText>
+																</p:column>
+															</p:row>
+
+															<p:row style="border: none">
+																<p:column style="width:25%; border: none">
+																	<h:outputText value="CPF: " />
+																	<p:inputText id="cpf"
+																		value="#{autenticacaoController.entity.dadosPessoais.CPF}"
+																		label="cpf" styleClass="col-md-12" readonly="true">
+
+																		<p:clientValidator />
+																	</p:inputText>
+																</p:column>
+																<p:column style="width:25%; border: none">
+																	<h:outputText value="RG: " />
+																	<p:inputText id="rg"
+																		value="#{autenticacaoController.entity.dadosPessoais.RG}"
+																		label="raca" styleClass="col-md-12" readonly="true">
+
+																		<p:clientValidator />
+																	</p:inputText>
+																</p:column>
+																<p:column style="width:25%; border: none">
+																	<h:outputText value="Data Emissao: " />
+																	<p:inputText id="dataemissao"
+																		value="#{autenticacaoController.entity.dadosPessoais.dataEmissaoRG.getTime()}"
+																		label="dataemissao" styleClass="col-md-10"
+																		readonly="true">
+																		<f:convertDateTime pattern="DD/MM/YYYY" />
+																	</p:inputText>
+																</p:column>
+																<p:column style="width:30%; border: none">
+																	<h:outputText value="Orgão Emissor: " />
+																	<p:inputText id="orgaoemissor"
+																		value="#{autenticacaoController.entity.dadosPessoais.orgaoEmissorRG}"
+																		label="orgaoemissor" styleClass="col-md-12"
+																		readonly="true">
+
+																	</p:inputText>
+																</p:column>
+															</p:row>
+
+															<p:row style="border: none">
+																<p:column style="width:25%; border: none">
+																	<h:outputText value="UF Orgao Emissor: " />
+																	<h:selectOneMenu
+																		value="#{autenticacaoController.entity.dadosPessoais.estadoEmissorRG}"
+																		styleClass="form-control select2" readonly="true">
+																		<f:selectItems
+																			value="#{dominioController.estadosBrasil}"
+																			var="estados" />
+																	</h:selectOneMenu>
+																</p:column>
+																<p:column style="width:25%; border: none">
+																	<h:outputText value="Estado Civil: " />
+																	<h:selectOneMenu
+																		value="#{autenticacaoController.entity.dadosPessoais.estadoCivil}"
+																		styleClass="form-control select2" readonly="true">
+																		<f:selectItems
+																			value="#{dominioController.estadoCivil}" var="civil" />
+																	</h:selectOneMenu>
+																</p:column>
+																<p:column style="width:25%; border: none">
+																	<h:outputText value="Telefone: " />
+																	<p:inputText id="telefonePessoal"
+																		value="#{autenticacaoController.entity.dadosPessoais.telefonePessoal}"
+																		label="telefonepessoal" styleClass="col-md-10"
+																		readonly="true">
+																	</p:inputText>
+																</p:column>
+																<p:column style="width:30%; border: none">
+																	<h:outputText value="Celular: " />
+																	<p:inputText id="celularpessoal"
+																		value="#{autenticacaoController.entity.dadosPessoais.celularPessoal}"
+																		label="celularpessoal" styleClass="col-md-12"
+																		readonly="true">
+																	</p:inputText>
+																</p:column>
+															</p:row>
+
+														</p:panelGrid>
+
 													</div>
 												</div>
 											</div>
@@ -431,40 +416,104 @@
 									<!-- /.tab-pane -->
 									<div class="tab-pane" id="dadosprofissionais">
 										<form class="form-horizontal">
-											<div class="form-group">
-												<label for="inputName" class="col-sm-2 control-label">Name</label>
+											<p:panelGrid id="dgcadprofissional"
+												style="width: 100%; border: none; cellspacing: 10px;">
 
-												<div class="col-sm-10">
-													<input type="email" class="form-control" id="inputName"
-														placeholder="Name" value="Andrea Moutinho" readonly="true" />
-												</div>
-											</div>
-											<div class="form-group">
-												<label for="inputEmail" class="col-sm-2 control-label">Email</label>
+												<p:row style="border: none">
+													<p:column style="width:25%; border: none">
+														<h:outputText value="CTPS: " />
+														<p:inputText id="CTPS"
+															value="#{autenticacaoController.entity.dadosProfissionais.CTPS}"
+															label="CEP" styleClass="col-md-12" readonly="true" />
+													</p:column>
+													<p:column style="width:25%; border: none">
+														<h:outputText value="Serie CTPS: " />
+														<p:inputText id="serieCTPS"
+															value="#{autenticacaoController.entity.dadosProfissionais.serieCTPS}"
+															label="serieCTPS" styleClass="col-md-12" readonly="true" />
+													</p:column>
+													<p:column style="width:25%; border: none">
+														<h:outputText value="Estado CTPS: " />
+														<p:inputText id="estadosctps"
+															value="#{autenticacaoController.entity.dadosProfissionais.estadoCTPS}"
+															label="estadosctps" styleClass="col-md-12"
+															readonly="true" />
+													</p:column>
+													<p:column style="width:25%; border: none">
+														<h:outputText value="Número PIS: " />
+														<p:inputText id="pis"
+															value="#{autenticacaoController.entity.dadosProfissionais.PIS}"
+															label="pis" styleClass="col-md-12" readonly="true" />
+													</p:column>
+												</p:row>
 
-												<div class="col-sm-10">
-													<input type="email" class="form-control" id="inputEmail"
-														placeholder="Email" value="amoutinho@informa.com.br"
-														readonly="true" />
-												</div>
-											</div>
-											<div class="form-group">
-												<label for="inputName" class="col-sm-2 control-label">Cargo</label>
+												<p:row style="border: none">
+													<p:column style="width:25%; border: none">
+														<h:outputText value="Matricula: " />
+														<p:inputText id="matricula"
+															value="#{autenticacaoController.entity.dadosProfissionais.matricula}"
+															label="matricula" styleClass="col-md-12" readonly="true" />
+													</p:column>
+													<p:column style="width:25%; border: none">
+														<h:outputText value="Código Ponto Eletrônico: " />
+														<p:inputText id="codigoPontoEletronico"
+															value="#{autenticacaoController.entity.dadosProfissionais.codigoPontoEletronico}"
+															label="serieCTPS" styleClass="col-md-12" readonly="true" />
+													</p:column>
+													<p:column style="width:25%; border: none">
+														<h:outputText value="Data Admissao: " />
+														<p:inputText id="dataadmissao"
+															value="#{autenticacaoController.entity.dadosProfissionais.dataAdmissao.getTime()}"
+															label="serieCTPS" styleClass="col-md-12" readonly="true">
+															<f:convertDateTime pattern="DD/MM/YYYY" />
+														</p:inputText>
 
-												<div class="col-sm-7">
-													<input type="text" class="form-control" id="inputName"
-														placeholder="Name" value="Gerente Financeira"
-														readonly="true" />
-												</div>
-											</div>
-											<div class="form-group">
-												<label for="inputName" class="col-sm-2 control-label">Ramal</label>
+													</p:column>
+													<p:column style="width:25%; border: none">
+														<h:outputText value="Carga horária: " />
+														<p:inputText id="cargahoraria"
+															value="#{autenticacaoController.entity.dadosProfissionais.cargaHoraria}"
+															label="cargahoraria" styleClass="col-md-12"
+															readonly="true" />
+													</p:column>
+												</p:row>
 
-												<div class="col-sm-2">
-													<input type="text" class="form-control" id="inputName"
-														placeholder="Name" value="1415" readonly="true" />
-												</div>
-											</div>
+												<p:row style="border: none">
+													<p:column style="width:25%; border: none">
+														<h:outputText value="Telefone Profissional: " />
+														<p:inputText id="telefoneprofissional"
+															value="#{autenticacaoController.entity.dadosProfissionais.telefoneProfissional}"
+															label="celularpessoal" styleClass="col-md-12"
+															readonly="true" />
+													</p:column>
+													<p:column style="width:25%; border: none">
+														<h:outputText value="Ramal: " />
+														<p:inputText id="ramal"
+															value="#{autenticacaoController.entity.dadosProfissionais.ramal}"
+															label="ramal" styleClass="col-md-12" readonly="true" />
+													</p:column>
+													<p:column style="width:25%; border: none">
+														<h:outputText value="Celular Profissional: " />
+														<p:inputText id="celularprofissional"
+															value="#{autenticacaoController.entity.dadosProfissionais.celularProfissional}"
+															label="telefonepessoal" styleClass="col-md-12"
+															readonly="true" />
+													</p:column>
+													<p:column style="width:25%; border: none">
+
+													</p:column>
+												</p:row>
+
+												<p:row style="width:25%; border: none">
+													<p:column colspan="2" style="border: none">
+														<p:selectBooleanCheckbox
+															value="#{autenticacaoController.entity.dadosProfissionais.flagBatePonto}"
+															readonly="true" />
+														<h:outputText value=" Bate ponto: " />
+													</p:column>
+												</p:row>
+
+											</p:panelGrid>
 										</form>
 									</div>
 									<!-- /.tab-pane -->

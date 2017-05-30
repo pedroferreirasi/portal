@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+<ui:composition template="/template/template.xhtml"
+	xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+
+	<ui:define name="corpo">
+		<!-- Content Header (Page header) -->
+		<section class="content-header">
+			<h1>
+				Dashboard <small>Painel de Controle</small>
+			</h1>
+			<ol class="breadcrumb">
+				<li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
+				<li class="active">Dashboard</li>
+			</ol>
+		</section>
+
+		<!-- Main content -->
+		<section class="content">
+			<!-- Main row -->
+			<div class="row">
+				<!-- Left col -->
+				<section class="col-lg-12 connectedSortable">
+
+					<div class="row">
+						<div class="col-md-3" >
+
+							<!-- Profile Image -->
+							<div class="box box-primary">
+								<div class="box-body box-profile">
+									<img class="profile-user-img img-responsive img-circle"
+										src="#{request.contextPath}/resources/dist/img/avatar3.png"
+										alt="User profile picture" height="128" width="128" />
+
+									<h3 class="profile-username text-center">Andrea Moutinho</h3>
+
+									<p class="text-muted text-center">Gerente Financeira</p>
+
+									<ul class="list-group list-group-unbordered">
+										<li class="list-group-item"><b>Faltas</b> <a
+											class="pull-right">1</a></li>
+										<li class="list-group-item"><b>Horas</b> <a
+											class="pull-right">- 45</a></li>
+									</ul>
+
+									<a href="#" class="btn btn-primary btn-block"><b>Editar</b></a>
+								</div>
+								<!-- /.box-body -->
+							</div>
+							<!-- /.box -->
+
+							<!-- About Me Box -->
+							<div class="box box-primary">
+								<div class="box-header with-border">
+									<h3 class="box-title">Sobre</h3>
+								</div>
+								<!-- /.box-header -->
+								<div class="box-body">
+									<strong><i class="fa fa-book margin-r-5"></i>
+										Educação</strong>
+
+									<p class="text-muted">B.S. in Computer Science from the
+										University of Tennessee at Knoxville</p>
+
+									<hr />
+
+									<strong><i class="fa fa-map-marker margin-r-5"></i>
+										Localização</strong>
+
+									<p class="text-muted">Malibu, California</p>
+
+									<hr />
+
+									<strong><i class="fa fa-pencil margin-r-5"></i> Skills</strong>
+
+									<p>
+										<span class="label label-danger">UI Design</span> <span
+											class="label label-success">Coding</span> <span
+											class="label label-info">Javascript</span> <span
+											class="label label-warning">PHP</span> <span
+											class="label label-primary">Node.js</span>
+									</p>
+
+								</div>
+								<!-- /.box-body -->
+							</div>
+							<!-- /.box -->
+						</div>
+						<!-- /.col -->
+						<div class="col-md-9">
+							<div class="nav-tabs-custom">
+								<ul class="nav nav-tabs">
+									<li class="active"><a href="#activity" data-toggle="tab">Mural</a></li>
+									<li><a href="#dadospessoais" data-toggle="tab">Dados
+											Pessoais</a></li>
+									<li><a href="#dadosprofissionais" data-toggle="tab">Dados
+											Profissionais</a></li>
+								</ul>
+								<div class="tab-content">
+									<div class="active tab-pane" id="activity">
+
+										<!-- Post -->
+										<div class="post">
+											<div class="user-block">
+												<!-- Avisos -->
+												<div class="col-md-8">
+													<div class="box box-default">
+														<div class="box-header with-border">
+															<h3 class="box-title">Avisos</h3>
+
+															<div class="box-tools pull-right">
+																<button type="button" class="btn btn-box-tool"
+																	data-widget="collapse">
+																	<i class="fa fa-plus"></i>
+																</button>
+															</div>
+															<!-- /.box-tools -->
+														</div>
+														<!-- /.box-header -->
+														<div class="box-body">
+
+
+															<!-- Post -->
+															<div class="post">
+																<div class="user-block">
+																	<img class="img-circle img-bordered-sm"
+																		src="#{request.contextPath}/resources/dist/img/avatar3.png"
+																		alt="user image" /> <span class="username"> <a
+																		href="#">Andrea Moutinho</a> <a href="#"
+																		class="pull-right btn-box-tool"><i
+																			class="fa fa-times"></i></a>
+																	</span> <span class="description">Publicado - 14:30
+																		Hoje</span>
+																</div>
+																<!-- /.user-block -->
+																<p>Lorem ipsum represents a long-held tradition for
+																	designers, typographers and the like. Some people hate
+																	it and argue for its demise, but others ignore the hate
+																	as they create awesome tools to help create filler text
+																	for everyone from bacon lovers to Charlie Sheen fans.</p>
+
+															</div>
+															<!-- /.post -->
+															<!-- Post -->
+															<div class="post">
+																<div class="user-block">
+																	<img class="img-circle img-bordered-sm"
+																		src="#{request.contextPath}/resources/dist/img/avatar2.png"
+																		alt="user image" /> <span class="username"> <a
+																		href="#">Marinalva</a> <a href="#"
+																		class="pull-right btn-box-tool"><i
+																			class="fa fa-times"></i></a>
+																	</span> <span class="description">Publicado - 09:30
+																		Hoje</span>
+																</div>
+																<!-- /.user-block -->
+																<p>Lorem ipsum represents a long-held tradition for
+																	designers, typographers and the like. Some people hate
+																	it and argue for its demise, but others ignore the hate
+																	as they create awesome tools to help create filler text
+																	for everyone from bacon lovers to Charlie Sheen fans.</p>
+
+															</div>
+
+
+														</div>
+														<!-- /.box-body -->
+													</div>
+													<!-- /.box -->
+												</div>
+												<!-- Aniversariantes -->
+												<div class="col-md-4">
+													<div class="box box-default">
+														<div class="box-header with-border">
+															<h3 class="box-title">Aniversariantes</h3>
+
+															<div class="box-tools pull-right">
+																<button type="button" class="btn btn-box-tool"
+																	data-widget="collapse">
+																	<i class="fa fa-plus"></i>
+																</button>
+															</div>
+															<!-- /.box-tools -->
+														</div>
+														<!-- /.box-header -->
+														<div class="box-body">
+															04/12 - Pedro Henrique <br /> 10/12 - Luiz Costa<br />
+															15/12 - Gustavo Amorim<br /> 16/12 - Walter Gomes<br />
+															20/12 - Artulanez Souza<br />
+														</div>
+														<!-- /.box-body -->
+													</div>
+													<!-- /.box -->
+												</div>
+
+											</div>
+										</div>
+
+										<!-- Post -->
+										<div class="post">
+											<div class="user-block">
+												<div class="box box-default">
+													<div class="box-header with-border">
+														<h3 class="box-title">Notícias</h3>
+
+														<div class="box-tools pull-right">
+															<button type="button" class="btn btn-box-tool"
+																data-widget="collapse">
+																<i class="fa fa-plus"></i>
+															</button>
+														</div>
+														<!-- /.box-tools -->
+													</div>
+													<!-- /.box-header -->
+													<div class="box-body">
+
+														<!-- Post -->
+														<div class="post clearfix">
+															<div class="user-block">
+																<img class="img-circle img-bordered-sm"
+																	src="#{request.contextPath}/resources/dist/img/avatar5.png"
+																	alt="User Image" /> <span class="username"> <a
+																	href="#">Sarah Ross</a> <a href="#"
+																	class="pull-right btn-box-tool"><i
+																		class="fa fa-times"></i></a>
+																</span> <span class="description">Sent you a message - 3
+																	days ago</span>
+															</div>
+															<!-- /.user-block -->
+															<p>Lorem ipsum represents a long-held tradition for
+																designers, typographers and the like. Some people hate
+																it and argue for its demise, but others ignore the hate
+																as they create awesome tools to help create filler text
+																for everyone from bacon lovers to Charlie Sheen fans.</p>
+
+															<form class="form-horizontal">
+																<div class="form-group margin-bottom-none">
+																	<div class="col-sm-9">
+																		<input class="form-control input-sm"
+																			placeholder="Response" />
+																	</div>
+																	<div class="col-sm-3">
+																		<button type="submit"
+																			class="btn btn-danger pull-right btn-block btn-sm">Enviar</button>
+																	</div>
+																</div>
+															</form>
+														</div>
+														<!-- /.post -->
+
+
+													</div>
+													<!-- /.box-body -->
+												</div>
+												<!-- /.box -->
+											</div>
+										</div>
+
+									</div>
+									<!-- /.tab-pane -->
+									<div class="tab-pane" id="dadospessoais">
+
+										<form class="form-horizontal">
+
+
+											<div class="box-group" id="accordion">
+												<!-- we are adding the .panel class so bootstrap.js collapse plugin detects it -->
+												<div class="panel box box-primary">
+													<div class="box-header with-border">
+														<h4 class="box-title">
+															<a data-toggle="collapse" data-parent="#accordion"
+																href="#collapseOne"> 1. Dados Pessoais </a>
+														</h4>
+													</div>
+													<div id="collapseOne" class="panel-collapse collapse in">
+														<div class="box-body">
+															<div class="form-group">
+																<label for="inputName" class="col-sm-2 control-label">Nome</label>
+
+																<div class="col-sm-10">
+																	<input type="email" class="form-control" id="inputName"
+																		placeholder="Name" value="Andrea Moutinho"
+																		readonly="true" />
+																</div>
+															</div>
+															<div class="form-group">
+																<label for="inputEmail" class="col-sm-2 control-label">Email</label>
+
+																<div class="col-sm-10">
+																	<input type="email" class="form-control"
+																		id="inputEmail" placeholder="Email"
+																		value="amoutinho@informa.com.br" readonly="true" />
+																</div>
+															</div>
+															<div class="form-group">
+																<label for="inputName" class="col-sm-2 control-label">Nacionalidade</label>
+
+																<div class="col-sm-5">
+																	<input type="text" class="form-control" id="inputName"
+																		placeholder="Name" value="Brasileira" readonly="true" />
+																</div>
+															</div>
+															<div class="form-group">
+																<label for="inputName" class="col-sm-2 control-label">Nome
+																	do Pai</label>
+
+																<div class="col-sm-10">
+																	<input type="email" class="form-control" id="inputName"
+																		placeholder="Name" value="Andrea Moutinho"
+																		readonly="true" />
+																</div>
+															</div>
+															<div class="form-group">
+																<label for="inputName" class="col-sm-2 control-label">Nome
+																	da Mï¿½e</label>
+
+																<div class="col-sm-10">
+																	<input type="email" class="form-control" id="inputName"
+																		placeholder="Name" value="Andrea Moutinho"
+																		readonly="true" />
+																</div>
+															</div>
+															<div class="form-group">
+																<label for="inputName" class="col-sm-2 control-label">Nascimento</label>
+
+																<div class="col-sm-10">
+																	<input type="email" class="form-control" id="inputName"
+																		placeholder="Name" value="04/12/1980" readonly="true" />
+																</div>
+															</div>
+															<div class="form-group">
+																<label for="inputName" class="col-sm-2 control-label">Est.
+																	Civil</label>
+
+																<div class="col-sm-4">
+																	<input type="email" class="form-control" id="inputName"
+																		placeholder="Name" value="Casada" readonly="true" />
+																</div>
+															</div>
+															<div class="form-group">
+																<label for="inputName" class="col-sm-2 control-label">Sexo</label>
+
+																<div class="col-sm-4">
+																	<input type="email" class="form-control" id="inputName"
+																		placeholder="Name" value="Feminino" readonly="true" />
+																</div>
+															</div>
+															<div class="form-group">
+																<label for="inputName" class="col-sm-2 control-label">Cor/Raï¿½a</label>
+
+																<div class="col-sm-5">
+																	<input type="email" class="form-control" id="inputName"
+																		placeholder="Name" value="Branco(a)" readonly="true" />
+																</div>
+															</div>
+														</div>
+													</div>
+												</div>
+												<div class="panel box box-primary">
+													<div class="box-header with-border">
+														<h4 class="box-title">
+															<a data-toggle="collapse" data-parent="#accordion"
+																href="#collapseTwo"> 2. Residência / Endereço </a>
+														</h4>
+													</div>
+													<div id="collapseTwo" class="panel-collapse collapse in">
+														<div class="form-group">
+															<label for="inputName" class="col-sm-2 control-label">CEP</label>
+
+															<div class="col-sm-5">
+																<input type="email" class="form-control" id="inputName"
+																	placeholder="Name" value="50.030-200" readonly="true" />
+															</div>
+														</div>
+														<div class="form-group">
+															<label for="inputName" class="col-sm-2 control-label">Endereï¿½o</label>
+
+															<div class="col-sm-10">
+																<input type="email" class="form-control" id="inputName"
+																	placeholder="Name" value="R. da Guia" readonly="true" />
+															</div>
+														</div>
+														<div class="form-group">
+															<label for="inputName" class="col-sm-2 control-label">Nï¿½mero</label>
+
+															<div class="col-sm-2">
+																<input type="email" class="form-control" id="inputName"
+																	placeholder="Name" value="142" readonly="true" />
+															</div>
+														</div>
+														<div class="form-group">
+															<label for="inputName" class="col-sm-2 control-label">Complemento</label>
+
+															<div class="col-sm-7">
+																<input type="email" class="form-control" id="inputName"
+																	placeholder="Name" value="Sala 302" readonly="true" />
+															</div>
+														</div>
+														<div class="form-group">
+															<label for="inputName" class="col-sm-2 control-label">Cidade</label>
+
+															<div class="col-sm-7">
+																<input type="email" class="form-control" id="inputName"
+																	placeholder="Name" value="Recife" readonly="true" />
+															</div>
+														</div>
+														<div class="form-group">
+															<label for="inputName" class="col-sm-2 control-label">Estado</label>
+
+															<div class="col-sm-1">
+																<input type="email" class="form-control" id="inputName"
+																	placeholder="Name" value="PE" readonly="true" />
+															</div>
+														</div>
+														<div class="form-group">
+															<label for="inputName" class="col-sm-2 control-label">Paï¿½s</label>
+
+															<div class="col-sm-4">
+																<input type="email" class="form-control" id="inputName"
+																	placeholder="Name" value="Brasil" readonly="true" />
+															</div>
+														</div>
+													</div>
+												</div>
+											</div>
+										</form>
+									</div>
+									<!-- /.tab-pane -->
+									<!-- /.tab-pane -->
+									<div class="tab-pane" id="dadosprofissionais">
+										<form class="form-horizontal">
+											<div class="form-group">
+												<label for="inputName" class="col-sm-2 control-label">Name</label>
+
+												<div class="col-sm-10">
+													<input type="email" class="form-control" id="inputName"
+														placeholder="Name" value="Andrea Moutinho" readonly="true" />
+												</div>
+											</div>
+											<div class="form-group">
+												<label for="inputEmail" class="col-sm-2 control-label">Email</label>
+
+												<div class="col-sm-10">
+													<input type="email" class="form-control" id="inputEmail"
+														placeholder="Email" value="amoutinho@informa.com.br"
+														readonly="true" />
+												</div>
+											</div>
+											<div class="form-group">
+												<label for="inputName" class="col-sm-2 control-label">Cargo</label>
+
+												<div class="col-sm-7">
+													<input type="text" class="form-control" id="inputName"
+														placeholder="Name" value="Gerente Financeira"
+														readonly="true" />
+												</div>
+											</div>
+											<div class="form-group">
+												<label for="inputName" class="col-sm-2 control-label">Ramal</label>
+
+												<div class="col-sm-2">
+													<input type="text" class="form-control" id="inputName"
+														placeholder="Name" value="1415" readonly="true" />
+												</div>
+											</div>
+										</form>
+									</div>
+									<!-- /.tab-pane -->
+								</div>
+								<!-- /.tab-content -->
+							</div>
+							<!-- /.nav-tabs-custom -->
+						</div>
+						<!-- /.col -->
+					</div>
+					<!-- /.row -->
+				</section>
+			</div>
+			<!-- /.row (main row) -->
+		</section>
+		<!-- /.content -->
+
+	</ui:define>
+</ui:composition>
