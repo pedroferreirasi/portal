@@ -19,14 +19,14 @@
 		<ui:param name="entityBean" value="#{cargoController}" /> 
 		<h:panelGroup layout="block" styleClass="box-header col-md-12"> 
 			<p:commandButton value="Novo" ajax="true" 
-				action="#{usuarioController.novo}" process="@this" 
+				action="#{entityBean.novo}" process="@this" 
 				update=":formPrincipal:display" oncomplete="PF('dlg').show()" 
 				styleClass="btn btn-primary" />&#160; 
  
                   <!--</h:panelGroup> 
                   <h:panelGroup layout="block" styleClass="box-header col-md-2 col-md-offset-9" >--> 
 			<p:commandButton value="Pesquisar" 
-				action="#{usuarioController.getListAll}" ajax="false" update="@form" 
+				action="#{entityBean.getListAll}" ajax="false" update="@form" 
 				styleClass="btn btn-primary" >&#160; 
                      <!-- <f:ajax execute=":TableId" render=":TableId" /> --> 
 			</p:commandButton> 
@@ -57,7 +57,7 @@
 			<p:column style="width:20%; border: none">
 				<h:outputText value="Código: " />
 				<p:inputText id="id"
-					value="#{cargoController.entity.id}" required="true"
+					value="#{cargoController.entity.id}" 
 					label="Firstname" styleClass="col-md-12" immediate="true" disabled="true">
 					<f:validateLength minimum="1" maximum="30" />
 					<p:clientValidator />
@@ -67,7 +67,7 @@
 				<h:outputText value="Descricao: " />
 				<p:inputText id="descricao"
 					value="#{cargoController.entity.descricao}"
-					required="true" label="descricao" styleClass="col-md-12" />
+					 label="descricao" styleClass="col-md-12" />
 			</p:column>
 		</p:row> 
 	  </p:panelGrid><br/>

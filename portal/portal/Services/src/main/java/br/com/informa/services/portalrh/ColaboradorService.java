@@ -1,7 +1,6 @@
 package br.com.informa.services.portalrh;
 
 import java.util.List;
-import br.com.informa.libraries.common.CommonMethods;
 import br.com.informa.models.common.Usuario;
 import br.com.informa.models.dominio.ETipoUsuario;
 import br.com.informa.repositories.dao.FactoryDao;
@@ -12,12 +11,10 @@ public class ColaboradorService implements IColaboradorService {
 
 	@Override
 	public void Add(Usuario entity) throws CampoObrigatorioNullException {
-		if (validarInsertUpdate(entity)) {
+		if (validacao(entity)) {
 			try {
-				String senha = entity.getSenha();
-				// entity.setDataCadastro(Calendar.getInstance());
-				entity.setSenha(CommonMethods.getInstance().SHA256(senha, entity.getLogin()));
 				entity.setTipoUsuario(ETipoUsuario.C);
+				entity.getCargo().setId(36);
 				IColaboradorDao entityDao = FactoryDao.getFactory().getColaboradorDao();
 				entityDao.Add(entity);
 			} catch (Exception e) {
@@ -30,7 +27,7 @@ public class ColaboradorService implements IColaboradorService {
 	@Override
 	public void Update(Usuario entity) throws CampoObrigatorioNullException {
 
-		if (validarInsertUpdate(entity)) {
+		if (validacao(entity)) {
 			try {
 				IColaboradorDao entityDao = FactoryDao.getFactory().getColaboradorDao();
 				entityDao.Update(entity);
@@ -64,13 +61,10 @@ public class ColaboradorService implements IColaboradorService {
 		return entityDao.getListAll();
 	}
 
-	private Boolean validarInsertUpdate(Usuario entity) {
+	@Override
+	public Boolean validacao(Usuario entity) {
 		// Valida se foi passado o usuario
 		if ((entity.getLogin() == null) || (entity.getLogin().equals(""))) {
-			throw new CampoObrigatorioNullException("Usuario");
-		}
-
-		if ((entity.getSenha() == null) || (entity.getSenha().equals(""))) {
 			throw new CampoObrigatorioNullException("Usuario");
 		}
 

@@ -19,14 +19,17 @@
 		<ui:param name="entityBean" value="#{departamentoController}" /> 
 		<h:panelGroup layout="block" styleClass="box-header col-md-12"> 
 			<p:commandButton value="Novo" ajax="true" 
-				action="#{usuarioController.novo}" process="@this" 
+				action="#{entityBean.novo()}" process="@this" 
 				update=":formPrincipal:display" oncomplete="PF('dlg').show()" 
 				styleClass="btn btn-primary" />&#160; 
  
                   <!--</h:panelGroup> 
                   <h:panelGroup layout="block" styleClass="box-header col-md-2 col-md-offset-9" >--> 
 			<p:commandButton value="Pesquisar" 
-				action="#{usuarioController.getListAll}" ajax="false" update="@form" 
+				action="#{departamentoController.getListAll}" 
+				ajax="false"
+				process="@form" 
+				update=":formpesquisa" 
 				styleClass="btn btn-primary" >&#160; 
                      <!-- <f:ajax execute=":TableId" render=":TableId" /> --> 
 			</p:commandButton> 
@@ -62,7 +65,7 @@
 			<p:column style="width:20%; border: none">
 				<h:outputText value="Código: " />
 				<p:inputText id="id"
-					value="#{departamentoController.entity.id}" required="true"
+					value="#{entityBean.entity.id}"
 					label="Firstname" styleClass="col-md-12" immediate="true" disabled="true">
 					<f:validateLength minimum="1" maximum="30" />
 					<p:clientValidator />
@@ -71,13 +74,13 @@
 			<p:column style="width:80%; border: none">
 				<h:outputText value="Descricao: " />
 				<p:inputText id="descricao"
-					value="#{departamentoController.entity.descricao}"
-					required="true" label="descricao" styleClass="col-md-12" />
+					value="#{entityBean.entity.descricao}"
+					label="descricao" styleClass="col-md-12" />
 			</p:column>
 		</p:row>
 		<p:row style="border: none">
 		  <p:column style="border: none" colspan="2">
-				<p:selectBooleanCheckbox value="#{departamentoController.entity.ativo}" />
+				<p:selectBooleanCheckbox value="#{entityBean.entity.ativo}" />
 				<h:outputText value=" Ativo: " />		  
 		  </p:column>
 		</p:row>

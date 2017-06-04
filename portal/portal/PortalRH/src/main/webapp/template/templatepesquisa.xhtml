@@ -9,7 +9,7 @@
     <ui:define name="corpo">
     
     <style type="text/css">
-        .ui-growl {
+        .ui-messages {
             position:absolute;
             top:40%;
             left:40%;
@@ -105,9 +105,10 @@
         <!-- /.row -->
         </section>      
      </h:form>          
-	 <!-- /.content -->
-	 <p:messages id="message" showDetail="true" autoUpdate="true" closable="true"/>
-	 	    
+	 <!-- /.content 
+	 <p:growl id="msg" sticky="true" showDetail="true" escape="false" globalOnly="true"  />-->
+	 <p:messages id="message" showDetail="true" globalOnly="false" autoUpdate="true" closable="true"/>
+	 	 	    
         <p:dialog modal="true" widgetVar="dlg" 
                   id="dlg"
                   header="Editar"
@@ -117,18 +118,17 @@
                   height="#{entityBean.heightModal}" 
                   minimizable="true">     
           
-          <p:growl id="msg" sticky="true" autoUpdate="false" showDetail="true" escape="false" />        
           <h:form id="formPrincipal">            
-                
+                     
             <!-- Colunas no grid... será implementado quem usar o template -->		          	
 			<ui:insert name="teladecadastro" />             
 
           <p:commandButton value=" Salvar "
                            action="#{entityBean.salvar}"
-                           ajax="false" 
-                           update="msg, message"
-                           process="@this"                                                             
-                           styleClass="btn btn-primary" />&#160;
+                           process="@form"                                                           
+                           styleClass="btn btn-primary" >&#160;
+
+           </p:commandButton>
            <p:commandButton type="button" value="Cancelar" styleClass="btn btn-primary" onclick="PF('dlg').hide()" ajax="false" />
           </h:form>
         </p:dialog>	     

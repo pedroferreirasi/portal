@@ -92,7 +92,7 @@
 			<p:column style="width:50%; border: none">
 				<h:outputText value="Nome: " />
 				<p:inputText id="firstname"
-					value="#{usuarioController.entity.nomeUsuario}" required="true"
+					value="#{usuarioController.entity.nomeUsuario}" 
 					label="Firstname" styleClass="col-md-12" immediate="true">
 					<f:validateLength minimum="1" maximum="30" />
 					<p:clientValidator />
@@ -103,7 +103,7 @@
 				<h:outputText value="Sobrenome: " />
 				<p:inputText id="lasttname"
 					value="#{usuarioController.entity.sobreNome}"
-					required="true" label="lasttname" styleClass="col-md-12" />
+					label="lasttname" styleClass="col-md-12" />
 			</p:column>
 		</p:row>
 

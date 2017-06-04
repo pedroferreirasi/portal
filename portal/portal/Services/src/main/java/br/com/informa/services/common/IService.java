@@ -11,4 +11,5 @@ public interface IService<T, PK extends Serializable>
 	void deleteById(PK id);
 	T getById(PK pk);
 	List<T> getListAll();
+	Boolean validacao(T entity);
 }

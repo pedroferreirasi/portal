@@ -57,7 +57,7 @@
 			<p:column style="width:20%; border: none">
 				<h:outputText value="Código: " />
 				<p:inputText id="id"
-					value="#{tipoDocumentoInternoController.entity.id}" required="true"
+					value="#{tipoDocumentoInternoController.entity.id}" 
 					label="Codigo" styleClass="col-md-12" immediate="true" disabled="true">
 					<f:validateLength minimum="1" maximum="30" />
 					<p:clientValidator />
@@ -67,9 +67,10 @@
 				<h:outputText value="Descricao: " />
 				<p:inputText id="descricao"
 					value="#{tipoDocumentoInternoController.entity.descricao}"
-					required="true" label="descricao" styleClass="col-md-12" />
+					label="descricao" styleClass="col-md-12" />
 			</p:column>
 		</p:row> 
+	  </p:panelGrid>
 	  <ui:insert name="teladecadastro" /> 
 	</ui:define> 
  

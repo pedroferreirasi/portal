@@ -1,12 +1,9 @@
 package br.com.informa.models.common;
 
 import java.util.Date;
-import java.util.List;
-
 import javax.persistence.Table;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -24,8 +21,6 @@ import br.com.informa.models.portalrh.Cargo;
 import br.com.informa.models.portalrh.DadosPessoais;
 import br.com.informa.models.portalrh.DadosProfissionais;
 import br.com.informa.models.portalrh.Departamento;
-import br.com.informa.models.portalrh.Dependentes;
-
 import java.io.Serializable;
 
 @Entity
@@ -40,13 +35,15 @@ public class Usuario implements Serializable {
 		this.grupoUsuario = new GrupoUsuario();
 		this.cargo = new Cargo();
 		this.departamento = new Departamento();
+		this.dadosPessoais = new DadosPessoais();	
+		this.dadosProfissionais = new DadosProfissionais();			
 		this.ativo = true;
 		this.dataCadastro = new Date();
 	}
 	
 
 	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	@GeneratedValue(strategy=GenerationType.AUTO)
 	@Column(name="pk_usucad")
 	private int id;
 	
@@ -94,18 +91,18 @@ public class Usuario implements Serializable {
 	@JoinColumn(name="fk_depcad", unique = false, nullable=false)
 	private Departamento departamento;
 	
-	@OneToOne(cascade = CascadeType.REFRESH, fetch = FetchType.LAZY)
-	@JoinColumn(name="fk_carcad", unique = false, nullable=false)
+	@OneToOne(cascade = CascadeType.REFRESH, fetch = FetchType.EAGER)
+	@JoinColumn(name="fk_carcad", unique = false)
 	private Cargo cargo;
 	
-	@OneToOne(mappedBy="usuario", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.LAZY)
+	@OneToOne(mappedBy="usuario", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
 	private DadosPessoais dadosPessoais;	
 
-	@OneToOne(mappedBy="usuario", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.LAZY)
+	@OneToOne(mappedBy="usuario", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
 	private DadosProfissionais dadosProfissionais;
 
-	@OneToMany(mappedBy="usuario", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.LAZY)
-	private List<Dependentes> dependentes;	
+	//@OneToMany(mappedBy="usuario", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.LAZY)
+	//private List<Dependentes> dependentes;	
 	
 	public int getId() {
 		return id;
@@ -275,12 +272,12 @@ public class Usuario implements Serializable {
 		this.tipoUsuario = tipoUsuario;
 	}
 
-	public List<Dependentes> getDependentes() {
+	/*public List<Dependentes> getDependentes() {
 		return dependentes;
 	}
 
 	public void setDependentes(List<Dependentes> dependentes) {
 		this.dependentes = dependentes;
-	}
+	}*/
 	
 }

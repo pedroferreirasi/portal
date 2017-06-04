@@ -10,23 +10,24 @@ import br.com.informa.services.core.FactoryService;
 @ManagedBean(name = "colaboradorController")
 @ViewScoped
 public class ColaboradorController extends GenericController<Usuario> {
-	
+
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = -6576299296092551298L;
-	
-	public ColaboradorController() { 
+
+	public ColaboradorController() {
 		entityService = FactoryService.getFactory().getColaborador();
 		this.novo();
 		listaEntity = this.getListAll();
 		this.setWidthModal("900");
 		this.setHeightModal("500");
 	}
-	
-	public void novo()
-	{	
-		this.entity = new Usuario();
+
+	public void novo() {
+		if (this.entity == null) {
+			this.entity = new Usuario();
+		}
 		this.estado = EEstadoForm.Incluir;
-	}	
+	}
 }

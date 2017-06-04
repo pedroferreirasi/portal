@@ -26,6 +26,9 @@ import java.util.Date;
 @XmlAccessorType(XmlAccessType.FIELD) 
 public class Dependentes implements Serializable {	
  
+	public Dependentes() {
+		this.dataNascimento = new Date();
+	}
     /**
 	 * 
 	 */

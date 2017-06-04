@@ -6,6 +6,8 @@ import javax.persistence.TemporalType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
+import javax.persistence.PrimaryKeyJoinColumn;
+import javax.persistence.CascadeType;
 import javax.persistence.Column; 
 import javax.persistence.Entity; 
 import javax.persistence.EnumType; 
@@ -45,82 +47,83 @@ public class DadosPessoais implements Serializable {
     @Column(name="pk_pescad", nullable=false, length=10)
     private Integer id;
 
-	@OneToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "fk_usucad")
-    private Usuario usuario;
+	@OneToOne(cascade=CascadeType.ALL)
+    @JoinColumn(name = "fk_usucad", insertable=true, updatable=false)
+	@PrimaryKeyJoinColumn
+	private Usuario usuario;
 	
-    @Column(name="cep", nullable=false, length=10)
+    @Column(name="cep", length=10)
     private String CEP;
 
-    @Column(name="tipologradouro", nullable=false, length=45)
+    @Column(name="tipologradouro", length=45)
     @Enumerated(EnumType.STRING)
     private ETipoLogradouro tipoLogradouro;
 
-    @Column(name="endereco", nullable=false, length=100)
+    @Column(name="endereco", length=100)
     private String endereco;
 
-    @Column(name="numero", nullable=false, length=45)
+    @Column(name="numero", length=45)
     private String numero;
 
-    @Column(name="complemento", nullable=false, length=45)
+    @Column(name="complemento", length=45)
     private String complemento;
 
-    @Column(name="bairro", nullable=false, length=100)
+    @Column(name="bairro", length=100)
     private String bairro;
 
-    @Column(name="cidade", nullable=false, length=45)
+    @Column(name="cidade", length=45)
     private String cidade;
 
-    @Column(name="estado", nullable=false, length=2)
+    @Column(name="estado", length=2)
     @Enumerated(EnumType.STRING)
     private EEstadosBrasil estado;
 
-    @Column(name="nacionalidade", nullable=false, length=45)
+    @Column(name="nacionalidade", length=45)
     private String nacionalidade;
 
-    @Column(name="naturalidade", nullable=false, length=45)
+    @Column(name="naturalidade", length=45)
     private String naturalidade;
     
     @Temporal(TemporalType.DATE)
-    @Column(name="datanascimento", nullable=false, columnDefinition="DATE")
+    @Column(name="datanascimento", columnDefinition="DATE")
     private Date dataNascimento;
 
-    @Column(name="estadocivil", nullable=false, length=1)
+    @Column(name="estadocivil", length=1)
     @Enumerated(EnumType.STRING)
     private EEstadoCivil estadoCivil;
 
-    @Column(name="raca", nullable=false, length=45)
+    @Column(name="raca", length=45)
     private String raca;
 
-    @Column(name="nomemae", nullable=false, length=100)
+    @Column(name="nomemae", length=100)
     private String nomeMae;
 
-    @Column(name="nomepai", nullable=false, length=100)
+    @Column(name="nomepai", length=100)
     private String nomePai;
 
-    @Column(name="nuRG", nullable=false, length=10)
+    @Column(name="nuRG", length=10)
     private String RG;
 
-    @Column(name="dataemissaoRG", nullable=false, length=0)
+    @Column(name="dataemissaoRG", length=0)
     @Temporal(TemporalType.DATE)
     private Date dataEmissaoRG;
 
-    @Column(name="orgaoemissorRG", nullable=false, length=5)
+    @Column(name="orgaoemissorRG", length=5)
     private String orgaoEmissorRG;
 
-    @Column(name="estadoemissorRG", nullable=false, length=2)
+    @Column(name="estadoemissorRG", length=2)
     private String estadoEmissorRG;
 
-    @Column(name="nuCPF", nullable=false, length=15)
+    @Column(name="nuCPF", length=15)
     private String CPF;
 
-    @Column(name="emailpessoal", nullable=false, length=70)
+    @Column(name="emailpessoal", length=70)
     private String emailPessoal;
 
-    @Column(name="telefonepessoal", nullable=false, length=20)
+    @Column(name="telefonepessoal", length=20)
     private String telefonePessoal;
 
-    @Column(name="celularpessoal", nullable=false, length=20)
+    @Column(name="celularpessoal", length=20)
     private String celularPessoal;
 
 	public Integer getId() {
@@ -130,7 +133,7 @@ public class DadosPessoais implements Serializable {
 	public void setId(Integer id) {
 		this.id = id;
 	}
-
+	
 	public Usuario getUsuario() {
 		return usuario;
 	}

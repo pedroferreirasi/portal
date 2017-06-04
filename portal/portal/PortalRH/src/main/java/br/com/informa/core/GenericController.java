@@ -2,12 +2,9 @@ package br.com.informa.core;
 
 import java.io.Serializable;
 import java.util.List;
-
 import javax.faces.application.FacesMessage;
 import javax.faces.context.FacesContext;
-
 import org.primefaces.context.RequestContext;
-
 import br.com.informa.models.dominio.EEstadoForm;
 import br.com.informa.services.common.IService;
 
@@ -42,6 +39,7 @@ public abstract class GenericController<T> implements Serializable {
 
 	public void salvar() {
 		FacesContext context = FacesContext.getCurrentInstance();
+		RequestContext rcontext = RequestContext.getCurrentInstance();
 		try {
 			if (this.estado == EEstadoForm.Incluir) {
 				entityService.Add(entity);
@@ -50,11 +48,12 @@ public abstract class GenericController<T> implements Serializable {
 			}
 			this.estado = EEstadoForm.Nenhum;
 			this.listaEntity = this.getListAll();
+			rcontext.execute("PF('dlg').hide()");
 		} catch (Exception e) {
 			FacesMessage mensagem = new FacesMessage(FacesMessage.SEVERITY_ERROR, "Erro", e.getMessage());
 			context.addMessage(null, mensagem);
-			FacesContext.getCurrentInstance().addMessage(null, mensagem);
-			RequestContext.getCurrentInstance().update("msg");
+			//FacesContext.getCurrentInstance().addMessage(null, mensagem);
+			//RequestContext.getCurrentInstance().update("msg");
 		}
 	}
 

@@ -27,7 +27,7 @@ public class UsuarioService implements IUsuarioService {
 	@Override
 	public void Add(Usuario entity) {
 		try {
-			if (validarInsertUpdate(entity)) {
+			if (validacao(entity)) {
 				String senha = entity.getSenha();
 				entity.setDataCadastro(new Date());
 				entity.setSenha(CommonMethods.getInstance().SHA256(senha, entity.getLogin()));
@@ -43,7 +43,7 @@ public class UsuarioService implements IUsuarioService {
 	@Override
 	public void Update(Usuario entity) {
 		try {
-			if (validarInsertUpdate(entity)) {
+			if (validacao(entity)) {
 				String senha = entity.getSenha();
 				entity.setSenha(CommonMethods.getInstance().SHA256(senha, entity.getLogin()));
 				IUsuarioDao entityDao = FactoryDao.getFactory().getUsuarioDao();
@@ -76,28 +76,6 @@ public class UsuarioService implements IUsuarioService {
 	public List<Usuario> getListAll() {
 		IUsuarioDao entityDao = FactoryDao.getFactory().getUsuarioDao();
 		return entityDao.getListAll();
-	}
-
-	private Boolean validarInsertUpdate(Usuario entity) {
-		// Valida se foi passado o usuario
-		if (entity.getLogin() == null) {
-			throw new CampoObrigatorioNullException("Usuario");
-		}
-
-		if (entity.getSenha() == null) {
-			throw new CampoObrigatorioNullException("Usuario");
-		}
-
-		if (entity.getEmail() == null) {
-			throw new CampoObrigatorioNullException("E-Mail");
-		}
-
-		if (entity.getGrupoUsuario().getId() == 0) {
-			throw new CampoObrigatorioNullException("Grupo de Usuário");
-		}
-
-		// ativo, login, senha, email e grupo de usuário
-		return true;
 	}
 
 	@Override
@@ -180,6 +158,29 @@ public class UsuarioService implements IUsuarioService {
 			throw new ForaDoDominioException();
 		}
 
+	}
+
+	@Override
+	public Boolean validacao(Usuario entity) {
+		// Valida se foi passado o usuario
+		if (entity.getLogin() == null) {
+			throw new CampoObrigatorioNullException("Usuario");
+		}
+
+		if (entity.getSenha() == null) {
+			throw new CampoObrigatorioNullException("Usuario");
+		}
+
+		if (entity.getEmail() == null) {
+			throw new CampoObrigatorioNullException("E-Mail");
+		}
+
+		if (entity.getGrupoUsuario().getId() == 0) {
+			throw new CampoObrigatorioNullException("Grupo de Usuário");
+		}
+
+		// ativo, login, senha, email e grupo de usuário
+		return true;
 	}
 
 }

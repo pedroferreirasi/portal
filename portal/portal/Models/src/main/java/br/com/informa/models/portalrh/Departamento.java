@@ -23,13 +23,13 @@ public class Departamento implements Serializable {
 
 	@Id
     @GeneratedValue
-    @Column(name="pk_depcad", nullable=false, length=10)
+    @Column(name="pk_depcad")
     private Integer id;
 
-    @Column(name="descricao", nullable=false, length=70)
+    @Column(name="descricao", length=70)
     private String descricao;
 
-    @Column(name="ativo", nullable=false, length=5)
+    @Column(name="ativo")
     private boolean ativo;
 
 	public Integer getId() {

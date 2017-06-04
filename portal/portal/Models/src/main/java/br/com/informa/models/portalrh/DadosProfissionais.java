@@ -6,6 +6,8 @@ import javax.persistence.TemporalType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
+import javax.persistence.PrimaryKeyJoinColumn;
+import javax.persistence.CascadeType;
 import javax.persistence.Column; 
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -36,63 +38,63 @@ public class DadosProfissionais implements Serializable {
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
-    @Column(name="pk_procad", nullable=false, length=10)
+    @Column(name="pk_procad", length=10)
     private Integer id;
 
-	@OneToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "fk_usucad")
+	@OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "fk_usucad", insertable=true, updatable=false)
     private Usuario usuario;
 
-    @Column(name="nuCTPS", nullable=true, length=10)
+    @Column(name="nuCTPS", length=10)
     private String CTPS;
 
-    @Column(name="serieCTPS", nullable=true, length=10)
+    @Column(name="serieCTPS", length=10)
     private String serieCTPS;
 
-    @Column(name="ufCTPS", nullable=true, length=2)
+    @Column(name="ufCTPS", length=2)
     private String estadoCTPS;
 
-    @Column(name="nuPIS", nullable=true, length=15)
+    @Column(name="nuPIS", length=15)
     private String PIS;
 
-    @Column(name="emailprofissional", nullable=true, length=70)
+    @Column(name="emailprofissional", length=70)
     private String emailProfissional;
 
-    @Column(name="telefoneprofissional", nullable=true, length=20)
+    @Column(name="telefoneprofissional", length=20)
     private String telefoneProfissional;
 
-    @Column(name="ramal", nullable=true, length=10)
+    @Column(name="ramal", length=10)
     private String ramal;
 
-    @Column(name="celularprofissional", nullable=true, length=20)
+    @Column(name="celularprofissional", length=20)
     private String celularProfissional;
 
-    @Column(name="numatricula", nullable=true, length=30)
+    @Column(name="numatricula", length=30)
     private String matricula;
 
-    @Column(name="codigopontoeletronico", nullable=true, length=30)
+    @Column(name="codigopontoeletronico", length=30)
     private String codigoPontoEletronico;
 
-    @Column(name="flbateponto", nullable=true)
+    @Column(name="flbateponto")
     private Boolean flagBatePonto;
 
-    @Column(name="dataadminissao", nullable=true, length=0)
+    @Column(name="dataadminissao", length=0)
     @Temporal(TemporalType.DATE)
     private Date dataAdmissao;
 
-    @Column(name="cargahoraria", nullable=true, length=10)
+    @Column(name="cargahoraria", length=10)
     private Integer cargaHoraria;
     
-    @Column(name="banco", nullable=true, length=45)
+    @Column(name="banco", length=45)
     private String banco;
     
-    @Column(name="agencia", nullable=true, length=10)
+    @Column(name="agencia", length=10)
     private String agencia;
     
-    @Column(name="conta", nullable=true, length=10)
+    @Column(name="conta", length=10)
     private String conta;
     
-    @Column(name="salario", nullable=true)
+    @Column(name="salario")
     private Float salario;
 
 	public Integer getId() {
@@ -103,6 +105,7 @@ public class DadosProfissionais implements Serializable {
 		this.id = id;
 	}
 
+	@PrimaryKeyJoinColumn
 	public Usuario getUsuario() {
 		return usuario;
 	}
