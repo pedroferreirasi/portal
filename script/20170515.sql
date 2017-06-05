@@ -217,7 +217,7 @@ CREATE TABLE IF NOT EXISTS `db`.`tb_mural` (
     REFERENCES `db`.`tb_mural` (`pk_murcad`)
     ON DELETE NO ACTION
     ON UPDATE RESTRICT)
-ENGINE = InnoDB
+ENGINE = InnoDB;
 
 CREATE TABLE IF NOT EXISTS `db`.`tb_dependentes` (
   `pk_depcad` INT NOT NULL AUTO_INCREMENT,
@@ -233,7 +233,7 @@ CREATE TABLE IF NOT EXISTS `db`.`tb_dependentes` (
     REFERENCES `db`.`tb_usuario` (`pk_usucad`)
     ON DELETE CASCADE
     ON UPDATE CASCADE)
-ENGINE = InnoDB
+ENGINE = InnoDB;
 
 -- **********************************************************************************************
 -- CRIAR CONSTRAINT
@@ -265,5 +265,6 @@ DROP PROCEDURE IF EXISTS db.criarprocedure;
 
 INSERT INTO cargos(id, descricao) values(36, "Nenhum");
 commit;  
-INSERT INTO `tb_usuario` (`pk_usucad`,`ativo`,`celular`,`dataCadastro`,`email`,`login`,`nome`,`senha`,`sexo`,`sobrenome`,`fk_usgcad`, 'fk_carcad') VALUES (3,true,'(81) 98855-3931','2017-05-15','phferreira@informa.com.br','pedro','Pedro','03ba0cf12ee5b9a4d7da021dee54117f966d5a6944d277b6f55c151eb3f227f4','M','Ferreira',2,36);
+INSERT INTO tb_usuario (pk_usucad,ativo,celular,dataCadastro,email,login,nome,senha,sexo,sobrenome,fk_usgcad,fk_carcad) 
+     VALUES (3,true,'(81) 98855-3931','2017-05-15','phferreira@informa.com.br','pedro','Pedro','03ba0cf12ee5b9a4d7da021dee54117f966d5a6944d277b6f55c151eb3f227f4','M','Ferreira',2,36);
 commit;  
