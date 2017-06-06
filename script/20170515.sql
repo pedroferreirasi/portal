@@ -152,7 +152,6 @@ CREATE TABLE IF NOT EXISTS `db`.`tb_dados_profissionais` (
   `banco` VARCHAR(45) NULL DEFAULT NULL,
   `agencia` VARCHAR(10) NULL DEFAULT NULL,
   `conta` VARCHAR(10) NULL DEFAULT NULL,
-  `salario` FLOAT NULL DEFAULT 0,
   PRIMARY KEY (`pk_procad`),
   INDEX `fk_procad_usucad_idx` (`fk_usucad` ASC),
   CONSTRAINT `fk_procad_usucad`
