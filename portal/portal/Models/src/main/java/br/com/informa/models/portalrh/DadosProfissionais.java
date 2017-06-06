@@ -10,7 +10,6 @@ import javax.persistence.PrimaryKeyJoinColumn;
 import javax.persistence.CascadeType;
 import javax.persistence.Column; 
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.xml.bind.annotation.XmlAccessType; 
@@ -93,9 +92,6 @@ public class DadosProfissionais implements Serializable {
     
     @Column(name="conta", length=10)
     private String conta;
-    
-    @Column(name="salario")
-    private Float salario;
 
 	public Integer getId() {
 		return id;
@@ -240,14 +236,6 @@ public class DadosProfissionais implements Serializable {
 
 	public void setConta(String conta) {
 		this.conta = conta;
-	}
-
-	public Float getSalario() {
-		return salario;
-	}
-
-	public void setSalario(Float salario) {
-		this.salario = salario;
 	}
 
 }
