@@ -241,7 +241,7 @@ CREATE TABLE IF NOT EXISTS `db`.`tb_ferias` (
   `data_inicial` DATE NULL,
   `data_final` DATE NULL,
   `dias` INT NULL,
-  `status` VARCHAR(1) NULL,
+  `status` VARCHAR(15) NULL,
   `aprovacao_gerencia` SMALLINT NULL,
   PRIMARY KEY (`pk_fercad`),
   INDEX `fk_fercad_usucad_idx` (`fk_usucad` ASC),
