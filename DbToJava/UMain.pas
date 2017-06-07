@@ -70,7 +70,7 @@ const
                  'import javax.faces.bean.ViewScoped; '+#13+#10+
                  'import br.com.informa.core.GenericController; '+#13+#10+
                  'import br.com.informa.models.portalrh.{ALIAS_NORMAL}; '+#13+#10+
-                 'import br.com.informa.models.dominio.EstadoForm; '+#13+#10+
+                 'import br.com.informa.models.dominio.EEstadoForm; '+#13+#10+
                  'import br.com.informa.services.core.FactoryService; '+#13+#10+
                  ' '+#13+#10+
                  '@ManagedBean(name = "{ALIAS_NORMAL}Controller") '+#13+#10+
@@ -103,7 +103,7 @@ const
   C_REPOSITORY_INTERFACEDAO = 'package br.com.informa.repositories.dao.portalrh;'+#13+#10+
                               ''+#13+#10+
                               ''+#13+#10+
-                              'import br.com.informa.models.common.{ALIAS_NORMAL}; '+#13+#10+
+                              'import br.com.informa.models.portalrh.{ALIAS_NORMAL}; '+#13+#10+
                               'import br.com.informa.repositories.dao.IDao; '+#13+#10+
                               ' '+#13+#10+
                               'public interface I{ALIAS_NORMAL}Dao extends IDao<{ALIAS_NORMAL}, Integer> { '+#13+#10+
@@ -113,6 +113,7 @@ const
                         ''+#13+#10+
                         ''+#13+#10+
                         'import br.com.informa.models.common.{ALIAS_NORMAL}; '+#13+#10+
+                        'import br.com.informa.services.common.IService; '+#13+#10+
                         ' '+#13+#10+
                         'public interface I{ALIAS_NORMAL}Service extends IService<{ALIAS_NORMAL}, Integer> { '+#13+#10+
                         '} ';
@@ -121,9 +122,9 @@ const
                     ''+#13+#10+
                     ''+#13+#10+
                     'import java.util.List; '+#13+#10+
-                    'import br.com.informa.models.common.{ALIAS_NORMAL}; '+#13+#10+
+                    'import br.com.informa.models.portalrh.{ALIAS_NORMAL}; '+#13+#10+
                     'import br.com.informa.repositories.dao.FactoryDao; '+#13+#10+
-                    'import br.com.informa.repositories.dao.common.I{ALIAS_NORMAL}Dao; '+#13+#10+
+                    'import br.com.informa.repositories.dao.portalrh.I{ALIAS_NORMAL}Dao; '+#13+#10+
                     ' '+#13+#10+
                     'public class {ALIAS_NORMAL}Service implements I{ALIAS_NORMAL}Service { '+#13+#10+
                     ' '+#13+#10+
@@ -162,9 +163,15 @@ const
                     '		I{ALIAS_NORMAL}Dao entityDao = FactoryDao.getFactory().get{ALIAS_NORMAL}Dao(); '+#13+#10+
                     '		return entityDao.getListAll(); '+#13+#10+
                     '	} '+#13+#10+
+                    ' '+#13+#10+
+                    '	@Override'+#13+#10+
+                    '	public Boolean validacao({ALIAS_NORMAL} entity) {'+#13+#10+
+                    '		// TODO Auto-generated method stub '+#13+#10+
+                    '		return true; '+#13+#10+
+                    ' }'+#13+#10+
                     '} ';
 
-  C_MODEL = 'package br.com.informa.services.portalrh;'+#13+#10+
+  C_MODEL = 'package br.com.informa.models.portalrh;'+#13+#10+
             ''+#13+#10+
             ''+#13+#10+
             'import javax.persistence.Table; '+#13+#10+
