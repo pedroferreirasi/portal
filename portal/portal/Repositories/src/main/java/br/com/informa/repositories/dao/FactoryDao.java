@@ -13,11 +13,15 @@ import br.com.informa.repositories.dao.portalrh.ColaboradorDao;
 import br.com.informa.repositories.dao.portalrh.DepartamentoDao;
 import br.com.informa.repositories.dao.portalrh.DependentesDao;
 import br.com.informa.repositories.dao.portalrh.DocumentoInternoDao;
+import br.com.informa.repositories.dao.portalrh.EquipesDao;
+import br.com.informa.repositories.dao.portalrh.FeriasDao;
 import br.com.informa.repositories.dao.portalrh.ICargoDao;
 import br.com.informa.repositories.dao.portalrh.IColaboradorDao;
 import br.com.informa.repositories.dao.portalrh.IDepartamentoDao;
 import br.com.informa.repositories.dao.portalrh.IDependentesDao;
 import br.com.informa.repositories.dao.portalrh.IDocumentoInternoDao;
+import br.com.informa.repositories.dao.portalrh.IEquipesDao;
+import br.com.informa.repositories.dao.portalrh.IFeriasDao;
 import br.com.informa.repositories.dao.portalrh.ITipoDocumentoInternoDao;
 import br.com.informa.repositories.dao.portalrh.TipoDocumentoInternoDao;
 
@@ -69,4 +73,12 @@ public abstract class FactoryDao {
 	public IDependentesDao getDependentesDao() {
 		return new DependentesDao();
 	}	
+	
+	public IFeriasDao getFeriasDao() {
+		return new FeriasDao();
+	}	
+	
+	public IEquipesDao getEquipesDao() {
+		return new EquipesDao();
+	}		
 }
