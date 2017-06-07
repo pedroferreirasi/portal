@@ -29,14 +29,14 @@ const
                      '		<ui:param name="entityBean" value="#{{ALIAS_NORMAL}Controller}" /> '+#13+#10+
                      '		<h:panelGroup layout="block" styleClass="box-header col-md-12"> '+#13+#10+
                      '			<p:commandButton value="Novo" ajax="true" '+#13+#10+
-                     '				action="#{usuarioController.novo}" process="@this" '+#13+#10+
+                     '				action="#{entityBean.novo}" process="@this" '+#13+#10+
                      '				update=":formPrincipal:display" oncomplete="PF(''dlg'').show()" '+#13+#10+
                      '				styleClass="btn btn-primary" />&#160; '+#13+#10+
                      ' '+#13+#10+
                      '                  <!--</h:panelGroup> '+#13+#10+
                      '                  <h:panelGroup layout="block" styleClass="box-header col-md-2 col-md-offset-9" >--> '+#13+#10+
                      '			<p:commandButton value="Pesquisar" '+#13+#10+
-                     '				action="#{usuarioController.getListAll}" ajax="false" update="@form" '+#13+#10+
+                     '				action="#{entityBean.getListAll}" ajax="false" update="@form" '+#13+#10+
                      '				styleClass="btn btn-primary" >&#160; '+#13+#10+
                      '                     <!-- <f:ajax execute=":TableId" render=":TableId" /> --> '+#13+#10+
                      '			</p:commandButton> '+#13+#10+
@@ -63,10 +63,13 @@ const
                      '                            <p:columnToggler datasource="TableId" trigger="toggler" />--> '+#13+#10+
                      '		</f:facet> ';
 
-  C_CONTROLLER = 'import javax.faces.bean.ManagedBean; '+#13+#10+
+  C_CONTROLLER = 'package br.com.informa.portalrh;'+#13+#10+
+                 ''+#13+#10+
+                 ''+#13+#10+
+                 'import javax.faces.bean.ManagedBean; '+#13+#10+
                  'import javax.faces.bean.ViewScoped; '+#13+#10+
                  'import br.com.informa.core.GenericController; '+#13+#10+
-                 'import br.com.informa.models.common.{ALIAS_NORMAL}; '+#13+#10+
+                 'import br.com.informa.models.portalrh.{ALIAS_NORMAL}; '+#13+#10+
                  'import br.com.informa.models.dominio.EstadoForm; '+#13+#10+
                  'import br.com.informa.services.core.FactoryService; '+#13+#10+
                  ' '+#13+#10+
@@ -83,31 +86,41 @@ const
                  '	public void novo() '+#13+#10+
                  '	{ '+#13+#10+
                  '		this.entity = new {ALIAS_NORMAL}(); '+#13+#10+
-                 '		this.estado = EstadoForm.Incluir; '+#13+#10+
+                 '		this.estado = EEstadoForm.Incluir; '+#13+#10+
                  '	} '+#13+#10+
                  '} ';
 
-  C_REPOSITORY_CLASSDAO = 'import br.com.informa.repositories.dao.hibernate.HibernateDao; '+#13+#10+
-                          'import br.com.informa.repositories.dao.hibernate.HibernateSessionFactory; '+#13+#10+
-                          'import br.com.informa.models.common.{ALIAS_NORMAL}; ' +#13+#10+
+  C_REPOSITORY_CLASSDAO = 'package br.com.informa.repositories.dao.portalrh;'+#13+#10+
+                          ''+#13+#10+
+                          ''+#13+#10+
+                          'import br.com.informa.repositories.dao.hibernate.HibernateDao; '+#13+#10+
+                          'import br.com.informa.models.portalrh.{ALIAS_NORMAL}; ' +#13+#10+
                           ' '+#13+#10+
                           'public class {ALIAS_NORMAL}Dao extends HibernateDao<{ALIAS_NORMAL}, Integer>  implements I{ALIAS_NORMAL}Dao { '+#13+#10+
                           ' '+#13+#10+
-                          '	} '+#13+#10+
                           '} ';
 
-  C_REPOSITORY_INTERFACEDAO = 'import br.com.informa.models.common.{ALIAS_NORMAL}; '+#13+#10+
+  C_REPOSITORY_INTERFACEDAO = 'package br.com.informa.repositories.dao.portalrh;'+#13+#10+
+                              ''+#13+#10+
+                              ''+#13+#10+
+                              'import br.com.informa.models.common.{ALIAS_NORMAL}; '+#13+#10+
                               'import br.com.informa.repositories.dao.IDao; '+#13+#10+
                               ' '+#13+#10+
                               'public interface I{ALIAS_NORMAL}Dao extends IDao<{ALIAS_NORMAL}, Integer> { '+#13+#10+
                               '} ';
 
-  C_SERVICE_INTERFACE = 'import br.com.informa.models.common.{ALIAS_NORMAL}; '+#13+#10+
+  C_SERVICE_INTERFACE = 'package br.com.informa.services.portalrh;'+#13+#10+
+                        ''+#13+#10+
+                        ''+#13+#10+
+                        'import br.com.informa.models.common.{ALIAS_NORMAL}; '+#13+#10+
                         ' '+#13+#10+
                         'public interface I{ALIAS_NORMAL}Service extends IService<{ALIAS_NORMAL}, Integer> { '+#13+#10+
                         '} ';
 
-  C_SERVICE_CLASS = 'import java.util.List; '+#13+#10+
+  C_SERVICE_CLASS = 'package br.com.informa.services.portalrh;'+#13+#10+
+                    ''+#13+#10+
+                    ''+#13+#10+
+                    'import java.util.List; '+#13+#10+
                     'import br.com.informa.models.common.{ALIAS_NORMAL}; '+#13+#10+
                     'import br.com.informa.repositories.dao.FactoryDao; '+#13+#10+
                     'import br.com.informa.repositories.dao.common.I{ALIAS_NORMAL}Dao; '+#13+#10+
@@ -151,7 +164,10 @@ const
                     '	} '+#13+#10+
                     '} ';
 
-  C_MODEL = 'import javax.persistence.Table; '+#13+#10+
+  C_MODEL = 'package br.com.informa.services.portalrh;'+#13+#10+
+            ''+#13+#10+
+            ''+#13+#10+
+            'import javax.persistence.Table; '+#13+#10+
             'import javax.persistence.Id; '+#13+#10+
             'import javax.persistence.Column; '+#13+#10+
             'import javax.persistence.Entity; '+#13+#10+
@@ -247,6 +263,7 @@ begin
   begin
     FDataModule.Conn.Params.Values['HostName'] := Trim(Edt_Host.Text);
   end;
+  FDataModule.Conn.Close;
   FDataModule.Conn.Open;
 end;
 
@@ -472,7 +489,7 @@ end;
 
 procedure TFrPrincipal.FormCreate(Sender: TObject);
 begin
-  FCaminho := 'C:\_Projetos\DbToJava\destino\';
+  FCaminho := 'D:\Projetos\portalrh\DbToJava\destino\';
   FDataModule := TDTModule.Create(self);
 end;
 

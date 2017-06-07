@@ -83,6 +83,7 @@ object FrPrincipal: TFrPrincipal
       Width = 289
       Height = 21
       TabOrder = 0
+      Text = 'pedroferreirasi.servehttp.com'
     end
     object Edt_Tabela: TEdit
       Left = 316
