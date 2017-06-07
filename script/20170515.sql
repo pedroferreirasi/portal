@@ -234,6 +234,24 @@ CREATE TABLE IF NOT EXISTS `db`.`tb_dependentes` (
     ON UPDATE CASCADE)
 ENGINE = InnoDB;
 
+CREATE TABLE IF NOT EXISTS `db`.`tb_ferias` (
+  `pk_fercad` INT NOT NULL AUTO_INCREMENT,
+  `fk_usucad` INT NULL,
+  `data_lancamento` DATE NULL,
+  `data_inicial` DATE NULL,
+  `data_final` DATE NULL,
+  `dias` INT NULL,
+  `status` VARCHAR(1) NULL,
+  `aprovacao_gerencia` SMALLINT NULL,
+  PRIMARY KEY (`pk_fercad`),
+  INDEX `fk_fercad_usucad_idx` (`fk_usucad` ASC),
+  CONSTRAINT `fk_fercad_usucad`
+    FOREIGN KEY (`fk_usucad`)
+    REFERENCES `db`.`tb_usuario` (`pk_usucad`)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE)
+ENGINE = InnoDB;
+
 -- **********************************************************************************************
 -- CRIAR CONSTRAINT
 -- **********************************************************************************************
