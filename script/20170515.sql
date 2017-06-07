@@ -236,7 +236,7 @@ ENGINE = InnoDB;
 
 CREATE TABLE IF NOT EXISTS `db`.`tb_ferias` (
   `pk_fercad` INT NOT NULL AUTO_INCREMENT,
-  `fk_usucad` INT NULL,
+  `fk_usucad` INT NOT NULL,
   `data_lancamento` DATE NULL,
   `data_inicial` DATE NULL,
   `data_final` DATE NULL,
