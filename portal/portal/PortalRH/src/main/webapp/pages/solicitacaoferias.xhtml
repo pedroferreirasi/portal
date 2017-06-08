@@ -16,16 +16,65 @@
     </ui:define> 
  
 	<ui:define name="titulocorpo"> 
-		<ui:param name="entityBean" value="#{cargoController}" /> 
-		<h:panelGroup layout="block" styleClass="box-header col-md-12"> 
-          Solicitação de Férias
-		</h:panelGroup> 
+		<ui:param name="entityBean" value="#{autenticacaoController}" /> 
+
 	</ui:define>  
 
 	<ui:define name="contexto"> 
 		<ui:param name="entityBean" value="#{cargoController}" /> 
 		<h:panelGroup layout="block" styleClass="box-header col-md-12"> 
-          contexto
+
+
+		  <p:panelGrid id="dgcadgeral" style="width: 60%; border: none; cellspacing: 10px;" >
+			
+			<p:row style="border: none">
+				<p:column colspan="2" style="border: none; width: 50%">
+					<h:outputText value="Nome Completo: " />
+					<p:inputText id="nomecompleto"
+						value="#{autenticacaoController.entity.nomeCompleto}"
+						styleClass="col-md-12" readonly="true" />
+				</p:column>
+
+				<p:column colspan="2" style="border: none; width: 50%">
+					<h:outputText value="E-Mail: " />
+					<p:inputText id="email" value="#{autenticacaoController.entity.email}"
+						styleClass="col-md-12" readonly="true" />
+				</p:column>
+			</p:row>
+			
+			<p:row style="border: none">
+				<p:column style="border: none">
+					<h:outputText value="Data Inicio: " />
+					<p:calendar id="popup" value="#{feriasController.entity.dataInicial}"
+						inputStyleClass="col-md-12" disabledWeekends="true" />
+				</p:column>
+
+				<p:column style="border: none" >
+					<h:outputText value="Data Final: " styleClass="col-md-12" />
+					<p:calendar id="datafinal" value="#{feriasController.entity.dataFinal}"
+						inputStyleClass="col-md-12"  />
+				</p:column>
+
+				<p:column style="border: none" >
+					<h:outputText value="Dias: " styleClass="col-md-12" />
+					<p:inputText id="Dias" value="#{feriasController.entity.dias}"
+						inputStyleClass="col-md-12" />
+				</p:column>
+				
+				<p:column style="border: none" >
+				
+				</p:column>								
+			</p:row>			
+														
+		  </p:panelGrid><br/>
+
+          <p:commandButton value=" Salvar "
+                           action="#{entityBean.salvar}"
+                           process="@form"                                                           
+                           styleClass="btn btn-primary" >&#160;
+
+           </p:commandButton>
+
 		</h:panelGroup> 
 	</ui:define>  
  

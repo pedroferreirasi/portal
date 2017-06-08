@@ -7,7 +7,7 @@ import br.com.informa.models.portalrh.Ferias;
 import br.com.informa.models.dominio.EEstadoForm;
 import br.com.informa.services.core.FactoryService; 
  
-@ManagedBean(name = "FeriasController") 
+@ManagedBean(name = "feriasController") 
 @ViewScoped 
 public class FeriasController extends GenericController<Ferias> { 
  
@@ -27,4 +27,9 @@ public class FeriasController extends GenericController<Ferias> {
 		this.entity = new Ferias(); 
 		this.estado = EEstadoForm.Incluir; 
 	} 
+	
+	public void calculaDias()
+	{
+		this.entity.setDias(this.entity.getDataFinal().getTime() - this.entity.getDataInicial().getTime());
+	}
 } 

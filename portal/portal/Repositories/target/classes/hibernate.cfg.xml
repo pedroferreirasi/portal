@@ -6,9 +6,9 @@
 	<session-factory>
 	    <!-- MY SQL --> 
 		<property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property> 
-		<property name="hibernate.connection.url">jdbc:mysql://192.168.0.231:3306/db</property> 
+		<property name="hibernate.connection.url">jdbc:mysql://192.168.25.7:3306/db</property> 
 		<property name="hibernate.connection.username">root</property> 
-		<property name="hibernate.connection.password">informa123</property> 
+		<property name="hibernate.connection.password">ana13bia</property> 
 		<property name="hibernate.connection.pool_size">10</property> 
 		<property name="show_sql">true</property> 
 		<property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property> 
@@ -25,6 +25,7 @@
 		<mapping class="br.com.informa.models.portalrh.DadosPessoais" />
 		<mapping class="br.com.informa.models.portalrh.DadosProfissionais" />
 		<mapping class="br.com.informa.models.portalrh.Dependentes" />
-		<mapping class="br.com.informa.models.portalrh.Ferias" />  
+		<mapping class="br.com.informa.models.portalrh.Ferias" />
+		<mapping class="br.com.informa.models.portalrh.Equipes" />  
 	</session-factory>
 </hibernate-configuration>

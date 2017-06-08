@@ -56,7 +56,7 @@ public class Ferias implements Serializable {
     private Date dataFinal;
 
     @Column(name="dias", nullable=true, length=10)
-    private Integer dias;
+    private long dias;
 
     @Enumerated(EnumType.STRING)
     @Column(name="status", nullable=true, length=1)
@@ -102,14 +102,14 @@ public class Ferias implements Serializable {
 	}
 
 	public void setDataFinal(Date dataFinal) {
-		this.dataFinal = dataFinal;
+		this.dataFinal = dataFinal;		
 	}
 
-	public Integer getDias() {
+	public long getDias() {
 		return dias;
 	}
 
-	public void setDias(Integer dias) {
+	public void setDias(long dias) {
 		this.dias = dias;
 	}
 
