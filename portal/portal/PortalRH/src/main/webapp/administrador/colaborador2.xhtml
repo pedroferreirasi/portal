@@ -181,7 +181,7 @@
 			</p:row>
 														
 		  </p:panelGrid><br/>
-        </p:tab>      
+        </p:tab>
         
         <!-- DADOS PESSOAIS -->
         
@@ -513,7 +513,117 @@
 			</p:row>																				
 													
 		  </p:panelGrid><br/>
-        </p:tab>                
+        </p:tab>
+        
+        <p:tab title="Dependentes"> 
+          <p:panelGrid id="dgcaddependentes" style="width: 100%; border: none; cellspacing: 10px;" >
+          
+			<p:row style="border: none">
+				<p:column style="width:25%; border: none">
+					<h:outputText value="Dependente: " />
+					<p:inputText id="nomedependente"
+						value=""
+						label="nomedependente" styleClass="col-md-12" immediate="true" maxlength="20">						
+					</p:inputText>						
+				</p:column>			
+				<p:column style="width:25%; border: none">
+					<h:outputText value="Parentesco: " />
+					<p:inputText id="parentesco"
+						value=""
+						label="Parentesco" styleClass="col-md-12" immediate="true" maxlength="20">						
+					</p:inputText>
+				</p:column>
+				<p:column style="width:25%; border: none">
+					<h:outputText value="Data de Nascimento: " />
+					<p:inputText id="datanascdependente"
+						value=""
+						label="datanascdependente" styleClass="col-md-12" immediate="true" maxlength="20">
+					</p:inputText>				
+				</p:column>
+				<p:column style="width:25%; border: none">
+					<h:outputText value="CPF: " />
+					<p:inputText id="cpfdependente"
+						value=""
+						label="cpfdependente" styleClass="col-md-12" immediate="true" maxlength="20">
+					</p:inputText>										
+				</p:column>														
+			</p:row>        
+			
+			<p:row style="border: none">
+				<p:column colspan="4" style="width:25%; border: none">
+                    <!-- /.GRID -->
+                    <p:dataTable id="TableDependente"
+                                 value="#{dependentesController.listaEntity}" 
+                                 var="dependente" 
+                                 paginator="true" 
+                                 paginatorPosition="bottom"
+                                 rows="3" 
+                                 sortMode="single"
+                                 scrollable="true"
+                                 draggableColumns="#{autenticacaoController.mudarColunaDeLugarNoGrid}"
+                                 lazy="false"                                 
+                                 paginatorTemplate="{CurrentPageReport}
+                                                    {FirstPageLink}
+                                                    {PreviousPageLink} {PageLinks}
+                                                    {NextPageLink} {LastPageLink}
+                                                    {RowsPerPageDropdown}"
+                                 rowsPerPageTemplate="#{autenticacaoController.paginacao}" 
+                                 style="width: 100%" >     
+                                                            
+		              <f:facet name="header">
+                        Dependentes 
+		              </f:facet>                     
+		          	
+		              <p:column width="50%" sortBy="#{dependente.nome}" style="text-align: left"
+			                    headerText="Nome" >
+			            <h:outputText value="#{dependente.nome}" />
+		              </p:column>		          	
+
+		              <p:column width="20%" sortBy="#{dependente.parentesco}" style="text-align: left"
+			                    headerText="Parentesco" >
+			            <h:outputText value="#{dependente.parentesco}" />
+		              </p:column>
+		              
+		              <p:column width="10%" sortBy="#{dependente.dataNascimento}" style="text-align: left"
+			                    headerText="Nascimento" >
+			            <h:outputText value="#{dependente.dataNascimento}" />
+		              </p:column>
+		              
+		              <p:column width="10%" sortBy="#{dependente.documento}" style="text-align: left"
+			                    headerText="Documento" >
+			            <h:outputText value="#{dependente.documento}" />
+		              </p:column>		              		              		          	
+
+                      <p:column headerText="Ações" style="text-align: center;" width="10%" >  
+                                                
+                        <p:commandButton id="excluir" 
+                                         icon="fa fa-fw fa-trash"
+                                         title="Excluir" 
+                                         process="@this" ajax="true"
+                                         action="#{entityBean.delete(dependente)}"
+                                         oncomplete="PF('msgconfirmacao').show()" >
+                          <p:confirm header="Confirmation" message="Are you sure?" icon="ui-icon-alert" />
+                        </p:commandButton>       
+                        
+                        <p:confirmDialog global="true" showEffect="fade" hideEffect="fade">
+                          <p:commandButton value="Yes" type="button" styleClass="ui-confirmdialog-yes" icon="ui-icon-check"  />
+                          <p:commandButton value="No" type="button" styleClass="ui-confirmdialog-no" icon="ui-icon-close" />
+                        </p:confirmDialog>                        
+                                          
+                      </p:column>                                   
+                    </p:dataTable>				      					
+				</p:column>																
+			</p:row>   			  
+          
+          </p:panelGrid>
+        </p:tab>
+        
+        <p:tab title="Formação"> 
+          <p:panelGrid id="dgcadformacao" style="width: 100%; border: none; cellspacing: 10px;" >
+          
+          
+          </p:panelGrid>
+        </p:tab>        
         
       </p:tabView>
 	</ui:define>
