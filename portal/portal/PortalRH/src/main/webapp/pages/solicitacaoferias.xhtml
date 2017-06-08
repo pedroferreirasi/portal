@@ -1,5 +1,5 @@
 <!DOCTYPE html> 
-<ui:composition template="/template/templatebranco.xhtml" 
+<ui:composition template="/template/templatepesquisa.xhtml" 
 	xmlns="http://www.w3.org/1999/xhtml" 
 	xmlns:f="http://xmlns.jcp.org/jsf/core" 
 	xmlns:h="http://xmlns.jcp.org/jsf/html" 
@@ -7,42 +7,91 @@
 	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"> 
  
     <ui:define name="titulo"> 
-      <h1>Solicitação de Férias</h1> 
+      <h1>Pesquisa de Ferias</h1> 
       <ol class="breadcrumb"> 
         <li><a href="mainmenu.xhtml"><i class="fa fa-dashboard"></i> Home</a></li> 
-        <li><a href="#">Colaborador</a></li> 
-        <li class="active">Solicitação de Férias</li> 
+        <li><a href="#">Cadastros</a></li> 
+        <li class="active">Ferias</li> 
       </ol> 
     </ui:define> 
  
-	<ui:define name="titulocorpo"> 
-		<ui:param name="entityBean" value="#{autenticacaoController}" /> 
-
-	</ui:define>  
-
-	<ui:define name="contexto"> 
-		<ui:param name="entityBean" value="#{cargoController}" /> 
+	<ui:define name="titulobotao"> 
+		<ui:param name="entityBean" value="#{FeriasController}" /> 
 		<h:panelGroup layout="block" styleClass="box-header col-md-12"> 
-
-
-		  <p:panelGrid id="dgcadgeral" style="width: 60%; border: none; cellspacing: 10px;" >
-			
-			<p:row style="border: none">
-				<p:column colspan="2" style="border: none; width: 50%">
-					<h:outputText value="Nome Completo: " />
-					<p:inputText id="nomecompleto"
-						value="#{autenticacaoController.entity.nomeCompleto}"
-						styleClass="col-md-12" readonly="true" />
-				</p:column>
-
-				<p:column colspan="2" style="border: none; width: 50%">
-					<h:outputText value="E-Mail: " />
-					<p:inputText id="email" value="#{autenticacaoController.entity.email}"
-						styleClass="col-md-12" readonly="true" />
-				</p:column>
-			</p:row>
-			
-			<p:row style="border: none">
+			<p:commandButton value="Novo" ajax="true" 
+				action="#{entityBean.novo}" process="@this" 
+				update=":formPrincipal:display" oncomplete="PF('dlg').show()" 
+				styleClass="btn btn-primary" />&#160; 
+ 
+                  <!--</h:panelGroup> 
+                  <h:panelGroup layout="block" styleClass="box-header col-md-2 col-md-offset-9" >--> 
+			<p:commandButton value="Pesquisar" 
+				action="#{entityBean.getListAll}" ajax="false" update="@form" 
+				styleClass="btn btn-primary" >&#160; 
+                     <!-- <f:ajax execute=":TableId" render=":TableId" /> --> 
+			</p:commandButton> 
+		</h:panelGroup> 
+	</ui:define> 
+ 
+	<ui:define name="colunasdogrid"> 
+		<f:facet name="header"> 
+                            Lista de Solicitação 
+                            <!-- <p:commandButton id="toggler" type="button" value="Columns" style="float:right" icon="ui-icon-calculator" /> 
+                            <p:columnToggler datasource="TableId" trigger="toggler" />--> 
+		</f:facet> 
+ 
+		<p:column width="9%" sortBy="#{usuario.id}" style="text-align: center" 
+			headerText="C�digo" filterable="#{entityBean.habilitarPesquisa}" 
+			filterBy="#{entity.id}"> 
+			<h:outputText value="#{entity.id}" /> 
+		</p:column> 
+	</ui:define> 
+	<ui:define name="colunasdogrid"> 
+		<f:facet name="header"> 
+                            Lista de Ferias 
+                            <!-- <p:commandButton id="toggler" type="button" value="Columns" style="float:right" icon="ui-icon-calculator" /> 
+                            <p:columnToggler datasource="TableId" trigger="toggler" />--> 
+		</f:facet> 
+		<p:column width="9%" sortBy="#{entity.id}" style="text-align: center" 
+			headerText="Código" filterable="#{entityBean.habilitarPesquisa}" 
+			filterBy="#{entity.id}"> 
+			<h:outputText value="#{entity.id}" /> 
+		</p:column> 
+		<p:column width="29%" sortBy="#{entity.usuario}" style="text-align: center" 
+			headerText="Colaborador" filterable="#{entityBean.habilitarPesquisa}" 
+			filterBy="#{entity.usuario}"> 
+			<h:outputText value="#{entity.usuario}" /> 
+		</p:column> 
+		<p:column width="9%" sortBy="#{entity.dataLancamento}" style="text-align: center" 
+			headerText="Data" filterable="#{entityBean.habilitarPesquisa}" 
+			filterBy="#{entity.dataLancamento}"> 
+			<h:outputText value="#{entity.dataLancamento}" /> 
+		</p:column> 
+		<p:column width="9%" sortBy="#{entity.dataInicial}" style="text-align: center" 
+			headerText="Período Ini." filterable="#{entityBean.habilitarPesquisa}" 
+			filterBy="#{entity.dataInicial}"> 
+			<h:outputText value="#{entity.dataInicial}" /> 
+		</p:column> 
+		<p:column width="9%" sortBy="#{entity.dataFinal}" style="text-align: center" 
+			headerText="Período Final" filterable="#{entityBean.habilitarPesquisa}" 
+			filterBy="#{entity.dataFinal}"> 
+			<h:outputText value="#{entity.dataFinal}" /> 
+		</p:column> 
+		<p:column width="9%" sortBy="#{entity.dias}" style="text-align: center" 
+			headerText="Dias" filterable="#{entityBean.habilitarPesquisa}" 
+			filterBy="#{entity.dias}"> 
+			<h:outputText value="#{entity.dias}" /> 
+		</p:column> 
+		<p:column width="17%" sortBy="#{entity.status}" style="text-align: center" 
+			headerText="Status" filterable="#{entityBean.habilitarPesquisa}" 
+			filterBy="#{entity.status}"> 
+			<h:outputText value="#{entity.status}" /> 
+		</p:column>  
+ 	</ui:define> 
+ 
+	<ui:define name="teladecadastro"> 
+      <p:panelGrid id="display" style="width: 100%; border: none; cellspacing: 10px;" > 	
+		<p:row style="border: none">
 				<p:column style="border: none">
 					<h:outputText value="Data Inicio: " />
 					<p:calendar id="popup" value="#{feriasController.entity.dataInicial}"
@@ -63,19 +112,9 @@
 				
 				<p:column style="border: none" >
 				
-				</p:column>								
-			</p:row>			
-														
-		  </p:panelGrid><br/>
-
-          <p:commandButton value=" Salvar "
-                           action="#{entityBean.salvar}"
-                           process="@form"                                                           
-                           styleClass="btn btn-primary" >&#160;
-
-           </p:commandButton>
-
-		</h:panelGroup> 
-	</ui:define>  
+				</p:column>	
+		</p:row> 
+	  </p:panelGrid><br/>			
+	</ui:define> 
  
 </ui:composition> 
