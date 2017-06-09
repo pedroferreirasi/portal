@@ -26,31 +26,43 @@ public class UsuarioService implements IUsuarioService {
 
 	@Override
 	public void Add(Usuario entity) {
-		try {
-			if (validacao(entity)) {
-				String senha = entity.getSenha();
-				entity.setDataCadastro(new Date());
+		if (validacao(entity)) {
+			String senha = entity.getSenha();
+			entity.setDataCadastro(new Date());
+			
+			try {
 				entity.setSenha(CommonMethods.getInstance().SHA256(senha, entity.getLogin()));
-				entity.setTipoUsuario(ETipoUsuario.U);
-				IUsuarioDao entityDao = FactoryDao.getFactory().getUsuarioDao();
-				entityDao.Add(entity);
+			} catch (NoSuchAlgorithmException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} catch (UnsupportedEncodingException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
 			}
-		} catch (Exception e) {
-
+			
+			entity.setTipoUsuario(ETipoUsuario.U);
+			IUsuarioDao entityDao = FactoryDao.getFactory().getUsuarioDao();
+			entityDao.Add(entity);
 		}
 	}
 
 	@Override
 	public void Update(Usuario entity) {
-		try {
-			if (validacao(entity)) {
-				String senha = entity.getSenha();
+		if (validacao(entity)) {
+			String senha = entity.getSenha();
+			
+			try {
 				entity.setSenha(CommonMethods.getInstance().SHA256(senha, entity.getLogin()));
-				IUsuarioDao entityDao = FactoryDao.getFactory().getUsuarioDao();
-				entityDao.Update(entity);
+			} catch (NoSuchAlgorithmException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} catch (UnsupportedEncodingException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
 			}
-		} catch (Exception e) {
-
+			
+			IUsuarioDao entityDao = FactoryDao.getFactory().getUsuarioDao();
+			entityDao.Update(entity);
 		}
 	}
 
@@ -90,8 +102,17 @@ public class UsuarioService implements IUsuarioService {
 			throw new CampoObrigatorioNullException("Usuario");
 		}
 
-		if (entity.getSenha() == null) {
+		// Valida se foi passado o usuario
+		if (entity.getLogin().equals("")) {
 			throw new CampoObrigatorioNullException("Usuario");
+		}
+
+		if (entity.getSenha() == null) {
+			throw new CampoObrigatorioNullException("Senha");
+		}
+
+		if (entity.getSenha().equals("")) {
+			throw new CampoObrigatorioNullException("Senha");
 		}
 
 		try {
@@ -128,6 +149,8 @@ public class UsuarioService implements IUsuarioService {
 				}
 			} else {
 				entityBanco.clone(entity);
+				entityBanco.setSenha(entity.getSenha());
+				this.Update(entityBanco);
 				return true;
 			}
 		} catch (NoSuchAlgorithmException | UnsupportedEncodingException e) {
@@ -163,16 +186,44 @@ public class UsuarioService implements IUsuarioService {
 	@Override
 	public Boolean validacao(Usuario entity) {
 		// Valida se foi passado o usuario
+		// Valida se foi passado o usuario
+		if (entity.getNomeUsuario() == null) {
+			throw new CampoObrigatorioNullException("Nome");
+		}
+
+		// Valida se foi passado o usuario
+		if (entity.getNomeUsuario().equals("")) {
+			throw new CampoObrigatorioNullException("Nome");
+		}
+
+		// Valida se foi passado o usuario
+		if (entity.getSobreNome() == null) {
+			throw new CampoObrigatorioNullException("Sobrenome");
+		}
+
+		// Valida se foi passado o usuario
+		if (entity.getSobreNome().equals("")) {
+			throw new CampoObrigatorioNullException("Sobrenome");
+		}
+
+		// Valida se foi passado o usuario
 		if (entity.getLogin() == null) {
 			throw new CampoObrigatorioNullException("Usuario");
 		}
 
-		if (entity.getSenha() == null) {
+		// Valida se foi passado o usuario
+		if (entity.getLogin().equals("")) {
 			throw new CampoObrigatorioNullException("Usuario");
 		}
 
-		if (entity.getEmail() == null) {
-			throw new CampoObrigatorioNullException("E-Mail");
+		// Valida se foi passado o senha
+		if (entity.getSenha() == null) {
+			throw new CampoObrigatorioNullException("Senha");
+		}
+
+		// Valida se foi passado o senha
+		if (entity.getSenha().equals("")) {
+			throw new CampoObrigatorioNullException("Senha");
 		}
 
 		if (entity.getGrupoUsuario().getId() == 0) {

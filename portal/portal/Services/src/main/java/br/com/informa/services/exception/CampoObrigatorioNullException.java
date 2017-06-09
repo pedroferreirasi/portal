@@ -14,7 +14,7 @@ public class CampoObrigatorioNullException extends RuntimeException {
 	
 	public CampoObrigatorioNullException(String fieldName)
 	{
-		super("Campo: " + fieldName + " obrigatório!");
+		super("Campo: '" + fieldName + "' é obrigatório!");
 	}
 
 }

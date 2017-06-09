@@ -32,13 +32,14 @@ public class Usuario implements Serializable {
 	private static final long serialVersionUID = -5211602883770541991L;
 	
 	public Usuario() {
-		this.grupoUsuario = new GrupoUsuario();
-		this.cargo = new Cargo();
-		this.departamento = new Departamento();
-		this.dadosPessoais = new DadosPessoais();	
-		this.dadosProfissionais = new DadosProfissionais();			
+		this.grupoUsuario = new GrupoUsuario();		
 		this.ativo = true;
 		this.dataCadastro = new Date();
+		
+		//this.cargo = new Cargo();
+		//this.departamento = new Departamento();
+		//this.dadosPessoais = new DadosPessoais();	
+		//this.dadosProfissionais = new DadosProfissionais();			
 	}
 	
 
@@ -88,7 +89,7 @@ public class Usuario implements Serializable {
 	private ETipoUsuario tipoUsuario;	
 
 	@OneToOne(cascade = CascadeType.REFRESH, fetch = FetchType.LAZY)
-	@JoinColumn(name="fk_depcad", unique = false, nullable=false)
+	@JoinColumn(name="fk_depcad", unique = false)
 	private Departamento departamento;
 	
 	@OneToOne(cascade = CascadeType.REFRESH, fetch = FetchType.EAGER)
@@ -100,9 +101,33 @@ public class Usuario implements Serializable {
 
 	@OneToOne(mappedBy="usuario", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
 	private DadosProfissionais dadosProfissionais;
-
-	//@OneToMany(mappedBy="usuario", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.LAZY)
-	//private List<Dependentes> dependentes;	
+	
+	public Usuario clone(Usuario entity){
+		if (entity == null) 
+		{
+			entity = new Usuario();
+		}
+		entity.setAtivo(this.ativo);
+		entity.setNomeCompleto(this.nomeCompleto);
+		entity.setCelular(this.celular);
+		entity.setDataCadastro(this.dataCadastro);
+		entity.setEmail(this.email);
+		entity.setGrupoUsuario(this.grupoUsuario);
+		entity.setId(this.id);
+		entity.setLogin(this.login);
+		entity.setNomeUsuario(this.nomeUsuario);
+		entity.setSexo(this.sexo);
+		entity.setSobreNomeUsuario(this.sobreNome);
+		entity.setSenha(this.senha);
+		entity.setDadosPessoais(this.dadosPessoais);
+		entity.setDadosProfissionais(this.dadosProfissionais);
+		entity.setCargo(this.cargo);
+		entity.setTipoUsuario(this.tipoUsuario);
+		entity.setDepartamento(this.departamento);
+		
+		return entity;
+	}	
+	
 	
 	public int getId() {
 		return id;
@@ -192,30 +217,6 @@ public class Usuario implements Serializable {
 		this.ativo = ativo;
 	}
 	
-	public Usuario clone(Usuario entity){
-		if (entity == null) 
-		{
-			entity = new Usuario();
-		}
-		entity.setAtivo(this.ativo);
-		entity.setNomeCompleto(this.nomeCompleto);
-		entity.setCelular(this.celular);
-		entity.setDataCadastro(this.dataCadastro);
-		entity.setEmail(this.email);
-		entity.setGrupoUsuario(this.grupoUsuario);
-		entity.setId(this.id);
-		entity.setLogin(this.login);
-		entity.setNomeUsuario(this.nomeUsuario);
-		entity.setSexo(this.sexo);
-		entity.setSobreNomeUsuario(this.sobreNome);
-		entity.setSenha(this.senha);
-		entity.setDadosPessoais(this.dadosPessoais);
-		entity.setDadosProfissionais(this.dadosProfissionais);
-		entity.setCargo(this.cargo);
-		
-		return entity;
-	}
-
 	public String getNomeCompleto() {
 		return nomeCompleto;
 	}
@@ -271,13 +272,5 @@ public class Usuario implements Serializable {
 	public void setTipoUsuario(ETipoUsuario tipoUsuario) {
 		this.tipoUsuario = tipoUsuario;
 	}
-
-	/*public List<Dependentes> getDependentes() {
-		return dependentes;
-	}
-
-	public void setDependentes(List<Dependentes> dependentes) {
-		this.dependentes = dependentes;
-	}*/
 	
 }

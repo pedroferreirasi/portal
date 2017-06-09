@@ -1,14 +1,14 @@
 package br.com.informa.common;
 
 import javax.faces.bean.ManagedBean;
-import javax.faces.bean.RequestScoped;
+import javax.faces.bean.ViewScoped;
 import br.com.informa.core.GenericController;
 import br.com.informa.models.common.GrupoUsuario;
 import br.com.informa.models.dominio.EEstadoForm;
 import br.com.informa.services.core.FactoryService;
 
 @ManagedBean(name = "grupoUsuarioController")
-@RequestScoped
+@ViewScoped
 public class GrupoUsuarioController extends GenericController<GrupoUsuario> {
 	
 	/**

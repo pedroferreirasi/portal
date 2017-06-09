@@ -1,4 +1,4 @@
-package br.com.informa.models.common;
+package br.com.informa.models.portalrh;
 
 import java.util.Date;
 import javax.persistence.Table;
@@ -15,6 +15,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+
+import br.com.informa.models.common.GrupoUsuario;
 import br.com.informa.models.dominio.ESexo;
 import br.com.informa.models.dominio.ETipoUsuario;
 import br.com.informa.models.portalrh.Cargo;
@@ -25,20 +27,20 @@ import java.io.Serializable;
 
 @Entity
 @Table(name = "tb_usuario")
-public class Usuario implements Serializable {
+public class Colaborador implements Serializable {
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = -5211602883770541991L;
 	
-	public Usuario() {
-		this.grupoUsuario = new GrupoUsuario();
-		this.cargo = new Cargo();
-		this.departamento = new Departamento();
-		this.dadosPessoais = new DadosPessoais();	
-		this.dadosProfissionais = new DadosProfissionais();			
+	public Colaborador() {		
 		this.ativo = true;
 		this.dataCadastro = new Date();
+		//this.grupoUsuario = new GrupoUsuario();		
+		//this.cargo = new Cargo();
+		//this.departamento = new Departamento();
+		//this.dadosPessoais = new DadosPessoais();	
+		//this.dadosProfissionais = new DadosProfissionais();		
 	}
 	
 
@@ -192,10 +194,10 @@ public class Usuario implements Serializable {
 		this.ativo = ativo;
 	}
 	
-	public Usuario clone(Usuario entity){
+	public Colaborador clone(Colaborador entity){
 		if (entity == null) 
 		{
-			entity = new Usuario();
+			entity = new Colaborador();
 		}
 		entity.setAtivo(this.ativo);
 		entity.setNomeCompleto(this.nomeCompleto);
