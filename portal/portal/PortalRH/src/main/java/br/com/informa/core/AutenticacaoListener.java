@@ -15,6 +15,7 @@ public class AutenticacaoListener implements PhaseListener {
 	private static final long serialVersionUID = -2755420887457934422L;
 	private static final String RESTRICTION_PATTERN = "^/pages/.*";
 	private static final String RESTRICTION_PATTERN_MANAGER = "^/gerencial/.*";
+	private static final String RESTRICTION_PATTERN_ADMINISTRATOR = "^/administrador/.*";
 
 	@Override
 	public void afterPhase(PhaseEvent event) {
@@ -23,6 +24,7 @@ public class AutenticacaoListener implements PhaseListener {
 		
 		boolean urlPadraoProtegida = Pattern.matches(RESTRICTION_PATTERN, viewId);
 		boolean urlGerencialProtegida = Pattern.matches(RESTRICTION_PATTERN_MANAGER, viewId);
+		boolean urlAdministradorProtegida = Pattern.matches(RESTRICTION_PATTERN_ADMINISTRATOR, viewId);
 		
 		Object usuario = context.getExternalContext().getSessionMap().get("ususario");	
 		
@@ -37,6 +39,12 @@ public class AutenticacaoListener implements PhaseListener {
 			NavigationHandler navigator = context.getApplication().getNavigationHandler();
 			navigator.handleNavigation(context, null, "login");				
 		}
+		
+		if(urlAdministradorProtegida && usuario == null)
+		{
+			NavigationHandler navigator = context.getApplication().getNavigationHandler();
+			navigator.handleNavigation(context, null, "login");				
+		}		
 	}
 
 	@Override
