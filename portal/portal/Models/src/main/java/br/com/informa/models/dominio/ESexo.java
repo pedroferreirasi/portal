@@ -1,27 +1,29 @@
 package br.com.informa.models.dominio;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 
 public enum ESexo implements Serializable {
 	M("M", "Masculino"),
 	F("F", "Feminino");
 	
-	private String nome = "";
+	private String valor = "";
 	private String descricao = "";
 	
-	private ESexo(String nome, String descricao) {
-		this.nome = nome;
+	private ESexo(String valor, String descricao) {
+		this.valor = valor;
 		this.descricao = descricao;
 	}
 	
 	private ESexo () {}
 
-	public String getNome() {
-		return nome;
+	public String getValor() {
+		return valor;
 	}
 
-	public void setNome(String nome) {
-		this.nome = nome;
+	public void setValor(String valor) {
+		this.valor = valor;
 	}
 
 	public String getDescricao() {
@@ -34,6 +36,16 @@ public enum ESexo implements Serializable {
 	
 	@Override
 	public String toString() {
-		return getNome().toString();
+		return getValor().toString();
+	}
+	
+	public static List<ESexo> getListSexo() {
+		List<ESexo> listaSexo = new ArrayList<ESexo>();
+		
+		for (ESexo sexo : ESexo.values()) {
+			listaSexo.add(sexo);
+		}
+		
+		return listaSexo;
 	}
 }
