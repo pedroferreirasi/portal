@@ -9,7 +9,7 @@ import br.com.informa.models.common.Usuario;
 import br.com.informa.models.dominio.ESexo;
 import br.com.informa.models.dominio.ETipoGrupoUsuario;
 import br.com.informa.services.core.FactoryService;
-import br.com.informa.services.common.IUsuarioService;
+import br.com.informa.services.common.UsuarioService;
 
 @ManagedBean(name = "autenticacaoController")
 @SessionScoped
@@ -20,7 +20,7 @@ public class AutenticacaoController implements Serializable {
 	 */
 	private static final long serialVersionUID = -3215396402355855649L;
 
-	private IUsuarioService entityService;
+	private UsuarioService entityService;
 	private Usuario entity;
 	private String paginacao;
 	private String registrosPorPagina;

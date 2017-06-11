@@ -14,8 +14,8 @@ import javax.naming.directory.InitialDirContext;
 import br.com.informa.libraries.common.CommonMethods;
 import br.com.informa.models.common.GrupoUsuario;
 import br.com.informa.models.common.Usuario;
-import br.com.informa.services.common.IGrupoUsuarioService;
-import br.com.informa.services.common.IUsuarioService;
+import br.com.informa.services.common.GrupoUsuarioService;
+import br.com.informa.services.common.UsuarioService;
 import br.com.informa.services.core.FactoryService;
 
 public class AppTeste {
@@ -147,7 +147,7 @@ public class AppTeste {
 	public static void testUsuario() 
 	{
 		Usuario entity = new Usuario();
-		IUsuarioService entityService = FactoryService.getFactory().getUsuario();
+		UsuarioService entityService = FactoryService.getFactory().getUsuario();
 		
 		GrupoUsuario grupo = new GrupoUsuario();
 		grupo.setId(1);
@@ -181,7 +181,7 @@ public class AppTeste {
 		GrupoUsuario entity = new GrupoUsuario();
 		//entity.setId(2);
 		entity.setDescricao("Gerencia de Tecnologia");
-		IGrupoUsuarioService entityService = FactoryService.getFactory().getGrupoUsuario();
+		GrupoUsuarioService entityService = FactoryService.getFactory().getGrupoUsuario();
 		entityService.Add(entity);
 		
 		//entityService.Update(entity);

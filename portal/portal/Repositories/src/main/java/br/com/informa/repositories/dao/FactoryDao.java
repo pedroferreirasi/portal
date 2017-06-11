@@ -3,11 +3,18 @@ package br.com.informa.repositories.dao;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
+import br.com.informa.repositories.dao.common.GrupoUsuarioDaoImpl;
 import br.com.informa.repositories.dao.common.GrupoUsuarioDao;
-import br.com.informa.repositories.dao.common.IGrupoUsuarioDao;
-import br.com.informa.repositories.dao.common.IUsuarioDao;
 import br.com.informa.repositories.dao.common.UsuarioDao;
+import br.com.informa.repositories.dao.common.UsuarioDaoImpl;
 import br.com.informa.repositories.dao.hibernate.HibernateDaoFactory;
+import br.com.informa.repositories.dao.portalrh.CargoDaoImpl;
+import br.com.informa.repositories.dao.portalrh.ColaboradorDaoImpl;
+import br.com.informa.repositories.dao.portalrh.DepartamentoDaoImpl;
+import br.com.informa.repositories.dao.portalrh.DependentesDaoImpl;
+import br.com.informa.repositories.dao.portalrh.DocumentoInternoDaoImpl;
+import br.com.informa.repositories.dao.portalrh.EquipesDaoImpl;
+import br.com.informa.repositories.dao.portalrh.FeriasDaoImpl;
 import br.com.informa.repositories.dao.portalrh.CargoDao;
 import br.com.informa.repositories.dao.portalrh.ColaboradorDao;
 import br.com.informa.repositories.dao.portalrh.DepartamentoDao;
@@ -15,15 +22,8 @@ import br.com.informa.repositories.dao.portalrh.DependentesDao;
 import br.com.informa.repositories.dao.portalrh.DocumentoInternoDao;
 import br.com.informa.repositories.dao.portalrh.EquipesDao;
 import br.com.informa.repositories.dao.portalrh.FeriasDao;
-import br.com.informa.repositories.dao.portalrh.ICargoDao;
-import br.com.informa.repositories.dao.portalrh.IColaboradorDao;
-import br.com.informa.repositories.dao.portalrh.IDepartamentoDao;
-import br.com.informa.repositories.dao.portalrh.IDependentesDao;
-import br.com.informa.repositories.dao.portalrh.IDocumentoInternoDao;
-import br.com.informa.repositories.dao.portalrh.IEquipesDao;
-import br.com.informa.repositories.dao.portalrh.IFeriasDao;
-import br.com.informa.repositories.dao.portalrh.ITipoDocumentoInternoDao;
 import br.com.informa.repositories.dao.portalrh.TipoDocumentoInternoDao;
+import br.com.informa.repositories.dao.portalrh.TipoDocumentoInternoDaoImpl;
 
 public abstract class FactoryDao {
 
@@ -42,43 +42,43 @@ public abstract class FactoryDao {
 		}		
 	}
 	
-	public IGrupoUsuarioDao getGrupoUsuarioDao() {
-		return new GrupoUsuarioDao();
+	public GrupoUsuarioDao getGrupoUsuarioDao() {
+		return new GrupoUsuarioDaoImpl();
 	}
 	
-	public IUsuarioDao getUsuarioDao() {
-		return new UsuarioDao();
+	public UsuarioDao getUsuarioDao() {
+		return new UsuarioDaoImpl();
 	}	
 	
-	public ICargoDao getCargoDao() {
-		return new CargoDao();
+	public CargoDao getCargoDao() {
+		return new CargoDaoImpl();
 	}
 	
-	public IDepartamentoDao getDepartamentoDao() {
-		return new DepartamentoDao();
+	public DepartamentoDao getDepartamentoDao() {
+		return new DepartamentoDaoImpl();
 	}		
 
-	public ITipoDocumentoInternoDao getTipoDocumentoInternoDao() {
-		return new TipoDocumentoInternoDao();
+	public TipoDocumentoInternoDao getTipoDocumentoInternoDao() {
+		return new TipoDocumentoInternoDaoImpl();
 	}
 	
-	public IDocumentoInternoDao getDocumentoInternoDao() {
-		return new DocumentoInternoDao();
+	public DocumentoInternoDao getDocumentoInternoDao() {
+		return new DocumentoInternoDaoImpl();
 	}
 	
-	public IColaboradorDao getColaboradorDao() {
-		return new ColaboradorDao();
+	public ColaboradorDao getColaboradorDao() {
+		return new ColaboradorDaoImpl();
 	}
 	
-	public IDependentesDao getDependentesDao() {
-		return new DependentesDao();
+	public DependentesDao getDependentesDao() {
+		return new DependentesDaoImpl();
 	}	
 	
-	public IFeriasDao getFeriasDao() {
-		return new FeriasDao();
+	public FeriasDao getFeriasDao() {
+		return new FeriasDaoImpl();
 	}	
 	
-	public IEquipesDao getEquipesDao() {
-		return new EquipesDao();
+	public EquipesDao getEquipesDao() {
+		return new EquipesDaoImpl();
 	}		
 }

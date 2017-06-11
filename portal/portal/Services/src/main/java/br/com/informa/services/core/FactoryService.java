@@ -1,9 +1,16 @@
 package br.com.informa.services.core;
 
-import br.com.informa.services.common.IGrupoUsuarioService;
 import br.com.informa.services.common.GrupoUsuarioService;
-import br.com.informa.services.common.IUsuarioService;
+import br.com.informa.services.common.GrupoUsuarioServiceImpl;
 import br.com.informa.services.common.UsuarioService;
+import br.com.informa.services.common.UsuarioServiceImpl;
+import br.com.informa.services.portalrh.CargoServiceImpl;
+import br.com.informa.services.portalrh.ColaboradorServiceImpl;
+import br.com.informa.services.portalrh.DepartamentoServiceImpl;
+import br.com.informa.services.portalrh.DependentesServiceImpl;
+import br.com.informa.services.portalrh.DocumentoInternoServiceImpl;
+import br.com.informa.services.portalrh.EquipesServiceImpl;
+import br.com.informa.services.portalrh.FeriasServiceImpl;
 import br.com.informa.services.portalrh.CargoService;
 import br.com.informa.services.portalrh.ColaboradorService;
 import br.com.informa.services.portalrh.DepartamentoService;
@@ -11,15 +18,8 @@ import br.com.informa.services.portalrh.DependentesService;
 import br.com.informa.services.portalrh.DocumentoInternoService;
 import br.com.informa.services.portalrh.EquipesService;
 import br.com.informa.services.portalrh.FeriasService;
-import br.com.informa.services.portalrh.ICargoService;
-import br.com.informa.services.portalrh.IColaboradorService;
-import br.com.informa.services.portalrh.IDepartamentoService;
-import br.com.informa.services.portalrh.IDependentesService;
-import br.com.informa.services.portalrh.IDocumentoInternoService;
-import br.com.informa.services.portalrh.IEquipesService;
-import br.com.informa.services.portalrh.IFeriasService;
-import br.com.informa.services.portalrh.ITipoDocumentoInternoService;
 import br.com.informa.services.portalrh.TipoDocumentoInternoService;
+import br.com.informa.services.portalrh.TipoDocumentoInternoServiceImpl;
 
 public class FactoryService {
 
@@ -34,43 +34,43 @@ public class FactoryService {
 		return factory;
 	}
 	
-	public IGrupoUsuarioService getGrupoUsuario() {
-		return new GrupoUsuarioService();
+	public GrupoUsuarioService getGrupoUsuario() {
+		return new GrupoUsuarioServiceImpl();
 	}
 	
-	public IUsuarioService getUsuario() {
-		return new UsuarioService();
+	public UsuarioService getUsuario() {
+		return new UsuarioServiceImpl();
 	}
 	
-	public ICargoService getCargo() {
-		return new CargoService();
+	public CargoService getCargo() {
+		return new CargoServiceImpl();
 	}
 	
-	public IDepartamentoService getDepartamento() {
-		return new DepartamentoService();
+	public DepartamentoService getDepartamento() {
+		return new DepartamentoServiceImpl();
 	}	
 	
-	public ITipoDocumentoInternoService getTipoDocumentoInterno() {
-		return new TipoDocumentoInternoService();
+	public TipoDocumentoInternoService getTipoDocumentoInterno() {
+		return new TipoDocumentoInternoServiceImpl();
 	}		
 	
-	public IDocumentoInternoService getDocumentoInterno() {
-		return new DocumentoInternoService();
+	public DocumentoInternoService getDocumentoInterno() {
+		return new DocumentoInternoServiceImpl();
 	}
 	
-	public IColaboradorService getColaborador() {
-		return new ColaboradorService();
+	public ColaboradorService getColaborador() {
+		return new ColaboradorServiceImpl();
 	}
 	
-	public IDependentesService getDependentes() {
-		return new DependentesService();
+	public DependentesService getDependentes() {
+		return new DependentesServiceImpl();
 	}	
 	
-	public IFeriasService getFerias() {
-		return new FeriasService();
+	public FeriasService getFerias() {
+		return new FeriasServiceImpl();
 	}	
 	
-	public IEquipesService getEquipes() {
-		return new EquipesService();
+	public EquipesService getEquipes() {
+		return new EquipesServiceImpl();
 	}	
 }

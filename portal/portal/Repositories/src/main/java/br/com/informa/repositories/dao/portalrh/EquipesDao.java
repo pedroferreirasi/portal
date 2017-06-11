@@ -1,9 +1,8 @@
 package br.com.informa.repositories.dao.portalrh;
 
 
-import br.com.informa.repositories.dao.hibernate.HibernateDao; 
 import br.com.informa.models.portalrh.Equipes; 
+import br.com.informa.repositories.dao.IDao; 
  
-public class EquipesDao extends HibernateDao<Equipes, Integer>  implements IEquipesDao { 
- 
+public interface EquipesDao extends IDao<Equipes, Integer> { 
 } 

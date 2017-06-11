@@ -1,8 +1,7 @@
 package br.com.informa.repositories.dao.portalrh;
 
-import br.com.informa.repositories.dao.hibernate.HibernateDao; 
 import br.com.informa.models.portalrh.TipoDocumentoInterno; 
+import br.com.informa.repositories.dao.IDao; 
  
-public class TipoDocumentoInternoDao extends HibernateDao<TipoDocumentoInterno, Integer>  implements ITipoDocumentoInternoDao { 
- 
+public interface TipoDocumentoInternoDao extends IDao<TipoDocumentoInterno, Integer> { 
 } 

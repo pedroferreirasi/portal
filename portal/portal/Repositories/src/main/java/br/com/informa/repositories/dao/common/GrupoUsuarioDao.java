@@ -1,8 +1,8 @@
 package br.com.informa.repositories.dao.common;
 
-import br.com.informa.repositories.dao.hibernate.HibernateDao;
 import br.com.informa.models.common.GrupoUsuario;
+import br.com.informa.repositories.dao.IDao;
 
-public class GrupoUsuarioDao extends HibernateDao<GrupoUsuario, Integer>  implements IGrupoUsuarioDao {
+public interface GrupoUsuarioDao extends IDao<GrupoUsuario, Integer> {
 
 }
