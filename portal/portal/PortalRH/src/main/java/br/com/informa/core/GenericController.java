@@ -38,7 +38,6 @@ public abstract class GenericController<T> implements Serializable {
 	}
 
 	public void salvar() {
-		FacesContext context = FacesContext.getCurrentInstance();
 		RequestContext rcontext = RequestContext.getCurrentInstance();
 		try {
 			if (this.estado == EEstadoForm.Incluir) {
@@ -50,10 +49,7 @@ public abstract class GenericController<T> implements Serializable {
 			this.listaEntity = this.getListAll();
 			rcontext.execute("PF('dlg').hide()");
 		} catch (Exception e) {
-			FacesMessage mensagem = new FacesMessage(FacesMessage.SEVERITY_ERROR, "Erro", e.getMessage());
-			context.addMessage(null, mensagem);
-			//FacesContext.getCurrentInstance().addMessage(null, mensagem);
-			//RequestContext.getCurrentInstance().update("msg");
+			FacesContext.getCurrentInstance().addMessage("msg", new FacesMessage(FacesMessage.SEVERITY_ERROR, "Erro", e.getMessage()));
 		}
 	}
 

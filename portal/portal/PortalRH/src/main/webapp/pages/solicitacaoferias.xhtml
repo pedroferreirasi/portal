@@ -95,13 +95,13 @@
 				<p:column style="border: none">
 					<h:outputText value="Data Inicio: " />
 					<p:calendar id="popup" value="#{feriasController.entity.dataInicial}"
-						inputStyleClass="col-md-12" disabledWeekends="true" />
+						inputStyleClass="col-md-12" disabledWeekends="true" pattern="dd/MM/yyyy" />
 				</p:column>
 
 				<p:column style="border: none" >
 					<h:outputText value="Data Final: " styleClass="col-md-12" />
 					<p:calendar id="datafinal" value="#{feriasController.entity.dataFinal}"
-						inputStyleClass="col-md-12"  />
+						inputStyleClass="col-md-12" pattern="dd/MM/yyyy" />
 				</p:column>
 
 				<p:column style="border: none" >
