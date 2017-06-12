@@ -2,11 +2,10 @@ package br.com.informa.core;
 
 import java.io.Serializable;
 import java.util.List;
-import javax.faces.application.FacesMessage;
-import javax.faces.context.FacesContext;
 import org.primefaces.context.RequestContext;
 import br.com.informa.models.dominio.EEstadoForm;
 import br.com.informa.services.common.IService;
+import br.com.informa.utils.Mensagens;
 
 public abstract class GenericController<T> implements Serializable {
 
@@ -49,7 +48,7 @@ public abstract class GenericController<T> implements Serializable {
 			this.listaEntity = this.getListAll();
 			rcontext.execute("PF('dlg').hide()");
 		} catch (Exception e) {
-			FacesContext.getCurrentInstance().addMessage("msg", new FacesMessage(FacesMessage.SEVERITY_ERROR, "Erro", e.getMessage()));
+			Mensagens.messageError(e.getMessage());
 		}
 	}
 
