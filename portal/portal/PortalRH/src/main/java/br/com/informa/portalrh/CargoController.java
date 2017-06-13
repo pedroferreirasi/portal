@@ -24,6 +24,9 @@ public class CargoController extends GenericController<Cargo> {
  
 	public void novo() 
 	{ 
+		if (this.entity != null) {
+			this.entity = null;			
+		}
 		this.entity = new Cargo(); 
 		this.estado = EEstadoForm.Incluir; 
 	} 

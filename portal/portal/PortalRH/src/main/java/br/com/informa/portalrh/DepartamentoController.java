@@ -22,10 +22,11 @@ public class DepartamentoController extends GenericController<Departamento> {
 		this.novo();
 	}
 
-	public void novo() {
-		if (this.entity == null) {
-			this.entity = new Departamento();
+	public void novo() {		
+		if (this.entity != null) {
+			this.entity = null;			
 		}
+		this.entity = new Departamento();
 		this.estado = EEstadoForm.Incluir;
 		this.entity.setAtivo(true);
 	}

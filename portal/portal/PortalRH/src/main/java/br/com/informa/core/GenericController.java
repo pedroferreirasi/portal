@@ -44,6 +44,7 @@ public abstract class GenericController<T> implements Serializable {
 			} else {
 				entityService.Update(entity);
 			}
+			Mensagens.OperacaoRealizadaComSucesso();
 			this.estado = EEstadoForm.Nenhum;
 			this.listaEntity = this.getListAll();
 			rcontext.execute("PF('dlg').hide()");
