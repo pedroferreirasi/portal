@@ -16,7 +16,7 @@
     </ui:define> 
  
 	<ui:define name="titulobotao"> 
-		<ui:param name="entityBean" value="#{FeriasController}" /> 
+		<ui:param name="entityBean" value="#{feriasController}" /> 
 		<h:panelGroup layout="block" styleClass="box-header col-md-12"> 
 			<p:commandButton value="Novo" ajax="true" 
 				action="#{entityBean.novo}" process="@this" 
@@ -26,7 +26,7 @@
                   <!--</h:panelGroup> 
                   <h:panelGroup layout="block" styleClass="box-header col-md-2 col-md-offset-9" >--> 
 			<p:commandButton value="Pesquisar" 
-				action="#{entityBean.getListAll}" ajax="false" update="@form" 
+				action="#{entityBean.getListAllByUsuario()}" ajax="false" update="@form" 
 				styleClass="btn btn-primary" >&#160; 
                      <!-- <f:ajax execute=":TableId" render=":TableId" /> --> 
 			</p:commandButton> 
@@ -41,7 +41,7 @@
 		</f:facet> 
  
 		<p:column width="9%" sortBy="#{usuario.id}" style="text-align: center" 
-			headerText="C�digo" filterable="#{entityBean.habilitarPesquisa}" 
+			headerText="Codigo" filterable="#{entityBean.habilitarPesquisa}" 
 			filterBy="#{entity.id}"> 
 			<h:outputText value="#{entity.id}" /> 
 		</p:column> 
@@ -57,10 +57,10 @@
 			filterBy="#{entity.id}"> 
 			<h:outputText value="#{entity.id}" /> 
 		</p:column> 
-		<p:column width="29%" sortBy="#{entity.usuario}" style="text-align: center" 
+		<p:column width="29%" sortBy="#{entity.usuario}" style="text-align: left" 
 			headerText="Colaborador" filterable="#{entityBean.habilitarPesquisa}" 
 			filterBy="#{entity.usuario}"> 
-			<h:outputText value="#{entity.usuario}" /> 
+			<h:outputText value="#{entity.usuario.nomeCompleto}" /> 
 		</p:column> 
 		<p:column width="9%" sortBy="#{entity.dataLancamento}" style="text-align: center" 
 			headerText="Data" filterable="#{entityBean.habilitarPesquisa}" 
@@ -94,14 +94,20 @@
 		<p:row style="border: none">
 				<p:column style="border: none">
 					<h:outputText value="Data Inicio: " />
-					<p:calendar id="popup" value="#{feriasController.entity.dataInicial}"
-						inputStyleClass="col-md-12" disabledWeekends="true" pattern="dd/MM/yyyy" />
+					<p:inputText id="datainicial"
+					  	         value="#{feriasController.entity.dataInicial}"
+								 label="datainicio" styleClass="col-md-10" >
+					   <f:convertDateTime pattern="dd/MM/yyyy" />
+				    </p:inputText>
 				</p:column>
 
 				<p:column style="border: none" >
 					<h:outputText value="Data Final: " styleClass="col-md-12" />
-					<p:calendar id="datafinal" value="#{feriasController.entity.dataFinal}"
-						inputStyleClass="col-md-12" pattern="dd/MM/yyyy"  />
+					<p:inputText id="datafinal"
+					  	         value="#{feriasController.entity.dataFinal}"
+								 label="datafinal" styleClass="col-md-10" >
+					   <f:convertDateTime pattern="dd/MM/yyyy" />
+				    </p:inputText>
 				</p:column>
 
 				<p:column style="border: none" >

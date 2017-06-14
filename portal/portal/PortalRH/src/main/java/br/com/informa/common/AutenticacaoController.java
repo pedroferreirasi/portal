@@ -1,7 +1,6 @@
 package br.com.informa.common;
 
 import java.io.Serializable;
-import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 import javax.faces.context.FacesContext;
@@ -9,6 +8,7 @@ import br.com.informa.models.common.Usuario;
 import br.com.informa.models.dominio.ESexo;
 import br.com.informa.models.dominio.ETipoGrupoUsuario;
 import br.com.informa.services.core.FactoryService;
+import br.com.informa.utils.Mensagens;
 import br.com.informa.services.common.UsuarioService;
 
 @ManagedBean(name = "autenticacaoController")
@@ -56,8 +56,7 @@ public class AutenticacaoController implements Serializable {
 				return "pages/mainmenu?faces-redirect=true";
 			}
 		} catch (Exception e) {
-			FacesMessage mensagem = new FacesMessage(FacesMessage.SEVERITY_ERROR, "Erro", e.getMessage());
-			context.addMessage("growl", mensagem);
+			Mensagens.messageError(e.getMessage());
 		}
 
 		return null;

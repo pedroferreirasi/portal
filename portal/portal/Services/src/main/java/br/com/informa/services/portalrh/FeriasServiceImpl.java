@@ -47,5 +47,11 @@ public class FeriasServiceImpl implements FeriasService {
 	public Boolean validacao(Ferias entity) {
 		// TODO Auto-generated method stub
 		return null;
+	}
+
+	@Override
+	public List<Ferias> getListAllByUsuario(Integer idUsuario) {
+		FeriasDao entityDao = FactoryDao.getFactory().getFeriasDao();
+		return entityDao.getListAllByUsuario(idUsuario);
 	} 
 } 

@@ -28,17 +28,11 @@ import java.util.Date;
 @XmlAccessorType(XmlAccessType.FIELD) 
 public class Ferias implements Serializable {	
  
-
-    /**
-	 * 
-	 */
 	private static final long serialVersionUID = 6064462807032993571L;
 	
 	public Ferias()
 	{
 		dataLancamento = new Date();
-		dataInicial = new Date();
-		dataFinal = new Date();
 	}
 
 	@Id
