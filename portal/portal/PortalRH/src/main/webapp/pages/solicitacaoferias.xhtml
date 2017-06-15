@@ -65,17 +65,23 @@
 		<p:column width="9%" sortBy="#{entity.dataLancamento}" style="text-align: center" 
 			headerText="Data" filterable="#{entityBean.habilitarPesquisa}" 
 			filterBy="#{entity.dataLancamento}"> 
-			<h:outputText value="#{entity.dataLancamento}" /> 
+			<h:outputText value="#{entity.dataLancamento}" >
+			  <f:convertDateTime pattern="dd/MM/yyyy" />
+			</h:outputText> 
 		</p:column> 
 		<p:column width="9%" sortBy="#{entity.dataInicial}" style="text-align: center" 
 			headerText="Período Ini." filterable="#{entityBean.habilitarPesquisa}" 
 			filterBy="#{entity.dataInicial}"> 
-			<h:outputText value="#{entity.dataInicial}" /> 
+			<h:outputText value="#{entity.dataInicial}" >
+			  <f:convertDateTime pattern="dd/MM/yyyy" />
+			</h:outputText>			 
 		</p:column> 
 		<p:column width="9%" sortBy="#{entity.dataFinal}" style="text-align: center" 
 			headerText="Período Final" filterable="#{entityBean.habilitarPesquisa}" 
 			filterBy="#{entity.dataFinal}"> 
-			<h:outputText value="#{entity.dataFinal}" /> 
+			<h:outputText value="#{entity.dataFinal}" >
+			  <f:convertDateTime pattern="dd/MM/yyyy" />
+			</h:outputText>			 
 		</p:column> 
 		<p:column width="9%" sortBy="#{entity.dias}" style="text-align: center" 
 			headerText="Dias" filterable="#{entityBean.habilitarPesquisa}" 
@@ -102,18 +108,18 @@
 				</p:column>
 
 				<p:column style="border: none" >
+					<h:outputText value="Dias: " styleClass="col-md-12" />
+					<p:inputText id="Dias" value="#{feriasController.entity.dias}"
+						inputStyleClass="col-md-12" />
+				</p:column>
+
+				<p:column style="border: none" >
 					<h:outputText value="Data Final: " styleClass="col-md-12" />
 					<p:inputText id="datafinal"
 					  	         value="#{feriasController.entity.dataFinal}"
 								 label="datafinal" styleClass="col-md-10" >
 					   <f:convertDateTime pattern="dd/MM/yyyy" />
 				    </p:inputText>
-				</p:column>
-
-				<p:column style="border: none" >
-					<h:outputText value="Dias: " styleClass="col-md-12" />
-					<p:inputText id="Dias" value="#{feriasController.entity.dias}"
-						inputStyleClass="col-md-12" />
 				</p:column>
 				
 				<p:column style="border: none" >
