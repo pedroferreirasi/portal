@@ -72,14 +72,14 @@
 		<p:column width="9%" sortBy="#{entity.dataInicial}" style="text-align: center" 
 			headerText="Período Ini." filterable="#{entityBean.habilitarPesquisa}" 
 			filterBy="#{entity.dataInicial}"> 
-			<h:outputText value="#{entity.dataInicial}" >
+			<h:outputText value="#{entity.dataInicial}" style="font-weight:bold">
 			  <f:convertDateTime pattern="dd/MM/yyyy" />
 			</h:outputText>			 
 		</p:column> 
 		<p:column width="9%" sortBy="#{entity.dataFinal}" style="text-align: center" 
 			headerText="Período Final" filterable="#{entityBean.habilitarPesquisa}" 
 			filterBy="#{entity.dataFinal}"> 
-			<h:outputText value="#{entity.dataFinal}" >
+			<h:outputText value="#{entity.dataFinal}" style="font-weight:bold" >
 			  <f:convertDateTime pattern="dd/MM/yyyy" />
 			</h:outputText>			 
 		</p:column> 
@@ -91,18 +91,18 @@
 		<p:column width="17%" sortBy="#{entity.status}" style="text-align: center" 
 			headerText="Status" filterable="#{entityBean.habilitarPesquisa}" 
 			filterBy="#{entity.status}"> 
-			<h:outputText value="#{entity.status}" /> 
+			<h:outputText value="#{entity.status}" style="font-weight:bold" /> 
 		</p:column>  
  	</ui:define> 
  
 	<ui:define name="teladecadastro"> 
       <p:panelGrid id="display" style="width: 100%; border: none; cellspacing: 10px;" > 	
 		<p:row style="border: none">
-				<p:column style="border: none">
+				<p:column style="border: none">				    
 					<h:outputText value="Data Inicio: " />
 					<p:inputText id="datainicial"
 					  	         value="#{feriasController.entity.dataInicial}"
-								 label="datainicio" styleClass="col-md-10" >
+								 label="datainicio" styleClass="col-md-10" mask="99/99/9999" >
 					   <f:convertDateTime pattern="dd/MM/yyyy" />
 				    </p:inputText>
 				</p:column>
@@ -117,7 +117,7 @@
 					<h:outputText value="Data Final: " styleClass="col-md-12" />
 					<p:inputText id="datafinal"
 					  	         value="#{feriasController.entity.dataFinal}"
-								 label="datafinal" styleClass="col-md-10" >
+								 label="datafinal" styleClass="col-md-10"  >
 					   <f:convertDateTime pattern="dd/MM/yyyy" />
 				    </p:inputText>
 				</p:column>
