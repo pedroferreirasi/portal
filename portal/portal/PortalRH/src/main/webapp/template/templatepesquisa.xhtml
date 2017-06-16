@@ -76,6 +76,7 @@
                                                 
                         <p:commandButton id="excluir" 
                                          icon="fa fa-fw fa-trash"
+                                         rendered="#{entityBean.exibeBotaoExcluir}"
                                          title="Excluir" 
                                          process="@this" ajax="true"
                                          action="#{entityBean.delete(entity)}"
@@ -119,11 +120,14 @@
 
           <p:commandButton value=" Salvar "
                            action="#{entityBean.salvar}"
+                           rendered="#{entityBean.exibeBotaoSalvar}"
                            process="@form"                                                           
                            styleClass="btn btn-primary" >&#160;
 
            </p:commandButton>
-           <p:commandButton type="button" value="Cancelar" styleClass="btn btn-primary" onclick="PF('dlg').hide()" ajax="false" />
+           <p:commandButton type="button" value="Cancelar" styleClass="btn btn-primary" 
+                            onclick="PF('dlg').hide()" ajax="false"
+                            rendered="#{entityBean.exibeBotaoCancelar}" />
           </h:form>
         </p:dialog>	     
 	  

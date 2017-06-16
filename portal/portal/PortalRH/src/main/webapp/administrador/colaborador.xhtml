@@ -503,7 +503,24 @@
 						label="conta" styleClass="col-md-12" immediate="true" maxlength="10">
 					</p:inputText>				
 				</p:column>														
-			</p:row>			
+			</p:row>		
+			
+			<p:row style="border: none">
+				<p:column colspan="2" style="width:50%; border: none">
+					<h:outputText value="Banco: " />	
+					<h:selectOneMenu value="#{colaboradorController.entity.cargo.id}"
+						styleClass="form-control select2">
+					<f:selectItems value="#{cargoController.listaEntity}"
+						var="cargo" itemValue="#{cargo.id}" itemLabel="#{cargo.descricao}" />
+					</h:selectOneMenu>								
+				</p:column>			
+				<p:column style="width:25%; border: none">
+
+				</p:column>
+				<p:column style="width:25%; border: none">
+				
+				</p:column>														
+			</p:row>				
 			
 			<p:row style="width:25%; border: none">
 				<p:column colspan="2" style="border: none">

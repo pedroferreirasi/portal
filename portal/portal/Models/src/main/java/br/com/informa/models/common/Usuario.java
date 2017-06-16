@@ -36,10 +36,10 @@ public class Usuario implements Serializable {
 		this.ativo = true;
 		this.dataCadastro = new Date();
 		
-		//this.cargo = new Cargo();
-		//this.departamento = new Departamento();
-		//this.dadosPessoais = new DadosPessoais();	
-		//this.dadosProfissionais = new DadosProfissionais();			
+		this.cargo = new Cargo();
+		this.departamento = new Departamento();
+		this.dadosPessoais = new DadosPessoais();	
+		this.dadosProfissionais = new DadosProfissionais();			
 	}
 	
 

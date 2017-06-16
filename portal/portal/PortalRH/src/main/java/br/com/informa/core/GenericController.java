@@ -18,6 +18,11 @@ public abstract class GenericController<T> implements Serializable {
 	protected List<T> listaEntity;
 	protected IService<T, Integer> entityService;
 	protected EEstadoForm estado;
+	protected boolean exibeBotaoExcluir;
+	protected boolean exibeBotaoEditar;
+	protected boolean exibeColunaDeAcao;
+	protected boolean exibeBotaoSalvar;
+	protected boolean exibeBotaoCancelar;
 	private boolean habilitarPesquisa;
 	private String percentualGrid;
 	private String widthModal;
@@ -25,10 +30,15 @@ public abstract class GenericController<T> implements Serializable {
 
 	public GenericController() {
 		habilitarPesquisa = true;
+		this.exibeBotaoExcluir = true;
+		this.exibeBotaoEditar = true;
+		this.exibeColunaDeAcao = true;
+		this.exibeBotaoCancelar = true;
+		this.exibeBotaoSalvar = true;
 		percentualGrid = "100";
 		estado = EEstadoForm.Nenhum;
 		this.widthModal = "40%";
-		this.heightModal = "40%";
+		this.heightModal = "40%";		
 	}
 
 	public void editar(T entity) {
@@ -156,6 +166,46 @@ public abstract class GenericController<T> implements Serializable {
 
 	public void setEstado(EEstadoForm estado) {
 		this.estado = estado;
+	}
+
+	public boolean isExibeBotaoExcluir() {
+		return exibeBotaoExcluir;
+	}
+
+	public void setExibeBotaoExcluir(boolean exibeBotaoExcluir) {
+		this.exibeBotaoExcluir = exibeBotaoExcluir;
+	}
+
+	public boolean isExibeBotaoEditar() {
+		return exibeBotaoEditar;
+	}
+
+	public void setExibeBotaoEditar(boolean exibeBotaoEditar) {
+		this.exibeBotaoEditar = exibeBotaoEditar;
+	}
+
+	public boolean isExibeColunaDeAcao() {
+		return exibeColunaDeAcao;
+	}
+
+	public void setExibeColunaDeAcao(boolean exibeColunaDeAcao) {
+		this.exibeColunaDeAcao = exibeColunaDeAcao;
+	}
+
+	public boolean isExibeBotaoSalvar() {
+		return exibeBotaoSalvar;
+	}
+
+	public void setExibeBotaoSalvar(boolean exibeBotaoSalvar) {
+		this.exibeBotaoSalvar = exibeBotaoSalvar;
+	}
+
+	public boolean isExibeBotaoCancelar() {
+		return exibeBotaoCancelar;
+	}
+
+	public void setExibeBotaoCancelar(boolean exibeBotaoCancelar) {
+		this.exibeBotaoCancelar = exibeBotaoCancelar;
 	}
 
 }
