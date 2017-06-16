@@ -26,10 +26,8 @@
                   <!--</h:panelGroup> 
                   <h:panelGroup layout="block" styleClass="box-header col-md-2 col-md-offset-9" >--> 
 			<p:commandButton value="Pesquisar" 
-				action="#{departamentoController.getListAll}" 
+				actionListener="#{departamentoController.getListAll}" 
 				ajax="false"
-				process="@form" 
-				update=":formpesquisa" 
 				styleClass="btn btn-primary" >&#160; 
                      <!-- <f:ajax execute=":TableId" render=":TableId" /> --> 
 			</p:commandButton> 

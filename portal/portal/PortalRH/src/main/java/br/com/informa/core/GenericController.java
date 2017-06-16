@@ -65,7 +65,8 @@ public abstract class GenericController<T> implements Serializable {
 
 	public List<T> getListAll() {
 		try {
-			return entityService.getListAll();
+			listaEntity = entityService.getListAll(); 
+			return listaEntity; 
 		} catch (Exception e) {
 			return null;
 		}

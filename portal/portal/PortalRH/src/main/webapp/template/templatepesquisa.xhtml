@@ -79,7 +79,7 @@
                                          rendered="#{entityBean.exibeBotaoExcluir}"
                                          title="Excluir" 
                                          process="@this" ajax="true"
-                                         action="#{entityBean.delete(entity)}"
+                                         action="#{entityBean.delete(entity)}"                                        
                                          oncomplete="PF('msgconfirmacao').show()" >
                           <p:confirm header="Confirmation" message="Are you sure?" icon="ui-icon-alert" />
                         </p:commandButton>       
@@ -102,7 +102,7 @@
      </h:form>          
 	 <!-- /.content 
 	 <p:growl id="msg" sticky="true" showDetail="true" escape="false" globalOnly="true"  />-->
-	 <p:messages id="message" showDetail="true" globalOnly="false" autoUpdate="true" closable="true"/>
+	 <p:messages id="msg" showDetail="true" globalOnly="false" autoUpdate="false" closable="true"/>
 	 	 	    
         <p:dialog modal="true" widgetVar="dlg" 
                   id="dlg"

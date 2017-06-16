@@ -19,14 +19,14 @@
 		<ui:param name="entityBean" value="#{cargoController}" /> 
 		<h:panelGroup layout="block" styleClass="box-header col-md-12"> 
 			<p:commandButton value="Novo" ajax="true" 
-				action="#{entityBean.novo}" process="@this" 
+				actionListener="#{entityBean.novo}" process="@this" 
 				update=":formPrincipal:display" oncomplete="PF('dlg').show()" 
 				styleClass="btn btn-primary" />&#160; 
  
                   <!--</h:panelGroup> 
                   <h:panelGroup layout="block" styleClass="box-header col-md-2 col-md-offset-9" >--> 
 			<p:commandButton value="Pesquisar" 
-				action="#{entityBean.getListAll}" ajax="false" update="@form" 
+				actionListener="#{entityBean.getListAll}" ajax="false" update="@form" 
 				styleClass="btn btn-primary" >&#160; 
                      <!-- <f:ajax execute=":TableId" render=":TableId" /> --> 
 			</p:commandButton> 

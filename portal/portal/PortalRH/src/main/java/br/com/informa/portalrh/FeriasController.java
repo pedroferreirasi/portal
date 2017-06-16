@@ -42,7 +42,8 @@ public class FeriasController extends GenericController<Ferias> {
 	
 	public List<Ferias> getListAllByUsuario() {
 		try {
-			return ((FeriasService) entityService).getListAllByUsuario(Contexto.getUsuarioLogoado().getId());
+			listaEntity = ((FeriasService) entityService).getListAllByUsuario(Contexto.getUsuarioLogoado().getId()); 
+			return listaEntity;
 		} catch (Exception e) {
 			return null;
 		}
