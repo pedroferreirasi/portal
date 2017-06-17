@@ -1,0 +1,82 @@
+<!DOCTYPE html> 
+<ui:composition template="/template/templatepesquisa.xhtml" 
+	xmlns="http://www.w3.org/1999/xhtml" 
+	xmlns:f="http://xmlns.jcp.org/jsf/core" 
+	xmlns:h="http://xmlns.jcp.org/jsf/html" 
+	xmlns:p="http://primefaces.org/ui" 
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"> 
+ 
+    <ui:define name="titulo"> 
+      <h1>Pesquisa de Feriados</h1> 
+      <ol class="breadcrumb"> 
+        <li><a href="mainmenu.xhtml"><i class="fa fa-dashboard"></i> Home</a></li> 
+        <li><a href="#">Cadastros</a></li> 
+        <li class="active">Feriados</li> 
+      </ol> 
+    </ui:define> 
+ 
+	<ui:define name="titulobotao"> 
+		<ui:param name="entityBean" value="#{feriadosController}" /> 
+		<h:panelGroup layout="block" styleClass="box-header col-md-12"> 
+			<p:commandButton value="Novo" ajax="true" 
+				action="#{entityBean.novo}" process="@this" 
+				update=":formPrincipal:display" oncomplete="PF('dlg').show()" 
+				styleClass="btn btn-primary" />&#160; 
+ 
+                  <!--</h:panelGroup> 
+                  <h:panelGroup layout="block" styleClass="box-header col-md-2 col-md-offset-9" >--> 
+			<p:commandButton value="Pesquisar" 
+				action="#{entityBean.getListAll}" ajax="false" update="@form" 
+				styleClass="btn btn-primary" >&#160; 
+                     <!-- <f:ajax execute=":TableId" render=":TableId" /> --> 
+			</p:commandButton> 
+		</h:panelGroup> 
+	</ui:define> 
+ 
+	<ui:define name="colunasdogrid"> 
+		<f:facet name="header"> 
+                            Lista de Feriados 
+                            <!-- <p:commandButton id="toggler" type="button" value="Columns" style="float:right" icon="ui-icon-calculator" /> 
+                            <p:columnToggler datasource="TableId" trigger="toggler" />--> 
+		</f:facet> 
+		<p:column width="9%" sortBy="#{entity.descricao}" style="text-align: center" 
+			headerText="descricao" filterable="#{entityBean.habilitarPesquisa}" 
+			filterBy="#{entity.descricao}"> 
+			<h:outputText value="#{entity.descricao}" /> 
+		</p:column> 
+		<p:column width="9%" sortBy="#{entity.dataFeriado}" style="text-align: center" 
+			headerText="dataFeriado" filterable="#{entityBean.habilitarPesquisa}" 
+			filterBy="#{entity.dataFeriado}"> 
+			<h:outputText value="#{entity.dataFeriado}" /> 
+		</p:column> 
+		<p:column width="9%" sortBy="#{entity.meioDia}" style="text-align: center" 
+			headerText="meioDia" filterable="#{entityBean.habilitarPesquisa}" 
+			filterBy="#{entity.meioDia}"> 
+			<h:outputText value="#{entity.meioDia}" /> 
+		</p:column> 
+		<p:column width="9%" sortBy="#{entity.horasConsideradas}" style="text-align: center" 
+			headerText="horasConsideradas" filterable="#{entityBean.habilitarPesquisa}" 
+			filterBy="#{entity.horasConsideradas}"> 
+			<h:outputText value="#{entity.horasConsideradas}" /> 
+		</p:column> 
+		<p:column width="9%" sortBy="#{entity.minutosConsiderados}" style="text-align: center" 
+			headerText="minutosConsiderados" filterable="#{entityBean.habilitarPesquisa}" 
+			filterBy="#{entity.minutosConsiderados}"> 
+			<h:outputText value="#{entity.minutosConsiderados}" /> 
+		</p:column> 
+ 	</ui:define> 
+ 
+	<ui:define name="teladecadastro"> 
+      <p:panelGrid id="display" style="width: 100%; border: none; cellspacing: 10px;" > 	
+		<p:row style="border: none">
+			<p:column style="width:20%; border: none">
+
+			</p:column>
+			<p:column style="width:80%; border: none">
+
+			</p:column>
+		</p:row> 
+	  </p:panelGrid><br/>
+	</ui:define> 
+ 
+</ui:composition> 
