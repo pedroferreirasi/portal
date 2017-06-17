@@ -17,6 +17,7 @@
 	<!-- sidebar menu: : style can be found in sidebar.less -->
     <ul class="sidebar-menu">
       <li class="header">NAVEGAÇÃO</li>
+
       <ui:fragment rendered="#{autenticacaoController.isAdministrador()}">
         <li class="treeview">
           <a href="#"> 
@@ -79,11 +80,41 @@
                 Tipo de Documento
 		      </a>
             </li>   
+            
+            <li class="active">
+		      <a href="#{request.contextPath}/administrador/feriados.xhtml">
+			    <i class="fa fa-circle-o"></i>
+                Feriados
+		      </a>
+            </li>             
                         
-          </ul>	
-        
+          </ul>	        
         </li>
-      </ui:fragment> 
+      </ui:fragment>
+
+      <ui:fragment rendered="#{autenticacaoController.isGerente()}">
+        <li class="treeview">
+          <a href="#"> 
+            <i class="fa fa-users"></i> <span>Gerência</span>
+              <span class="pull-right-container"> 
+	            <i class="fa fa-angle-left pull-right">
+                </i>
+              </span>
+          </a>
+          <ul class="treeview-menu">
+            
+            <li class="active">
+		      <a href="#">
+			    <i class="fa fa-circle-o"></i>
+                Ferias
+		      </a>
+            </li>
+             
+                        
+          </ul>	        
+        </li>
+      </ui:fragment>
+       
         <li class="treeview">          
           <a href="#"> 
             <i class="fa fa-heartbeat"></i> <span>Documentos</span>
@@ -129,7 +160,7 @@
 
         <li class="treeview">          
           <a href="#"> 
-            <i class="fa fa-users"></i> <span>Colaborador</span>
+            <i class="fa fa-user"></i> <span>Colaborador</span>
               <span class="pull-right-container"> 
 	            <i class="fa fa-angle-left pull-right">
                 </i>

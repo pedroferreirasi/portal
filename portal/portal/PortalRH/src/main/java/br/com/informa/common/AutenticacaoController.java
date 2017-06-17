@@ -67,7 +67,8 @@ public class AutenticacaoController implements Serializable {
 	}
 
 	public boolean isGerente() {
-		return this.entity.getGrupoUsuario().getTipoGrupoUsuario().equals(ETipoGrupoUsuario.gerencial);
+		return ((this.entity.getGrupoUsuario().getTipoGrupoUsuario().equals(ETipoGrupoUsuario.gerencial)) ||
+				(this.entity.getGrupoUsuario().getTipoGrupoUsuario().equals(ETipoGrupoUsuario.administrador)));
 	}
 
 	// logout event, invalidate session
