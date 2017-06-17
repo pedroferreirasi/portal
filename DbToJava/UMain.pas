@@ -96,7 +96,7 @@ const
                           'import br.com.informa.repositories.dao.hibernate.HibernateDao; '+#13+#10+
                           'import br.com.informa.models.portalrh.{ALIAS_NORMAL}; ' +#13+#10+
                           ' '+#13+#10+
-                          'public class {ALIAS_NORMAL}Dao extends HibernateDao<{ALIAS_NORMAL}, Integer>  implements I{ALIAS_NORMAL}Dao { '+#13+#10+
+                          'public class {ALIAS_NORMAL}ImplDao extends HibernateDao<{ALIAS_NORMAL}, Integer>  implements {ALIAS_NORMAL}Dao { '+#13+#10+
                           ' '+#13+#10+
                           '} ';
 
@@ -106,7 +106,7 @@ const
                               'import br.com.informa.models.portalrh.{ALIAS_NORMAL}; '+#13+#10+
                               'import br.com.informa.repositories.dao.IDao; '+#13+#10+
                               ' '+#13+#10+
-                              'public interface I{ALIAS_NORMAL}Dao extends IDao<{ALIAS_NORMAL}, Integer> { '+#13+#10+
+                              'public interface {ALIAS_NORMAL}Dao extends IDao<{ALIAS_NORMAL}, Integer> { '+#13+#10+
                               '} ';
 
   C_SERVICE_INTERFACE = 'package br.com.informa.services.portalrh;'+#13+#10+
@@ -115,7 +115,7 @@ const
                         'import br.com.informa.models.common.{ALIAS_NORMAL}; '+#13+#10+
                         'import br.com.informa.services.common.IService; '+#13+#10+
                         ' '+#13+#10+
-                        'public interface I{ALIAS_NORMAL}Service extends IService<{ALIAS_NORMAL}, Integer> { '+#13+#10+
+                        'public interface {ALIAS_NORMAL}Service extends IService<{ALIAS_NORMAL}, Integer> { '+#13+#10+
                         '} ';
 
   C_SERVICE_CLASS = 'package br.com.informa.services.portalrh;'+#13+#10+
@@ -124,43 +124,43 @@ const
                     'import java.util.List; '+#13+#10+
                     'import br.com.informa.models.portalrh.{ALIAS_NORMAL}; '+#13+#10+
                     'import br.com.informa.repositories.dao.FactoryDao; '+#13+#10+
-                    'import br.com.informa.repositories.dao.portalrh.I{ALIAS_NORMAL}Dao; '+#13+#10+
+                    'import br.com.informa.repositories.dao.portalrh.{ALIAS_NORMAL}Dao; '+#13+#10+
                     ' '+#13+#10+
-                    'public class {ALIAS_NORMAL}Service implements I{ALIAS_NORMAL}Service { '+#13+#10+
+                    'public class {ALIAS_NORMAL}ImplService implements {ALIAS_NORMAL}Service { '+#13+#10+
                     ' '+#13+#10+
                     '	@Override '+#13+#10+
                     '	public void Add({ALIAS_NORMAL} entity) { '+#13+#10+
-                    '		I{ALIAS_NORMAL}Dao entityDao = FactoryDao.getFactory().get{ALIAS_NORMAL}Dao(); '+#13+#10+
+                    '		{ALIAS_NORMAL}Dao entityDao = FactoryDao.getFactory().get{ALIAS_NORMAL}Dao(); '+#13+#10+
                     '		entityDao.Add(entity);		 '+#13+#10+
                     '	} '+#13+#10+
                     ' '+#13+#10+
                     '	@Override '+#13+#10+
                     '	public void Update({ALIAS_NORMAL} entity) { '+#13+#10+
-                    '		I{ALIAS_NORMAL}Dao entityDao = FactoryDao.getFactory().get{ALIAS_NORMAL}Dao(); '+#13+#10+
+                    '		{ALIAS_NORMAL}Dao entityDao = FactoryDao.getFactory().get{ALIAS_NORMAL}Dao(); '+#13+#10+
                     '		entityDao.Update(entity); '+#13+#10+
                     '	} '+#13+#10+
                     ' '+#13+#10+
                     '	@Override '+#13+#10+
                     '	public void delete({ALIAS_NORMAL} entity) { '+#13+#10+
-                    '		I{ALIAS_NORMAL}Dao entityDao = FactoryDao.getFactory().get{ALIAS_NORMAL}Dao(); '+#13+#10+
+                    '		{ALIAS_NORMAL}Dao entityDao = FactoryDao.getFactory().get{ALIAS_NORMAL}Dao(); '+#13+#10+
                     '		entityDao.delete(entity);		 '+#13+#10+
                     '	} '+#13+#10+
                     ' '+#13+#10+
                     '	@Override '+#13+#10+
                     '	public void deleteById(Integer id) { '+#13+#10+
-                    '		I{ALIAS_NORMAL}Dao entityDao = FactoryDao.getFactory().get{ALIAS_NORMAL}Dao(); '+#13+#10+
+                    '		{ALIAS_NORMAL}Dao entityDao = FactoryDao.getFactory().get{ALIAS_NORMAL}Dao(); '+#13+#10+
                     '		entityDao.deleteById(id);	 '+#13+#10+
                     '	} '+#13+#10+
                     ' '+#13+#10+
                     '	@Override '+#13+#10+
                     '	public {ALIAS_NORMAL} getById(Integer pk) { '+#13+#10+
-                    '		I{ALIAS_NORMAL}Dao entityDao = FactoryDao.getFactory().get{ALIAS_NORMAL}Dao(); '+#13+#10+
+                    '		{ALIAS_NORMAL}Dao entityDao = FactoryDao.getFactory().get{ALIAS_NORMAL}Dao(); '+#13+#10+
                     '		return entityDao.getById(pk); '+#13+#10+
                     '	} '+#13+#10+
                     ' '+#13+#10+
                     '	@Override '+#13+#10+
                     '	public List<{ALIAS_NORMAL}> getListAll() { '+#13+#10+
-                    '		I{ALIAS_NORMAL}Dao entityDao = FactoryDao.getFactory().get{ALIAS_NORMAL}Dao(); '+#13+#10+
+                    '		{ALIAS_NORMAL}Dao entityDao = FactoryDao.getFactory().get{ALIAS_NORMAL}Dao(); '+#13+#10+
                     '		return entityDao.getListAll(); '+#13+#10+
                     '	} '+#13+#10+
                     ' '+#13+#10+
