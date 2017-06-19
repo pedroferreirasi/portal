@@ -9,7 +9,7 @@ import br.com.informa.services.core.FactoryService;
  
 @ManagedBean(name = "dependentesController") 
 @ViewScoped 
-public class DependentesController extends GenericController<Dependentes> { 
+public class DependentesController extends GenericController<Dependentes, Integer> { 
  
 	/**
 	 * 

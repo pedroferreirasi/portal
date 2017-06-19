@@ -9,7 +9,7 @@ import br.com.informa.services.core.FactoryService;
 
 @ManagedBean(name = "colaboradorController")
 @ViewScoped
-public class ColaboradorController extends GenericController<Usuario> {
+public class ColaboradorController extends GenericController<Usuario, Integer> {
 
 	/**
 	 * 

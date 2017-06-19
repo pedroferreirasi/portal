@@ -9,7 +9,7 @@ import br.com.informa.services.core.FactoryService;
 
 @ManagedBean(name = "grupoUsuarioController")
 @ViewScoped
-public class GrupoUsuarioController extends GenericController<GrupoUsuario> {
+public class GrupoUsuarioController extends GenericController<GrupoUsuario, Integer> {
 	
 	/**
 	 * 

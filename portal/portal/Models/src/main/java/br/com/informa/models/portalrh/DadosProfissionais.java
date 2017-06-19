@@ -42,6 +42,7 @@ public class DadosProfissionais implements Serializable {
 
 	@OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "fk_usucad", insertable=true, updatable=false)
+	@PrimaryKeyJoinColumn
     private Usuario usuario;
 
     @Column(name="nuCTPS", length=10)

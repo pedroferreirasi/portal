@@ -7,7 +7,7 @@ import br.com.informa.models.dominio.EEstadoForm;
 import br.com.informa.services.common.IService;
 import br.com.informa.utils.Mensagens;
 
-public abstract class GenericController<T> implements Serializable {
+public abstract class GenericController<T, TIPOCHAVE extends Serializable> implements Serializable {
 
 	/**
 	 * 
@@ -16,7 +16,7 @@ public abstract class GenericController<T> implements Serializable {
 
 	protected T entity;
 	protected List<T> listaEntity;
-	protected IService<T, Integer> entityService;
+	protected IService<T, TIPOCHAVE> entityService;
 	protected EEstadoForm estado;
 	protected boolean exibeBotaoExcluir;
 	protected boolean exibeBotaoEditar;
@@ -72,7 +72,7 @@ public abstract class GenericController<T> implements Serializable {
 		}
 	}
 
-	public T getById(Integer pk) {
+	public T getById(TIPOCHAVE pk) {
 		try {
 			return entityService.getById(pk);
 		} catch (Exception e) {
@@ -105,7 +105,7 @@ public abstract class GenericController<T> implements Serializable {
 		}
 	}
 
-	public void deleteById(Integer pk) {
+	public void deleteById(TIPOCHAVE pk) {
 		try {
 			entityService.deleteById(pk);
 		} catch (Exception e) {

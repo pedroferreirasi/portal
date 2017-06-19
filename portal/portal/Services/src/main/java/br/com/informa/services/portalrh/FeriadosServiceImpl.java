@@ -1,6 +1,7 @@
 package br.com.informa.services.portalrh;
 
 
+import java.util.Date;
 import java.util.List; 
 import br.com.informa.models.portalrh.Feriados; 
 import br.com.informa.repositories.dao.FactoryDao; 
@@ -27,13 +28,13 @@ public class FeriadosServiceImpl implements FeriadosService {
 	} 
  
 	@Override 
-	public void deleteById(Integer id) { 
+	public void deleteById(Date id) { 
 		FeriadosDao entityDao = FactoryDao.getFactory().getFeriadosDao(); 
 		entityDao.deleteById(id);	 
 	} 
  
 	@Override 
-	public Feriados getById(Integer pk) { 
+	public Feriados getById(Date pk) { 
 		FeriadosDao entityDao = FactoryDao.getFactory().getFeriadosDao(); 
 		return entityDao.getById(pk); 
 	} 

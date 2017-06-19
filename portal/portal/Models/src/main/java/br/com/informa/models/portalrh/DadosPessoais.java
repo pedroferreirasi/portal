@@ -37,8 +37,6 @@ public class DadosPessoais implements Serializable {
 	private static final long serialVersionUID = 8033642361287560373L;
 	
 	public DadosPessoais() {
-		this.dataEmissaoRG = new Date();
-		this.dataNascimento = new Date();
 	}
 
 	@Id

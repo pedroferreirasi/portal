@@ -9,7 +9,7 @@ import br.com.informa.services.core.FactoryService;
  
 @ManagedBean(name = "documentoInternoController") 
 @ViewScoped 
-public class DocumentoInternoController extends GenericController<DocumentoInterno> { 
+public class DocumentoInternoController extends GenericController<DocumentoInterno, Integer> { 
  
 	/**
 	 * 

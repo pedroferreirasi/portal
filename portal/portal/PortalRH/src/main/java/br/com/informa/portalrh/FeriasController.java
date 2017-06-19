@@ -15,7 +15,7 @@ import br.com.informa.utils.Contexto;
  
 @ManagedBean(name = "feriasController") 
 @ViewScoped 
-public class FeriasController extends GenericController<Ferias> { 
+public class FeriasController extends GenericController<Ferias, Integer> { 
  
 	/**
 	 * 
