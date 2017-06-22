@@ -1,6 +1,8 @@
 package br.com.informa.services.portalrh;
 
 import java.util.List;
+
+import br.com.informa.libraries.common.CommonMethods;
 import br.com.informa.models.common.Usuario;
 import br.com.informa.models.dominio.ETipoUsuario;
 import br.com.informa.repositories.dao.FactoryDao;
@@ -15,6 +17,7 @@ public class ColaboradorServiceImpl implements ColaboradorService {
 			try {
 				entity.setTipoUsuario(ETipoUsuario.C);
 				entity.getCargo().setId(36);
+				entity.setSenha(CommonMethods.getInstance().SHA256("informa", entity.getLogin()));
 				ColaboradorDao entityDao = FactoryDao.getFactory().getColaboradorDao();
 				entityDao.Add(entity);
 			} catch (Exception e) {

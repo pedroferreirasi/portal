@@ -27,7 +27,7 @@ public abstract class HibernateDao<T, PK extends Serializable> implements IDao<T
 
 	@Override
 	public void Add(T entity) {
-		HibernateSessionFactory.getSession().persist(entity);
+		HibernateSessionFactory.getSession().save(entity);
 		//logger.info("Entity added successfully, Entity Details =" + entity);
 	}
 

@@ -12,6 +12,7 @@ import javax.persistence.Column;
 import javax.persistence.Entity; 
 import javax.persistence.EnumType; 
 import javax.persistence.Enumerated;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.xml.bind.annotation.XmlAccessType; 
@@ -44,8 +45,8 @@ public class DadosPessoais implements Serializable {
     @Column(name="pk_pescad", nullable=false, length=10)
     private Integer id;
 
-	@OneToOne(cascade=CascadeType.ALL)
-    @JoinColumn(name = "fk_usucad", insertable=true, updatable=false)
+	@OneToOne(cascade=CascadeType.ALL, fetch = FetchType.LAZY)
+    @JoinColumn(name = "fk_usucad", referencedColumnName = "id", insertable=true, updatable=false)
 	@PrimaryKeyJoinColumn
 	private Usuario usuario;
 	
