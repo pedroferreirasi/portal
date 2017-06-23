@@ -31,13 +31,13 @@ public class Usuario implements Serializable {
 	 */
 	private static final long serialVersionUID = -5211602883770541991L;
 	
-	public Usuario() {
-		this.grupoUsuario = new GrupoUsuario();		
+	public Usuario() {				
 		this.ativo = true;
 		this.dataCadastro = new Date();
 		
+		this.grupoUsuario = new GrupoUsuario();
 		this.cargo = new Cargo();
-		this.departamento = new Departamento();
+		//this.departamento = new Departamento();
 		this.dadosPessoais = new DadosPessoais();	
 		this.dadosProfissionais = new DadosProfissionais();			
 	}
@@ -54,8 +54,8 @@ public class Usuario implements Serializable {
 	@Column(name="senha", nullable=false, length=255)
 	private String senha;
 	
-	@OneToOne(cascade = CascadeType.REFRESH, fetch = FetchType.EAGER)
-	@JoinColumn(name="fk_usgcad", unique = false, nullable=false)
+	@OneToOne(cascade = CascadeType.DETACH, fetch = FetchType.EAGER)
+	@JoinColumn(name="fk_usgcad", unique = false, insertable=false, updatable=false)
 	private GrupoUsuario grupoUsuario;
 	
 	@Column(name="nomecompleto", length=100)
@@ -89,17 +89,17 @@ public class Usuario implements Serializable {
 	private ETipoUsuario tipoUsuario;	
 
 	@OneToOne(cascade = CascadeType.REFRESH, fetch = FetchType.LAZY)
-	@JoinColumn(name="fk_depcad", unique = false)
+	@JoinColumn(name="fk_usgcad", unique = false, nullable=true)
 	private Departamento departamento;
 	
-	@OneToOne(cascade = CascadeType.REFRESH, fetch = FetchType.EAGER)
+	@OneToOne(cascade = CascadeType.DETACH, fetch = FetchType.EAGER)
 	@JoinColumn(name="fk_carcad", unique = false)
 	private Cargo cargo;
 	
-	@OneToOne(mappedBy="usuario", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+	@OneToOne(mappedBy="usuario", cascade = CascadeType.PERSIST, fetch=FetchType.LAZY)
 	private DadosPessoais dadosPessoais;	
 
-	@OneToOne(mappedBy="usuario", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+	@OneToOne(mappedBy="usuario", cascade = CascadeType.PERSIST, fetch=FetchType.LAZY)
 	private DadosProfissionais dadosProfissionais;
 	
 	public Usuario clone(Usuario entity){

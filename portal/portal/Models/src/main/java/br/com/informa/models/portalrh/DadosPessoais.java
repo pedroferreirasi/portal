@@ -1,29 +1,30 @@
 package br.com.informa.models.portalrh;
 
-import javax.persistence.Table;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.OneToOne;
-import javax.persistence.PrimaryKeyJoinColumn;
+import java.io.Serializable;
+import java.util.Date;
+
 import javax.persistence.CascadeType;
-import javax.persistence.Column; 
-import javax.persistence.Entity; 
-import javax.persistence.EnumType; 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
-import javax.xml.bind.annotation.XmlAccessType; 
-import javax.xml.bind.annotation.XmlAccessorType; 
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
+import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlRootElement;
+
 import br.com.informa.models.common.Usuario;
-import br.com.informa.models.dominio.ETipoLogradouro;
 import br.com.informa.models.dominio.EEstadoCivil;
 import br.com.informa.models.dominio.EEstadosBrasil;
-import java.io.Serializable;
-import java.util.Date; 
+import br.com.informa.models.dominio.ETipoLogradouro; 
  
 @Entity 
 @Table(name="tb_dados_pessoais") 
@@ -45,9 +46,8 @@ public class DadosPessoais implements Serializable {
     @Column(name="pk_pescad", nullable=false, length=10)
     private Integer id;
 
-	@OneToOne(cascade=CascadeType.ALL, fetch = FetchType.LAZY)
-    @JoinColumn(name = "fk_usucad", referencedColumnName = "id", insertable=true, updatable=false)
-	@PrimaryKeyJoinColumn
+	@OneToOne(cascade=CascadeType.REFRESH, fetch = FetchType.EAGER)
+    @JoinColumn(name = "fk_usucad")
 	private Usuario usuario;
 	
     @Column(name="cep", length=10)

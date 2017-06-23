@@ -1,15 +1,16 @@
 package br.com.informa.common;
 
 import java.io.Serializable;
+
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 import javax.faces.context.FacesContext;
+
 import br.com.informa.models.common.Usuario;
 import br.com.informa.models.dominio.ESexo;
-import br.com.informa.models.dominio.ETipoGrupoUsuario;
+import br.com.informa.services.common.UsuarioService;
 import br.com.informa.services.core.FactoryService;
 import br.com.informa.utils.Mensagens;
-import br.com.informa.services.common.UsuarioService;
 
 @ManagedBean(name = "autenticacaoController")
 @SessionScoped
@@ -63,12 +64,14 @@ public class AutenticacaoController implements Serializable {
 	}
 
 	public boolean isAdministrador() {
-		return this.entity.getGrupoUsuario().getTipoGrupoUsuario().equals(ETipoGrupoUsuario.administrador);
+		//return this.entity.getGrupoUsuario().getTipoGrupoUsuario().equals(ETipoGrupoUsuario.administrador);
+		return true;
 	}
 
 	public boolean isGerente() {
-		return ((this.entity.getGrupoUsuario().getTipoGrupoUsuario().equals(ETipoGrupoUsuario.gerencial)) ||
-				(this.entity.getGrupoUsuario().getTipoGrupoUsuario().equals(ETipoGrupoUsuario.administrador)));
+		/*return ((this.entity.getGrupoUsuario().getTipoGrupoUsuario().equals(ETipoGrupoUsuario.gerencial)) ||
+				(this.entity.getGrupoUsuario().getTipoGrupoUsuario().equals(ETipoGrupoUsuario.administrador)));*/
+		return true;
 	}
 
 	// logout event, invalidate session
