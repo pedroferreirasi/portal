@@ -30,7 +30,9 @@ public class AutenticacaoController implements Serializable {
 	private String fotoAvatar;
 
 	public AutenticacaoController() {
-		entity = new Usuario();
+		if (entity == null) {
+			entity = new Usuario();
+		}
 		paginacao = "5,10,15";
 		registrosPorPagina = "10";
 		mudarColunaDeLugarNoGrid = "true";
@@ -64,13 +66,18 @@ public class AutenticacaoController implements Serializable {
 	}
 
 	public boolean isAdministrador() {
-		//return this.entity.getGrupoUsuario().getTipoGrupoUsuario().equals(ETipoGrupoUsuario.administrador);
+		// return
+		// this.entity.getGrupoUsuario().getTipoGrupoUsuario().equals(ETipoGrupoUsuario.administrador);
 		return true;
 	}
 
 	public boolean isGerente() {
-		/*return ((this.entity.getGrupoUsuario().getTipoGrupoUsuario().equals(ETipoGrupoUsuario.gerencial)) ||
-				(this.entity.getGrupoUsuario().getTipoGrupoUsuario().equals(ETipoGrupoUsuario.administrador)));*/
+		/*
+		 * return ((this.entity.getGrupoUsuario().getTipoGrupoUsuario().equals(
+		 * ETipoGrupoUsuario.gerencial)) ||
+		 * (this.entity.getGrupoUsuario().getTipoGrupoUsuario().equals(
+		 * ETipoGrupoUsuario.administrador)));
+		 */
 		return true;
 	}
 

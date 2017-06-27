@@ -2,16 +2,15 @@ package br.com.informa.core;
 
 import java.io.Serializable;
 import java.util.List;
+
 import org.primefaces.context.RequestContext;
+
 import br.com.informa.models.dominio.EEstadoForm;
 import br.com.informa.services.common.IService;
 import br.com.informa.utils.Mensagens;
 
 public abstract class GenericController<T, TIPOCHAVE extends Serializable> implements Serializable {
 
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = 1L;
 
 	protected T entity;
