@@ -41,12 +41,10 @@ public class AutenticacaoController implements Serializable {
 
 	public String login() {
 		entityService = FactoryService.getFactory().getUsuario();
-		FacesContext context = FacesContext.getCurrentInstance();
 
 		try {
 			// entity = entityService.login(entity);
 			if (entityService.login(entity)) {
-				context.getExternalContext().getSessionMap().put("ususario", entity);
 				if (entity != null) {
 					if (entity.getSexo() != null) {
 						if (entity.getSexo().equals(ESexo.M)) {
