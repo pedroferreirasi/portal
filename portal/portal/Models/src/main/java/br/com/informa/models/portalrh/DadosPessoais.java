@@ -3,7 +3,6 @@ package br.com.informa.models.portalrh;
 import java.io.Serializable;
 import java.util.Date;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
@@ -46,7 +45,7 @@ public class DadosPessoais implements Serializable {
     @Column(name="pk_pescad", nullable=false, length=10)
     private Integer id;
 
-	@OneToOne(cascade=CascadeType.REFRESH, fetch = FetchType.EAGER)
+	@OneToOne(mappedBy="dadosPessoais", fetch = FetchType.EAGER)
     @JoinColumn(name = "fk_usucad")
 	private Usuario usuario;
 	

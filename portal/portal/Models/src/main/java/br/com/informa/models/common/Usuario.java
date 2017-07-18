@@ -96,10 +96,10 @@ public class Usuario implements Serializable {
 	@JoinColumn(name="fk_carcad", unique = false)
 	private Cargo cargo;
 	
-	@OneToOne(mappedBy="usuario", cascade = CascadeType.PERSIST, fetch=FetchType.LAZY)
+	@OneToOne(cascade = CascadeType.PERSIST, fetch=FetchType.LAZY)
 	private DadosPessoais dadosPessoais;	
 
-	@OneToOne(mappedBy="usuario", cascade = CascadeType.PERSIST, fetch=FetchType.LAZY)
+	@OneToOne(cascade = CascadeType.PERSIST, fetch=FetchType.LAZY)
 	private DadosProfissionais dadosProfissionais;
 	
 	public Usuario clone(Usuario entity){
