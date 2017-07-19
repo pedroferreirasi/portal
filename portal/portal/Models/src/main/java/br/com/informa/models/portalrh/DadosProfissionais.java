@@ -5,7 +5,6 @@ import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -42,8 +41,8 @@ public class DadosProfissionais implements Serializable {
     @Column(name="pk_procad", length=10)
     private Integer id;
 
-	@OneToOne(mappedBy="dadosProfissionais", fetch = FetchType.EAGER)
-    @JoinColumn(name = "fk_usucad")
+	@OneToOne
+	@JoinColumn(name="fk_usucad", unique = false)
     private Usuario usuario;
 
     @Column(name="nuCTPS", length=10)

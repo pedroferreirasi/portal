@@ -7,7 +7,6 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -45,8 +44,8 @@ public class DadosPessoais implements Serializable {
     @Column(name="pk_pescad", nullable=false, length=10)
     private Integer id;
 
-	@OneToOne(mappedBy="dadosPessoais", fetch = FetchType.EAGER)
-    @JoinColumn(name = "fk_usucad")
+	@OneToOne
+	@JoinColumn(name="fk_usucad", unique = false)
 	private Usuario usuario;
 	
     @Column(name="cep", length=10)

@@ -37,14 +37,14 @@ public class Usuario implements Serializable {
 		
 		this.grupoUsuario = new GrupoUsuario();
 		this.cargo = new Cargo();
-		//this.departamento = new Departamento();
+		this.departamento = new Departamento();
 		this.dadosPessoais = new DadosPessoais();	
 		this.dadosProfissionais = new DadosProfissionais();			
 	}
 	
 
 	@Id
-	@GeneratedValue(strategy=GenerationType.AUTO)
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	@Column(name="pk_usucad")
 	private int id;
 	
@@ -54,8 +54,8 @@ public class Usuario implements Serializable {
 	@Column(name="senha", nullable=false, length=255)
 	private String senha;
 	
-	@OneToOne(cascade = CascadeType.DETACH, fetch = FetchType.EAGER)
-	@JoinColumn(name="fk_usgcad", unique = false, insertable=false, updatable=false)
+	@OneToOne(fetch = FetchType.EAGER)
+	@JoinColumn(name="fk_usgcad", unique = false)
 	private GrupoUsuario grupoUsuario;
 	
 	@Column(name="nomecompleto", length=100)
@@ -88,18 +88,18 @@ public class Usuario implements Serializable {
 	@Column(name="tipousuario", nullable=false)
 	private ETipoUsuario tipoUsuario;	
 
-	@OneToOne(cascade = CascadeType.REFRESH, fetch = FetchType.LAZY)
-	@JoinColumn(name="fk_usgcad", unique = false, nullable=true)
+	@OneToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name="fk_depcad", unique = false, nullable=true)
 	private Departamento departamento;
 	
-	@OneToOne(cascade = CascadeType.DETACH, fetch = FetchType.EAGER)
+	@OneToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name="fk_carcad", unique = false)
 	private Cargo cargo;
 	
-	@OneToOne(cascade = CascadeType.PERSIST, fetch=FetchType.LAZY)
+	@OneToOne(mappedBy="usuario", cascade = CascadeType.PERSIST)
 	private DadosPessoais dadosPessoais;	
 
-	@OneToOne(cascade = CascadeType.PERSIST, fetch=FetchType.LAZY)
+	@OneToOne(mappedBy="usuario", cascade = CascadeType.PERSIST)
 	private DadosProfissionais dadosProfissionais;
 	
 	public Usuario clone(Usuario entity){
