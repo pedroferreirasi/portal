@@ -54,10 +54,6 @@ public class Usuario implements Serializable {
 	@Column(name="senha", nullable=false, length=255)
 	private String senha;
 	
-	@OneToOne(fetch = FetchType.EAGER)
-	@JoinColumn(name="fk_usgcad", unique = false)
-	private GrupoUsuario grupoUsuario;
-	
 	@Column(name="nomecompleto", length=100)
 	private String nomeCompleto;
 
@@ -87,6 +83,10 @@ public class Usuario implements Serializable {
 	@Enumerated(EnumType.STRING)
 	@Column(name="tipousuario", nullable=false)
 	private ETipoUsuario tipoUsuario;	
+	
+	@OneToOne(fetch = FetchType.EAGER)
+	@JoinColumn(name="fk_usgcad", unique = false)
+	private GrupoUsuario grupoUsuario;	
 
 	@OneToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name="fk_depcad", unique = false, nullable=true)
