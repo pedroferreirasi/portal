@@ -2,7 +2,6 @@ package br.com.informa.core;
 
 import java.util.regex.Pattern;
 
-import javax.faces.application.NavigationHandler;
 import javax.faces.context.FacesContext;
 import javax.faces.event.PhaseEvent;
 import javax.faces.event.PhaseId;
@@ -36,18 +35,18 @@ public class AutenticacaoListener implements PhaseListener {
 		}
 
 		if (urlPadraoProtegida && usuario == null) {
-			NavigationHandler navigator = context.getApplication().getNavigationHandler();
-			navigator.handleNavigation(context, null, "login");
+			//NavigationHandler navigator = context.getApplication().getNavigationHandler();
+			//navigator.handleNavigation(context, null, "login");
 		}
 
 		if (urlGerencialProtegida && usuario == null) {
-			NavigationHandler navigator = context.getApplication().getNavigationHandler();
-			navigator.handleNavigation(context, null, "login");
+			//NavigationHandler navigator = context.getApplication().getNavigationHandler();
+			//navigator.handleNavigation(context, null, "login");
 		}
 
 		if (urlAdministradorProtegida && usuario == null) {
-			NavigationHandler navigator = context.getApplication().getNavigationHandler();
-			navigator.handleNavigation(context, null, "login");
+			//NavigationHandler navigator = context.getApplication().getNavigationHandler();
+			//navigator.handleNavigation(context, null, "login");
 		}
 	}
 

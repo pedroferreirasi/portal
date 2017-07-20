@@ -16,7 +16,7 @@ public class ColaboradorServiceImpl implements ColaboradorService {
 		if (validacao(entity)) {
 			try {
 				entity.setTipoUsuario(ETipoUsuario.C);
-				entity.getCargo().setId(36);
+				entity.getCargo().setId(2);
 				entity.setSenha(CommonMethods.getInstance().SHA256("informa", entity.getLogin()));
 				ColaboradorDao entityDao = FactoryDao.getFactory().getColaboradorDao();
 				entityDao.Add(entity);

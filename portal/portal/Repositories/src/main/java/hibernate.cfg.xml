@@ -6,9 +6,9 @@
 	<session-factory>
 	    <!-- MY SQL --> 
 		<property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property> 
-		<property name="hibernate.connection.url">jdbc:mysql://192.168.0.231:3306/db?relaxAutoCommit=true</property> 
-		<property name="hibernate.connection.username">root</property> 
-		<property name="hibernate.connection.password">informa123</property> 
+		<property name="hibernate.connection.url">jdbc:mysql://br-cdbr-azure-south-b.cloudapp.net/acsm_89cd814fe546271</property> 
+		<property name="hibernate.connection.username">b15cf12fd2ab2b</property> 
+		<property name="hibernate.connection.password">c23e3956</property> 
 		<property name="hibernate.connection.pool_size">10</property> 
 		<property name="hibernate.show_sql">true</property> 
 		<property name="hibernate.format_sql">false</property>
