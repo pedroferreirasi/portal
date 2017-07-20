@@ -7,6 +7,7 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
+import javax.persistence.ForeignKey;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -45,7 +46,7 @@ public class DadosPessoais implements Serializable {
     private Integer id;
 
 	@OneToOne
-	@JoinColumn(name="fk_usucad", unique = false)
+	@JoinColumn(name="fk_usucad", unique = false, foreignKey=@ForeignKey(name = "fk_pescad_usucad"))
 	private Usuario usuario;
 	
     @Column(name="cep", length=10)
@@ -100,7 +101,7 @@ public class DadosPessoais implements Serializable {
     @Column(name="nuRG", length=10)
     private String RG;
 
-    @Column(name="dataemissaoRG", length=0)
+    @Column(name="dataemissaoRG")
     @Temporal(TemporalType.DATE)
     private Date dataEmissaoRG;
 

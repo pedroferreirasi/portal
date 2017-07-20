@@ -1,27 +1,30 @@
 package br.com.informa.models.common;
 
+import java.io.Serializable;
 import java.util.Date;
-import javax.persistence.Table;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.OneToOne;
+
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
 import javax.persistence.FetchType;
+import javax.persistence.ForeignKey;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
+import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+
 import br.com.informa.models.dominio.ESexo;
 import br.com.informa.models.dominio.ETipoUsuario;
 import br.com.informa.models.portalrh.Cargo;
 import br.com.informa.models.portalrh.DadosPessoais;
 import br.com.informa.models.portalrh.DadosProfissionais;
 import br.com.informa.models.portalrh.Departamento;
-import java.io.Serializable;
 
 @Entity
 @Table(name = "tb_usuario")
@@ -81,19 +84,19 @@ public class Usuario implements Serializable {
 	private Boolean ativo;
 	
 	@Enumerated(EnumType.STRING)
-	@Column(name="tipousuario", nullable=false)
+	@Column(name="tipousuario", nullable=false, length=15)
 	private ETipoUsuario tipoUsuario;	
 	
 	@OneToOne(fetch = FetchType.EAGER)
-	@JoinColumn(name="fk_usgcad", unique = false)
+	@JoinColumn(name="fk_usgcad", unique = false, foreignKey=@ForeignKey(name = "fk_usucad_usgcad"))
 	private GrupoUsuario grupoUsuario;	
 
 	@OneToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name="fk_depcad", unique = false, nullable=true)
+	@JoinColumn(name="fk_depcad", unique = false, nullable=true, foreignKey=@ForeignKey(name = "fk_usucad_depcad"))
 	private Departamento departamento;
 	
 	@OneToOne(fetch = FetchType.EAGER)
-	@JoinColumn(name="fk_carcad", unique = false)
+	@JoinColumn(name="fk_carcad", unique = false, foreignKey=@ForeignKey(name = "fk_usucad_carcad"))
 	private Cargo cargo;
 	
 	@OneToOne(mappedBy="usuario", cascade = CascadeType.PERSIST)

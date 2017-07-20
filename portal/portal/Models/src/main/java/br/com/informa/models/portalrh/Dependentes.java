@@ -11,6 +11,7 @@ import javax.persistence.Entity;
 import javax.persistence.EnumType; 
 import javax.persistence.Enumerated;
 import javax.persistence.FetchType;
+import javax.persistence.ForeignKey;
 import javax.persistence.GeneratedValue; 
 import javax.xml.bind.annotation.XmlAccessType; 
 import javax.xml.bind.annotation.XmlAccessorType; 
@@ -40,7 +41,7 @@ public class Dependentes implements Serializable {
     private Integer id;
 
 	@OneToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "fk_usucad")
+    @JoinColumn(name = "fk_usucad", foreignKey=@ForeignKey(name = "fk_depcad_usucad"))
     private Usuario usuario;
 
     @Column(name="nome", nullable=true, length=70)
@@ -50,7 +51,7 @@ public class Dependentes implements Serializable {
     @Enumerated(EnumType.STRING)
     private EParentesco parentesco;
 
-    @Column(name="datanascimento", nullable=true, length=0)
+    @Column(name="datanascimento", nullable=true)
     @Temporal(TemporalType.DATE)
     private Date dataNascimento;
 

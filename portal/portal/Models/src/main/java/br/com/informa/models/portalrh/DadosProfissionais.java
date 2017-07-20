@@ -5,6 +5,7 @@ import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.ForeignKey;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -42,7 +43,7 @@ public class DadosProfissionais implements Serializable {
     private Integer id;
 
 	@OneToOne
-	@JoinColumn(name="fk_usucad", unique = false)
+	@JoinColumn(name="fk_usucad", unique = false, foreignKey=@ForeignKey(name = "fk_procad_usucad"))
     private Usuario usuario;
 
     @Column(name="nuCTPS", length=10)
@@ -78,7 +79,7 @@ public class DadosProfissionais implements Serializable {
     @Column(name="flbateponto")
     private Boolean flagBatePonto;
 
-    @Column(name="dataadminissao", length=0)
+    @Column(name="dataadminissao")
     @Temporal(TemporalType.DATE)
     private Date dataAdmissao;
 
