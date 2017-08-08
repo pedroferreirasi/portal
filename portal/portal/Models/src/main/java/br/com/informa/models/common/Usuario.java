@@ -91,7 +91,7 @@ public class Usuario implements Serializable {
 	@JoinColumn(name="fk_usgcad", unique = false, foreignKey=@ForeignKey(name = "fk_usucad_usgcad"))
 	private GrupoUsuario grupoUsuario;	
 
-	@OneToOne(fetch = FetchType.LAZY)
+	@OneToOne(cascade=CascadeType.ALL)
 	@JoinColumn(name="fk_depcad", unique = false, nullable=true, foreignKey=@ForeignKey(name = "fk_usucad_depcad"))
 	private Departamento departamento;
 	
@@ -99,7 +99,7 @@ public class Usuario implements Serializable {
 	@JoinColumn(name="fk_carcad", unique = false, foreignKey=@ForeignKey(name = "fk_usucad_carcad"))
 	private Cargo cargo;
 	
-	@OneToOne(mappedBy="usuario", cascade = CascadeType.PERSIST, fetch = FetchType.EAGER)
+	@OneToOne(mappedBy="usuario", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
 	private DadosPessoais dadosPessoais;	
 
 	@OneToOne(mappedBy="usuario", cascade = CascadeType.PERSIST, fetch = FetchType.EAGER)

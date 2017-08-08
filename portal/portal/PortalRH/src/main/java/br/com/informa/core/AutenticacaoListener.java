@@ -30,7 +30,7 @@ public class AutenticacaoListener implements PhaseListener {
 		boolean urlGerencialProtegida = Pattern.matches(RESTRICTION_PATTERN_MANAGER, viewId);
 		boolean urlAdministradorProtegida = Pattern.matches(RESTRICTION_PATTERN_ADMINISTRATOR, viewId);
 
-		if (context.getExternalContext().getSessionMap().containsKey("autenticacaoController")) {
+		/*if (context.getExternalContext().getSessionMap().containsKey("autenticacaoController")) {
 			usuario = Contexto.getUsuarioLogado();
 		}
 
@@ -47,7 +47,7 @@ public class AutenticacaoListener implements PhaseListener {
 		if (urlAdministradorProtegida && usuario == null) {
 			//NavigationHandler navigator = context.getApplication().getNavigationHandler();
 			//navigator.handleNavigation(context, null, "login");
-		}
+		}*/
 	}
 
 	@Override
