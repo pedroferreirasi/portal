@@ -42,7 +42,9 @@ public class Usuario implements Serializable {
 		this.cargo = new Cargo();
 		this.departamento = new Departamento();
 		this.dadosPessoais = new DadosPessoais();	
-		this.dadosProfissionais = new DadosProfissionais();			
+		this.dadosProfissionais = new DadosProfissionais();
+		this.getDadosPessoais().setUsuario(this);
+		this.getDadosProfissionais().setUsuario(this);
 	}
 	
 
