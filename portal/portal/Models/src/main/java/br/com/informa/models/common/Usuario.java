@@ -102,7 +102,7 @@ public class Usuario implements Serializable {
 	@OneToOne(mappedBy="usuario", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
 	private DadosPessoais dadosPessoais;	
 
-	@OneToOne(mappedBy="usuario", cascade = CascadeType.PERSIST, fetch = FetchType.EAGER)
+	@OneToOne(mappedBy="usuario", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
 	private DadosProfissionais dadosProfissionais;
 	
 	public Usuario clone(Usuario entity){
