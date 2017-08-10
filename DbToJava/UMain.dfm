@@ -19,7 +19,7 @@ object FrPrincipal: TFrPrincipal
     Left = 0
     Top = 0
     Width = 1096
-    Height = 193
+    Height = 219
     Align = alTop
     TabOrder = 0
     object Label1: TLabel
@@ -31,7 +31,7 @@ object FrPrincipal: TFrPrincipal
     end
     object BT_Carregar: TSpeedButton
       Left = 316
-      Top = 104
+      Top = 152
       Width = 177
       Height = 57
       Caption = 'Carregar'
@@ -54,7 +54,7 @@ object FrPrincipal: TFrPrincipal
     end
     object BT_Gerar: TSpeedButton
       Left = 499
-      Top = 104
+      Top = 152
       Width = 177
       Height = 57
       Caption = 'Gerar'
@@ -63,7 +63,7 @@ object FrPrincipal: TFrPrincipal
     end
     object BT_Conectar: TSpeedButton
       Left = 16
-      Top = 104
+      Top = 152
       Width = 289
       Height = 57
       Caption = 'Conectar'
@@ -76,6 +76,20 @@ object FrPrincipal: TFrPrincipal
       Width = 41
       Height = 13
       Caption = 'Caminho'
+    end
+    object lblUsuario: TLabel
+      Left = 16
+      Top = 106
+      Width = 36
+      Height = 13
+      Caption = 'Usuario'
+    end
+    object lblSenha: TLabel
+      Left = 316
+      Top = 106
+      Width = 30
+      Height = 13
+      Caption = 'Senha'
     end
     object Edt_Host: TEdit
       Left = 16
@@ -164,6 +178,20 @@ object FrPrincipal: TFrPrincipal
         TabOrder = 4
       end
     end
+    object edtuser: TEdit
+      Left = 16
+      Top = 125
+      Width = 289
+      Height = 21
+      TabOrder = 5
+    end
+    object edtpassword: TEdit
+      Left = 316
+      Top = 125
+      Width = 360
+      Height = 21
+      TabOrder = 6
+    end
   end
   object PN_Bottom: TPanel
     Left = 0
@@ -175,26 +203,30 @@ object FrPrincipal: TFrPrincipal
   end
   object PN_Grid: TPanel
     Left = 0
-    Top = 193
+    Top = 219
     Width = 1096
-    Height = 297
+    Height = 271
     Align = alClient
     TabOrder = 2
+    ExplicitTop = 193
+    ExplicitHeight = 297
     object PageControl1: TPageControl
       Left = 1
       Top = 1
       Width = 1094
-      Height = 295
+      Height = 269
       ActivePage = TabSheet1
       Align = alClient
       TabOrder = 0
+      ExplicitHeight = 295
       object TabSheet1: TTabSheet
         Caption = 'Principal'
+        ExplicitHeight = 267
         object DBGrid1: TDBGrid
           Left = 0
           Top = 0
           Width = 1086
-          Height = 267
+          Height = 241
           Align = alClient
           DataSource = ds
           TabOrder = 0

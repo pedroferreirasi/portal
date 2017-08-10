@@ -43,18 +43,6 @@ const
                      '		</h:panelGroup> '+#13+#10+
                      '	</ui:define> '+#13+#10+
                      ' '+#13+#10+
-                     '	<ui:define name="colunasdogrid"> '+#13+#10+
-                     '		<f:facet name="header"> '+#13+#10+
-                     '                            Lista de Usuários '+#13+#10+
-                     '                            <!-- <p:commandButton id="toggler" type="button" value="Columns" style="float:right" icon="ui-icon-calculator" /> '+#13+#10+
-                     '                            <p:columnToggler datasource="TableId" trigger="toggler" />--> '+#13+#10+
-                     '		</f:facet> '+#13+#10+
-                     ' '+#13+#10+
-                     '		<p:column width="9%" sortBy="#{usuario.id}" style="text-align: center" '+#13+#10+
-                     '			headerText="Código" filterable="#{entityBean.habilitarPesquisa}" '+#13+#10+
-                     '			filterBy="#{entity.id}"> '+#13+#10+
-                     '			<h:outputText value="#{entity.id}" /> '+#13+#10+
-                     '		</p:column> '+#13+#10+
                      '	</ui:define> '+#13+#10+
                      '	<ui:define name="colunasdogrid"> '+#13+#10+
                      '		<f:facet name="header"> '+#13+#10+
@@ -75,7 +63,7 @@ const
                  ' '+#13+#10+
                  '@ManagedBean(name = "{ALIAS_NORMAL}Controller") '+#13+#10+
                  '@ViewScoped '+#13+#10+
-                 'public class {ALIAS_NORMAL}Controller extends GenericController<{ALIAS_NORMAL}> { '+#13+#10+
+                 'public class {ALIAS_NORMAL}Controller extends GenericController<{ALIAS_NORMAL}, Integer> { '+#13+#10+
                  ' '+#13+#10+
                  '	public {ALIAS_NORMAL}Controller() { '+#13+#10+
                  '		entityService = FactoryService.getFactory().get{ALIAS_NORMAL}(); '+#13+#10+
@@ -85,6 +73,9 @@ const
                  ' '+#13+#10+
                  '	public void novo() '+#13+#10+
                  '	{ '+#13+#10+
+                 '  if (this.entity != null) {' +#13+#10+
+                 '    this.entity = null;' +#13+#10+
+                 '  } '+#13+#10+
                  '		this.entity = new {ALIAS_NORMAL}(); '+#13+#10+
                  '		this.estado = EEstadoForm.Incluir; '+#13+#10+
                  '	} '+#13+#10+
@@ -96,7 +87,7 @@ const
                           'import br.com.informa.repositories.dao.hibernate.HibernateDao; '+#13+#10+
                           'import br.com.informa.models.portalrh.{ALIAS_NORMAL}; ' +#13+#10+
                           ' '+#13+#10+
-                          'public class {ALIAS_NORMAL}ImplDao extends HibernateDao<{ALIAS_NORMAL}, Integer>  implements {ALIAS_NORMAL}Dao { '+#13+#10+
+                          'public class {ALIAS_NORMAL}DaoImpl extends HibernateDao<{ALIAS_NORMAL}, Integer>  implements {ALIAS_NORMAL}Dao { '+#13+#10+
                           ' '+#13+#10+
                           '} ';
 
@@ -126,7 +117,7 @@ const
                     'import br.com.informa.repositories.dao.FactoryDao; '+#13+#10+
                     'import br.com.informa.repositories.dao.portalrh.{ALIAS_NORMAL}Dao; '+#13+#10+
                     ' '+#13+#10+
-                    'public class {ALIAS_NORMAL}ImplService implements {ALIAS_NORMAL}Service { '+#13+#10+
+                    'public class {ALIAS_NORMAL}ServiceImpl implements {ALIAS_NORMAL}Service { '+#13+#10+
                     ' '+#13+#10+
                     '	@Override '+#13+#10+
                     '	public void Add({ALIAS_NORMAL} entity) { '+#13+#10+
@@ -233,6 +224,10 @@ type
     ckServico: TCheckBox;
     ckController: TCheckBox;
     ckXthml: TCheckBox;
+    lblUsuario: TLabel;
+    edtuser: TEdit;
+    lblSenha: TLabel;
+    edtpassword: TEdit;
     procedure FormCreate(Sender: TObject);
     procedure BT_CarregarClick(Sender: TObject);
     procedure BT_GerarClick(Sender: TObject);
@@ -270,6 +265,17 @@ begin
   begin
     FDataModule.Conn.Params.Values['HostName'] := Trim(Edt_Host.Text);
   end;
+
+  if Trim(edtuser.Text) <> '' then
+  begin
+    FDataModule.Conn.Params.Values['user_name'] := Trim(edtuser.Text);
+  end;
+
+  if Trim(edtpassword.Text) <> '' then
+  begin
+    FDataModule.Conn.Params.Values['password'] := Trim(edtpassword.Text);
+  end;
+
   FDataModule.Conn.Close;
   FDataModule.Conn.Open;
 end;
@@ -388,7 +394,7 @@ var
   LRepositoryClass : String;
 begin
   LRepositoryClass := C_REPOSITORY_CLASSDAO;
-  AssignFile(f,FCaminho+AParametro.alias+'Dao.java');
+  AssignFile(f,FCaminho+AParametro.alias+'DaoImpl.java');
   Rewrite(f); //abre o arquivo para escrita
 
   LRepositoryClass := Self.substituirConstantes(C_REPOSITORY_CLASSDAO, '{ALIAS_NORMAL}', AParametro.alias);
@@ -404,7 +410,7 @@ var
   F: TextFile;
   LRepositoryClass : String;
 begin
-  AssignFile(f,FCaminho+'I'+AParametro.alias+'Dao.java');
+  AssignFile(f,FCaminho+AParametro.alias+'Dao.java');
   Rewrite(f); //abre o arquivo para escrita
 
   LRepositoryClass := Self.substituirConstantes(C_REPOSITORY_INTERFACEDAO, '{ALIAS_NORMAL}', AParametro.alias);
@@ -420,7 +426,7 @@ var
   F: TextFile;
   LRepositoryClass : String;
 begin
-  AssignFile(f,FCaminho+AParametro.alias+'Service.java');
+  AssignFile(f,FCaminho+AParametro.alias+'ServiceImpl.java');
   Rewrite(f); //abre o arquivo para escrita
 
   LRepositoryClass := Self.substituirConstantes(C_SERVICE_CLASS, '{ALIAS_NORMAL}', AParametro.alias);
@@ -436,7 +442,7 @@ var
   F: TextFile;
   LRepositoryClass : String;
 begin
-  AssignFile(f,FCaminho+'I'+AParametro.alias+'Service.java');
+  AssignFile(f,FCaminho+AParametro.alias+'Service.java');
   Rewrite(f); //abre o arquivo para escrita
 
   LRepositoryClass := Self.substituirConstantes(C_SERVICE_INTERFACE, '{ALIAS_NORMAL}', AParametro.alias);
