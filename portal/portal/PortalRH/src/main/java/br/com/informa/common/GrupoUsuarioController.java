@@ -23,7 +23,10 @@ public class GrupoUsuarioController extends GenericController<GrupoUsuario, Inte
 	}
 	
 	public void novo()
-	{	
+	{
+		if (this.entity != null) {
+			this.entity = null;
+		}
 		this.entity = new GrupoUsuario();
 		this.estado = EEstadoForm.Incluir;
 	}

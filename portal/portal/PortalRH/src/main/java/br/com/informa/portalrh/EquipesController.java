@@ -24,6 +24,9 @@ public class EquipesController extends GenericController<Equipes, Integer> {
  
 	public void novo() 
 	{ 
+		if (this.entity != null) {
+			this.entity = null;
+		}
 		this.entity = new Equipes(); 
 		this.estado = EEstadoForm.Incluir; 
 	} 

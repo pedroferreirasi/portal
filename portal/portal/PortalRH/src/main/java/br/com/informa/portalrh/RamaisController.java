@@ -28,9 +28,11 @@ public class RamaisController extends GenericController<Usuario, Integer> {
 	}
 
 	public void novo() {
-		if (this.entity == null) {
-			this.entity = new Usuario();
+		if (this.entity != null) {
+			this.entity = null;
 		}
+	
+		this.entity = new Usuario();
 		this.estado = EEstadoForm.Incluir;
 	}
 }

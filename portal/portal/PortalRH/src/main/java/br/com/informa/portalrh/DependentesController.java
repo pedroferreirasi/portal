@@ -23,7 +23,10 @@ public class DependentesController extends GenericController<Dependentes, Intege
 	} 
  
 	public void novo() 
-	{ 
+	{
+		if (this.entity != null) {
+			this.entity = null;
+		}
 		this.entity = new Dependentes(); 
 		this.estado = EEstadoForm.Incluir; 
 	} 

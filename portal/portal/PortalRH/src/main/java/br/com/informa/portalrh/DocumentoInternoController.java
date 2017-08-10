@@ -25,6 +25,10 @@ public class DocumentoInternoController extends GenericController<DocumentoInter
  
 	public void novo() 
 	{ 
+		if (this.entity != null) {
+			this.entity = null;
+		}
+		
 		this.entity = new DocumentoInterno(); 
 		this.estado = EEstadoForm.Incluir; 
 	} 

@@ -25,6 +25,9 @@ public class FeriadosController extends GenericController<Feriados, Date> {
  
 	public void novo() 
 	{ 
+		if (this.entity != null) {
+			this.entity = null;
+		}
 		this.entity = new Feriados(); 
 		this.estado = EEstadoForm.Incluir; 
 	} 

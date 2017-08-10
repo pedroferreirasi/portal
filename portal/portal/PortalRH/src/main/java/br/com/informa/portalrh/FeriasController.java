@@ -26,6 +26,9 @@ public class FeriasController extends GenericController<Ferias, Integer> {
  
 	public void novo() 
 	{ 
+		if (this.entity != null) {
+			this.entity = null;
+		}
 		this.entity = new Ferias(); 
 		this.estado = EEstadoForm.Incluir;		
 		entity.setUsuario(Contexto.getUsuarioLogado());

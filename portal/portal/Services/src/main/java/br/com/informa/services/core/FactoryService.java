@@ -13,6 +13,8 @@ import br.com.informa.services.portalrh.EquipesServiceImpl;
 import br.com.informa.services.portalrh.FeriadosService;
 import br.com.informa.services.portalrh.FeriadosServiceImpl;
 import br.com.informa.services.portalrh.FeriasServiceImpl;
+import br.com.informa.services.portalrh.SalaService;
+import br.com.informa.services.portalrh.SalaServiceImpl;
 import br.com.informa.services.portalrh.CargoService;
 import br.com.informa.services.portalrh.ColaboradorService;
 import br.com.informa.services.portalrh.DepartamentoService;
@@ -78,5 +80,9 @@ public class FactoryService {
 	
 	public FeriadosService getFeriados() {
 		return new FeriadosServiceImpl();
+	}	
+	
+	public SalaService getSala() {
+		return new SalaServiceImpl();
 	}		
 }
