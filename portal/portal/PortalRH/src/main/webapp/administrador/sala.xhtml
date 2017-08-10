@@ -26,7 +26,7 @@
                   <!--</h:panelGroup> 
                   <h:panelGroup layout="block" styleClass="box-header col-md-2 col-md-offset-9" >--> 
 			<p:commandButton value="Pesquisar" 
-				action="#{entityBean.getListAll}" ajax="false" update="@form" 
+				actionListener="#{entityBean.getListAll}" ajax="false" update="@form" 
 				styleClass="btn btn-primary" >&#160; 
                      <!-- <f:ajax execute=":TableId" render=":TableId" /> --> 
 			</p:commandButton> 
@@ -39,13 +39,13 @@
                             <!-- <p:commandButton id="toggler" type="button" value="Columns" style="float:right" icon="ui-icon-calculator" /> 
                             <p:columnToggler datasource="TableId" trigger="toggler" />--> 
 		</f:facet> 
-		<p:column width="9%" sortBy="#{entity.id}" style="text-align: center" 
-			headerText="id" filterable="#{entityBean.habilitarPesquisa}" 
+		<p:column width="10%" sortBy="#{entity.id}" style="text-align: center" 
+			headerText="Código" filterable="#{entityBean.habilitarPesquisa}" 
 			filterBy="#{entity.id}"> 
 			<h:outputText value="#{entity.id}" /> 
 		</p:column> 
-		<p:column width="9%" sortBy="#{entity.descricao}" style="text-align: center" 
-			headerText="descricao" filterable="#{entityBean.habilitarPesquisa}" 
+		<p:column width="81%" sortBy="#{entity.descricao}" style="text-align: left" 
+			headerText="Descricao" filterable="#{entityBean.habilitarPesquisa}" 
 			filterBy="#{entity.descricao}"> 
 			<h:outputText value="#{entity.descricao}" /> 
 		</p:column> 

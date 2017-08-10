@@ -18,8 +18,6 @@ public class SalaController extends GenericController<Sala, Integer> {
 		entityService = FactoryService.getFactory().getSala();
 		this.novo();
 		listaEntity = this.getListAll();
-		this.setWidthModal("900");
-		this.setHeightModal("500");
 	}
 
 	public void novo() 
