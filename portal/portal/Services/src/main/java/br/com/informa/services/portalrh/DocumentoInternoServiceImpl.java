@@ -1,5 +1,6 @@
 package br.com.informa.services.portalrh;
 
+import java.util.Date;
 import java.util.List; 
 import br.com.informa.models.portalrh.DocumentoInterno; 
 import br.com.informa.repositories.dao.FactoryDao; 
@@ -10,7 +11,8 @@ public class DocumentoInternoServiceImpl implements DocumentoInternoService {
  
 	@Override 
 	public void Add(DocumentoInterno entity) { 
-		DocumentoInternoDao entityDao = FactoryDao.getFactory().getDocumentoInternoDao(); 
+		DocumentoInternoDao entityDao = FactoryDao.getFactory().getDocumentoInternoDao();
+		entity.setDataCadastro(new Date());
 		entityDao.Add(entity);		 
 	} 
  

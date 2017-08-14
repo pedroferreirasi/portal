@@ -7,11 +7,11 @@
 	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"> 
  
     <ui:define name="titulo"> 
-      <h1>Pesquisa de DocumentoInterno</h1> 
+      <h1>Pesquisa de Documentos Interno</h1> 
       <ol class="breadcrumb"> 
         <li><a href="mainmenu.xhtml"><i class="fa fa-dashboard"></i> Home</a></li> 
         <li><a href="#">Cadastros</a></li> 
-        <li class="active">Documento Interno</li> 
+        <li class="active">Documentos Interno</li> 
       </ol> 
     </ui:define> 
  
@@ -35,7 +35,7 @@
  
 	<ui:define name="colunasdogrid"> 
 		<f:facet name="header"> 
-                            Lista de Usu�rios 
+                            Lista de Documentos 
                             <!-- <p:commandButton id="toggler" type="button" value="Columns" style="float:right" icon="ui-icon-calculator" /> 
                             <p:columnToggler datasource="TableId" trigger="toggler" />--> 
 		</f:facet> 
@@ -63,13 +63,22 @@
  	</ui:define> 
  
 	<ui:define name="teladecadastro"> 
-	  <p:panelGrid id="display" style="width: 100%; border: none; cellspacing: 10px;" > 
-		<p:row style="border: none"> 
-		<f:facet name="footer"> 
- 
-		</f:facet> 
-		</p:row>
-	  </p:panelGrid><br/>
+	  <p:panelGrid id="display" style="width: 100%; border: none; cellspacing: 10px;" >
+		<p:row style="border: none">
+			<p:column style="width:40%; border: none">
+				<h:outputText value="Tipo Documento: " />
+					<h:selectOneMenu value="#{entityBean.entity.tipoDocumentoInterno}"
+						styleClass="form-control select2">
+					<f:selectItems value="#{tipoDocumentoInternoController.listaEntity}"
+						var="grupo" itemValue="#{grupo.id}" itemLabel="#{grupo.descricao}" />
+					</h:selectOneMenu>
+			</p:column>
+			<p:column style="width:60%; border: none">
+			  <h:outputText value="Arquivo: " /><br />
+			  <p:fileUpload value="#{entityBean.entity.texto}" mode="simple" label="Selecione" skinSimple="true"/>
+			</p:column>
+		</p:row> 
+	  </p:panelGrid><br />
 	</ui:define> 
  
 </ui:composition> 

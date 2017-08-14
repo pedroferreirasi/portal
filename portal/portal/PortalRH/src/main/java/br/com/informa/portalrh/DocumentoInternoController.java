@@ -5,7 +5,8 @@ import javax.faces.bean.ViewScoped;
 import br.com.informa.core.GenericController; 
 import br.com.informa.models.portalrh.DocumentoInterno; 
 import br.com.informa.models.dominio.EEstadoForm; 
-import br.com.informa.services.core.FactoryService; 
+import br.com.informa.services.core.FactoryService;
+import br.com.informa.utils.Contexto; 
  
 @ManagedBean(name = "documentoInternoController") 
 @ViewScoped 
@@ -31,6 +32,7 @@ public class DocumentoInternoController extends GenericController<DocumentoInter
 		
 		this.entity = new DocumentoInterno(); 
 		this.estado = EEstadoForm.Incluir; 
+		this.entity.setUsuario(Contexto.getUsuarioLogado());
 	} 
 	
 	public void getMissao() {

@@ -1,12 +1,13 @@
 package br.com.informa.models.portalrh;
 
 import java.io.Serializable;
-import java.util.Calendar;
+import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.Lob;
@@ -31,7 +32,7 @@ public class DocumentoInterno implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
-    @GeneratedValue
+    @GeneratedValue(strategy=GenerationType.IDENTITY)
     @Column(name="pk_docint", nullable=false, length=10)
     private Integer id;
 
@@ -44,7 +45,7 @@ public class DocumentoInterno implements Serializable {
     private Usuario usuario;
 
     @Column(name="datacadastro", nullable=false, length=0)
-    private Calendar dataCadastro;
+    private Date dataCadastro;
 
     @Lob
     @Column(name="texto", nullable=true)
@@ -74,11 +75,11 @@ public class DocumentoInterno implements Serializable {
 		this.usuario = usuario;
 	}
 
-	public Calendar getDataCadastro() {
+	public Date getDataCadastro() {
 		return dataCadastro;
 	}
 
-	public void setDataCadastro(Calendar dataCadastro) {
+	public void setDataCadastro(Date dataCadastro) {
 		this.dataCadastro = dataCadastro;
 	}
 
