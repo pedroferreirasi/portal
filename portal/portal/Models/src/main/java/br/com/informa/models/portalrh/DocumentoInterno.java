@@ -1,23 +1,22 @@
 package br.com.informa.models.portalrh;
 
-import javax.persistence.Table; 
+import java.io.Serializable;
+import java.util.Calendar;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.Lob;
 import javax.persistence.OneToOne;
-import javax.persistence.CascadeType;
-import javax.persistence.Column; 
-import javax.persistence.Entity;
-import javax.persistence.FetchType;
-import javax.persistence.GeneratedValue; 
-import javax.xml.bind.annotation.XmlAccessType; 
-import javax.xml.bind.annotation.XmlAccessorType; 
+import javax.persistence.Table;
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlRootElement;
 
-import br.com.informa.models.common.Usuario;
-
-import java.io.Serializable;
-import java.util.Calendar; 
+import br.com.informa.models.common.Usuario; 
  
 @Entity 
 @Table(name="tb_documentointerno") 
@@ -36,11 +35,11 @@ public class DocumentoInterno implements Serializable {
     @Column(name="pk_docint", nullable=false, length=10)
     private Integer id;
 
-	@OneToOne(cascade = CascadeType.REFRESH, fetch = FetchType.EAGER)
+	@OneToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name="fk_tdicad", unique = false, nullable=false)
     private TipoDocumentoInterno tipoDocumentoInterno;
 
-	@OneToOne(cascade = CascadeType.REFRESH, fetch = FetchType.EAGER)
+	@OneToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name="fk_usucad", unique = false, nullable=false)
     private Usuario usuario;
 
@@ -48,8 +47,8 @@ public class DocumentoInterno implements Serializable {
     private Calendar dataCadastro;
 
     @Lob
-    @Column(name="texto", nullable=true, length=65535)
-    private String texto;
+    @Column(name="texto", nullable=true)
+    private byte[] texto;
 
 	public Integer getId() {
 		return id;
@@ -83,11 +82,11 @@ public class DocumentoInterno implements Serializable {
 		this.dataCadastro = dataCadastro;
 	}
 
-	public String getTexto() {
+	public byte[] getTexto() {
 		return texto;
 	}
 
-	public void setTexto(String texto) {
+	public void setTexto(byte[] texto) {
 		this.texto = texto;
 	}
 

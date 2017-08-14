@@ -89,22 +89,22 @@ public class Usuario implements Serializable {
 	@Column(name="tipousuario", nullable=false, length=15)
 	private ETipoUsuario tipoUsuario;	
 	
-	@OneToOne(fetch = FetchType.LAZY)
+	@OneToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name="fk_usgcad", unique = false, foreignKey=@ForeignKey(name = "fk_usucad_usgcad"))
 	private GrupoUsuario grupoUsuario;	
 
-	@OneToOne(cascade=CascadeType.ALL)
+	@OneToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name="fk_depcad", unique = false, nullable=true, foreignKey=@ForeignKey(name = "fk_usucad_depcad"))
 	private Departamento departamento;
 	
-	@OneToOne(cascade = CascadeType.REFRESH, fetch = FetchType.EAGER)
+	@OneToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name="fk_carcad", unique = false, foreignKey=@ForeignKey(name = "fk_usucad_carcad"))
 	private Cargo cargo;
 	
-	@OneToOne(mappedBy="usuario", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+	@OneToOne(mappedBy="usuario", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
 	private DadosPessoais dadosPessoais;	
 
-	@OneToOne(mappedBy="usuario", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+	@OneToOne(mappedBy="usuario", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
 	private DadosProfissionais dadosProfissionais;
 	
 	public Usuario clone(Usuario entity){

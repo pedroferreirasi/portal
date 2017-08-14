@@ -3,7 +3,6 @@ package br.com.informa.models.portalrh;
 import java.io.Serializable;
 import java.util.Date;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -44,7 +43,7 @@ public class DadosProfissionais implements Serializable {
     @Column(name="pk_procad", length=10)
     private Integer id;
 
-	@OneToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+	@OneToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name="fk_usucad", unique = false, foreignKey=@ForeignKey(name = "fk_procad_usucad"))
     private Usuario usuario;
 
