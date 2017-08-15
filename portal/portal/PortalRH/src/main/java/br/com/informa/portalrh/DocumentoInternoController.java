@@ -21,7 +21,7 @@ public class DocumentoInternoController extends GenericController<DocumentoInter
 		entityService = FactoryService.getFactory().getDocumentoInterno(); 
 		this.novo(); 
 		listaEntity = this.getListAll();
-		getMissao();
+		//getMissao();
 	} 
  
 	public void novo() 

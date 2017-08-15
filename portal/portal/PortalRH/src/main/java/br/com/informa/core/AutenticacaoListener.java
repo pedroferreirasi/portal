@@ -2,6 +2,7 @@ package br.com.informa.core;
 
 import java.util.regex.Pattern;
 
+import javax.faces.application.NavigationHandler;
 import javax.faces.context.FacesContext;
 import javax.faces.event.PhaseEvent;
 import javax.faces.event.PhaseId;
@@ -30,24 +31,26 @@ public class AutenticacaoListener implements PhaseListener {
 		boolean urlGerencialProtegida = Pattern.matches(RESTRICTION_PATTERN_MANAGER, viewId);
 		boolean urlAdministradorProtegida = Pattern.matches(RESTRICTION_PATTERN_ADMINISTRATOR, viewId);
 
-		/*if (context.getExternalContext().getSessionMap().containsKey("autenticacaoController")) {
+		if (context.getExternalContext().getSessionMap().containsKey("autenticacaoController")) {
 			usuario = Contexto.getUsuarioLogado();
 		}
 
 		if (urlPadraoProtegida && usuario == null) {
-			//NavigationHandler navigator = context.getApplication().getNavigationHandler();
-			//navigator.handleNavigation(context, null, "login");
+			NavigationHandler navigator = context.getApplication().getNavigationHandler();
+			navigator.handleNavigation(context, null, "login");
 		}
 
-		if (urlGerencialProtegida && usuario == null) {
-			//NavigationHandler navigator = context.getApplication().getNavigationHandler();
-			//navigator.handleNavigation(context, null, "login");
+		if ((urlGerencialProtegida && usuario == null) ||
+		   (urlGerencialProtegida && !Contexto.getAutenticacaoController().isGerente())) {
+			NavigationHandler navigator = context.getApplication().getNavigationHandler();
+			navigator.handleNavigation(context, null, "login");
 		}
 
-		if (urlAdministradorProtegida && usuario == null) {
-			//NavigationHandler navigator = context.getApplication().getNavigationHandler();
-			//navigator.handleNavigation(context, null, "login");
-		}*/
+		if ((urlAdministradorProtegida && usuario == null) || 
+		    (urlAdministradorProtegida && !Contexto.getAutenticacaoController().isAdministrador())) {
+			NavigationHandler navigator = context.getApplication().getNavigationHandler();
+			navigator.handleNavigation(context, null, "login");
+		} 
 	}
 
 	@Override
