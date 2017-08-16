@@ -2,9 +2,9 @@ package br.com.informa.common;
 
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
+
 import br.com.informa.core.GenericController;
 import br.com.informa.models.common.Usuario;
-import br.com.informa.models.dominio.EEstadoForm;
 import br.com.informa.services.core.FactoryService;
 
 @ManagedBean(name = "usuarioController")
@@ -22,12 +22,10 @@ public class UsuarioController extends GenericController<Usuario, Integer> {
 		listaEntity = this.getListAll();
 	}
 	
+	@Override
 	public void novo()
 	{
-		if (this.entity != null) {
-			this.entity = null;
-		}
+		super.novo();
 		this.entity = new Usuario();
-		this.estado = EEstadoForm.Incluir;
 	}	
 }

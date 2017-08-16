@@ -4,7 +4,6 @@ import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
 
 import br.com.informa.core.GenericController;
-import br.com.informa.models.dominio.EEstadoForm;
 import br.com.informa.models.portalrh.Sala;
 import br.com.informa.services.core.FactoryService;
 
@@ -22,11 +21,7 @@ public class SalaController extends GenericController<Sala, Integer> {
 
 	public void novo() 
 	{ 
-		if (this.entity != null) {
-			this.entity = null;
-		}
-		
+		super.novo();
 		this.entity = new Sala(); 
-		this.estado = EEstadoForm.Incluir;
 	}
 }

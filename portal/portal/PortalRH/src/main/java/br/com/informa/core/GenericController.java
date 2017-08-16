@@ -22,11 +22,12 @@ public abstract class GenericController<T, TIPOCHAVE extends Serializable> imple
 	protected boolean exibeColunaDeAcao;
 	protected boolean exibeBotaoSalvar;
 	protected boolean exibeBotaoCancelar;
-	private boolean habilitarPesquisa;
+	private boolean habilitarPesquisa;	
 	private String percentualGrid;
 	private String widthModal;
-	private String heightModal;
-
+	private String heightModal;	
+	private String tituloTelaDeCadastro; 
+	
 	public GenericController() {
 		habilitarPesquisa = true;
 		this.exibeBotaoExcluir = true;
@@ -37,12 +38,22 @@ public abstract class GenericController<T, TIPOCHAVE extends Serializable> imple
 		percentualGrid = "100";
 		estado = EEstadoForm.Nenhum;
 		this.widthModal = "40%";
-		this.heightModal = "40%";		
+		this.heightModal = "40%";
+		this.tituloTelaDeCadastro = "Novo";
 	}
 
 	public void editar(T entity) {
+		this.tituloTelaDeCadastro = "Editar";
 		this.entity = entity;
 		this.estado = EEstadoForm.Editar;
+	}
+	
+	public void novo() {
+		if (this.entity != null) {
+			this.entity = null;
+		}
+		this.estado = EEstadoForm.Incluir;
+		this.setTituloTelaDeCadastro("Novo");
 	}
 
 	public void salvar() {
@@ -206,6 +217,14 @@ public abstract class GenericController<T, TIPOCHAVE extends Serializable> imple
 
 	public void setExibeBotaoCancelar(boolean exibeBotaoCancelar) {
 		this.exibeBotaoCancelar = exibeBotaoCancelar;
+	}
+
+	public String getTituloTelaDeCadastro() {
+		return tituloTelaDeCadastro;
+	}
+
+	public void setTituloTelaDeCadastro(String tituloTelaDeCadastro) {
+		this.tituloTelaDeCadastro = tituloTelaDeCadastro;
 	}
 
 }

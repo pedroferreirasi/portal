@@ -7,7 +7,6 @@ import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
 
 import br.com.informa.core.GenericController;
-import br.com.informa.models.dominio.EEstadoForm;
 import br.com.informa.models.portalrh.Feriados;
 import br.com.informa.services.core.FactoryService; 
  
@@ -25,10 +24,7 @@ public class FeriadosController extends GenericController<Feriados, Date> {
  
 	public void novo() 
 	{ 
-		if (this.entity != null) {
-			this.entity = null;
-		}
-		this.entity = new Feriados(); 
-		this.estado = EEstadoForm.Incluir; 
+		super.novo();
+		this.entity = new Feriados(); 	 
 	} 
 } 

@@ -6,7 +6,6 @@ import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
 
 import br.com.informa.core.GenericController;
-import br.com.informa.models.dominio.EEstadoForm;
 import br.com.informa.models.dominio.EStatusFerias;
 import br.com.informa.models.portalrh.Ferias;
 import br.com.informa.services.core.FactoryService;
@@ -26,11 +25,8 @@ public class FeriasController extends GenericController<Ferias, Integer> {
  
 	public void novo() 
 	{ 
-		if (this.entity != null) {
-			this.entity = null;
-		}
-		this.entity = new Ferias(); 
-		this.estado = EEstadoForm.Incluir;		
+		super.novo();
+		this.entity = new Ferias(); 		
 		entity.setUsuario(Contexto.getUsuarioLogado());
 		entity.setStatus(EStatusFerias.PENDENTE);
 	} 

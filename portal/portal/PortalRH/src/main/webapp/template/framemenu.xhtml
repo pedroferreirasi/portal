@@ -106,7 +106,7 @@
         </li>
       </ui:fragment>
 
-      <ui:fragment rendered="#{autenticacaoController.isGerente()}">
+      <!-- <ui:fragment rendered="#{autenticacaoController.isGerente()}">
         <li class="treeview">
           <a href="#"> 
             <i class="fa fa-users"></i> <span>Gerência</span>
@@ -127,11 +127,11 @@
                         
           </ul>	        
         </li>
-      </ui:fragment>
+      </ui:fragment> -->
        
         <li class="treeview">          
           <a href="#"> 
-            <i class="fa fa-heartbeat"></i> <span>Documentos</span>
+            <i class="fa fa-heartbeat"></i> <span>Institucional</span>
               <span class="pull-right-container"> 
 	            <i class="fa fa-angle-left pull-right">
                 </i>
@@ -144,33 +144,55 @@
                 Missão, Visão..
 		      </a>
             </li> 
+
+            <li class="active">
+		      <a href="#">
+			    <i class="fa fa-circle-o"></i>
+                Palavras do Presidente
+		      </a>
+            </li>  
             
-            <li>
-              <a href="#">
-                <i class="fa fa-circle-o"></i> 
-                Política
-                <span class="pull-right-container">
-                  <i class="fa fa-angle-left pull-right"></i>
-                </span>
-              </a>
-              <ul class="treeview-menu">
-                <li class="active">
-		          <a href="#">
-			        <i class="fa fa-circle-o"></i>
-                    Viagem
-		          </a>
-                </li>
-                <li class="active">
-		          <a href="#">
-			        <i class="fa fa-circle-o"></i>
-                    Deslocamento
-		          </a>
-                </li>                
-              </ul>
-            </li>           
+            <li class="active">
+		      <a href="#">
+			    <i class="fa fa-circle-o"></i>
+                Estrutura Organizacional
+		      </a>
+            </li>  
+            
+            <li class="active">
+		      <a href="#">
+			    <i class="fa fa-circle-o"></i>
+                Manual do Colaborador
+		      </a>
+            </li>                                             
                         
           </ul>
         </li>  
+        
+        <li class="treeview">          
+          <a href="#"> 
+            <i class="fa fa-user"></i> <span>Comunicação</span>
+              <span class="pull-right-container"> 
+	            <i class="fa fa-angle-left pull-right">
+                </i>
+              </span>
+          </a>         
+          <ul class="treeview-menu">          
+            <li class="active">
+		      <a href="#{request.contextPath}/pages/ramais.xhtml">
+			    <i class="fa fa-circle-o"></i>
+                Pessoas e Ramais
+		      </a>
+            </li>            
+            <li class="active">
+		      <a href="#">
+			    <i class="fa fa-circle-o"></i>
+                Galeria de Fotos
+		      </a>
+            </li>
+                         
+          </ul>
+        </li>         
 
         <li class="treeview">          
           <a href="#"> 
@@ -184,28 +206,9 @@
             <li class="active">
 		      <a href="#{request.contextPath}/pages/panoramacolaborador.xhtml">
 			    <i class="fa fa-circle-o"></i>
-                Panorama
+                Meu Perfil
 		      </a>
-            </li>
-            <li class="active">
-		      <a href="#{request.contextPath}/pages/feednoticias.xhtml">
-			    <i class="fa fa-circle-o"></i>
-                Noticias
-		      </a>
-            </li>
-            <li class="active">
-		      <a href="#{request.contextPath}/pages/ramais.xhtml">
-			    <i class="fa fa-circle-o"></i>
-                Ramais
-		      </a>
-            </li>            
-            <li class="active">
-		      <a href="#{request.contextPath}/pages/solicitacaoferias.xhtml">
-			    <i class="fa fa-circle-o"></i>
-                Férias
-		      </a>
-            </li>
-                         
+            </li>                        
           </ul>
         </li>         
         

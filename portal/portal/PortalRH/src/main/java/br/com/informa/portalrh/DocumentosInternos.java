@@ -3,18 +3,25 @@ package br.com.informa.portalrh;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
 
+import br.com.informa.core.GenericController;
+
 @ManagedBean(name = "documentosInternosController") 
 @ViewScoped 
-public class DocumentosInternos {
+public class DocumentosInternos extends GenericController<DocumentosInternos, Integer> {
 	
-	private String texto;
-
-	public String getTexto() {
-		return texto;
+	private static final long serialVersionUID = 1L;
+	
+	public DocumentosInternos() {
+		//entityService = FactoryService.getFactory().getDocumentoInterno();
+		this.novo(); 
+		listaEntity = this.getListAll();
 	}
-
-	public void setTexto(String texto) {
-		this.texto = texto;
+	
+	@Override
+	public void novo()
+	{
+		super.novo();
+		this.entity = new DocumentosInternos();
 	}
 
 }

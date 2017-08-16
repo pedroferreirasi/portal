@@ -1,10 +1,9 @@
 package br.com.informa.portalrh;
 
-import javax.faces.bean.ManagedBean; 
-import javax.faces.bean.ViewScoped; 
-import br.com.informa.core.GenericController; 
-import br.com.informa.models.portalrh.TipoDocumentoInterno; 
-import br.com.informa.models.dominio.EEstadoForm; 
+import javax.faces.bean.ManagedBean;
+import javax.faces.bean.ViewScoped;
+import br.com.informa.core.GenericController;
+import br.com.informa.models.portalrh.TipoDocumentoInterno;
 import br.com.informa.services.core.FactoryService; 
  
 @ManagedBean(name = "tipoDocumentoInternoController") 
@@ -24,10 +23,7 @@ public class TipoDocumentoInternoController extends GenericController<TipoDocume
  
 	public void novo() 
 	{ 
-		if (this.entity != null) {
-			this.entity = null;
-		}
-		this.entity = new TipoDocumentoInterno(); 
-		this.estado = EEstadoForm.Incluir; 
+		super.novo();
+		this.entity = new TipoDocumentoInterno();  
 	} 
 } 

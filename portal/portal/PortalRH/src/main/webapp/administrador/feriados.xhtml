@@ -19,7 +19,7 @@
 		<ui:param name="entityBean" value="#{feriadosController}" /> 
 		<h:panelGroup layout="block" styleClass="box-header col-md-12"> 
 			<p:commandButton value="Novo" ajax="true" 
-				action="#{entityBean.novo}" process="@this" 
+				actionListener="#{entityBean.novo}" process="@this" 
 				update=":formPrincipal:display" oncomplete="PF('dlg').show()" 
 				styleClass="btn btn-primary" />&#160; 
  

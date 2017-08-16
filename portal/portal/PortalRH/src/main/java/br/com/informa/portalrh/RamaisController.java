@@ -2,9 +2,9 @@ package br.com.informa.portalrh;
 
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
+
 import br.com.informa.core.GenericController;
 import br.com.informa.models.common.Usuario;
-import br.com.informa.models.dominio.EEstadoForm;
 import br.com.informa.services.core.FactoryService;
 
 @ManagedBean(name = "ramaisController")
@@ -28,11 +28,7 @@ public class RamaisController extends GenericController<Usuario, Integer> {
 	}
 
 	public void novo() {
-		if (this.entity != null) {
-			this.entity = null;
-		}
-	
+		super.novo();	
 		this.entity = new Usuario();
-		this.estado = EEstadoForm.Incluir;
 	}
 }

@@ -2,9 +2,9 @@ package br.com.informa.portalrh;
 
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
+
 import br.com.informa.core.GenericController;
 import br.com.informa.models.portalrh.Departamento;
-import br.com.informa.models.dominio.EEstadoForm;
 import br.com.informa.services.core.FactoryService;
 
 @ManagedBean(name = "departamentoController")
@@ -23,11 +23,9 @@ public class DepartamentoController extends GenericController<Departamento, Inte
 	}
 
 	public void novo() {		
-		if (this.entity != null) {
-			this.entity = null;			
-		}
-		this.entity = new Departamento();
-		this.estado = EEstadoForm.Incluir;
+		
+		super.novo();
+		this.entity = new Departamento();		
 		this.entity.setAtivo(true);
 	}
 }
