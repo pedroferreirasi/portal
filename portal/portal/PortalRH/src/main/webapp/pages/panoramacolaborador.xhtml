@@ -9,12 +9,12 @@
 	<ui:define name="corpo">
 		<!-- Content Header (Page header) -->
 		<section class="content-header">
-			<h1>Panorama do Colaborador</h1>
+			<h1>Meu Perfil</h1>
 			<ol class="breadcrumb">
 				<li><a href="mainmenu.xhtml"><i class="fa fa-dashboard"></i>
 						Home</a></li>
 				<li class="active">Colaborador</li>
-				<li class="active">Panorama do Colaborador</li>
+				<li class="active">Meu Perfil</li>
 			</ol>
 		</section>
 
@@ -44,9 +44,9 @@
 
 									<ul class="list-group list-group-unbordered">
 										<li class="list-group-item"><b>Faltas</b> <a
-											class="pull-right">1</a></li>
+											class="pull-right">0</a></li>
 										<li class="list-group-item"><b>Horas</b> <a
-											class="pull-right">- 45</a></li>
+											class="pull-right">0</a></li>
 									</ul>
 
 									<a href="#" class="btn btn-primary btn-block"><b>Editar</b></a>
@@ -55,12 +55,12 @@
 							</div>
 							<!-- /.box -->
 
-							<!-- About Me Box -->
+							<!-- About Me Box 
 							<div class="box box-primary">
 								<div class="box-header with-border">
 									<h3 class="box-title">Sobre</h3>
 								</div>
-								<!-- /.box-header -->
+
 								<div class="box-body">
 									<strong><i class="fa fa-book margin-r-5"></i> Educação</strong>
 
@@ -87,8 +87,7 @@
 									</p>
 
 								</div>
-								<!-- /.box-body -->
-							</div>
+							</div> -->
 							<!-- /.box -->
 						</div>
 						<!-- /.col -->
@@ -121,68 +120,76 @@
 
 																<p:row style="border: none">
 																	<p:column colspan="2" style="border: none">
-																		<h:outputText value="Nome Completo: " />
-																		<p:inputText id="nomecompleto"
+																		<b><h:outputText value="Nome Completo:  " /></b>
+																		<h:outputText value="#{autenticacaoController.entity.nomeCompleto} " />
+																		<!-- <p:inputText id="nomecompleto"
 																			value="#{autenticacaoController.entity.nomeCompleto}"
 																			label="nomeCompleto" styleClass="col-md-12"
-																			readonly="true" />
+																			readonly="true" /> -->
 																	</p:column>
 																</p:row>
 
 																<p:row style="border: none">
 																	<p:column style="width:50%; border: none">
-																		<h:outputText value="Nome: " />
-																		<p:inputText id="firstname"
+																		<b><h:outputText value="Nome: " /></b>
+																		<h:outputText value="#{autenticacaoController.entity.nomeUsuario}" />
+																		<!-- <p:inputText id="firstname"
 																			value="#{autenticacaoController.entity.nomeUsuario}"
 																			label="Firstname" styleClass="col-md-12"
-																			readonly="true" />
+																			readonly="true" />-->
 																	</p:column>
 																	<p:column style="width:50%; border: none">
-																		<h:outputText value="Sobrenome: " />
-																		<p:inputText id="lasttname"
+																		<b><h:outputText value="Sobrenome: " /></b>
+																		<h:outputText value="#{autenticacaoController.entity.sobreNome}" />
+																		<!-- <p:inputText id="lasttname"
 																			value="#{autenticacaoController.entity.sobreNome}"
 																			required="true" label="lasttname"
-																			styleClass="col-md-12" readonly="true" />
+																			styleClass="col-md-12" readonly="true" />-->
 																	</p:column>
 																</p:row>
 
 																<p:row style="border: none">
 																	<p:column style="width:50%; border: none">
-																		<h:outputText value="Sexo: " />
-																		<p:inputText id="sexo"
+																		<b><h:outputText value="Sexo: " /></b>
+																		<h:outputText value="#{autenticacaoController.entity.sexo}" />
+																		<!--<p:inputText id="sexo"
 																			value="#{autenticacaoController.entity.sexo}"
-																			label="Sexo" styleClass="col-md-12" readonly="true" />
+																			label="Sexo" styleClass="col-md-12" readonly="true" />-->
 																	</p:column>
 																	<p:column style="width:50%; border: none">
-																		<h:outputText value="Celular: " />
-																		<p:inputText id="celular"
+																		<b><h:outputText value="Celular: " /></b>
+																		<h:outputText value="#{autenticacaoController.entity.celular}" />
+																		<!--<p:inputText id="celular"
 																			value="#{autenticacaoController.entity.celular}"
 																			styleClass="col-md-12" mask="(99) 99999-9999"
-																			readonly="true" />
+																			readonly="true" />-->
 																	</p:column>
 																</p:row>
 
 																<p:row style="border: none">
 																	<p:column colspan="2" style="border: none">
-																		<h:outputText value="E-Mail: " />
-																		<p:inputText id="email"
+																		<b><h:outputText value="E-Mail: " /></b>
+																		<h:outputText value="#{autenticacaoController.entity.email}" />
+																		<!--<p:inputText id="email"
 																			value="#{autenticacaoController.entity.email}"
-																			styleClass="col-md-12" readonly="true" />
+																			styleClass="col-md-12" readonly="true" />-->
 																	</p:column>
 																</p:row>
 
 																<p:row style="border: none">
 																	<p:column style="width:50%; border: none">
-																		<h:outputText value="Login: " />
-																		<p:inputText id="login"
+																		<b><h:outputText value="Login: " /></b>
+																		<h:outputText value="#{autenticacaoController.entity.login}" />
+																		<!--<p:inputText id="login"
 																			value="#{autenticacaoController.entity.login}"
-																			styleClass="col-md-12" readonly="true" />
+																			styleClass="col-md-12" readonly="true" />-->
 																	</p:column>
 																	<p:column style="width:50%; border: none">
-																		<h:outputText value="Grupo: " />
-																		<p:inputText id="grupousuario"
+																		<b><h:outputText value="Grupo: " /></b>
+																		<h:outputText value="#{autenticacaoController.entity.grupoUsuario.descricao}" />
+																		<!--<p:inputText id="grupousuario"
 																			value="#{autenticacaoController.entity.grupoUsuario.descricao}"
-																			styleClass="col-md-12" readonly="true" />
+																			styleClass="col-md-12" readonly="true" />-->
 																	</p:column>
 																</p:row>
 
