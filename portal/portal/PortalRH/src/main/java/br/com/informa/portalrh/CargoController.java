@@ -2,7 +2,6 @@ package br.com.informa.portalrh;
 
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
-
 import br.com.informa.core.GenericController;
 import br.com.informa.models.portalrh.Cargo;
 import br.com.informa.services.core.FactoryService; 
