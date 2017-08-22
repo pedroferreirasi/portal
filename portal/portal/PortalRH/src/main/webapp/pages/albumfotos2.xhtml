@@ -1,24 +1,16 @@
-<!DOCTYPE html> 
-<ui:composition template="/template/templatebranco.xhtml" 
-	xmlns="http://www.w3.org/1999/xhtml" 
-	xmlns:f="http://xmlns.jcp.org/jsf/core" 
-	xmlns:h="http://xmlns.jcp.org/jsf/html" 
-	xmlns:p="http://primefaces.org/ui" 
-	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"> 
- 
-    <ui:define name="titulo"> 
-      <h1>Galeria de Fotos</h1> 
-      <ol class="breadcrumb"> 
-        <li><a href="mainmenu.xhtml"><i class="fa fa-dashboard"></i> Home</a></li> 
-        <li><a href="#">Comunicação</a></li> 
-        <li class="active">Galeria de Fotos</li> 
-      </ol> 
-    </ui:define> 
- 
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
-	<ui:define name="contexto"> 
-		<ui:param name="entityBean" value="#{albumFotosController}" />
-		
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:p="http://primefaces.org/ui"
+    xmlns:ui="http://java.sun.com/jsf/facelets">
+<h:head>
+
+</h:head>
+<h:body>
+
 		<h:panelGroup layout="block" styleClass="box-header col-md-12">
 		
 		<table width="100%" align="center" border="0">
@@ -27,14 +19,14 @@
               <p:galleria id="galeriacarnaval" value="#{albumFotosController.imagensCarnaval}" 
                           var="image" panelWidth="600" effectDuration="1000"
                           panelHeight="412" showCaption="true" effect="slide" 
-                          autoPlay="true" >
+                          autoPlay="true" styleClass=".ui-galleria" >
                 <p:graphicImage value="../resources/albuns/Carnaval2017/#{image}" title="Carnaval 2017" width="600" height="412" />
               </p:galleria> 
             </td>
             <td>
               <p:galleria value="#{albumFotosController.imagensDiaDasMaes}" var="image" panelWidth="600" 
                           panelHeight="412" showCaption="true" effect="slide" effectDuration="1000"
-                          autoPlay="true" styleClass=".ui-galleria" >
+                          autoPlay="false">
                 <p:graphicImage value="../resources/albuns/DiadasMaes2017/#{image}" title="Dia Das Mães 2017" width="600" height="412" />
               </p:galleria> 
             </td>
@@ -43,14 +35,14 @@
             <td>
               <p:galleria value="#{albumFotosController.imagensSaoJoao}" var="image" panelWidth="600" 
                           panelHeight="412" showCaption="true" effect="slide" effectDuration="1000"
-                          autoPlay="true">
+                          autoPlay="false">
                 <p:graphicImage value="../resources/albuns/SaoJoao2017/#{image}" title="São João 2017" width="600" height="412" />
               </p:galleria> 
             </td>
             <td>
               <p:galleria value="#{albumFotosController.imagensDiaDosPais}" var="image" panelWidth="600" 
                           panelHeight="412" showCaption="true" effect="slide" effectDuration="1000"
-                          autoPlay="true">
+                          autoPlay="false">
                 <p:graphicImage value="../resources/albuns/DiadosPais2017/#{image}" title="Dia Das Pais 2017" width="600" height="412" />
               </p:galleria> 
             </td>
@@ -58,6 +50,5 @@
         </table>
         
 		</h:panelGroup> 
-	</ui:define>  
- 
-</ui:composition> 
+</h:body>
+</html> 

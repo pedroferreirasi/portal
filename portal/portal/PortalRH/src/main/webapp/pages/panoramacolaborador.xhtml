@@ -95,9 +95,7 @@
 							<div class="nav-tabs-custom">
 								<ul class="nav nav-tabs">
 									<li class="active"><a href="#dadospessoais"
-										data-toggle="tab">Dados Pessoais</a></li>
-									<li><a href="#dadosprofissionais" data-toggle="tab">Dados
-											Profissionais</a></li>
+										data-toggle="tab">Meus Dados</a></li>
 								</ul>
 								<div class="tab-content">
 									<div class="active tab-pane" id="dadospessoais">
@@ -198,6 +196,114 @@
 														</div>
 													</div>
 												</div>
+												<div class="panel box box-primary">
+													<div class="box-header with-border">
+														<h4 class="box-title">
+															<a data-toggle="collapse" data-parent="#accordion"
+																href="#collapseprofissional"> 2. Dados Profissionais </a>
+														</h4>
+													</div>
+													<div id="collapseprofissional" class="panel-collapse collapse in">													
+											<p:panelGrid id="dgcadprofissional"
+												style="width: 100%; border: none; cellspacing: 10px;">
+
+												<p:row style="border: none">
+													<p:column style="width:25%; border: none">
+														<h:outputText value="CTPS: " />
+														<p:inputText id="CTPS"
+															value="#{autenticacaoController.entity.dadosProfissionais.CTPS}"
+															label="CEP" styleClass="col-md-12" readonly="true" />
+													</p:column>
+													<p:column style="width:25%; border: none">
+														<h:outputText value="Serie CTPS: " />
+														<p:inputText id="serieCTPS"
+															value="#{autenticacaoController.entity.dadosProfissionais.serieCTPS}"
+															label="serieCTPS" styleClass="col-md-12" readonly="true" />
+													</p:column>
+													<p:column style="width:25%; border: none">
+														<h:outputText value="Estado CTPS: " />
+														<p:inputText id="estadosctps"
+															value="#{autenticacaoController.entity.dadosProfissionais.estadoCTPS}"
+															label="estadosctps" styleClass="col-md-12"
+															readonly="true" />
+													</p:column>
+													<p:column style="width:25%; border: none">
+														<h:outputText value="Número PIS: " />
+														<p:inputText id="pis"
+															value="#{autenticacaoController.entity.dadosProfissionais.PIS}"
+															label="pis" styleClass="col-md-12" readonly="true" />
+													</p:column>
+												</p:row>
+
+												<p:row style="border: none">
+													<p:column style="width:25%; border: none">
+														<h:outputText value="Matricula: " />
+														<p:inputText id="matricula"
+															value="#{autenticacaoController.entity.dadosProfissionais.matricula}"
+															label="matricula" styleClass="col-md-12" readonly="true" />
+													</p:column>
+													<p:column style="width:25%; border: none">
+														<h:outputText value="Código Ponto Eletrônico: " />
+														<p:inputText id="codigoPontoEletronico"
+															value="#{autenticacaoController.entity.dadosProfissionais.codigoPontoEletronico}"
+															label="serieCTPS" styleClass="col-md-12" readonly="true" />
+													</p:column>
+													<p:column style="width:25%; border: none">
+														<h:outputText value="Data Admissao: " />
+														<p:inputText id="dataadmissao"
+															value="#{autenticacaoController.entity.dadosProfissionais.dataAdmissao.getTime()}"
+															label="serieCTPS" styleClass="col-md-12" readonly="true">
+															<f:convertDateTime pattern="DD/MM/YYYY" />
+														</p:inputText>
+
+													</p:column>
+													<p:column style="width:25%; border: none">
+														<h:outputText value="Carga horária: " />
+														<p:inputText id="cargahoraria"
+															value="#{autenticacaoController.entity.dadosProfissionais.cargaHoraria}"
+															label="cargahoraria" styleClass="col-md-12"
+															readonly="true" />
+													</p:column>
+												</p:row>
+
+												<p:row style="border: none">
+													<p:column style="width:25%; border: none">
+														<h:outputText value="Telefone Profissional: " />
+														<p:inputText id="telefoneprofissional"
+															value="#{autenticacaoController.entity.dadosProfissionais.telefoneProfissional}"
+															label="celularpessoal" styleClass="col-md-12"
+															readonly="true" />
+													</p:column>
+													<p:column style="width:25%; border: none">
+														<h:outputText value="Ramal: " />
+														<p:inputText id="ramal"
+															value="#{autenticacaoController.entity.dadosProfissionais.ramal}"
+															label="ramal" styleClass="col-md-12" readonly="true" />
+													</p:column>
+													<p:column style="width:25%; border: none">
+														<h:outputText value="Celular Profissional: " />
+														<p:inputText id="celularprofissional"
+															value="#{autenticacaoController.entity.dadosProfissionais.celularProfissional}"
+															label="telefonepessoal" styleClass="col-md-12"
+															readonly="true" />
+													</p:column>
+													<p:column style="width:25%; border: none">
+
+													</p:column>
+												</p:row>
+
+												<p:row style="width:25%; border: none">
+													<p:column colspan="2" style="border: none">
+														<p:selectBooleanCheckbox
+															value="#{autenticacaoController.entity.dadosProfissionais.flagBatePonto}"
+															readonly="true" />
+														<h:outputText value=" Bate ponto: " />
+													</p:column>
+												</p:row>
+
+											</p:panelGrid>													
+													</div>
+												</div>												
 												<div class="panel box box-primary">
 													<div class="box-header with-border">
 														<h4 class="box-title">
@@ -417,110 +523,6 @@
 													</div>
 												</div>
 											</div>
-										</form>
-									</div>
-									<!-- /.tab-pane -->
-									<!-- /.tab-pane -->
-									<div class="tab-pane" id="dadosprofissionais">
-										<form class="form-horizontal">
-											<p:panelGrid id="dgcadprofissional"
-												style="width: 100%; border: none; cellspacing: 10px;">
-
-												<p:row style="border: none">
-													<p:column style="width:25%; border: none">
-														<h:outputText value="CTPS: " />
-														<p:inputText id="CTPS"
-															value="#{autenticacaoController.entity.dadosProfissionais.CTPS}"
-															label="CEP" styleClass="col-md-12" readonly="true" />
-													</p:column>
-													<p:column style="width:25%; border: none">
-														<h:outputText value="Serie CTPS: " />
-														<p:inputText id="serieCTPS"
-															value="#{autenticacaoController.entity.dadosProfissionais.serieCTPS}"
-															label="serieCTPS" styleClass="col-md-12" readonly="true" />
-													</p:column>
-													<p:column style="width:25%; border: none">
-														<h:outputText value="Estado CTPS: " />
-														<p:inputText id="estadosctps"
-															value="#{autenticacaoController.entity.dadosProfissionais.estadoCTPS}"
-															label="estadosctps" styleClass="col-md-12"
-															readonly="true" />
-													</p:column>
-													<p:column style="width:25%; border: none">
-														<h:outputText value="Número PIS: " />
-														<p:inputText id="pis"
-															value="#{autenticacaoController.entity.dadosProfissionais.PIS}"
-															label="pis" styleClass="col-md-12" readonly="true" />
-													</p:column>
-												</p:row>
-
-												<p:row style="border: none">
-													<p:column style="width:25%; border: none">
-														<h:outputText value="Matricula: " />
-														<p:inputText id="matricula"
-															value="#{autenticacaoController.entity.dadosProfissionais.matricula}"
-															label="matricula" styleClass="col-md-12" readonly="true" />
-													</p:column>
-													<p:column style="width:25%; border: none">
-														<h:outputText value="Código Ponto Eletrônico: " />
-														<p:inputText id="codigoPontoEletronico"
-															value="#{autenticacaoController.entity.dadosProfissionais.codigoPontoEletronico}"
-															label="serieCTPS" styleClass="col-md-12" readonly="true" />
-													</p:column>
-													<p:column style="width:25%; border: none">
-														<h:outputText value="Data Admissao: " />
-														<p:inputText id="dataadmissao"
-															value="#{autenticacaoController.entity.dadosProfissionais.dataAdmissao.getTime()}"
-															label="serieCTPS" styleClass="col-md-12" readonly="true">
-															<f:convertDateTime pattern="DD/MM/YYYY" />
-														</p:inputText>
-
-													</p:column>
-													<p:column style="width:25%; border: none">
-														<h:outputText value="Carga horária: " />
-														<p:inputText id="cargahoraria"
-															value="#{autenticacaoController.entity.dadosProfissionais.cargaHoraria}"
-															label="cargahoraria" styleClass="col-md-12"
-															readonly="true" />
-													</p:column>
-												</p:row>
-
-												<p:row style="border: none">
-													<p:column style="width:25%; border: none">
-														<h:outputText value="Telefone Profissional: " />
-														<p:inputText id="telefoneprofissional"
-															value="#{autenticacaoController.entity.dadosProfissionais.telefoneProfissional}"
-															label="celularpessoal" styleClass="col-md-12"
-															readonly="true" />
-													</p:column>
-													<p:column style="width:25%; border: none">
-														<h:outputText value="Ramal: " />
-														<p:inputText id="ramal"
-															value="#{autenticacaoController.entity.dadosProfissionais.ramal}"
-															label="ramal" styleClass="col-md-12" readonly="true" />
-													</p:column>
-													<p:column style="width:25%; border: none">
-														<h:outputText value="Celular Profissional: " />
-														<p:inputText id="celularprofissional"
-															value="#{autenticacaoController.entity.dadosProfissionais.celularProfissional}"
-															label="telefonepessoal" styleClass="col-md-12"
-															readonly="true" />
-													</p:column>
-													<p:column style="width:25%; border: none">
-
-													</p:column>
-												</p:row>
-
-												<p:row style="width:25%; border: none">
-													<p:column colspan="2" style="border: none">
-														<p:selectBooleanCheckbox
-															value="#{autenticacaoController.entity.dadosProfissionais.flagBatePonto}"
-															readonly="true" />
-														<h:outputText value=" Bate ponto: " />
-													</p:column>
-												</p:row>
-
-											</p:panelGrid>
 										</form>
 									</div>
 									<!-- /.tab-pane -->
