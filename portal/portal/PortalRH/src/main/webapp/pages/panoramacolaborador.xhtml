@@ -212,7 +212,7 @@
 														<h:outputText value="CTPS: " />
 														<p:inputText id="CTPS"
 															value="#{autenticacaoController.entity.dadosProfissionais.CTPS}"
-															label="CEP" styleClass="col-md-12" readonly="true" />
+															label="CTPS" styleClass="col-md-12" readonly="true" />
 													</p:column>
 													<p:column style="width:25%; border: none">
 														<h:outputText value="Serie CTPS: " />
@@ -321,10 +321,7 @@
 																	<h:outputText value="CEP: " />
 																	<p:inputText id="cep"
 																		value="#{autenticacaoController.entity.dadosPessoais.CEP}"
-																		label="CEP" styleClass="col-md-12" readonly="true">
-
-																		<p:clientValidator />
-																	</p:inputText>
+																		label="CEP" styleClass="col-md-12" />
 																</p:column>
 																<p:column style="width:25%; border: none">
 																	<h:outputText value="Logradouro: " />
@@ -523,6 +520,13 @@
 													</div>
 												</div>
 											</div>
+											<div class="box-group" id="accordion"> 
+											  <p:commandButton value=" Salvar "
+                                                 action="#{colaboradorController.salvar}"
+                                                 process="@this"                                                           
+                                                 styleClass="btn btn-primary" />&#160;
+                                            </div>
+
 										</form>
 									</div>
 									<!-- /.tab-pane -->
