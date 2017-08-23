@@ -44,19 +44,17 @@ public class AutenticacaoController implements Serializable {
 		entityService = FactoryService.getFactory().getUsuario();
 
 		try {
-			// entity = entityService.login(entity);
-			if (entityService.login(entity)) {
-				if (entity != null) {
-					if (entity.getSexo() != null) {
-						if (entity.getSexo().equals(ESexo.M)) {
-							this.fotoAvatar = "../resources/dist/img/avatar5.png";
-						} else {
-							this.fotoAvatar = "../resources/dist/img/avatar3.png";
-						}
+			entity = entityService.login(entity);
+			if (entity != null) {
+				if (entity.getSexo() != null) {
+					if (entity.getSexo().equals(ESexo.M)) {
+						this.fotoAvatar = "../resources/dist/img/avatar5.png";
+					} else {
+						this.fotoAvatar = "../resources/dist/img/avatar3.png";
 					}
 				}
 				return "pages/mainmenu?faces-redirect=true";
-			}
+			}			
 		} catch (Exception e) {
 			Mensagens.messageError(e.getMessage());
 		}
@@ -67,16 +65,14 @@ public class AutenticacaoController implements Serializable {
 	public boolean isAdministrador() {
 		// return
 		return this.entity.getGrupoUsuario().getTipoGrupoUsuario().equals(ETipoGrupoUsuario.administrador);
-		//return true;
+		// return true;
 	}
 
 	public boolean isGerente() {
-		return ((this.entity.getGrupoUsuario().getTipoGrupoUsuario().equals(
-		ETipoGrupoUsuario.gerencial)) ||
-		(this.entity.getGrupoUsuario().getTipoGrupoUsuario().equals(
-		ETipoGrupoUsuario.administrador)));
-		 
-		//return true;
+		return ((this.entity.getGrupoUsuario().getTipoGrupoUsuario().equals(ETipoGrupoUsuario.gerencial))
+				|| (this.entity.getGrupoUsuario().getTipoGrupoUsuario().equals(ETipoGrupoUsuario.administrador)));
+
+		// return true;
 	}
 
 	// logout event, invalidate session

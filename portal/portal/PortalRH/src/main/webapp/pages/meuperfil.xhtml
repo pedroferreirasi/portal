@@ -36,20 +36,18 @@
 										alt="User profile picture" height="128" width="128" />
 
 									<h3 class="profile-username text-center">
-										#{autenticacaoController.entity.nomeUsuario}
-										#{autenticacaoController.entity.sobreNomeUsuario}</h3>
+										#{meuPerfilController.entity.nomeUsuario}
+										#{meuPerfilController.entity.sobreNomeUsuario}</h3>
 
 									<p class="text-muted text-center">
-										#{autenticacaoController.entity.cargo.descricao}</p>
+										#{meuPerfilController.entity.cargo.descricao}</p>
 
-									<ul class="list-group list-group-unbordered">
+									<!--<ul class="list-group list-group-unbordered">
 										<li class="list-group-item"><b>Faltas</b> <a
 											class="pull-right">0</a></li>
 										<li class="list-group-item"><b>Horas</b> <a
 											class="pull-right">0</a></li>
-									</ul>
-
-									<a href="#" class="btn btn-primary btn-block"><b>Editar</b></a>
+									</ul>-->
 								</div>
 								<!-- /.box-body -->
 							</div>
@@ -119,9 +117,9 @@
 																<p:row style="border: none">
 																	<p:column colspan="2" style="border: none">
 																		<b><h:outputText value="Nome Completo:  " /></b>
-																		<h:outputText value="#{autenticacaoController.entity.nomeCompleto} " />
+																		<h:outputText value="#{meuPerfilController.entity.nomeCompleto} " />
 																		<!-- <p:inputText id="nomecompleto"
-																			value="#{autenticacaoController.entity.nomeCompleto}"
+																			value="#{meuPerfilController.entity.nomeCompleto}"
 																			label="nomeCompleto" styleClass="col-md-12"
 																			readonly="true" /> -->
 																	</p:column>
@@ -130,17 +128,17 @@
 																<p:row style="border: none">
 																	<p:column style="width:50%; border: none">
 																		<b><h:outputText value="Nome: " /></b>
-																		<h:outputText value="#{autenticacaoController.entity.nomeUsuario}" />
+																		<h:outputText value="#{meuPerfilController.entity.nomeUsuario}" />
 																		<!-- <p:inputText id="firstname"
-																			value="#{autenticacaoController.entity.nomeUsuario}"
+																			value="#{meuPerfilController.entity.nomeUsuario}"
 																			label="Firstname" styleClass="col-md-12"
 																			readonly="true" />-->
 																	</p:column>
 																	<p:column style="width:50%; border: none">
 																		<b><h:outputText value="Sobrenome: " /></b>
-																		<h:outputText value="#{autenticacaoController.entity.sobreNome}" />
+																		<h:outputText value="#{meuPerfilController.entity.sobreNome}" />
 																		<!-- <p:inputText id="lasttname"
-																			value="#{autenticacaoController.entity.sobreNome}"
+																			value="#{meuPerfilController.entity.sobreNome}"
 																			required="true" label="lasttname"
 																			styleClass="col-md-12" readonly="true" />-->
 																	</p:column>
@@ -149,16 +147,16 @@
 																<p:row style="border: none">
 																	<p:column style="width:50%; border: none">
 																		<b><h:outputText value="Sexo: " /></b>
-																		<h:outputText value="#{autenticacaoController.entity.sexo}" />
+																		<h:outputText value="#{meuPerfilController.entity.sexo}" />
 																		<!--<p:inputText id="sexo"
-																			value="#{autenticacaoController.entity.sexo}"
+																			value="#{meuPerfilController.entity.sexo}"
 																			label="Sexo" styleClass="col-md-12" readonly="true" />-->
 																	</p:column>
 																	<p:column style="width:50%; border: none">
 																		<b><h:outputText value="Celular: " /></b>
-																		<h:outputText value="#{autenticacaoController.entity.celular}" />
+																		<h:outputText value="#{meuPerfilController.entity.celular}" />
 																		<!--<p:inputText id="celular"
-																			value="#{autenticacaoController.entity.celular}"
+																			value="#{meuPerfilController.entity.celular}"
 																			styleClass="col-md-12" mask="(99) 99999-9999"
 																			readonly="true" />-->
 																	</p:column>
@@ -167,9 +165,9 @@
 																<p:row style="border: none">
 																	<p:column colspan="2" style="border: none">
 																		<b><h:outputText value="e-mail: " /></b>
-																		<h:outputText value="#{autenticacaoController.entity.email}" />
+																		<h:outputText value="#{meuPerfilController.entity.email}" />
 																		<!--<p:inputText id="email"
-																			value="#{autenticacaoController.entity.email}"
+																			value="#{meuPerfilController.entity.email}"
 																			styleClass="col-md-12" readonly="true" />-->
 																	</p:column>
 																</p:row>
@@ -177,16 +175,16 @@
 																<p:row style="border: none">
 																	<p:column style="width:50%; border: none">
 																		<b><h:outputText value="Login: " /></b>
-																		<h:outputText value="#{autenticacaoController.entity.login}" />
+																		<h:outputText value="#{meuPerfilController.entity.login}" />
 																		<!--<p:inputText id="login"
-																			value="#{autenticacaoController.entity.login}"
+																			value="#{meuPerfilController.entity.login}"
 																			styleClass="col-md-12" readonly="true" />-->
 																	</p:column>
 																	<p:column style="width:50%; border: none">
 																		<b><h:outputText value="Grupo: " /></b>
-																		<h:outputText value="#{autenticacaoController.entity.grupoUsuario.descricao}" />
+																		<h:outputText value="#{meuPerfilController.entity.grupoUsuario.descricao}" />
 																		<!--<p:inputText id="grupousuario"
-																			value="#{autenticacaoController.entity.grupoUsuario.descricao}"
+																			value="#{meuPerfilController.entity.grupoUsuario.descricao}"
 																			styleClass="col-md-12" readonly="true" />-->
 																	</p:column>
 																</p:row>
@@ -211,26 +209,26 @@
 													<p:column style="width:25%; border: none">
 														<h:outputText value="CTPS: " />
 														<p:inputText id="CTPS"
-															value="#{autenticacaoController.entity.dadosProfissionais.CTPS}"
+															value="#{meuPerfilController.entity.dadosProfissionais.CTPS}"
 															label="CTPS" styleClass="col-md-12" readonly="true" />
 													</p:column>
 													<p:column style="width:25%; border: none">
 														<h:outputText value="Serie CTPS: " />
 														<p:inputText id="serieCTPS"
-															value="#{autenticacaoController.entity.dadosProfissionais.serieCTPS}"
+															value="#{meuPerfilController.entity.dadosProfissionais.serieCTPS}"
 															label="serieCTPS" styleClass="col-md-12" readonly="true" />
 													</p:column>
 													<p:column style="width:25%; border: none">
 														<h:outputText value="Estado CTPS: " />
 														<p:inputText id="estadosctps"
-															value="#{autenticacaoController.entity.dadosProfissionais.estadoCTPS}"
+															value="#{meuPerfilController.entity.dadosProfissionais.estadoCTPS}"
 															label="estadosctps" styleClass="col-md-12"
 															readonly="true" />
 													</p:column>
 													<p:column style="width:25%; border: none">
 														<h:outputText value="Número PIS: " />
 														<p:inputText id="pis"
-															value="#{autenticacaoController.entity.dadosProfissionais.PIS}"
+															value="#{meuPerfilController.entity.dadosProfissionais.PIS}"
 															label="pis" styleClass="col-md-12" readonly="true" />
 													</p:column>
 												</p:row>
@@ -239,28 +237,28 @@
 													<p:column style="width:25%; border: none">
 														<h:outputText value="Matricula: " />
 														<p:inputText id="matricula"
-															value="#{autenticacaoController.entity.dadosProfissionais.matricula}"
+															value="#{meuPerfilController.entity.dadosProfissionais.matricula}"
 															label="matricula" styleClass="col-md-12" readonly="true" />
 													</p:column>
 													<p:column style="width:25%; border: none">
 														<h:outputText value="Código Ponto Eletrônico: " />
 														<p:inputText id="codigoPontoEletronico"
-															value="#{autenticacaoController.entity.dadosProfissionais.codigoPontoEletronico}"
+															value="#{meuPerfilController.entity.dadosProfissionais.codigoPontoEletronico}"
 															label="serieCTPS" styleClass="col-md-12" readonly="true" />
 													</p:column>
 													<p:column style="width:25%; border: none">
 														<h:outputText value="Data Admissao: " />
 														<p:inputText id="dataadmissao"
-															value="#{autenticacaoController.entity.dadosProfissionais.dataAdmissao.getTime()}"
+															value="#{meuPerfilController.entity.dadosProfissionais.dataAdmissao}"
 															label="serieCTPS" styleClass="col-md-12" readonly="true">
-															<f:convertDateTime pattern="DD/MM/YYYY" />
+															<f:convertDateTime pattern="dd/MM/yyyy" /> 
 														</p:inputText>
 
 													</p:column>
 													<p:column style="width:25%; border: none">
 														<h:outputText value="Carga horária: " />
 														<p:inputText id="cargahoraria"
-															value="#{autenticacaoController.entity.dadosProfissionais.cargaHoraria}"
+															value="#{meuPerfilController.entity.dadosProfissionais.cargaHoraria}"
 															label="cargahoraria" styleClass="col-md-12"
 															readonly="true" />
 													</p:column>
@@ -270,20 +268,20 @@
 													<p:column style="width:25%; border: none">
 														<h:outputText value="Telefone Profissional: " />
 														<p:inputText id="telefoneprofissional"
-															value="#{autenticacaoController.entity.dadosProfissionais.telefoneProfissional}"
+															value="#{meuPerfilController.entity.dadosProfissionais.telefoneProfissional}"
 															label="celularpessoal" styleClass="col-md-12"
 															readonly="true" />
 													</p:column>
 													<p:column style="width:25%; border: none">
 														<h:outputText value="Ramal: " />
 														<p:inputText id="ramal"
-															value="#{autenticacaoController.entity.dadosProfissionais.ramal}"
+															value="#{meuPerfilController.entity.dadosProfissionais.ramal}"
 															label="ramal" styleClass="col-md-12" readonly="true" />
 													</p:column>
 													<p:column style="width:25%; border: none">
 														<h:outputText value="Celular Profissional: " />
 														<p:inputText id="celularprofissional"
-															value="#{autenticacaoController.entity.dadosProfissionais.celularProfissional}"
+															value="#{meuPerfilController.entity.dadosProfissionais.celularProfissional}"
 															label="telefonepessoal" styleClass="col-md-12"
 															readonly="true" />
 													</p:column>
@@ -295,7 +293,7 @@
 												<p:row style="width:25%; border: none">
 													<p:column colspan="2" style="border: none">
 														<p:selectBooleanCheckbox
-															value="#{autenticacaoController.entity.dadosProfissionais.flagBatePonto}"
+															value="#{meuPerfilController.entity.dadosProfissionais.flagBatePonto}"
 															readonly="true" />
 														<h:outputText value=" Bate ponto: " />
 													</p:column>
@@ -320,13 +318,13 @@
 																<p:column style="width:25%; border: none">
 																	<h:outputText value="CEP: " />
 																	<p:inputText id="cep"
-																		value="#{autenticacaoController.entity.dadosPessoais.CEP}"
+																		value="#{meuPerfilController.entity.dadosPessoais.CEP}"
 																		label="CEP" styleClass="col-md-12" />
 																</p:column>
 																<p:column style="width:25%; border: none">
 																	<h:outputText value="Logradouro: " />
 																	<h:selectOneMenu
-																		value="#{autenticacaoController.entity.dadosPessoais.tipoLogradouro}"
+																		value="#{meuPerfilController.entity.dadosPessoais.tipoLogradouro}"
 																		styleClass="form-control select2">
 																		<f:selectItems
 																			value="#{dominioController.tipoLogradouro}"
@@ -336,7 +334,7 @@
 																<p:column colspan="2" style="width:50%; border: none">
 																	<h:outputText value="Endereco: " />
 																	<p:inputText id="endereco"
-																		value="#{autenticacaoController.entity.dadosPessoais.endereco}"
+																		value="#{meuPerfilController.entity.dadosPessoais.endereco}"
 																		label="endereco" styleClass="col-md-12"
 																		readonly="true">
 
@@ -349,7 +347,7 @@
 																<p:column style="width:25%; border: none">
 																	<h:outputText value="Número: " />
 																	<p:inputText id="numero"
-																		value="#{autenticacaoController.entity.dadosPessoais.numero}"
+																		value="#{meuPerfilController.entity.dadosPessoais.numero}"
 																		label="Numero" styleClass="col-md-12" readonly="true">
 
 																		<p:clientValidator />
@@ -358,7 +356,7 @@
 																<p:column style="width:25%; border: none">
 																	<h:outputText value="Complemento: " />
 																	<p:inputText id="complemento"
-																		value="#{autenticacaoController.entity.dadosPessoais.complemento}"
+																		value="#{meuPerfilController.entity.dadosPessoais.complemento}"
 																		label="complemento" styleClass="col-md-12"
 																		readonly="true">
 
@@ -368,7 +366,7 @@
 																<p:column colspan="2" style="width:50%; border: none">
 																	<h:outputText value="Bairro: " />
 																	<p:inputText id="bairro"
-																		value="#{autenticacaoController.entity.dadosPessoais.bairro}"
+																		value="#{meuPerfilController.entity.dadosPessoais.bairro}"
 																		label="bairro" styleClass="col-md-12" readonly="true">
 
 																		<p:clientValidator />
@@ -380,7 +378,7 @@
 																<p:column colspan="2" style="width:50%; border: none">
 																	<h:outputText value="Cidade: " />
 																	<p:inputText id="cidade"
-																		value="#{autenticacaoController.entity.dadosPessoais.cidade}"
+																		value="#{meuPerfilController.entity.dadosPessoais.cidade}"
 																		label="cidade" styleClass="col-md-12" readonly="true">
 
 																		<p:clientValidator />
@@ -389,7 +387,7 @@
 																<p:column style="width:10%; border: none">
 																	<h:outputText value="Estado: " />
 																	<h:selectOneMenu
-																		value="#{autenticacaoController.entity.dadosPessoais.estado}"
+																		value="#{meuPerfilController.entity.dadosPessoais.estado}"
 																		styleClass="form-control select2" readonly="true">
 																		<f:selectItems
 																			value="#{dominioController.estadosBrasil}"
@@ -399,7 +397,7 @@
 																<p:column style="width:40%; border: none">
 																	<h:outputText value="Nacionalidade: " />
 																	<p:inputText id="nacionalidade"
-																		value="#{autenticacaoController.entity.dadosPessoais.nacionalidade}"
+																		value="#{meuPerfilController.entity.dadosPessoais.nacionalidade}"
 																		label="nacionalidade" styleClass="col-md-12"
 																		readonly="true">
 
@@ -412,7 +410,7 @@
 																<p:column style="width:30%; border: none">
 																	<h:outputText value="Naturalidade: " />
 																	<p:inputText id="naturalidade"
-																		value="#{autenticacaoController.entity.dadosPessoais.naturalidade}"
+																		value="#{meuPerfilController.entity.dadosPessoais.naturalidade}"
 																		label="cidade" styleClass="col-md-12" readonly="true">
 
 																		<p:clientValidator />
@@ -421,7 +419,7 @@
 																<p:column colspan="2" style="width:40%; border: none">
 																	<h:outputText value="Raça: " />
 																	<p:inputText id="raca"
-																		value="#{autenticacaoController.entity.dadosPessoais.raca}"
+																		value="#{meuPerfilController.entity.dadosPessoais.raca}"
 																		label="raca" styleClass="col-md-12" readonly="true">
 
 																		<p:clientValidator />
@@ -430,7 +428,7 @@
 																<p:column style="width:30%; border: none">
 																	<h:outputText value="Nascimento: " />
 																	<p:inputText id="nascimento"
-																		value="#{autenticacaoController.entity.dadosPessoais.dataNascimento}"
+																		value="#{meuPerfilController.entity.dadosPessoais.dataNascimento}"
 																		label="nascimento" styleClass="col-md-12"
 																		readonly="true">
 
@@ -442,7 +440,7 @@
 																<p:column style="width:25%; border: none">
 																	<h:outputText value="CPF: " />
 																	<p:inputText id="cpf"
-																		value="#{autenticacaoController.entity.dadosPessoais.CPF}"
+																		value="#{meuPerfilController.entity.dadosPessoais.CPF}"
 																		label="cpf" styleClass="col-md-12" readonly="true">
 
 																		<p:clientValidator />
@@ -451,7 +449,7 @@
 																<p:column style="width:25%; border: none">
 																	<h:outputText value="RG: " />
 																	<p:inputText id="rg"
-																		value="#{autenticacaoController.entity.dadosPessoais.RG}"
+																		value="#{meuPerfilController.entity.dadosPessoais.RG}"
 																		label="raca" styleClass="col-md-12" readonly="true">
 
 																		<p:clientValidator />
@@ -460,7 +458,7 @@
 																<p:column style="width:25%; border: none">
 																	<h:outputText value="Data Emissao: " />
 																	<p:inputText id="dataemissao"
-																		value="#{autenticacaoController.entity.dadosPessoais.dataEmissaoRG.getTime()}"
+																		value="#{meuPerfilController.entity.dadosPessoais.dataEmissaoRG.getTime()}"
 																		label="dataemissao" styleClass="col-md-10"
 																		readonly="true">
 																		<f:convertDateTime pattern="DD/MM/YYYY" />
@@ -469,7 +467,7 @@
 																<p:column style="width:30%; border: none">
 																	<h:outputText value="Orgão Emissor: " />
 																	<p:inputText id="orgaoemissor"
-																		value="#{autenticacaoController.entity.dadosPessoais.orgaoEmissorRG}"
+																		value="#{meuPerfilController.entity.dadosPessoais.orgaoEmissorRG}"
 																		label="orgaoemissor" styleClass="col-md-12"
 																		readonly="true">
 
@@ -481,7 +479,7 @@
 																<p:column style="width:25%; border: none">
 																	<h:outputText value="UF Orgao Emissor: " />
 																	<h:selectOneMenu
-																		value="#{autenticacaoController.entity.dadosPessoais.estadoEmissorRG}"
+																		value="#{meuPerfilController.entity.dadosPessoais.estadoEmissorRG}"
 																		styleClass="form-control select2" readonly="true">
 																		<f:selectItems
 																			value="#{dominioController.estadosBrasil}"
@@ -491,7 +489,7 @@
 																<p:column style="width:25%; border: none">
 																	<h:outputText value="Estado Civil: " />
 																	<h:selectOneMenu
-																		value="#{autenticacaoController.entity.dadosPessoais.estadoCivil}"
+																		value="#{meuPerfilController.entity.dadosPessoais.estadoCivil}"
 																		styleClass="form-control select2" readonly="true">
 																		<f:selectItems
 																			value="#{dominioController.estadoCivil}" var="civil" />
@@ -500,7 +498,7 @@
 																<p:column style="width:25%; border: none">
 																	<h:outputText value="Telefone: " />
 																	<p:inputText id="telefonePessoal"
-																		value="#{autenticacaoController.entity.dadosPessoais.telefonePessoal}"
+																		value="#{meuPerfilController.entity.dadosPessoais.telefonePessoal}"
 																		label="telefonepessoal" styleClass="col-md-10"
 																		readonly="true">
 																	</p:inputText>
@@ -508,7 +506,7 @@
 																<p:column style="width:30%; border: none">
 																	<h:outputText value="Celular: " />
 																	<p:inputText id="celularpessoal"
-																		value="#{autenticacaoController.entity.dadosPessoais.celularPessoal}"
+																		value="#{meuPerfilController.entity.dadosPessoais.celularPessoal}"
 																		label="celularpessoal" styleClass="col-md-12"
 																		readonly="true">
 																	</p:inputText>

@@ -28,7 +28,7 @@ import br.com.informa.models.portalrh.Departamento;
 
 @Entity
 @Table(name = "tb_usuario")
-public class Usuario implements Serializable {
+public class Usuario implements Serializable, Cloneable {
 	/**
 	 * 
 	 */
@@ -107,7 +107,13 @@ public class Usuario implements Serializable {
 	@OneToOne(mappedBy="usuario", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
 	private DadosProfissionais dadosProfissionais;
 	
-	public Usuario clone(Usuario entity){
+	
+	@Override
+    public Usuario clone() throws CloneNotSupportedException {
+        return (Usuario) super.clone();
+    }
+	
+	/*public Usuario clone(Usuario entity){
 		if (entity == null) 
 		{
 			entity = new Usuario();
@@ -131,7 +137,7 @@ public class Usuario implements Serializable {
 		entity.setDepartamento(this.departamento);
 		
 		return entity;
-	}	
+	}*/	
 	
 	
 	public int getId() {

@@ -91,7 +91,7 @@ public class UsuarioServiceImpl implements UsuarioService {
 	}
 
 	@Override
-	public Boolean login(Usuario entity) {
+	public Usuario login(Usuario entity) {
 
 		Usuario entityBanco;
 		UsuarioDao entityDao = FactoryDao.getFactory().getUsuarioDao();
@@ -142,16 +142,26 @@ public class UsuarioServiceImpl implements UsuarioService {
 			if (!autenticadoPeloWindows) {
 				if (CommonMethods.getInstance().SHA256(entity.getSenha(), entity.getLogin())
 						.equals(entityBanco.getSenha())) {
-					entityBanco.clone(entity);
-					return true;
+					try {
+						entity = entityBanco.clone();
+					} catch (CloneNotSupportedException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
+					return entityBanco;
 				} else {
 					throw new SenhaInvalidoException();
 				}
 			} else {
-				entityBanco.clone(entity);
+				try {
+					entity = entityBanco.clone();
+				} catch (CloneNotSupportedException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
 				entityBanco.setSenha(entity.getSenha());
 				this.Update(entityBanco);
-				return true;
+				return entityBanco;
 			}
 		} catch (NoSuchAlgorithmException | UnsupportedEncodingException e) {
 			e.printStackTrace();
