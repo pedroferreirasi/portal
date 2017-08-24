@@ -97,9 +97,9 @@
         <!-- /.row -->
         </section>      
      </h:form>          
-	 <!-- /.content -->
-	 <p:growl id="growl" sticky="true" showDetail="true" escape="false" globalOnly="true"  />
-	 <p:messages id="msg" showDetail="true" globalOnly="false" autoUpdate="false" closable="true"/> 
+	 <!-- /.content 
+	 <p:growl id="growl" sticky="true" showDetail="true" escape="false" globalOnly="true"  />-->
+	 <p:messages id="msg" showDetail="true" globalOnly="false" autoUpdate="true" closable="true"/> 
 	 	 	    
         <p:dialog modal="true" widgetVar="dlg" 
                   id="dlg"
@@ -119,7 +119,9 @@
                            action="#{entityBean.salvar}"
                            rendered="#{entityBean.exibeBotaoSalvar}"
                            process="@form"                                                           
-                           styleClass="btn btn-primary" />&#160;
+                           styleClass="btn btn-primary" >
+
+           </p:commandButton>&#160;
 
            <p:commandButton type="button" value="Cancelar" styleClass="btn btn-primary" 
                             onclick="PF('dlg').hide()" ajax="false"
