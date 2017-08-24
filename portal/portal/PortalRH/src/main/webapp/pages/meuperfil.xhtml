@@ -98,7 +98,7 @@
 								<div class="tab-content">
 									<div class="active tab-pane" id="dadospessoais">
 
-										<form class="form-horizontal">
+										<h:form class="form-horizontal">
 
 											<div class="box-group" id="accordion">
 												<!-- we are adding the .panel class so bootstrap.js collapse plugin detects it -->
@@ -210,26 +210,26 @@
 														<h:outputText value="CTPS: " />
 														<p:inputText id="CTPS"
 															value="#{meuPerfilController.entity.dadosProfissionais.CTPS}"
-															label="CTPS" styleClass="col-md-12" readonly="true" />
+															label="CTPS" styleClass="col-md-12" disabled="true" />
 													</p:column>
 													<p:column style="width:25%; border: none">
 														<h:outputText value="Serie CTPS: " />
 														<p:inputText id="serieCTPS"
 															value="#{meuPerfilController.entity.dadosProfissionais.serieCTPS}"
-															label="serieCTPS" styleClass="col-md-12" readonly="true" />
+															label="serieCTPS" styleClass="col-md-12" disabled="true" />
 													</p:column>
 													<p:column style="width:25%; border: none">
 														<h:outputText value="Estado CTPS: " />
 														<p:inputText id="estadosctps"
 															value="#{meuPerfilController.entity.dadosProfissionais.estadoCTPS}"
 															label="estadosctps" styleClass="col-md-12"
-															readonly="true" />
+															disabled="true" />
 													</p:column>
 													<p:column style="width:25%; border: none">
 														<h:outputText value="Número PIS: " />
 														<p:inputText id="pis"
 															value="#{meuPerfilController.entity.dadosProfissionais.PIS}"
-															label="pis" styleClass="col-md-12" readonly="true" />
+															label="pis" styleClass="col-md-12" disabled="true" />
 													</p:column>
 												</p:row>
 
@@ -238,19 +238,19 @@
 														<h:outputText value="Matricula: " />
 														<p:inputText id="matricula"
 															value="#{meuPerfilController.entity.dadosProfissionais.matricula}"
-															label="matricula" styleClass="col-md-12" readonly="true" />
+															label="matricula" styleClass="col-md-12" disabled="true" />
 													</p:column>
 													<p:column style="width:25%; border: none">
 														<h:outputText value="Código Ponto Eletrônico: " />
 														<p:inputText id="codigoPontoEletronico"
 															value="#{meuPerfilController.entity.dadosProfissionais.codigoPontoEletronico}"
-															label="serieCTPS" styleClass="col-md-12" readonly="true" />
+															label="serieCTPS" styleClass="col-md-12" disabled="true" />
 													</p:column>
 													<p:column style="width:25%; border: none">
 														<h:outputText value="Data Admissao: " />
 														<p:inputText id="dataadmissao"
 															value="#{meuPerfilController.entity.dadosProfissionais.dataAdmissao}"
-															label="serieCTPS" styleClass="col-md-12" readonly="true">
+															label="serieCTPS" styleClass="col-md-12" disabled="true">
 															<f:convertDateTime pattern="dd/MM/yyyy" /> 
 														</p:inputText>
 
@@ -260,7 +260,7 @@
 														<p:inputText id="cargahoraria"
 															value="#{meuPerfilController.entity.dadosProfissionais.cargaHoraria}"
 															label="cargahoraria" styleClass="col-md-12"
-															readonly="true" />
+															disabled="true" />
 													</p:column>
 												</p:row>
 
@@ -269,21 +269,19 @@
 														<h:outputText value="Telefone Profissional: " />
 														<p:inputText id="telefoneprofissional"
 															value="#{meuPerfilController.entity.dadosProfissionais.telefoneProfissional}"
-															label="celularpessoal" styleClass="col-md-12"
-															readonly="true" />
+															label="celularpessoal" styleClass="col-md-12" />
 													</p:column>
 													<p:column style="width:25%; border: none">
 														<h:outputText value="Ramal: " />
 														<p:inputText id="ramal"
 															value="#{meuPerfilController.entity.dadosProfissionais.ramal}"
-															label="ramal" styleClass="col-md-12" readonly="true" />
+															label="ramal" styleClass="col-md-12" />
 													</p:column>
 													<p:column style="width:25%; border: none">
 														<h:outputText value="Celular Profissional: " />
 														<p:inputText id="celularprofissional"
 															value="#{meuPerfilController.entity.dadosProfissionais.celularProfissional}"
-															label="telefonepessoal" styleClass="col-md-12"
-															readonly="true" />
+															label="telefonepessoal" styleClass="col-md-12" />
 													</p:column>
 													<p:column style="width:25%; border: none">
 
@@ -294,7 +292,7 @@
 													<p:column colspan="2" style="border: none">
 														<p:selectBooleanCheckbox
 															value="#{meuPerfilController.entity.dadosProfissionais.flagBatePonto}"
-															readonly="true" />
+															disabled="true" />
 														<h:outputText value=" Bate ponto: " />
 													</p:column>
 												</p:row>
@@ -306,7 +304,7 @@
 													<div class="box-header with-border">
 														<h4 class="box-title">
 															<a data-toggle="collapse" data-parent="#accordion"
-																href="#collapseTwo"> 2. Residência / Endereço </a>
+																href="#collapseTwo"> 3. Residência / Endereço </a>
 														</h4>
 													</div>
 													<div id="collapseTwo" class="panel-collapse collapse in">
@@ -335,9 +333,7 @@
 																	<h:outputText value="Endereco: " />
 																	<p:inputText id="endereco"
 																		value="#{meuPerfilController.entity.dadosPessoais.endereco}"
-																		label="endereco" styleClass="col-md-12"
-																		readonly="true">
-
+																		label="endereco" styleClass="col-md-12" >
 																		<p:clientValidator />
 																	</p:inputText>
 																</p:column>
@@ -348,7 +344,7 @@
 																	<h:outputText value="Número: " />
 																	<p:inputText id="numero"
 																		value="#{meuPerfilController.entity.dadosPessoais.numero}"
-																		label="Numero" styleClass="col-md-12" readonly="true">
+																		label="Numero" styleClass="col-md-12" >
 
 																		<p:clientValidator />
 																	</p:inputText>
@@ -357,8 +353,7 @@
 																	<h:outputText value="Complemento: " />
 																	<p:inputText id="complemento"
 																		value="#{meuPerfilController.entity.dadosPessoais.complemento}"
-																		label="complemento" styleClass="col-md-12"
-																		readonly="true">
+																		label="complemento" styleClass="col-md-12" >
 
 																		<p:clientValidator />
 																	</p:inputText>
@@ -367,7 +362,7 @@
 																	<h:outputText value="Bairro: " />
 																	<p:inputText id="bairro"
 																		value="#{meuPerfilController.entity.dadosPessoais.bairro}"
-																		label="bairro" styleClass="col-md-12" readonly="true">
+																		label="bairro" styleClass="col-md-12" >
 
 																		<p:clientValidator />
 																	</p:inputText>
@@ -379,7 +374,7 @@
 																	<h:outputText value="Cidade: " />
 																	<p:inputText id="cidade"
 																		value="#{meuPerfilController.entity.dadosPessoais.cidade}"
-																		label="cidade" styleClass="col-md-12" readonly="true">
+																		label="cidade" styleClass="col-md-12" >
 
 																		<p:clientValidator />
 																	</p:inputText>
@@ -388,7 +383,7 @@
 																	<h:outputText value="Estado: " />
 																	<h:selectOneMenu
 																		value="#{meuPerfilController.entity.dadosPessoais.estado}"
-																		styleClass="form-control select2" readonly="true">
+																		styleClass="form-control select2" >
 																		<f:selectItems
 																			value="#{dominioController.estadosBrasil}"
 																			var="estados" />
@@ -399,7 +394,7 @@
 																	<p:inputText id="nacionalidade"
 																		value="#{meuPerfilController.entity.dadosPessoais.nacionalidade}"
 																		label="nacionalidade" styleClass="col-md-12"
-																		readonly="true">
+																		disabled="true">
 
 																		<p:clientValidator />
 																	</p:inputText>
@@ -411,7 +406,7 @@
 																	<h:outputText value="Naturalidade: " />
 																	<p:inputText id="naturalidade"
 																		value="#{meuPerfilController.entity.dadosPessoais.naturalidade}"
-																		label="cidade" styleClass="col-md-12" readonly="true">
+																		label="cidade" styleClass="col-md-12" disabled="true">
 
 																		<p:clientValidator />
 																	</p:inputText>
@@ -420,7 +415,7 @@
 																	<h:outputText value="Raça: " />
 																	<p:inputText id="raca"
 																		value="#{meuPerfilController.entity.dadosPessoais.raca}"
-																		label="raca" styleClass="col-md-12" readonly="true">
+																		label="raca" styleClass="col-md-12" disabled="true">
 
 																		<p:clientValidator />
 																	</p:inputText>
@@ -430,7 +425,7 @@
 																	<p:inputText id="nascimento"
 																		value="#{meuPerfilController.entity.dadosPessoais.dataNascimento}"
 																		label="nascimento" styleClass="col-md-12"
-																		readonly="true">
+																		disabled="true">
 
 																	</p:inputText>
 																</p:column>
@@ -441,7 +436,7 @@
 																	<h:outputText value="CPF: " />
 																	<p:inputText id="cpf"
 																		value="#{meuPerfilController.entity.dadosPessoais.CPF}"
-																		label="cpf" styleClass="col-md-12" readonly="true">
+																		label="cpf" styleClass="col-md-12" disabled="true">
 
 																		<p:clientValidator />
 																	</p:inputText>
@@ -450,7 +445,7 @@
 																	<h:outputText value="RG: " />
 																	<p:inputText id="rg"
 																		value="#{meuPerfilController.entity.dadosPessoais.RG}"
-																		label="raca" styleClass="col-md-12" readonly="true">
+																		label="raca" styleClass="col-md-12" disabled="true">
 
 																		<p:clientValidator />
 																	</p:inputText>
@@ -460,7 +455,7 @@
 																	<p:inputText id="dataemissao"
 																		value="#{meuPerfilController.entity.dadosPessoais.dataEmissaoRG.getTime()}"
 																		label="dataemissao" styleClass="col-md-10"
-																		readonly="true">
+																		disabled="true">
 																		<f:convertDateTime pattern="DD/MM/YYYY" />
 																	</p:inputText>
 																</p:column>
@@ -469,7 +464,7 @@
 																	<p:inputText id="orgaoemissor"
 																		value="#{meuPerfilController.entity.dadosPessoais.orgaoEmissorRG}"
 																		label="orgaoemissor" styleClass="col-md-12"
-																		readonly="true">
+																		disabled="true">
 
 																	</p:inputText>
 																</p:column>
@@ -480,7 +475,7 @@
 																	<h:outputText value="UF Orgao Emissor: " />
 																	<h:selectOneMenu
 																		value="#{meuPerfilController.entity.dadosPessoais.estadoEmissorRG}"
-																		styleClass="form-control select2" readonly="true">
+																		styleClass="form-control select2" disabled="true">
 																		<f:selectItems
 																			value="#{dominioController.estadosBrasil}"
 																			var="estados" />
@@ -490,7 +485,7 @@
 																	<h:outputText value="Estado Civil: " />
 																	<h:selectOneMenu
 																		value="#{meuPerfilController.entity.dadosPessoais.estadoCivil}"
-																		styleClass="form-control select2" readonly="true">
+																		styleClass="form-control select2" >
 																		<f:selectItems
 																			value="#{dominioController.estadoCivil}" var="civil" />
 																	</h:selectOneMenu>
@@ -499,16 +494,14 @@
 																	<h:outputText value="Telefone: " />
 																	<p:inputText id="telefonePessoal"
 																		value="#{meuPerfilController.entity.dadosPessoais.telefonePessoal}"
-																		label="telefonepessoal" styleClass="col-md-10"
-																		readonly="true">
+																		label="telefonepessoal" styleClass="col-md-10" >
 																	</p:inputText>
 																</p:column>
 																<p:column style="width:30%; border: none">
 																	<h:outputText value="Celular: " />
 																	<p:inputText id="celularpessoal"
 																		value="#{meuPerfilController.entity.dadosPessoais.celularPessoal}"
-																		label="celularpessoal" styleClass="col-md-12"
-																		readonly="true">
+																		label="celularpessoal" styleClass="col-md-12" >
 																	</p:inputText>
 																</p:column>
 															</p:row>
@@ -520,12 +513,12 @@
 											</div>
 											<div class="box-group" id="accordion"> 
 											  <p:commandButton value=" Salvar "
-                                                 action="#{colaboradorController.salvar}"
-                                                 process="@this"                                                           
+                                                 actionListener="#{meuPerfilController.salvar}"
+                                                 ajax="false"                                                           
                                                  styleClass="btn btn-primary" />&#160;
                                             </div>
 
-										</form>
+										</h:form>
 									</div>
 									<!-- /.tab-pane -->
 								</div>
