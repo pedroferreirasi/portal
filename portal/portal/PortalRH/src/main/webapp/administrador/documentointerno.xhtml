@@ -27,7 +27,7 @@
                   <!--</h:panelGroup> 
                   <h:panelGroup layout="block" styleClass="box-header col-md-2 col-md-offset-9" >--> 
 			<p:commandButton value="Pesquisar" 
-				action="#{documentoInternoController.getListAll}" ajax="false" update="@form" 
+				actionlistener="#{documentoInternoController.getListAll}" ajax="false" update="@form" 
 				styleClass="btn btn-primary" >&#160; 
                      <!-- <f:ajax execute=":TableId" render=":TableId" /> --> 
 			</p:commandButton> 
@@ -68,7 +68,7 @@
 		<p:row style="border: none">
 			<p:column style="width:40%; border: none">
 				<h:outputText value="Tipo Documento: " />
-					<h:selectOneMenu value="#{entityBean.entity.tipoDocumentoInterno}"
+					<h:selectOneMenu value="#{entityBean.entity.tipoDocumentoInterno.id}"
 						styleClass="form-control select2">
 					<f:selectItems value="#{tipoDocumentoInternoController.listaEntity}"
 						var="grupo" itemValue="#{grupo.id}" itemLabel="#{grupo.descricao}" />

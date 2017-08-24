@@ -11,11 +11,11 @@ import br.com.informa.utils.Contexto;
 @ViewScoped 
 public class DocumentoInternoController extends GenericController<DocumentoInterno, Integer> { 
  
-	private static final long serialVersionUID = 1857791039787747741L;
+	private static final long serialVersionUID = 1L;
 
 	public DocumentoInternoController() { 
 		entityService = FactoryService.getFactory().getDocumentoInterno(); 
-		this.novo(); 
+		//this.novo(); 
 		listaEntity = this.getListAll();
 		//getMissao();
 	} 
@@ -29,7 +29,4 @@ public class DocumentoInternoController extends GenericController<DocumentoInter
 		this.entity.setUsuario(Contexto.getUsuarioLogado());
 	} 
 	
-	public void getMissao() {
-		this.entity = entityService.getById(1);
-	}
 } 

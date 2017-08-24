@@ -25,11 +25,12 @@ import br.com.informa.models.common.Usuario;
 @XmlAccessorType(XmlAccessType.FIELD) 
 public class DocumentoInterno implements Serializable {	
  
-
-    /**
-	 * 
-	 */
 	private static final long serialVersionUID = 1L;
+	
+	public DocumentoInterno() {
+		tipoDocumentoInterno = new TipoDocumentoInterno();
+		dataCadastro = new Date();
+	}
 
 	@Id
     @GeneratedValue(strategy=GenerationType.IDENTITY)
@@ -48,7 +49,7 @@ public class DocumentoInterno implements Serializable {
     private Date dataCadastro;
 
     @Lob
-    @Column(name="texto", nullable=true)
+    @Column(name="texto", nullable=true, columnDefinition="mediumblob")
     private byte[] texto;
 
 	public Integer getId() {
