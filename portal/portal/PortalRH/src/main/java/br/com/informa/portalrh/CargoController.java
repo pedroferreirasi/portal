@@ -10,9 +10,6 @@ import br.com.informa.services.core.FactoryService;
 @ViewScoped 
 public class CargoController extends GenericController<Cargo, Integer> { 
  
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = -5449562406432690214L;
 
 	public CargoController() { 

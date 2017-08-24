@@ -10,9 +10,6 @@ import br.com.informa.services.core.FactoryService;
 @ViewScoped 
 public class TipoDocumentoInternoController extends GenericController<TipoDocumentoInterno, Integer> { 
  
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = 2080656462056665699L;
 
 	public TipoDocumentoInternoController() { 
