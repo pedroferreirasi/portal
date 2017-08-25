@@ -51,7 +51,12 @@
     <context-param>
   	     <param-name>javax.faces.DEFAULT_SUFFIX</param-name>
   	     <param-value>.xhtml .html .jsp</param-value> 
-    </context-param>       
+    </context-param>   
+    
+    <context-param>
+      <param-name>primefaces.UPLOADER</param-name>
+      <param-value>auto|native|commons</param-value>
+    </context-param>        
     
     <error-page>
       <exception-type>com.sun.faces.context.FacesFileNotFoundException</exception-type>
@@ -84,4 +89,15 @@
 		<filter-name>HibernateFilter</filter-name>
 		<url-pattern>/*</url-pattern>
 	</filter-mapping>
+
+    <filter>
+      <filter-name>FileUploadFilter</filter-name>
+      <filter-class>org.primefaces.webapp.filter.FileUploadFilter</filter-class>
+    </filter>
+
+    <filter-mapping>
+      <filter-name>FileUploadFilter</filter-name>
+      <servlet-name>FacesServlet</servlet-name>
+    </filter-mapping>
+	
 </web-app>

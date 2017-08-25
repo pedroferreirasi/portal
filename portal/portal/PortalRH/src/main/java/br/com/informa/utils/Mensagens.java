@@ -26,21 +26,21 @@ public abstract class Mensagens extends FacesContext implements Serializable {
 	public static void messageInformation(String msg)
 	{
 		if (Contexto.ValidaSeContextoExiste()) {
-			Contexto.getCurrentFaceContext().addMessage("msg", new FacesMessage(FacesMessage.SEVERITY_INFO, msg, msg));
+			Contexto.getCurrentFaceContext().addMessage("msg", new FacesMessage(FacesMessage.SEVERITY_INFO, "Informação", msg));
 		}
 	}
 	
 	public static void messageWarnning(String msg)
 	{
 		if (Contexto.ValidaSeContextoExiste()) {
-			Contexto.getCurrentFaceContext().addMessage("msg", new FacesMessage(FacesMessage.SEVERITY_WARN, msg, msg));
+			Contexto.getCurrentFaceContext().addMessage("msg", new FacesMessage(FacesMessage.SEVERITY_WARN, "Cuidado", msg));
 		}
 	}
 	
 	public static void messageError(String msg)
 	{
 		if (Contexto.ValidaSeContextoExiste()) {
-			Contexto.getCurrentFaceContext().addMessage("msg", new FacesMessage(FacesMessage.SEVERITY_ERROR, msg, msg));
+			Contexto.getCurrentFaceContext().addMessage("msg", new FacesMessage(FacesMessage.SEVERITY_ERROR, "Erro", msg));
 		}
 	}	
 	
