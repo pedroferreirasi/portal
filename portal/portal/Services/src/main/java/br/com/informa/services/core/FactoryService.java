@@ -13,6 +13,8 @@ import br.com.informa.services.portalrh.EquipesServiceImpl;
 import br.com.informa.services.portalrh.FeriadosService;
 import br.com.informa.services.portalrh.FeriadosServiceImpl;
 import br.com.informa.services.portalrh.FeriasServiceImpl;
+import br.com.informa.services.portalrh.MuralService;
+import br.com.informa.services.portalrh.MuralServiceImpl;
 import br.com.informa.services.portalrh.SalaService;
 import br.com.informa.services.portalrh.SalaServiceImpl;
 import br.com.informa.services.portalrh.CargoService;
@@ -84,5 +86,9 @@ public class FactoryService {
 	
 	public SalaService getSala() {
 		return new SalaServiceImpl();
-	}		
+	}	
+	
+	public MuralService getMural() {
+		return new MuralServiceImpl();
+	}
 }

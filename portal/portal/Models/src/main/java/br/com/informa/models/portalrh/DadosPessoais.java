@@ -32,10 +32,6 @@ import br.com.informa.models.dominio.ETipoLogradouro;
 @XmlAccessorType(XmlAccessType.FIELD) 
 public class DadosPessoais implements Serializable {	
  
-
-    /**
-	 * 
-	 */
 	private static final long serialVersionUID = 8033642361287560373L;
 	
 	public DadosPessoais() {

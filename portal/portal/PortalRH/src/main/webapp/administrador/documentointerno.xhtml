@@ -76,7 +76,7 @@
 			</p:column>
 			 <p:column style="width:60%; border: none">
 			  <h:outputText value="Arquivo: " /><br />
-			  <p:fileUpload value="#{entityBean.uploadedFile}" mode="simple" immediate="true" />
+			  <p:fileUpload auto="true" value="#{entityBean.uploadedFile}" mode="simple" ajax="false" />
 			</p:column>
 		</p:row> 
 	  </p:panelGrid><br />

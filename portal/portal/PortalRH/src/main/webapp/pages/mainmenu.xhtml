@@ -60,7 +60,7 @@
 									<div class="active tab-pane" id="activity">
 
 										<!-- Post -->
-										<div class="post">
+										<div class="post" id="noticias">
 											<div class="user-block">
 												<div class="box box-default">
 													<div class="box-header with-border">
@@ -79,64 +79,48 @@
 
 														<!-- Post -->
 														<div class="post clearfix">
-															<form class="form-horizontal">
+															<h:form id="formpmural">
 																<div class="form-group margin-bottom-none">
-																	<div class="col-sm-9">
-																		<input class="form-control input-sm"
-																			placeholder="Escreva sua publicação" />
+																	<div class="col-sm-10">
+																	  <p:inputTextarea value="#{muralController.entity.texto}" styleClass="form-control input-sm"
+																	                   id="textodomural"  />
 																	</div>
-																	<div class="col-sm-3">
-																		<button type="submit"
-																			class="btn btn-danger pull-right btn-block btn-sm">Enviar</button>
+																	<div class="col-sm-2">
+                                                                      <p:commandButton value=" Enviar "
+                                                                                       action="#{muralController.salvar}"
+                                                                                       update="@this"
+                                                                                       ajax="false"                                     
+                                                                                       styleClass="btn btn-danger pull-right btn-block btn-sm" />
 																	</div>
 																</div>
-															</form>
+															</h:form>
 														</div>
 														<!-- /.post -->
 														
 														<!-- Post -->
+														<ui:repeat value="#{muralController.listaEntity}" var="item">
 														<div class="post clearfix">
 															<div class="user-block">
 																<img class="img-circle img-bordered-sm"
-																	src="#{request.contextPath}/resources/dist/img/avatar5.png"
-																	alt="User Image" /> <span class="username"> <a
-																	href="#">Sarah Ross</a> <a href="#"
-																	class="pull-right btn-box-tool"><i
-																		class="fa fa-times"></i></a>
+																	 src="#{request.contextPath}/resources/dist/img/avatar5.png"
+																	 alt="User Image" /> <span class="username"> 
+																	  <a href="#">
+																	    <p:outputLabel id="usuariom" value="#{item.usuario.nomeUsuario} " />&#160;
+																	    <p:outputLabel id="usuariom2" value="#{item.usuario.sobreNome}" />
+																	  </a> 
+																	  <a href="#" class="pull-right btn-box-tool">
+																	    <i class="fa fa-times"></i>
+																	  </a>
 																</span> <span class="description">Sent you a message - 3
 																	days ago</span>
 															</div>
 															<!-- /.user-block -->
-															<p>Lorem ipsum represents a long-held tradition for
-																designers, typographers and the like. Some people hate
-																it and argue for its demise, but others ignore the hate
-																as they create awesome tools to help create filler text
-																for everyone from bacon lovers to Charlie Sheen fans.</p>
+															  <p><p:inputTextarea value="#{item.texto}" style="border: 0;" /></p>
+															
 														</div>
 														<!-- /.post -->
-														
-														<!-- Post -->
-														<div class="post clearfix">
-															<div class="user-block">
-																<img class="img-circle img-bordered-sm"
-																	src="#{request.contextPath}/resources/dist/img/avatar5.png"
-																	alt="User Image" /> <span class="username"> <a
-																	href="#">Sarah Ross</a> <a href="#"
-																	class="pull-right btn-box-tool"><i
-																		class="fa fa-times"></i></a>
-																</span> <span class="description">Sent you a message - 3
-																	days ago</span>
-															</div>
-															<!-- /.user-block -->
-															<p>Lorem ipsum represents a long-held tradition for
-																designers, typographers and the like. Some people hate
-																it and argue for its demise, but others ignore the hate
-																as they create awesome tools to help create filler text
-																for everyone from bacon lovers to Charlie Sheen fans.</p>
-														</div>
-														<!-- /.post -->														
-
-
+														</ui:repeat>
+																										
 													</div>
 													<!-- /.box-body -->
 												</div>

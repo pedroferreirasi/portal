@@ -17,6 +17,8 @@ import br.com.informa.repositories.dao.portalrh.EquipesDaoImpl;
 import br.com.informa.repositories.dao.portalrh.FeriadosDao;
 import br.com.informa.repositories.dao.portalrh.FeriadosDaoImpl;
 import br.com.informa.repositories.dao.portalrh.FeriasDaoImpl;
+import br.com.informa.repositories.dao.portalrh.MuralDao;
+import br.com.informa.repositories.dao.portalrh.MuralDaoImpl;
 import br.com.informa.repositories.dao.portalrh.SalaDao;
 import br.com.informa.repositories.dao.portalrh.SalaDaoImpl;
 import br.com.informa.repositories.dao.portalrh.CargoDao;
@@ -92,5 +94,9 @@ public abstract class FactoryDao {
 	
 	public SalaDao getSalaDao() {
 		return new SalaDaoImpl();
-	}		
+	}
+	
+	public MuralDao getMuralDao() {
+		return new MuralDaoImpl();
+	}	
 }

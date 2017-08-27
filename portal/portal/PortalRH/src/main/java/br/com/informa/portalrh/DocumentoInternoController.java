@@ -7,6 +7,7 @@ import java.io.IOException;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
 
+import org.primefaces.event.FileUploadEvent;
 import org.primefaces.model.UploadedFile;
 
 import br.com.informa.core.GenericController;
@@ -22,24 +23,12 @@ public class DocumentoInternoController extends GenericController<DocumentoInter
 	private static final long serialVersionUID = 1L;
 
 	private UploadedFile uploadedFile;
+	private File file;
 
 	public DocumentoInternoController() {
 		entityService = FactoryService.getFactory().getDocumentoInterno();
 		listaEntity = this.getListAll();
 	}
-
-	/*
-	 * try { File file = new File(uploadedFile.getFileName());
-	 * 
-	 * OutputStream out = new FileOutputStream(file);
-	 * out.write(uploadedFile.getContents()); out.close();
-	 * 
-	 * FacesContext.getCurrentInstance().addMessage( null, new
-	 * FacesMessage("Upload completo", "O arquivo " + uploadedFile.getFileName()
-	 * + " foi salvo!")); } catch(IOException e) {
-	 * FacesContext.getCurrentInstance().addMessage( null, new
-	 * FacesMessage(FacesMessage.SEVERITY_WARN, "Erro", e.getMessage())); }
-	 */
 
 	@Override
 	public void novo() {
@@ -53,11 +42,11 @@ public class DocumentoInternoController extends GenericController<DocumentoInter
 	public void salvar() {
 		try {
 			//File file = new File(uploadedFile.getFileName());
-			File file = new File("C:\\Users\\phferreira\\Google Drive\\Documentacao\\In Forma\\Manual do Colaborador Nov2013.pdf");
+			file = new File("C:\\Users\\phferreira\\Google Drive\\Documentacao\\In Forma\\Manual do Colaborador Nov2013.pdf");
 			
-			/*if (uploadedFile != null) {
-				String teste = uploadedFile.getFileName();
-			}*/
+			if (uploadedFile != null) {
+				uploadedFile.getFileName();
+			}
 			
 			byte[] bFile = new byte[(int) file.length()];
 
@@ -72,6 +61,11 @@ public class DocumentoInternoController extends GenericController<DocumentoInter
 		} catch (Exception e) {
 			Mensagens.messageError(e.getMessage());
 		}
+	}
+	
+	public void handleFileUpload(FileUploadEvent event) throws IOException {
+
+	    uploadedFile = event.getFile();
 	}
 
 	public UploadedFile getUploadedFile() {
