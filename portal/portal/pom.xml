@@ -48,5 +48,7 @@
     <module>Repositories</module>
     <module>PortalRH</module>
     <module>Libraries</module>
+    <module>Negocio</module>
+    <module>Intranet</module>
   </modules>
 </project>

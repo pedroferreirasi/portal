@@ -16,10 +16,14 @@
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<org.apache.httpcomponents.version>4.5.3</org.apache.httpcomponents.version>
+		<org.primefaces.version>6.1</org.primefaces.version>
+		<javax.servlet-api.version>3.1.0</javax.servlet-api.version>
+		<javax.faces-api.version>2.2</javax.faces-api.version>
+		<org.glassfish.version>3.0.0</org.glassfish.version>
 	</properties>
 
 	<dependencies>
-
+		<!-- Módulos do portal -->
 		<dependency>
 			<groupId>${project.parent.groupId}</groupId>
 			<artifactId>Models</artifactId>
@@ -31,6 +35,38 @@
 			<version>${project.parent.versao}</version>
 		</dependency>
 
+		<!-- https://mvnrepository.com/artifact/javax/javaee-api -->
+		<dependency>
+			<groupId>javax</groupId>
+			<artifactId>javaee-api</artifactId>
+			<version>7.0</version>
+			<scope>provided</scope>
+		</dependency>
+
+		<!-- https://mvnrepository.com/artifact/org.primefaces/primefaces -->
+		<dependency>
+			<groupId>org.primefaces</groupId>
+			<artifactId>primefaces</artifactId>
+			<version>${org.primefaces.version}</version>
+		</dependency>
+		<!-- https://mvnrepository.com/artifact/javax.servlet/javax.servlet-api -->
+		<dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>javax.servlet-api</artifactId>
+			<version>${javax.servlet-api.version}</version>
+		</dependency>
+		<!-- https://mvnrepository.com/artifact/javax.faces/javax.faces-api -->
+		<dependency>
+			<groupId>javax.faces</groupId>
+			<artifactId>javax.faces-api</artifactId>
+			<version>${javax.faces-api.version}</version>
+		</dependency>
+		<!-- https://mvnrepository.com/artifact/commons-fileupload/commons-fileupload -->
+		<dependency>
+			<groupId>commons-fileupload</groupId>
+			<artifactId>commons-fileupload</artifactId>
+			<version>1.3.3</version>
+		</dependency>
 		<!-- Http Client -->
 		<!-- http://hc.apache.org/httpclient-3.x/tutorial.html -->
 		<dependency>
@@ -38,66 +74,7 @@
 			<artifactId>httpclient</artifactId>
 			<version>${org.apache.httpcomponents.version}</version>
 		</dependency>
-
-		<!-- Weld (implementação do CDI) -->
-		<dependency>
-			<groupId>org.jboss.weld.servlet</groupId>
-			<artifactId>weld-servlet</artifactId>
-			<version>2.2.9.Final</version>
-			<scope>compile</scope>
-		</dependency>
-		<!-- Weld depende do Jandex -->
-		<dependency>
-			<groupId>org.jboss</groupId>
-			<artifactId>jandex</artifactId>
-			<version>1.2.3.Final</version>
-			<scope>compile</scope>
-		</dependency>
-		<!-- https://mvnrepository.com/artifact/org.primefaces/primefaces -->
-		<dependency>
-			<groupId>org.primefaces</groupId>
-			<artifactId>primefaces</artifactId>
-			<version>6.1</version>
-		</dependency>
-
-
-		<!-- https://mvnrepository.com/artifact/javax.servlet/javax.servlet-api -->
-		<dependency>
-			<groupId>javax.servlet</groupId>
-			<artifactId>javax.servlet-api</artifactId>
-			<version>3.1.0</version>
-		</dependency>
-		<!-- https://mvnrepository.com/artifact/javax.faces/javax.faces-api -->
-		<dependency>
-			<groupId>javax.faces</groupId>
-			<artifactId>javax.faces-api</artifactId>
-			<version>2.2</version>
-		</dependency>
-		<!-- https://mvnrepository.com/artifact/javax.faces/jsf-api -->
-		<dependency>
-			<groupId>javax.faces</groupId>
-			<artifactId>jsf-api</artifactId>
-			<version>2.0</version>
-		</dependency>
-		<!-- https://mvnrepository.com/artifact/com.sun.facelets/jsf-facelets -->
-		<dependency>
-			<groupId>com.sun.facelets</groupId>
-			<artifactId>jsf-facelets</artifactId>
-			<version>1.1.14</version>
-		</dependency>
-		<dependency>
-			<groupId>org.glassfish</groupId>
-			<artifactId>javax.faces</artifactId>
-			<version>2.1.18</version>
-		</dependency>
 		
-		<!-- https://mvnrepository.com/artifact/commons-fileupload/commons-fileupload -->
-		<dependency>
-			<groupId>commons-fileupload</groupId>
-			<artifactId>commons-fileupload</artifactId>
-			<version>1.3.3</version>
-		</dependency>
-
 
 	</dependencies>
 
