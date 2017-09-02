@@ -49,6 +49,12 @@
 			<artifactId>primefaces</artifactId>
 			<version>${org.primefaces.version}</version>
 		</dependency>
+		<dependency>
+			<groupId>com.github.adminfaces</groupId>
+			<artifactId>admin-theme</artifactId>
+			<version>1.0.0-RC9</version>
+			<!--<classifier>dev</classifier> uncompressed theme.css -->
+		</dependency>
 		<!-- https://mvnrepository.com/artifact/javax.servlet/javax.servlet-api -->
 		<dependency>
 			<groupId>javax.servlet</groupId>
@@ -73,6 +79,11 @@
 			<groupId>org.apache.httpcomponents</groupId>
 			<artifactId>httpclient</artifactId>
 			<version>${org.apache.httpcomponents.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.webjars</groupId>
+			<artifactId>font-awesome</artifactId>
+			<version>4.7.0</version>
 		</dependency>
 	</dependencies>
 
