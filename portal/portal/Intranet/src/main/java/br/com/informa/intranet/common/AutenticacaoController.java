@@ -8,8 +8,8 @@ import javax.faces.context.FacesContext;
 import br.com.informa.models.common.Usuario;
 import br.com.informa.models.dominio.ESexo;
 import br.com.informa.models.dominio.ETipoGrupoUsuario;
-import br.com.informa.services.common.UsuarioService;
-import br.com.informa.services.core.FactoryService;
+import br.com.informa.negocio.common.UsuarioNegocio;
+import br.com.informa.negocio.core.FactoryNegocio;
 import br.com.informa.intranet.utils.Mensagens;
 
 @ManagedBean(name = "autenticacaoController")
@@ -21,7 +21,7 @@ public class AutenticacaoController implements Serializable {
 	 */
 	private static final long serialVersionUID = -3215396402355855649L;
 
-	private UsuarioService entityService;
+	private UsuarioNegocio entityService;
 	private Usuario entity;
 	private String paginacao;
 	private String registrosPorPagina;
@@ -40,7 +40,7 @@ public class AutenticacaoController implements Serializable {
 	}
 
 	public String login() {
-		entityService = FactoryService.getFactory().getUsuario();
+		entityService = FactoryNegocio.getFactory().getUsuario();
 
 		try {
 			entity = entityService.login(entity);

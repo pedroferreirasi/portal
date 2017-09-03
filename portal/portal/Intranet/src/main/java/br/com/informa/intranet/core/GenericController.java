@@ -5,7 +5,7 @@ import java.util.List;
 
 import org.primefaces.context.RequestContext;
 import br.com.informa.models.dominio.EEstadoForm;
-import br.com.informa.services.common.IService;
+import br.com.informa.negocio.core.INegocio;
 import br.com.informa.intranet.utils.Mensagens;
 
 public abstract class GenericController<T, TIPOCHAVE extends Serializable> implements Serializable {
@@ -14,7 +14,7 @@ public abstract class GenericController<T, TIPOCHAVE extends Serializable> imple
 
 	protected T entity;
 	protected List<T> listaEntity;
-	protected IService<T, TIPOCHAVE> entityService;
+	protected INegocio<T, TIPOCHAVE> entityService;
 	protected EEstadoForm estado;
 	protected boolean exibeBotaoExcluir;
 	protected boolean exibeBotaoEditar;

@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<ui:composition template="/template/templatepesquisa.xhtml"
+	xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+
+    <ui:define name="titulo">
+      <h1>Pesquisa de Pessoas e Ramais</h1>
+      <ol class="breadcrumb">
+        <li><a href="mainmenu.xhtml"><i class="fa fa-dashboard"></i> Home</a></li>
+        <li><a href="#">Cadastros</a></li>
+        <li class="active">Pessoas e Ramais</li>
+      </ol>      
+    </ui:define>
+
+	<ui:define name="titulobotao">
+		<ui:param name="entityBean" value="#{ramaisController}" />
+	</ui:define>
+
+	<ui:define name="colunasdogrid">
+		<f:facet name="header">
+                            Lista de Colaborador
+                            <!-- <p:commandButton id="toggler" type="button" value="Columns" style="float:right" icon="ui-icon-calculator" />
+                            <p:columnToggler datasource="TableId" trigger="toggler" />-->
+		</f:facet>
+
+		<p:column width="9%" sortBy="#{entity.id}" style="text-align: center"
+			headerText="Código" filterable="#{entityBean.habilitarPesquisa}"
+			filterBy="#{entity.id}">
+			<h:outputText value="#{entity.id}" />
+		</p:column>
+
+		<p:column sortBy="#{entity.nomeCompleto}" width="20%" headerText="Nome"
+			filterable="#{entityBean.habilitarPesquisa}"
+			filterBy="#{entity.nomeCompleto}">
+			<h:outputText value="#{entity.nomeCompleto}" />
+		</p:column>
+
+		<p:column sortBy="#{entityBean.entity.cargo.descricao}" width="24%" headerText="Cargo"
+			filterable="#{entityBean.habilitarPesquisa}"
+			filterBy="#{entityBean.entity.cargo.descricao}">
+			<h:outputText value="#{entityBean.entity.cargo.descricao}" />
+		</p:column>
+
+		<p:column sortBy="#{entity.email}" width="24%" headerText="E-Mail"
+			filterable="#{entityBean.habilitarPesquisa}"
+			filterBy="#{entity.email}">
+			<h:outputText value="#{entity.email}" />
+		</p:column>
+
+		<p:column sortBy="#{entity.dadosProfissionais.ramal}" width="15%"
+			headerText="Ramal" filterable="#{entityBean.habilitarPesquisa}"
+			filterBy="#{entity.dadosProfissionais.ramal}">
+			<h:outputText value="#{entity.dadosProfissionais.ramal}" />
+		</p:column>
+
+		<p:column sortBy="#{entity.celular}" width="10%" headerText="Celular"
+			filterable="#{entityBean.habilitarPesquisa}"
+			filterBy="#{entity.celular}">
+			<h:outputText value="#{entity.celular}" />
+		</p:column>
+
+	</ui:define>
+
+	<ui:define name="teladecadastro">	  
+      <p:panelGrid id="display" style="width: 100%; border: none; cellspacing: 10px; background-color:navy;" > 	
+		<p:row style="border: none">
+			<p:column style="width:80%; border: none">
+		      <b>#{entityBean.entity.nomeCompleto} </b> <br />
+		      #{entityBean.entity.cargo.descricao} <br /><br />
+		      #{entityBean.entity.email} <br />
+		      (81) 2137-6767 | Ramal: #{entityBean.entity.dadosProfissionais.ramal}<br />
+		      #{entityBean.entity.celular} 		      
+		      <br /><br /><br />
+		      
+		      <b>In Forma Software </b><br />
+		      Rua da Guia, 142 -Sl. 302 - Bairro do Recife<br />
+		      CEP: 50.030-210 | Recife (PE)<br />
+		      <b>www.informa.com.br</b>
+			</p:column>
+			<p:column style="width:20%; border: none; align: center; valign: top" >			  
+			  <img src="../resources/dist/img/qrcode.png" width="90px" />
+			  <br /><br /><br /><br /><br /><br />
+			  <img src="../resources/dist/img/logomarca.png" />
+			</p:column>
+		</p:row> 
+	  </p:panelGrid><br/>
+	</ui:define>
+
+</ui:composition>

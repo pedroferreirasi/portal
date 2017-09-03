@@ -1,0 +1,63 @@
+<!DOCTYPE html> 
+<ui:composition template="/template/templatebranco.xhtml" 
+	xmlns="http://www.w3.org/1999/xhtml" 
+	xmlns:f="http://xmlns.jcp.org/jsf/core" 
+	xmlns:h="http://xmlns.jcp.org/jsf/html" 
+	xmlns:p="http://primefaces.org/ui" 
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"> 
+ 
+    <ui:define name="titulo"> 
+      <h1>Galeria de Fotos</h1> 
+      <ol class="breadcrumb"> 
+        <li><a href="mainmenu.xhtml"><i class="fa fa-dashboard"></i> Home</a></li> 
+        <li><a href="#">Comunicação</a></li> 
+        <li class="active">Galeria de Fotos</li> 
+      </ol> 
+    </ui:define> 
+ 
+
+	<ui:define name="contexto"> 
+		<ui:param name="entityBean" value="#{albumFotosController}" />
+		
+		<h:panelGroup layout="block" styleClass="box-header col-md-12">
+		
+		<table width="100%" align="center" border="0">
+		  <tr align="right">
+		    <td>
+              <p:galleria id="galeriacarnaval" value="#{albumFotosController.imagensCarnaval}" 
+                          var="image" panelWidth="600" effectDuration="1000"
+                          panelHeight="412" showCaption="true" effect="slide" 
+                          autoPlay="true" >
+                <p:graphicImage value="../resources/albuns/Carnaval2017/#{image}" title="Carnaval 2017" width="600" height="412" />
+              </p:galleria> 
+            </td>
+            <td>
+              <p:galleria value="#{albumFotosController.imagensDiaDasMaes}" var="image" panelWidth="600" 
+                          panelHeight="412" showCaption="true" effect="slide" effectDuration="1000"
+                          autoPlay="true" styleClass=".ui-galleria" >
+                <p:graphicImage value="../resources/albuns/DiadasMaes2017/#{image}" title="Dia Das Mães 2017" width="600" height="412" />
+              </p:galleria> 
+            </td>
+          </tr>
+          <tr align="right">
+            <td>
+              <p:galleria value="#{albumFotosController.imagensSaoJoao}" var="image" panelWidth="600" 
+                          panelHeight="412" showCaption="true" effect="slide" effectDuration="1000"
+                          autoPlay="true">
+                <p:graphicImage value="../resources/albuns/SaoJoao2017/#{image}" title="São João 2017" width="600" height="412" />
+              </p:galleria> 
+            </td>
+            <td>
+              <p:galleria value="#{albumFotosController.imagensDiaDosPais}" var="image" panelWidth="600" 
+                          panelHeight="412" showCaption="true" effect="slide" effectDuration="1000"
+                          autoPlay="true">
+                <p:graphicImage value="../resources/albuns/DiadosPais2017/#{image}" title="Dia Das Pais 2017" width="600" height="412" />
+              </p:galleria> 
+            </td>
+          </tr>
+        </table>
+        
+		</h:panelGroup> 
+	</ui:define>  
+ 
+</ui:composition> 

@@ -1,0 +1,32 @@
+<!DOCTYPE html> 
+<ui:composition template="/template/templatebranco.xhtml" 
+	xmlns="http://www.w3.org/1999/xhtml" 
+	xmlns:f="http://xmlns.jcp.org/jsf/core" 
+	xmlns:h="http://xmlns.jcp.org/jsf/html" 
+	xmlns:p="http://primefaces.org/ui" 
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"> 
+ 
+    <ui:define name="titulo"> 
+      <h1>Documentos</h1> 
+      <ol class="breadcrumb"> 
+        <li><a href="mainmenu.xhtml"><i class="fa fa-dashboard"></i> Home</a></li> 
+        <li><a href="#">Cadastros</a></li> 
+        <li class="active">Documentos</li> 
+      </ol> 
+    </ui:define> 
+ 
+	<ui:define name="titulocorpo"> 
+		<ui:param name="entityBean" value="#{cargoController}" /> 
+		<h:panelGroup layout="block" styleClass="box-header col-md-12"> 
+          titulo corpo
+		</h:panelGroup> 
+	</ui:define>  
+
+	<ui:define name="contexto"> 
+		<ui:param name="entityBean" value="#{cargoController}" /> 
+		<h:panelGroup layout="block" styleClass="box-header col-md-12"> 
+          contexto
+		</h:panelGroup> 
+	</ui:define>  
+ 
+</ui:composition> 

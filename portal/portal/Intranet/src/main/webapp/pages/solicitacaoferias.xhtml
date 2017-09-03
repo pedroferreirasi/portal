@@ -1,0 +1,133 @@
+<!DOCTYPE html> 
+<ui:composition template="/template/templatepesquisa.xhtml" 
+	xmlns="http://www.w3.org/1999/xhtml" 
+	xmlns:f="http://xmlns.jcp.org/jsf/core" 
+	xmlns:h="http://xmlns.jcp.org/jsf/html" 
+	xmlns:p="http://primefaces.org/ui" 
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"> 
+ 
+    <ui:define name="titulo"> 
+      <h1>Pesquisa de Ferias</h1> 
+      <ol class="breadcrumb"> 
+        <li><a href="mainmenu.xhtml"><i class="fa fa-dashboard"></i> Home</a></li> 
+        <li><a href="#">Cadastros</a></li> 
+        <li class="active">Ferias</li> 
+      </ol> 
+    </ui:define> 
+ 
+	<ui:define name="titulobotao"> 
+		<ui:param name="entityBean" value="#{feriasController}" /> 
+		<h:panelGroup layout="block" styleClass="box-header col-md-12"> 
+			<p:commandButton value="Novo" ajax="true" 
+				action="#{entityBean.novo}" process="@this" 
+				update=":formPrincipal:display" oncomplete="PF('dlg').show()" 
+				styleClass="btn btn-primary" />&#160; 
+ 
+                  <!--</h:panelGroup> 
+                  <h:panelGroup layout="block" styleClass="box-header col-md-2 col-md-offset-9" >--> 
+			<p:commandButton value="Pesquisar" 
+				actionListener="#{entityBean.getListAllByUsuario()}" 
+				ajax="false"  
+				styleClass="btn btn-primary" >&#160; 
+                     <!-- <f:ajax execute=":TableId" render=":TableId" /> --> 
+			</p:commandButton> 
+		</h:panelGroup> 
+	</ui:define> 
+ 
+	<ui:define name="colunasdogrid"> 
+		<f:facet name="header"> 
+                            Lista de Solicitação 
+                            <!-- <p:commandButton id="toggler" type="button" value="Columns" style="float:right" icon="ui-icon-calculator" /> 
+                            <p:columnToggler datasource="TableId" trigger="toggler" />--> 
+		</f:facet> 
+ 
+		<p:column width="9%" sortBy="#{usuario.id}" style="text-align: center" 
+			headerText="Codigo" filterable="#{entityBean.habilitarPesquisa}" 
+			filterBy="#{entity.id}"> 
+			<h:outputText value="#{entity.id}" /> 
+		</p:column> 
+	</ui:define> 
+	<ui:define name="colunasdogrid"> 
+		<f:facet name="header"> 
+                            Lista de Ferias 
+                            <!-- <p:commandButton id="toggler" type="button" value="Columns" style="float:right" icon="ui-icon-calculator" /> 
+                            <p:columnToggler datasource="TableId" trigger="toggler" />--> 
+		</f:facet> 
+		<p:column width="9%" sortBy="#{entity.id}" style="text-align: center" 
+			headerText="Código" filterable="#{entityBean.habilitarPesquisa}" 
+			filterBy="#{entity.id}"> 
+			<h:outputText value="#{entity.id}" /> 
+		</p:column> 
+		<p:column width="29%" sortBy="#{entity.usuario}" style="text-align: left" 
+			headerText="Colaborador" filterable="#{entityBean.habilitarPesquisa}" 
+			filterBy="#{entity.usuario}"> 
+			<h:outputText value="#{entity.usuario.nomeCompleto}" /> 
+		</p:column> 
+		<p:column width="9%" sortBy="#{entity.dataLancamento}" style="text-align: center" 
+			headerText="Data" filterable="#{entityBean.habilitarPesquisa}" 
+			filterBy="#{entity.dataLancamento}"> 
+			<h:outputText value="#{entity.dataLancamento}" >
+			  <f:convertDateTime pattern="dd/MM/yyyy" />
+			</h:outputText> 
+		</p:column> 
+		<p:column width="9%" sortBy="#{entity.dataInicial}" style="text-align: center" 
+			headerText="Período Ini." filterable="#{entityBean.habilitarPesquisa}" 
+			filterBy="#{entity.dataInicial}"> 
+			<h:outputText value="#{entity.dataInicial}" style="font-weight:bold">
+			  <f:convertDateTime pattern="dd/MM/yyyy" />
+			</h:outputText>			 
+		</p:column> 
+		<p:column width="9%" sortBy="#{entity.dataFinal}" style="text-align: center" 
+			headerText="Período Final" filterable="#{entityBean.habilitarPesquisa}" 
+			filterBy="#{entity.dataFinal}"> 
+			<h:outputText value="#{entity.dataFinal}" style="font-weight:bold" >
+			  <f:convertDateTime pattern="dd/MM/yyyy" />
+			</h:outputText>			 
+		</p:column> 
+		<p:column width="9%" sortBy="#{entity.dias}" style="text-align: center" 
+			headerText="Dias" filterable="#{entityBean.habilitarPesquisa}" 
+			filterBy="#{entity.dias}"> 
+			<h:outputText value="#{entity.dias}" /> 
+		</p:column> 
+		<p:column width="17%" sortBy="#{entity.status}" style="text-align: center" 
+			headerText="Status" filterable="#{entityBean.habilitarPesquisa}" 
+			filterBy="#{entity.status}"> 
+			<h:outputText value="#{entity.status}" style="font-weight:bold" /> 
+		</p:column>  
+ 	</ui:define> 
+ 
+	<ui:define name="teladecadastro"> 
+      <p:panelGrid id="display" style="width: 100%; border: none; cellspacing: 10px;" > 	
+		<p:row style="border: none">
+				<p:column style="border: none">				    
+					<h:outputText value="Data Inicio: " />
+					<p:inputText id="datainicial"
+					  	         value="#{feriasController.entity.dataInicial}"
+								 label="datainicio" styleClass="col-md-10" mask="??/99/9999" >
+					   <f:convertDateTime pattern="dd/MM/yyyy" />
+				    </p:inputText>
+				</p:column>
+
+				<p:column style="border: none" >
+					<h:outputText value="Dias: " styleClass="col-md-12" />
+					<p:inputText id="Dias" value="#{feriasController.entity.dias}"
+						inputStyleClass="col-md-12" />
+				</p:column>
+
+				<p:column style="border: none" >
+					<h:outputText value="Data Final: " styleClass="col-md-12" />
+					<p:inputText id="datafinal"
+					  	         value="#{feriasController.entity.dataFinal}"
+								 label="datafinal" styleClass="col-md-10"  >
+					   <f:convertDateTime pattern="dd/MM/yyyy" />
+				    </p:inputText>
+				</p:column>
+				
+				<p:column style="border: none" >
+				
+				</p:column>	
+		</p:row> 
+	  </p:panelGrid><br/>			
+	</ui:define> 
+ 
+</ui:composition> 

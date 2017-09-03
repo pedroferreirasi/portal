@@ -5,17 +5,17 @@ import javax.faces.bean.ViewScoped;
 import br.com.informa.intranet.core.GenericController;
 import br.com.informa.models.dominio.EEstadoForm;
 import br.com.informa.models.portalrh.Mural;
-import br.com.informa.services.core.FactoryService;
+import br.com.informa.negocio.core.FactoryNegocio;
 import br.com.informa.intranet.utils.Contexto;
 
-@ManagedBean(name = "muralController")
+@ManagedBean(name = "muralMB")
 @ViewScoped
-public class MuralController extends GenericController<Mural, Integer> {
+public class MuralMB extends GenericController<Mural, Integer> {
 
 	private static final long serialVersionUID = 1L;
 
-	public MuralController() {
-		entityService = FactoryService.getFactory().getMural();
+	public MuralMB() {
+		entityService = FactoryNegocio.getFactory().getMural();
 		listaEntity = this.getListAll();
 		this.novo();
 	}
