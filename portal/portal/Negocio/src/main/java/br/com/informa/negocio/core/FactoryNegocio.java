@@ -4,28 +4,28 @@ import br.com.informa.negocio.common.GrupoUsuarioNegocio;
 import br.com.informa.negocio.common.GrupoUsuarioNegocioImpl;
 import br.com.informa.negocio.common.UsuarioNegocio;
 import br.com.informa.negocio.common.UsuarioNegocioImpl;
-import br.com.informa.negocio.portal.CargoService;
-import br.com.informa.negocio.portal.CargoServiceImpl;
-import br.com.informa.negocio.portal.ColaboradorService;
-import br.com.informa.negocio.portal.ColaboradorServiceImpl;
-import br.com.informa.negocio.portal.DepartamentoService;
-import br.com.informa.negocio.portal.DepartamentoServiceImpl;
-import br.com.informa.negocio.portal.DependentesService;
-import br.com.informa.negocio.portal.DependentesServiceImpl;
-import br.com.informa.negocio.portal.DocumentoInternoService;
-import br.com.informa.negocio.portal.DocumentoInternoServiceImpl;
-import br.com.informa.negocio.portal.EquipesService;
-import br.com.informa.negocio.portal.EquipesServiceImpl;
-import br.com.informa.negocio.portal.FeriadosService;
-import br.com.informa.negocio.portal.FeriadosServiceImpl;
-import br.com.informa.negocio.portal.FeriasService;
-import br.com.informa.negocio.portal.FeriasServiceImpl;
-import br.com.informa.negocio.portal.MuralService;
-import br.com.informa.negocio.portal.MuralServiceImpl;
-import br.com.informa.negocio.portal.SalaService;
-import br.com.informa.negocio.portal.SalaServiceImpl;
-import br.com.informa.negocio.portal.TipoDocumentoInternoService;
-import br.com.informa.negocio.portal.TipoDocumentoInternoServiceImpl;
+import br.com.informa.negocio.portal.CargoNegocio;
+import br.com.informa.negocio.portal.CargoNegocioImpl;
+import br.com.informa.negocio.portal.ColaboradorNegocio;
+import br.com.informa.negocio.portal.ColaboradorNegocioImpl;
+import br.com.informa.negocio.portal.DepartamentoNegocio;
+import br.com.informa.negocio.portal.DepartamentoNegocioImpl;
+import br.com.informa.negocio.portal.DependentesNegocio;
+import br.com.informa.negocio.portal.DependentesNegocioImpl;
+import br.com.informa.negocio.portal.DocumentoInternoNegocio;
+import br.com.informa.negocio.portal.DocumentoInternoNegocioImpl;
+import br.com.informa.negocio.portal.EquipesNegocio;
+import br.com.informa.negocio.portal.EquipesNegocioImpl;
+import br.com.informa.negocio.portal.FeriadosNegocio;
+import br.com.informa.negocio.portal.FeriadosNegocioImpl;
+import br.com.informa.negocio.portal.FeriasNegocio;
+import br.com.informa.negocio.portal.FeriasNegocioImpl;
+import br.com.informa.negocio.portal.MuralNegocio;
+import br.com.informa.negocio.portal.MuralNegocioImpl;
+import br.com.informa.negocio.portal.SalaNegocio;
+import br.com.informa.negocio.portal.SalaNegocioImpl;
+import br.com.informa.negocio.portal.TipoDocumentoInternoNegocio;
+import br.com.informa.negocio.portal.TipoDocumentoInternoNegocioImpl;
 
 public class FactoryNegocio {
 
@@ -48,47 +48,47 @@ public class FactoryNegocio {
 		return new UsuarioNegocioImpl();
 	}
 	
-	public CargoService getCargo() {
-		return new CargoServiceImpl();
+	public CargoNegocio getCargo() {
+		return new CargoNegocioImpl();
 	}
 	
-	public DepartamentoService getDepartamento() {
-		return new DepartamentoServiceImpl();
+	public DepartamentoNegocio getDepartamento() {
+		return new DepartamentoNegocioImpl();
 	}	
 	
-	public TipoDocumentoInternoService getTipoDocumentoInterno() {
-		return new TipoDocumentoInternoServiceImpl();
+	public TipoDocumentoInternoNegocio getTipoDocumentoInterno() {
+		return new TipoDocumentoInternoNegocioImpl();
 	}		
 	
-	public DocumentoInternoService getDocumentoInterno() {
-		return new DocumentoInternoServiceImpl();
+	public DocumentoInternoNegocio getDocumentoInterno() {
+		return new DocumentoInternoNegocioImpl();
 	}
 	
-	public ColaboradorService getColaborador() {
-		return new ColaboradorServiceImpl();
+	public ColaboradorNegocio getColaborador() {
+		return new ColaboradorNegocioImpl();
 	}
 	
-	public DependentesService getDependentes() {
-		return new DependentesServiceImpl();
+	public DependentesNegocio getDependentes() {
+		return new DependentesNegocioImpl();
 	}	
 	
-	public FeriasService getFerias() {
-		return new FeriasServiceImpl();
+	public FeriasNegocio getFerias() {
+		return new FeriasNegocioImpl();
 	}	
 	
-	public EquipesService getEquipes() {
-		return new EquipesServiceImpl();
+	public EquipesNegocio getEquipes() {
+		return new EquipesNegocioImpl();
 	}	
 	
-	public FeriadosService getFeriados() {
-		return new FeriadosServiceImpl();
+	public FeriadosNegocio getFeriados() {
+		return new FeriadosNegocioImpl();
 	}	
 	
-	public SalaService getSala() {
-		return new SalaServiceImpl();
+	public SalaNegocio getSala() {
+		return new SalaNegocioImpl();
 	}	
 	
-	public MuralService getMural() {
-		return new MuralServiceImpl();
+	public MuralNegocio getMural() {
+		return new MuralNegocioImpl();
 	}
 }
