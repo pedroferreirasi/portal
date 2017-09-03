@@ -2,76 +2,189 @@
 <ui:composition xmlns="http://www.w3.org/1999/xhtml"
                 xmlns:ui="http://java.sun.com/jsf/facelets"
                 xmlns:p="http://primefaces.org/ui"
+                xmlns:h="http://java.sun.com/jsf/html"
                 template="/template/template.xhtml"> 
 
-    <ui:define name="head">
-        <title>Admin Starter</title>
-    </ui:define>
-
-    <ui:define name="logo-lg">
-        Admin Starter
-    </ui:define>
-
-    <ui:define name="logo-mini">
-        Admin
-    </ui:define>
-
-    <ui:define name="menu">
-        <ul class="sidebar-menu">
-            <li>
-                <p:link href="/index.xhtml" onclick="clearBreadCrumbs()">
-                    <i class="fa fa-home"></i>
-                    <span>Home</span>
-                </p:link>
-            </li>
-                <li class="header">
-                    General
-                </li>
-                <li>
-                    <p:link href="/car-list.xhtml">
-                        <i class="fa fa-car"></i>
-                        <span>Cars</span>
-                    </p:link>
-                </li>
-        </ul>
-     </ui:define>
-
-    <ui:define name="top-menu">
-        <ui:include src="/includes/top-bar.xhtml"/>
-    </ui:define>
-
-      <ui:define name="title">
-        <h2 class="align-center">
-            Welcome to the <span class="text-aqua"> <i><a href="https://github.com/adminfaces/admin-starter" target="_blank"
-                                                          style="text-transform: none;text-decoration: none"> AdminFaces Starter</a></i></span> Project!
-            <br/>
-            <small>Integrating <p:link value="Primefaces" href="http://primefaces.org"/>, <p:link value="Bootstrap"
-                                                                                                  href="http://getbootstrap.com/"/> and
-                <p:link value="Admin LTE" href="https://almsaeedstudio.com/themes/AdminLTE/index2.html/"/> into your
-                <p:link value="JSF" href="https://javaserverfaces.java.net/"/> application.
-            </small>
-        </h2>
-    </ui:define>
-
-    <ui:define name="description">
-        A page description
-    </ui:define>
-
-    <ui:define name="body">
-            <h2>Page body</h2>
+    <ui:define name="Titulo">
+        Home
     </ui:define>
 
 
-    <ui:define name="footer">
-          <a target="_blank"
-           href="https://github.com/adminfaces/">
-            Copyright (C) 2017 - AdminFaces
-        </a>
+    <ui:define name="nomeDaPagina">
 
-        <div class="pull-right hidden-xs" style="color: gray">
-            <i>1.0.0</i>
-        </div>
     </ui:define>
 
+    <ui:define name="corpo">
+		<!-- Main content -->
+		<section class="content">
+			<!-- Main row -->
+			<div class="row">
+				<!-- Left col -->
+				<section class="col-lg-12 connectedSortable">
+
+					<div class="row">
+						<div class="col-md-3" >
+
+							<!-- Profile Image -->
+							<div class="box box-primary">
+								<div class="box-body box-profile">
+									<img class="profile-user-img img-responsive img-circle"
+										src="#{autenticacaoController.fotoAvatar}"
+										alt="User profile picture" height="128" width="128" />
+
+									<h3 class="profile-username text-center">
+										#{autenticacaoController.entity.nomeUsuario}
+										#{autenticacaoController.entity.sobreNomeUsuario}</h3>
+
+									<p class="text-muted text-center">
+										#{autenticacaoController.entity.cargo.descricao}</p>
+
+									<a href="#{request.contextPath}/pages/meuperfil.xhtml" class="btn btn-primary btn-block"><b>Editar</b></a>
+								</div>
+								<!-- /.box-body -->
+							</div>
+							<!-- /.box -->
+
+						</div>
+						<!-- /.col -->
+						<div class="col-md-9">
+							<div class="nav-tabs-custom">
+								<ul class="nav nav-tabs">
+									<li class="active"><a href="#activity" data-toggle="tab">Notícias</a></li>
+									<li><a href="#calendario" data-toggle="tab">Calendário</a></li>
+									<li><a href="#aniversariantes" data-toggle="tab">Aniversariantes</a></li>
+								</ul>
+								<div class="tab-content">
+									<div class="active tab-pane" id="activity">
+
+										<!-- Post -->
+										<div class="post" id="noticias">
+											<div class="user-block">
+												<div class="box box-default">
+													<div class="box-header with-border">
+														<h3 class="box-title">Notícias</h3>
+
+														<div class="box-tools pull-right">
+															<button type="button" class="btn btn-box-tool"
+																data-widget="collapse">
+																<i class="fa fa-plus"></i>
+															</button>
+														</div>
+														<!-- /.box-tools -->
+													</div>
+													<!-- /.box-header -->
+													<div class="box-body">
+
+														<!-- Post -->
+														<div class="post clearfix">
+															<h:form id="formpmural">
+																<div class="form-group margin-bottom-none">
+																	<div class="col-sm-10">
+																	  
+																	  <p:inputTextarea value="#{muralController.entity.texto}" styleClass="form-control input-sm"
+																	                   id="textodomural"  />
+																	</div>
+																	<div class="col-sm-2">
+                                                                      <p:commandButton value=" Enviar "
+                                                                                       action="#{muralController.salvar}"
+                                                                                       update="@this"
+                                                                                       ajax="false"                                     
+                                                                                       styleClass="btn btn-danger pull-right btn-block btn-sm" />
+																	</div>
+																</div>
+															</h:form>
+														</div>
+														<!-- /.post -->
+														
+														<!-- Post -->
+														<ui:repeat value="#{muralController.listaEntity}" var="item">
+														<div class="post clearfix">
+															<div class="user-block">
+																<img class="img-circle img-bordered-sm"
+																	 src="#{request.contextPath}/resources/dist/img/avatar5.png"
+																	 alt="User Image" /> <span class="username"> 
+																	  <a href="#">
+																	    <p:outputLabel id="usuariom" value="#{item.usuario.nomeUsuario} " />&#160;
+																	    <p:outputLabel id="usuariom2" value="#{item.usuario.sobreNome}" />
+																	  </a> 
+																	  <a href="#" class="pull-right btn-box-tool">
+																	    <i class="fa fa-times"></i>
+																	  </a>
+																</span> <span class="description">Sent you a message - 3
+																	days ago</span>
+															</div>
+															<!-- /.user-block -->
+															  <p><p:inputTextarea value="#{item.texto}" style="border: 0;" /></p>
+															
+														</div>
+														<!-- /.post -->
+														</ui:repeat>
+																										
+													</div>
+													<!-- /.box-body -->
+												</div>
+												<!-- /.box -->
+											</div>
+										</div>
+
+									</div>
+									<!-- /.tab-pane -->
+									<div class="tab-pane" id="calendario">
+										<form class="form-horizontal">
+										  <div class="form-group">
+										    <div class="col-md-5">
+										      <p:calendar mode="inline" />
+										    </div>
+										  </div>
+										</form>
+
+									</div>
+									<!-- /.tab-pane -->
+									<!-- /.tab-pane -->
+									<div class="tab-pane" id="aniversariantes">
+										<form class="form-horizontal">
+										  <div class="form-group">
+												<!-- Aniversariantes -->
+												<div class="col-md-5">
+													<div class="box box-default">
+														<div class="box-header with-border">
+															<h3 class="box-title">Aniversariantes</h3>
+
+															<div class="box-tools pull-right">
+																<button type="button" class="btn btn-box-tool"
+																	data-widget="collapse">
+																	<i class="fa fa-plus"></i>
+																</button>
+															</div>
+															<!-- /.box-tools -->
+														</div>
+														<!-- /.box-header -->
+														<div class="box-body">
+															04/12 - Pedro Henrique <br /> 10/12 - Luiz Costa<br />
+															15/12 - Gustavo Amorim<br /> 16/12 - Walter Gomes<br />
+															20/12 - Artulanez Souza<br />
+														</div>
+														<!-- /.box-body -->
+													</div>
+													<!-- /.box -->
+												</div>
+										  </div>
+										</form>
+									</div>
+									<!-- /.tab-pane -->
+								</div>
+								<!-- /.tab-content -->
+							</div>
+							<!-- /.nav-tabs-custom -->
+						</div>
+						<!-- /.col -->
+					</div>
+					<!-- /.row -->
+				</section>
+			</div>
+			<!-- /.row (main row) -->
+		</section>
+		<!-- /.content -->
+    </ui:define>
 
 </ui:composition>
