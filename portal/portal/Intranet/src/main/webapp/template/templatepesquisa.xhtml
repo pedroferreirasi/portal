@@ -21,19 +21,23 @@
       <!-- Content Header (Page header) -->
       <section class="content-header">
         <ui:insert name="titulo" />
+        <br />
+        <p:panel styleClass="no-border">
+          <h:form>
+            <h:panelGroup layout="block" styleClass="row">
+		      <!-- Botões de "novo", "Pesquisar"... será implementado quem usar o template -->		          	
+			  <ui:insert name="titulobotao" />
+            </h:panelGroup>
+          </h:form>        
+        </p:panel>
       </section>
-
       
       <h:form id="formpesquisa">  
         <!-- Main content -->
         <section class="content col-xs-12">
               <div class="box col-xs-12">   
                 <!-- /.box-header -->
-                <h:panelGroup layout="block" styleClass="row">
-                
-		          <!-- Botões de "novo", "Pesquisar"... será implementado quem usar o template -->		          	
-			      <ui:insert name="titulobotao" />
-                </h:panelGroup>
+
 						
                 <!-- /.box-body -->
                 <div class="divtabela row">                  
@@ -41,12 +45,16 @@
                   
                     <!-- /.GRID -->
                     <p:dataTable id="TableId"
+                                 widgetVar="TableId"
                                  value="#{entityBean.listaEntity}" 
                                  var="entity" 
                                  paginator="true" 
                                  paginatorPosition="bottom"
                                  rows="#{autenticacaoController.registrosPorPagina}" 
+                                 rowKey="#{entity.id}"
                                  sortMode="single"
+                                 selectionMode="single"  
+                                 selection="#{entityBean.entity}"                               
                                  paginatorAlwaysVisible="#{autenticacaoController.paginacaoSempreVisivel}"                                 
                                  scrollable="true"
                                  draggableColumns="#{autenticacaoController.mudarColunaDeLugarNoGrid}"
@@ -57,7 +65,18 @@
                                                     {NextPageLink} {LastPageLink}
                                                     {RowsPerPageDropdown}"
                                  rowsPerPageTemplate="#{autenticacaoController.paginacao}" 
-                                 style="width: 100%" >                                
+                                 style="width: 100%" >  
+
+                        <f:facet name="header">
+                            <div align="right">
+                              <p:outputPanel style="align: rigth">
+                                <h:outputText value="Pesquisar tudo:"/> <br />
+                                <p:spacer height="10"/>
+                                <p:inputText id="globalFilter" onkeyup="PF('TableId').filter()" style="width:150px"
+                                             placeholder="Digite aqui"/>                                
+                              </p:outputPanel>
+                            </div>
+                        </f:facet>                                                               
                      
                       <!-- Colunas no grid... será implementado quem usar o template -->		          	
 			          <ui:insert name="colunasdogrid" />      
@@ -86,7 +105,8 @@
                           <p:commandButton value="No" type="button" styleClass="ui-confirmdialog-no" icon="ui-icon-close" />
                         </p:confirmDialog>                        
                                           
-                      </p:column>                                   
+                      </p:column>
+                                                                           
                     </p:dataTable>							
                     
                   <!-- /.col -->

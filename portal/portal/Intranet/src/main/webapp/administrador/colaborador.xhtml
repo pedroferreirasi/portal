@@ -21,7 +21,7 @@
 			<p:commandButton value="Novo" ajax="true"
 				actionListener="#{entityBean.novo}" process="@this" 
 				update=":formPrincipal:display" oncomplete="PF('dlg').show()"
-				styleClass="btn btn-primary" />&#160;                                                   
+				styleClass="btn btn-primary .btn-lg" />&#160;                                                   
                                                                                
                   <!--</h:panelGroup> 
                   <h:panelGroup layout="block" styleClass="box-header col-md-2 col-md-offset-9" >-->
@@ -78,6 +78,23 @@
 			  <f:convertDateTime pattern="dd/MM/yyyy" />
 			</h:outputText>
 		</p:column>
+		
+        <f:facet name="footer">
+          <div align="left">
+			<p:commandButton value="Novo" ajax="true"
+				actionListener="#{entityBean.novo}" process="@this" 
+				update=":formPrincipal:display" oncomplete="PF('dlg').show()"
+				styleClass="btn btn-primary .btn-lg" />&#160;                                                   
+                                                                               
+                  <!--</h:panelGroup> 
+                  <h:panelGroup layout="block" styleClass="box-header col-md-2 col-md-offset-9" >-->
+			<p:commandButton value="Pesquisar"
+				actionListener="#{entityBean.getListAll}" ajax="false" update="@form"
+				styleClass="btn btn-primary" >&#160;
+                     <!-- <f:ajax execute=":TableId" render=":TableId" /> -->
+			</p:commandButton> 
+	      </div>         
+        </f:facet>   		
 	</ui:define>
 
 	<ui:define name="teladecadastro">	  
