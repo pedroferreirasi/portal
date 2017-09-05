@@ -16,8 +16,7 @@
     </ui:define> 
  
 	<ui:define name="titulobotao"> 
-		<ui:param name="entityBean" value="#{feriadosController}" /> 
-		<h:panelGroup layout="block" styleClass="box-header col-md-12"> 
+		<ui:param name="entityBean" value="#{feriadosController}" />  
 			<p:commandButton value="Novo" ajax="true" 
 				actionListener="#{entityBean.novo}" process="@this" 
 				update=":formPrincipal:display" oncomplete="PF('dlg').show()" 
@@ -30,7 +29,6 @@
 				styleClass="btn btn-primary" >&#160; 
                      <!-- <f:ajax execute=":TableId" render=":TableId" /> --> 
 			</p:commandButton> 
-		</h:panelGroup> 
 	</ui:define> 
  
 	<ui:define name="colunasdogrid"> 

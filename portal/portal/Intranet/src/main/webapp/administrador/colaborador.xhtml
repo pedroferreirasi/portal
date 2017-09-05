@@ -16,21 +16,16 @@
     </ui:define>
 
 	<ui:define name="titulobotao">
-		<ui:param name="entityBean" value="#{colaboradorController}" />
-		<h:panelGroup layout="block" styleClass="box-header col-md-12">
+		<ui:param name="entityBean" value="#{colaboradorController}" /> 
 			<p:commandButton value="Novo" ajax="true"
 				actionListener="#{entityBean.novo}" process="@this" 
 				update=":formPrincipal:display" oncomplete="PF('dlg').show()"
-				styleClass="btn btn-primary .btn-lg" />&#160;                                                   
-                                                                               
-                  <!--</h:panelGroup> 
-                  <h:panelGroup layout="block" styleClass="box-header col-md-2 col-md-offset-9" >-->
+				styleClass="btn btn-primary btn-lg" />&#160;
+                    				                                                                                                                    
 			<p:commandButton value="Pesquisar"
 				actionListener="#{entityBean.getListAll}" ajax="false" update="@form"
-				styleClass="btn btn-primary" >&#160;
-                     <!-- <f:ajax execute=":TableId" render=":TableId" /> -->
+				styleClass="btn btn-primary btn-lg" >&#160;
 			</p:commandButton>
-		</h:panelGroup>
 	</ui:define>
 
 	<ui:define name="colunasdogrid">
@@ -78,23 +73,6 @@
 			  <f:convertDateTime pattern="dd/MM/yyyy" />
 			</h:outputText>
 		</p:column>
-		
-        <f:facet name="footer">
-          <div align="left">
-			<p:commandButton value="Novo" ajax="true"
-				actionListener="#{entityBean.novo}" process="@this" 
-				update=":formPrincipal:display" oncomplete="PF('dlg').show()"
-				styleClass="btn btn-primary .btn-lg" />&#160;                                                   
-                                                                               
-                  <!--</h:panelGroup> 
-                  <h:panelGroup layout="block" styleClass="box-header col-md-2 col-md-offset-9" >-->
-			<p:commandButton value="Pesquisar"
-				actionListener="#{entityBean.getListAll}" ajax="false" update="@form"
-				styleClass="btn btn-primary" >&#160;
-                     <!-- <f:ajax execute=":TableId" render=":TableId" /> -->
-			</p:commandButton> 
-	      </div>         
-        </f:facet>   		
 	</ui:define>
 
 	<ui:define name="teladecadastro">	  
@@ -107,6 +85,7 @@
 			<p:row style="border: none">
 				<p:column colspan="2" style="border: none">
 					<h:outputText value="Nome Completo: " />
+					<h:outputText value=" *" style="color: red" />
 					<p:inputText id="nomecompleto"
 						value="#{colaboradorController.entity.nomeCompleto}"
 						label="Nome Completo" styleClass="col-md-12" 
@@ -118,6 +97,7 @@
 			<p:row style="border: none">
 				<p:column style="width:50%; border: none">
 					<h:outputText value="Nome: " />
+					<h:outputText value=" *" style="color: red" />
 					<p:inputText id="firstname"
 						value="#{colaboradorController.entity.nomeUsuario}"
 						label="Primeiro Nome" styleClass="col-md-12">
@@ -126,6 +106,7 @@
 				</p:column>
 				<p:column style="width:50%; border: none">
 					<h:outputText value="Sobrenome: " />
+					<h:outputText value=" *" style="color: red" />
 					<p:inputText id="lasttname"
 						value="#{colaboradorController.entity.sobreNome}"
 						label="lasttname" styleClass="col-md-12" />
@@ -135,6 +116,7 @@
 			<p:row style="border: none">
 				<p:column style="width:50%; border: none">
 					<h:outputText value="Sexo: " />
+					<h:outputText value=" *" style="color: red" />
 					<h:selectOneMenu value="#{colaboradorController.entity.sexo}"
 						styleClass="form-control select2">
 						<f:selectItems value="#{dominioController.sexo}" var="sexo" />
@@ -151,6 +133,7 @@
 			<p:row style="border: none">
 				<p:column colspan="2" style="border: none">
 					<h:outputText value="E-Mail: " />
+					<h:outputText value=" *" style="color: red" />
 					<p:inputText id="email" value="#{colaboradorController.entity.email}"
 						styleClass="col-md-12" />
 				</p:column>
@@ -159,11 +142,13 @@
 			<p:row style="border: none">
 				<p:column style="width:50%; border: none">
 					<h:outputText value="Login: " />
+					<h:outputText value=" *" style="color: red" />
 					<p:inputText id="login" value="#{colaboradorController.entity.login}"
 						styleClass="col-md-12" />
 				</p:column>
 				<p:column style="width:50%; border: none">
 					<h:outputText value="Grupo: " />
+					<h:outputText value=" *" style="color: red" />
 					<h:selectOneMenu value="#{colaboradorController.entity.grupoUsuario.id}"
 						styleClass="form-control select2">
 					<f:selectItems value="#{grupoUsuarioController.listaEntity}"
@@ -312,6 +297,7 @@
 				</p:column>
 				<p:column style="width:30%; border: none">
 					<h:outputText value="Nascimento: " />
+					<h:outputText value=" *" style="color: red" />
 					<p:inputText id="nascimento"
 						value="#{colaboradorController.entity.dadosPessoais.dataNascimento}"
 						label="nascimento" styleClass="col-md-12" immediate="true" maxlength="45">
@@ -524,7 +510,8 @@
 			
 			<p:row style="border: none">
 				<p:column colspan="2" style="width:50%; border: none">
-					<h:outputText value="Cargo: " />	
+					<h:outputText value="Cargo: " />
+					<h:outputText value=" *" style="color: red" />	
 					<h:selectOneMenu value="#{colaboradorController.entity.cargo.id}"
 						styleClass="form-control select2">
 					<f:selectItems value="#{cargoController.listaEntity}"

@@ -16,8 +16,7 @@
     </ui:define> 
  
 	<ui:define name="titulobotao"> 
-		<ui:param name="entityBean" value="#{SalaController}" /> 
-		<h:panelGroup layout="block" styleClass="box-header col-md-12"> 
+		<ui:param name="entityBean" value="#{SalaController}" />  
 			<p:commandButton value="Novo" ajax="true" 
 				actionListener="#{entityBean.novo}" process="@this" 
 				update=":formPrincipal:display" oncomplete="PF('dlg').show()" 
@@ -30,7 +29,6 @@
 				styleClass="btn btn-primary" >&#160; 
                      <!-- <f:ajax execute=":TableId" render=":TableId" /> --> 
 			</p:commandButton> 
-		</h:panelGroup> 
 	</ui:define> 
  
 	<ui:define name="colunasdogrid"> 
@@ -59,15 +57,14 @@
 				<p:inputText id="id"
 					value="#{entityBean.entity.id}"
 					label="Firstname" styleClass="col-md-12" immediate="true" disabled="true">
-					<f:validateLength minimum="1" maximum="30" />
-					<p:clientValidator />
 				</p:inputText>
 			</p:column>
 			<p:column style="width:80%; border: none">
 				<h:outputText value="Descricao: " />
+				<h:outputText value=" *" style="color: red" />
 				<p:inputText id="descricao"
 					value="#{entityBean.entity.descricao}"
-					 label="descricao" styleClass="col-md-12" />
+					 label="descricao" styleClass="col-md-12" maxlength="70" />
 			</p:column>
 		</p:row> 
 	  </p:panelGrid><br/>

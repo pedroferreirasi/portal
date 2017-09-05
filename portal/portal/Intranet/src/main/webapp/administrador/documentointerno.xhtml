@@ -17,8 +17,7 @@
  
 	<ui:define name="titulobotao"> 
 		<ui:param name="entityBean" value="#{documentoInternoController}" />
-		 
-		<h:panelGroup layout="block" styleClass="box-header col-md-12"> 
+		  
 			<p:commandButton value="Novo" ajax="true" 
 				actionListener="#{documentoInternoController.novo}" process="@this" 
 				update=":formPrincipal:display" oncomplete="PF('dlg').show()" 
@@ -30,8 +29,7 @@
 				actionlistener="#{documentoInternoController.getListAll}" ajax="false" update="@form" 
 				styleClass="btn btn-primary" >&#160; 
                      <!-- <f:ajax execute=":TableId" render=":TableId" /> --> 
-			</p:commandButton> 
-		</h:panelGroup> 
+			</p:commandButton>  
 	</ui:define> 
  
 	<ui:define name="colunasdogrid"> 

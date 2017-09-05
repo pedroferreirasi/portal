@@ -21,24 +21,19 @@
       <!-- Content Header (Page header) -->
       <section class="content-header">
         <ui:insert name="titulo" />
-        <br />
-        <p:panel styleClass="no-border">
-          <h:form>
-            <h:panelGroup layout="block" styleClass="row">
-		      <!-- Botões de "novo", "Pesquisar"... será implementado quem usar o template -->		          	
-			  <ui:insert name="titulobotao" />
-            </h:panelGroup>
-          </h:form>        
-        </p:panel>
       </section>
       
       <h:form id="formpesquisa">  
         <!-- Main content -->
         <section class="content col-xs-12">
-              <div class="box col-xs-12">   
-                <!-- /.box-header -->
-
-						
+          <div align="left">
+              <p:panel id="basic" styleClass="box-primary">                       
+                <f:facet name="header">
+                  <div class="col-sm-12" align="left">
+                    <ui:insert name="titulobotao" />
+                  </div>
+                </f:facet>               
+                                      						
                 <!-- /.box-body -->
                 <div class="divtabela row">                  
                   <div class="box-body" >
@@ -113,6 +108,7 @@
                   </div>                 
                 </div>
               <!-- /.box-body -->
+              </p:panel>
               </div>
         <!-- /.row -->
         </section>      
@@ -123,6 +119,7 @@
 	 	 	    
         <p:dialog modal="true" widgetVar="dlg" 
                   id="dlg"
+                  showEffect="scale" hideEffect="size"
                   header="#{entityBean.tituloTelaDeCadastro}"
                   appendToBody="true" 
                   position="center center"

@@ -34,7 +34,6 @@
 			<artifactId>Negocio</artifactId>
 			<version>${project.parent.versao}</version>
 		</dependency>
-
 		<!-- https://mvnrepository.com/artifact/javax/javaee-api -->
 		<dependency>
 			<groupId>javax</groupId>
@@ -85,6 +84,7 @@
 			<artifactId>font-awesome</artifactId>
 			<version>4.7.0</version>
 		</dependency>
+
 	</dependencies>
 
 	<build>

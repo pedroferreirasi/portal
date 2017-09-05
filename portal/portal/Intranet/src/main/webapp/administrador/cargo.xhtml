@@ -17,7 +17,6 @@
  
 	<ui:define name="titulobotao"> 
 		<ui:param name="entityBean" value="#{cargoController}" /> 
-		<h:panelGroup layout="block" styleClass="box-header col-md-12"> 
 			<p:commandButton value="Novo" ajax="true" 
 				actionListener="#{entityBean.novo}" process="@this" 
 				update=":formPrincipal:display" oncomplete="PF('dlg').show()" 
@@ -29,8 +28,7 @@
 				actionListener="#{entityBean.getListAll}" ajax="false" update="@form" 
 				styleClass="btn btn-primary" >&#160; 
                      <!-- <f:ajax execute=":TableId" render=":TableId" /> --> 
-			</p:commandButton> 
-		</h:panelGroup> 
+			</p:commandButton>  
 	</ui:define> 
  
 	<ui:define name="colunasdogrid"> 
@@ -65,9 +63,10 @@
 			</p:column>
 			<p:column style="width:80%; border: none">
 				<h:outputText value="Descricao: " />
+				<h:outputText value=" *" style="color: red" />
 				<p:inputText id="descricao"
 					value="#{cargoController.entity.descricao}"
-					 label="descricao" styleClass="col-md-12" />
+					 label="descricao" styleClass="col-md-12" maxlength="100" />
 			</p:column>
 		</p:row> 
 	  </p:panelGrid><br/>

@@ -19,8 +19,10 @@ public class DepartamentoNegocioImpl implements DepartamentoNegocio {
 
 	@Override
 	public void Update(Departamento entity) {
-		DepartamentoDao entityDao = FactoryDao.getFactory().getDepartamentoDao();
-		entityDao.Update(entity);
+		if (this.validacao(entity)) {
+			DepartamentoDao entityDao = FactoryDao.getFactory().getDepartamentoDao();
+			entityDao.Update(entity);
+		}
 	}
 
 	@Override
@@ -53,9 +55,9 @@ public class DepartamentoNegocioImpl implements DepartamentoNegocio {
 
 		if (entity.getDescricao() == null) {
 			resultado = false;
-			throw new CampoObrigatorioNullException("Descrição");			
+			throw new CampoObrigatorioNullException("Descrição");
 		}
-		
+
 		if (entity.getDescricao().equals("")) {
 			resultado = false;
 			throw new CampoObrigatorioNullException("Descrição");
