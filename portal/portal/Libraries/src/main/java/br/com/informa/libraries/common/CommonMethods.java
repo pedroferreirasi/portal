@@ -7,14 +7,15 @@ import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class CommonMethods {
 	
 	@SuppressWarnings("rawtypes")
 	private static final Class FACTORY_CLASS = CommonMethods.class;
 	
-	private CommonMethods()	{ }
-	
+	private CommonMethods()	{ }	
 	
 	public static CommonMethods getInstance()
 	{
@@ -29,6 +30,20 @@ public class CommonMethods {
 		}
 	}
 
+	public boolean validarEmail(String email)
+    {
+        boolean isEmailIdValid = false;
+        if (email != null && email.length() > 0) {
+            String expression = "^[\\w\\.-]+@([\\w\\-]+\\.)+[A-Z]{2,4}$";
+            Pattern pattern = Pattern.compile(expression, Pattern.CASE_INSENSITIVE);
+            Matcher matcher = pattern.matcher(email);
+            if (matcher.matches()) {
+                isEmailIdValid = true;
+            }
+        }
+        return isEmailIdValid;
+    }
+	
 	public String SHA256(String password, String LoginName)
 			throws NoSuchAlgorithmException, UnsupportedEncodingException {
 		MessageDigest md = MessageDigest.getInstance("SHA-256");
