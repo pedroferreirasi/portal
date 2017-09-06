@@ -39,19 +39,21 @@
                   <div class="box-body" >
                   
                     <!-- /.GRID -->
-                    <p:dataTable id="TableId"
-                                 widgetVar="TableId"
+                    <p:dataTable id="TableId"                                 
                                  value="#{entityBean.listaEntity}" 
                                  var="entity" 
                                  paginator="true" 
                                  paginatorPosition="bottom"
-                                 rows="#{autenticacaoController.registrosPorPagina}" 
+                                 rows="#{autenticacaoController.registrosPorPagina}"
+                                 widgetVar="TableId" 
                                  rowKey="#{entity.id}"
                                  sortMode="single"
                                  selectionMode="single"  
                                  selection="#{entityBean.entity}"                               
                                  paginatorAlwaysVisible="#{autenticacaoController.paginacaoSempreVisivel}"                                 
                                  scrollable="true"
+                                 scrollHeight="350"
+                                 reflow="true"
                                  draggableColumns="#{autenticacaoController.mudarColunaDeLugarNoGrid}"
                                  lazy="false"
                                  paginatorTemplate="{CurrentPageReport}
@@ -63,14 +65,21 @@
                                  style="width: 100%" >  
 
                         <f:facet name="header">
-                            <div align="right">
-                              <p:outputPanel style="align: rigth">
+                          <div>
+                            <div align="rigth">
+                              <p:commandButton id="toggler" type="button" value="Colunas" 
+                                   style="float:right" icon="ui-icon-calculator" />
+                              <p:columnToggler datasource="TableId" trigger="toggler" />                            
+                            </div>
+                            <div align="left">
+                              <p:outputPanel style="align: left">
                                 <h:outputText value="Pesquisar tudo:"/> <br />
-                                <p:spacer height="10"/>
+                                
                                 <p:inputText id="globalFilter" onkeyup="PF('TableId').filter()" style="width:150px"
                                              placeholder="Digite aqui"/>                                
                               </p:outputPanel>
                             </div>
+                          </div>
                         </f:facet>                                                               
                      
                       <!-- Colunas no grid... será implementado quem usar o template -->		          	

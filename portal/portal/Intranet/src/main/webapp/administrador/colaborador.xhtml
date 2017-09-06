@@ -124,9 +124,9 @@
 				</p:column>
 				<p:column style="width:50%; border: none">
 					<h:outputText value="Celular: " />
-					<p:inputText id="celular"
-						value="#{colaboradorController.entity.celular}" styleClass="col-md-12"
-						mask="(99) 99999-9999" />
+					<p:inputMask id="celular" 
+					             value="#{colaboradorController.entity.celular}" styleClass="col-md-12"
+					             mask="(99) 99999-9999" />
 				</p:column>
 			</p:row>
 	
