@@ -16,23 +16,12 @@
     </ui:define>
 
 	<ui:define name="titulobotao">
-		<ui:param name="entityBean" value="#{colaboradorController}" /> 
-			<p:commandButton value="Novo" ajax="true"
-				actionListener="#{entityBean.novo}" process="@this" 
-				update=":formPrincipal:display" oncomplete="PF('dlg').show()"
-				styleClass="btn btn-primary btn-lg" />&#160;
-                    				                                                                                                                    
-			<p:commandButton value="Pesquisar"
-				actionListener="#{entityBean.getListAll}" ajax="false" update="@form"
-				styleClass="btn btn-primary btn-lg" >&#160;
-			</p:commandButton>
+	  <ui:param name="entityBean" value="#{colaboradorController}" /> 
 	</ui:define>
 
 	<ui:define name="colunasdogrid">
 		<f:facet name="header">
-                            Lista de Usuários
-                            <!-- <p:commandButton id="toggler" type="button" value="Columns" style="float:right" icon="ui-icon-calculator" />
-                            <p:columnToggler datasource="TableId" trigger="toggler" />-->
+          Lista de Colaborador
 		</f:facet>
 
 		<p:column width="9%" sortBy="#{entity.id}" style="text-align: center"
@@ -193,12 +182,9 @@
 			<p:row style="border: none">
 				<p:column style="width:25%; border: none">
 					<h:outputText value="CEP: " />
-					<p:inputText id="cep"
-						value="#{colaboradorController.entity.dadosPessoais.CEP}"
-						label="CEP" styleClass="col-md-12" immediate="true" maxlength="9">
-						
-						<p:clientValidator />
-					</p:inputText>					
+					<p:inputMask mask="99.999-999" id="cep"
+						value="#{colaboradorController.entity.dadosPessoais.CEP}"						
+						label="CEP" styleClass="col-md-12" immediate="true" maxlength="10" />
 				</p:column>
 				<p:column style="width:25%; border: none">
 					<h:outputText value="Logradouro: " />
@@ -298,22 +284,22 @@
 				<p:column style="width:30%; border: none">
 					<h:outputText value="Nascimento: " />
 					<h:outputText value=" *" style="color: red" />
-					<p:inputText id="nascimento"
+					<p:inputMask id="nascimento" mask="99/99/9999"
 						value="#{colaboradorController.entity.dadosPessoais.dataNascimento}"
 						label="nascimento" styleClass="col-md-12" immediate="true" maxlength="45">
 					  <f:convertDateTime pattern="dd/MM/yyyy" />	
-					</p:inputText>	
+					</p:inputMask>	
 				</p:column>							
 			</p:row>
 			
 			<p:row style="border: none">
 				<p:column style="width:25%; border: none">
 					<h:outputText value="CPF: " />
-					<p:inputText id="cpf"
+					<p:inputMask id="cpf" 
 						value="#{colaboradorController.entity.dadosPessoais.CPF}" 
 						label="cpf" styleClass="col-md-12" mask="999.999.999-99">
 						
-					</p:inputText>					
+					</p:inputMask>					
 				</p:column>			
 				<p:column style="width:25%; border: none">
 					<h:outputText value="RG: " />
@@ -326,11 +312,11 @@
 				</p:column>
 				<p:column style="width:25%; border: none">
 					<h:outputText value="Data Emissao: " />
-					<p:inputText id="dataemissao"
+					<p:inputMask id="dataemissao" mask="99/99/9999"
 						value="#{colaboradorController.entity.dadosPessoais.dataEmissaoRG}"
 						label="dataemissao" styleClass="col-md-10" immediate="true" maxlength="10">
 					  <f:convertDateTime pattern="dd/MM/yyyy" />	
-					</p:inputText>	
+					</p:inputMask>	
 				</p:column>
 				<p:column style="width:30%; border: none">
 					<h:outputText value="Orgão Emissor: " />
@@ -359,17 +345,17 @@
 				</p:column>
 				<p:column style="width:25%; border: none">
 					<h:outputText value="Telefone: " />
-					<p:inputText id="telefonePessoal"
+					<p:inputMask id="telefonePessoal" mask="(99)9999-9999"
 						value="#{colaboradorController.entity.dadosPessoais.telefonePessoal}"
 						label="telefonepessoal" styleClass="col-md-10" immediate="true" maxlength="20">
-					</p:inputText>				
+					</p:inputMask>				
 				</p:column>
 				<p:column style="width:30%; border: none">
 					<h:outputText value="Celular: " />
-					<p:inputText id="celularpessoal"
+					<p:inputMask id="celularpessoal" mask="(99)99999-9999"
 						value="#{colaboradorController.entity.dadosPessoais.celularPessoal}"
 						label="celularpessoal" styleClass="col-md-12" immediate="true" maxlength="20">						
-					</p:inputText>	
+					</p:inputMask>	
 				</p:column>											
 			</p:row>																
 													
@@ -440,11 +426,11 @@
 				</p:column>
 				<p:column style="width:25%; border: none">
 					<h:outputText value="Data Admissao: " />
-					<p:inputText id="dataadmissao"
+					<p:inputMask id="dataadmissao" mask="99/99/9999"
 						value="#{colaboradorController.entity.dadosProfissionais.dataAdmissao}"
 						label="serieCTPS" styleClass="col-md-12" immediate="true" maxlength="30">
 					  <f:convertDateTime pattern="dd/MM/yyyy" />  	
-					</p:inputText>					
+					</p:inputMask>					
 				</p:column>
 				<p:column style="width:25%; border: none">
 					<h:outputText value="Carga horária: " />
@@ -460,10 +446,10 @@
 			<p:row style="border: none">
 				<p:column style="width:25%; border: none">
 					<h:outputText value="Telefone Profissional: " />
-					<p:inputText id="telefoneprofissional"
+					<p:inputMask id="telefoneprofissional" mask="(99)9999-9999"
 						value="#{colaboradorController.entity.dadosProfissionais.telefoneProfissional}"
 						label="celularpessoal" styleClass="col-md-12" immediate="true" maxlength="20">						
-					</p:inputText>						
+					</p:inputMask>						
 				</p:column>			
 				<p:column style="width:25%; border: none">
 					<h:outputText value="Ramal: " />
@@ -474,10 +460,10 @@
 				</p:column>
 				<p:column style="width:25%; border: none">
 					<h:outputText value="Celular Profissional: " />
-					<p:inputText id="celularprofissional"
+					<p:inputMask id="celularprofissional" mask="(99)99999-9999"
 						value="#{colaboradorController.entity.dadosProfissionais.celularProfissional}"
 						label="telefonepessoal" styleClass="col-md-12" immediate="true" maxlength="20">
-					</p:inputText>				
+					</p:inputMask>				
 				</p:column>
 				<p:column style="width:25%; border: none">
 							

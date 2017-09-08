@@ -20,7 +20,7 @@
     
       <!-- Content Header (Page header) -->
       <section class="content-header">
-        <ui:insert name="titulo" />
+        <ui:insert name="titulo" />     
       </section>
       
       <h:form id="formpesquisa">  
@@ -29,9 +29,19 @@
           <div align="left">
               <p:panel id="basic" styleClass="box-primary">                       
                 <f:facet name="header">
-                  <div class="col-sm-12" align="left">
-                    <ui:insert name="titulobotao" />
-                  </div>
+                  <ui:insert name="titulobotao" />
+		          <p:commandButton value=" Novo" ajax="true"
+			          icon="fa fa-plus"
+				      actionListener="#{entityBean.novo}" process="@this" 
+				      update=":formPrincipal:display" oncomplete="PF('dlg').show()"
+				      style="width: 140px"
+				      styleClass="btn-primary" />&#160;			                                                                                                                    
+		          <p:commandButton value="Atualizar"
+			          icon="fa fa-refresh"
+				      actionListener="#{entityBean.getListAll}" ajax="false" update="@form"
+				      style="width: 140px"
+				      styleClass="btn-primary" >&#160;
+		          </p:commandButton>                  
                 </f:facet>               
                                       						
                 <!-- /.box-body -->
@@ -68,7 +78,8 @@
                           <div>
                             <div align="rigth">
                               <p:commandButton id="toggler" type="button" value="Colunas" 
-                                   style="float:right" icon="ui-icon-calculator" />
+                                   style="float:right; width: 140px" icon="ui-icon-calculator"
+                                   styleClass="btn-primary" />
                               <p:columnToggler datasource="TableId" trigger="toggler" />                            
                             </div>
                             <div align="left">
@@ -88,8 +99,9 @@
                       <p:column headerText="Ações" style="text-align: center;" width="10%" >
 
                         <p:commandButton id="Editar" update=":formPrincipal:display" icon="fa fa-fw fa-edit" 
+                                         styleClass="btn-primary"
                                          process="@this" ajax="true"
-                                         title="Visualizar" oncomplete="PF('dlg').show()"
+                                         title="Editar" oncomplete="PF('dlg').show()"
                                          actionListener="#{entityBean.editar(entity)}">                          
 
                         </p:commandButton>   
@@ -99,6 +111,7 @@
                                          rendered="#{entityBean.exibeBotaoExcluir}"
                                          title="Excluir" 
                                          process="@this" ajax="true"
+                                         styleClass="btn-danger"
                                          action="#{entityBean.delete(entity)}"                                        
                                          oncomplete="PF('msgconfirmacao').show()" >
                           <p:confirm header="Confirmation" message="Are you sure?" icon="ui-icon-alert" />
@@ -125,7 +138,7 @@
 	 <!-- /.content 
 	 <p:growl id="growl" sticky="true" showDetail="true" escape="false" globalOnly="true"  />-->
 	 <p:messages id="msg" showDetail="true" globalOnly="false" autoUpdate="true" closable="true" /> 
-	 	 	    
+	  <h:form id="formPrincipal" enctype="multipart/form-data" > 	 	    
         <p:dialog modal="true" widgetVar="dlg" 
                   id="dlg"
                   showEffect="scale" hideEffect="size"
@@ -136,24 +149,30 @@
                   height="#{entityBean.heightModal}" 
                   minimizable="true">     
           
-          <h:form id="formPrincipal" enctype="multipart/form-data" >            
+                      
                      
             <!-- Colunas no grid... será implementado quem usar o template -->		          	
 			<ui:insert name="teladecadastro" />             
+          <f:facet name="footer">
+            <p:commandButton value=" Salvar "
+                             icon="fa fa-save"
+                             action="#{entityBean.salvar}"
+                             rendered="#{entityBean.exibeBotaoSalvar}"
+                             process="@form"
+                             style="width: 100px"                                                          
+                             styleClass="btn-primary" >
 
-          <p:commandButton value=" Salvar "
-                           action="#{entityBean.salvar}"
-                           rendered="#{entityBean.exibeBotaoSalvar}"
-                           process="@form"                                                          
-                           styleClass="btn btn-primary" >
+             </p:commandButton>&#160;
 
-           </p:commandButton>&#160;
-
-           <p:commandButton type="button" value="Cancelar" styleClass="btn btn-primary" 
-                            onclick="PF('dlg').hide()" ajax="false"
-                            rendered="#{entityBean.exibeBotaoCancelar}" />
-          </h:form>
-        </p:dialog>	     
+             <p:commandButton type="button" value="Cancelar" styleClass="btn-primary" 
+                              onclick="PF('dlg').hide()" ajax="false"
+                              icon="fa fa-remove"
+                              style="width: 100px"
+                              rendered="#{entityBean.exibeBotaoCancelar}" />
+          </f:facet>           
+          
+        </p:dialog>	  
+        </h:form>   
 	  
 	    
     <script type="text/javascript">

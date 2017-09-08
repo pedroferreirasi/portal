@@ -1,14 +1,11 @@
 package br.com.informa.negocio.portal;
 
-import java.text.SimpleDateFormat;
 import java.util.List;
 
 import br.com.informa.libraries.common.CommonMethods;
-import br.com.informa.libraries.common.DateUtils;
 import br.com.informa.models.common.Usuario;
 import br.com.informa.models.dominio.ETipoUsuario;
 import br.com.informa.negocio.exception.CampoObrigatorioNullException;
-import br.com.informa.negocio.exception.DataInvalidaException;
 import br.com.informa.negocio.exception.EmailInvalidoException;
 import br.com.informa.repositories.dao.FactoryDao;
 import br.com.informa.repositories.dao.portalrh.ColaboradorDao;

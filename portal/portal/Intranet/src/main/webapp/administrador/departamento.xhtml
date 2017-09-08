@@ -16,27 +16,12 @@
     </ui:define> 
  
 	<ui:define name="titulobotao"> 
-		<ui:param name="entityBean" value="#{departamentoController}" /> 
-			<p:commandButton value="Novo" ajax="true" 
-				actionListener="#{entityBean.novo()}" process="@this" 
-				update=":formPrincipal:display" oncomplete="PF('dlg').show()" 
-				styleClass="btn btn-primary" />&#160; 
- 
-                  <!--</h:panelGroup> 
-                  <h:panelGroup layout="block" styleClass="box-header col-md-2 col-md-offset-9" >--> 
-			<p:commandButton value="Pesquisar" 
-				actionListener="#{departamentoController.getListAll}" 
-				ajax="false"
-				styleClass="btn btn-primary" >&#160; 
-                     <!-- <f:ajax execute=":TableId" render=":TableId" /> --> 
-			</p:commandButton> 
+	  <ui:param name="entityBean" value="#{departamentoController}" /> 
 	</ui:define> 
  
 	<ui:define name="colunasdogrid"> 
 		<f:facet name="header"> 
-                            Lista de Departamento 
-                            <!-- <p:commandButton id="toggler" type="button" value="Columns" style="float:right" icon="ui-icon-calculator" /> 
-                            <p:columnToggler datasource="TableId" trigger="toggler" />--> 
+          Lista de Departamento 
 		</f:facet> 
 		<p:column width="10%" sortBy="#{entity.id}" style="text-align: center" 
 			headerText="Código" filterable="#{entityBean.habilitarPesquisa}" 
