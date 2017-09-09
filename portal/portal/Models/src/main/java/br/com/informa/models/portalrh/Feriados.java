@@ -6,6 +6,8 @@ import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
@@ -21,11 +23,15 @@ import javax.xml.bind.annotation.XmlRootElement;
 public class Feriados implements Serializable {	
  
 	private static final long serialVersionUID = 1L;
+    
+	@Id
+    @GeneratedValue(strategy=GenerationType.IDENTITY)
+	@Column(name="pk_fercad")
+	private int id;
 
 	@Column(name="nome", nullable=true, length=50)
     private String descricao;
 
-    @Id
     @Column(name="data_feriado", nullable=false, length=0)
     @Temporal(TemporalType.DATE)
     private Date dataFeriado;
