@@ -1,8 +1,6 @@
 package br.com.informa.portalrh;
 
 
-import java.util.Date;
-
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
 
@@ -12,7 +10,7 @@ import br.com.informa.services.core.FactoryService;
  
 @ManagedBean(name = "feriadosController") 
 @ViewScoped 
-public class FeriadosController extends GenericController<Feriados, Date> { 
+public class FeriadosController extends GenericController<Feriados, Integer	> { 
  
 	private static final long serialVersionUID = 1L;
 

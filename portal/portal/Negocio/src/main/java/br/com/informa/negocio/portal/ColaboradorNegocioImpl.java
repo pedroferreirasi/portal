@@ -107,4 +107,10 @@ public class ColaboradorNegocioImpl implements ColaboradorNegocio {
 		return true;
 	}
 
+	@Override
+	public List<Usuario> getAniversariantesDoMes(String mes) {
+		ColaboradorDao entityDao = FactoryDao.getFactory().getColaboradorDao();
+		return entityDao.getAniversariantesDoMes(mes);
+	}
+
 }

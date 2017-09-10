@@ -113,33 +113,6 @@ public class Usuario implements Serializable, Cloneable {
         return (Usuario) super.clone();
     }
 	
-	/*public Usuario clone(Usuario entity){
-		if (entity == null) 
-		{
-			entity = new Usuario();
-		}
-		entity.setAtivo(this.ativo);
-		entity.setNomeCompleto(this.nomeCompleto);
-		entity.setCelular(this.celular);
-		entity.setDataCadastro(this.dataCadastro);
-		entity.setEmail(this.email);
-		entity.setGrupoUsuario(this.grupoUsuario);
-		entity.setId(this.id);
-		entity.setLogin(this.login);
-		entity.setNomeUsuario(this.nomeUsuario);
-		entity.setSexo(this.sexo);
-		entity.setSobreNomeUsuario(this.sobreNome);
-		entity.setSenha(this.senha);
-		entity.setDadosPessoais(this.dadosPessoais);
-		entity.setDadosProfissionais(this.dadosProfissionais);
-		entity.setCargo(this.cargo);
-		entity.setTipoUsuario(this.tipoUsuario);
-		entity.setDepartamento(this.departamento);
-		
-		return entity;
-	}*/	
-	
-	
 	public int getId() {
 		return id;
 	}
