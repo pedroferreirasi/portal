@@ -9,6 +9,7 @@ import javax.faces.bean.ViewScoped;
 import br.com.informa.models.dominio.EBanco;
 import br.com.informa.models.dominio.EEstadoCivil;
 import br.com.informa.models.dominio.EEstadosBrasil;
+import br.com.informa.models.dominio.EParentesco;
 import br.com.informa.models.dominio.ESexo;
 import br.com.informa.models.dominio.ETipoGrupoUsuario;
 import br.com.informa.models.dominio.ETipoLogradouro;
@@ -24,6 +25,7 @@ public class DominioController {
 	private ETipoLogradouro[] tipoLogradouro;
 	private EBanco[] bancos;
 	private List<String> tipoLogradouroList;
+	private EParentesco[] parentesco;
 	
     public ESexo[] getSexo() {
     	sexo = ESexo.values();
@@ -70,6 +72,15 @@ public class DominioController {
 			tipoLogradouroList.add(tipoLogradouro[i].toString());
 		}
     	return tipoLogradouroList;
-    }    
+    }
+
+	public EParentesco[] getParentesco() {
+		this.parentesco = EParentesco.values();
+		return parentesco;
+	}
+
+	public void setParentesco(EParentesco[] parentesco) {
+		this.parentesco = parentesco;
+	}    
 
 }

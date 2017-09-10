@@ -33,8 +33,8 @@ public class ColaboradorDaoImpl extends HibernateDao<Usuario, Integer>  implemen
 	@SuppressWarnings("unchecked")
 	@Override
 	public List<Usuario> getAniversariantesDoMes(String mes) {
-		String hql = "from Usuario usuario inner join usuario.dadosPessoais dadospessoais "+
-	                 " where month(dadospessoais.dataNascimento) = :pmes ";
+		String hql = "from Usuario usuario  "+
+	                 " where month(usuario.dadosPessoais.dataNascimento) = :pmes ";
 		Query qry = HibernateSessionFactory.getSession().createQuery(hql);
 		qry.setParameter("pmes", 12);
 		return (List<Usuario>) qry.list();

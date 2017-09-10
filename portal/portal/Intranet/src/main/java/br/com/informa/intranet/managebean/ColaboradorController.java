@@ -5,6 +5,7 @@ import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
 import br.com.informa.intranet.core.GenericController;
 import br.com.informa.models.common.Usuario;
+import br.com.informa.models.portalrh.Dependentes;
 import br.com.informa.negocio.core.FactoryNegocio;
 
 @ManagedBean(name = "colaboradorController")
@@ -13,6 +14,7 @@ public class ColaboradorController extends GenericController<Usuario, Integer> {
 
 	private static final long serialVersionUID = -6576299296092551298L;
 	private List<Usuario> listAniversariantes;
+	private Dependentes dependente;
 
 	public ColaboradorController() {
 		entityService = FactoryNegocio.getFactory().getColaborador();
@@ -21,12 +23,16 @@ public class ColaboradorController extends GenericController<Usuario, Integer> {
 		this.setWidthModal("900");
 		this.setHeightModal("390");
 	}
+	
+	public void addDepentes() {
+		this.entity.setDependentes(this.dependente);
+	}
 
 	@Override
 	public void novo() {
-		
 		super.novo();
-		this.entity = new Usuario();					
+		this.entity = new Usuario();
+		this.dependente = new Dependentes();
 	}
 	
 	public List<Usuario> getAniversariantesDoMes(String mes) {
@@ -40,5 +46,13 @@ public class ColaboradorController extends GenericController<Usuario, Integer> {
 
 	public void setListAniversariantes(List<Usuario> listAniversariantes) {
 		this.listAniversariantes = listAniversariantes;
+	}
+
+	public Dependentes getDependente() {
+		return dependente;
+	}
+
+	public void setDependente(Dependentes dependente) {
+		this.dependente = dependente;
 	}
 }

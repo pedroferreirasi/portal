@@ -135,7 +135,15 @@
 										<form class="form-horizontal">
 										  <div class="form-group">
 										    <div class="col-md-5">
-										      <p:calendar mode="inline" />
+								
+										      
+<h:form>
+            <div class="row">
+                <p:growl id="messages" showDetail="true" life="3000"/>										      
+<p:schedule id="schedule" value="#{eventoMB.eventModel}" />
+</div>								      
+</h:form>
+										      
 										    </div>
 										  </div>
 										</form>
@@ -163,7 +171,7 @@
 														<!-- /.box-header -->
 														<div class="box-body">
 														  <ui:repeat value="#{colaboradorController.listAniversariantes}" var="aniversariante">
-														    teste
+														    #{aniversariante.nomeCompleto}
                                                           </ui:repeat>
 														</div>
 														<!-- /.box-body -->

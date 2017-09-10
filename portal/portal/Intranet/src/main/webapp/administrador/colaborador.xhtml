@@ -522,6 +522,93 @@
 		  </p:panelGrid><br/>
         </p:tab>                
         
+        <!-- DADOS PROFISSIONAIS -->
+        
+        <p:tab title="Dependentes">
+		  <p:panelGrid id="dgcaddependentes" style="width: 100%; border: none; cellspacing: 10px;" >
+			
+			<p:row style="border: none">
+				<p:column style="width:25%; border: none">
+					<h:outputText value="Nome: " />
+					<p:inputText id="nomeDependente"
+						value="#{colaboradorController.dependente.nome}"
+						label="Nome" styleClass="col-md-12" immediate="true" maxlength="10">
+						
+						<p:clientValidator />
+					</p:inputText>					
+				</p:column>
+				<p:column style="width:25%; border: none">
+					<h:outputText value="Nascimento: " />
+					<p:inputMask mask="99/99/9999" id="Nascimento"
+						value="#{colaboradorController.dependente.dataNascimento}"
+						label="Nasciamento" styleClass="col-md-12" immediate="true" maxlength="10" >
+						<f:convertDateTime pattern="dd/MM/yyyy" />
+				    </p:inputMask>
+				</p:column>
+				<p:column style="width:25%; border: none">
+					<h:outputText value="Parentesco: " />
+					<h:selectOneMenu value="#{colaboradorController.dependente.parentesco}"
+						styleClass="form-control select2">
+						<f:selectItems value="#{dominioController.parentesco}" var="parentesco" />
+					</h:selectOneMenu>						
+				</p:column>
+				<p:column style="width:25%; border: none">
+					<h:outputText value="Documento: " />
+					<p:inputText id="Documento"
+						value="#{colaboradorController.dependente.documento}" 
+						label="Documento" styleClass="col-md-12" immediate="true" maxlength="100">					    
+						<p:clientValidator />
+					</p:inputText>					
+				    <p:commandButton id="confirmar" value="Confirmar"
+				                     actionListener="#{colaboradorController.addDepentes}" />
+				</p:column>			
+			</p:row>
+				
+			<p:row>
+				<p:column colspan="4" style="border: none">
+                    <p:dataTable id="TableDependente"                                 
+                                 value="#{colaboradorController.entity.dependentes}" 
+                                 var="entity" 
+                                 paginator="true" 
+                                 paginatorPosition="bottom"
+                                 rows="#{autenticacaoController.registrosPorPagina}"
+                                 widgetVar="TableDependentes" 
+                                 sortMode="single"                               
+                                 paginatorAlwaysVisible="#{autenticacaoController.paginacaoSempreVisivel}"                                 
+                                 scrollable="true"
+                                 scrollHeight="150"
+                                 reflow="true"
+                                 draggableColumns="#{autenticacaoController.mudarColunaDeLugarNoGrid}"
+                                 lazy="false"
+                                 paginatorTemplate="{CurrentPageReport}
+                                                    {FirstPageLink}
+                                                    {PreviousPageLink} {PageLinks}
+                                                    {NextPageLink} {LastPageLink}
+                                                    {RowsPerPageDropdown}"
+                                 rowsPerPageTemplate="#{autenticacaoController.paginacao}" 
+                                 style="width: 100%" > 
+		<f:facet name="header"> 
+          Lista de Dependentes 
+		</f:facet> 
+		<p:column width="71%" style="text-align: left" headerText="Nome"> 
+			<h:outputText value="#{entity.nome}" /> 
+		</p:column>
+		<p:column width="20%" style="text-align: center" headerText="Parentesco"> 
+			<h:outputText value="#{entity.id}" /> 
+		</p:column>
+		<p:column width="20%" style="text-align: center" headerText="Nascimento"> 
+			<h:outputText value="#{entity.dataNascimento}" /> 
+		</p:column>
+		<p:column width="20%" style="text-align: center" headerText="Documento"> 
+			<h:outputText value="#{entity.documento}" /> 
+		</p:column>				 		                                   
+                  </p:dataTable>					
+				</p:column>			
+			</p:row>
+	      </p:panelGrid>        
+        
+        </p:tab>        
+        
       </p:tabView>
 	</ui:define>
 

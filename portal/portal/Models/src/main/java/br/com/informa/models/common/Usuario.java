@@ -1,7 +1,9 @@
 package br.com.informa.models.common;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -14,6 +16,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
@@ -25,6 +28,7 @@ import br.com.informa.models.portalrh.Cargo;
 import br.com.informa.models.portalrh.DadosPessoais;
 import br.com.informa.models.portalrh.DadosProfissionais;
 import br.com.informa.models.portalrh.Departamento;
+import br.com.informa.models.portalrh.Dependentes;
 
 @Entity
 @Table(name = "tb_usuario")
@@ -45,6 +49,7 @@ public class Usuario implements Serializable, Cloneable {
 		this.dadosProfissionais = new DadosProfissionais();
 		this.getDadosPessoais().setUsuario(this);
 		this.getDadosProfissionais().setUsuario(this);
+		this.dependentes = new ArrayList<Dependentes>();
 	}
 	
 
@@ -106,6 +111,9 @@ public class Usuario implements Serializable, Cloneable {
 
 	@OneToOne(mappedBy="usuario", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
 	private DadosProfissionais dadosProfissionais;
+	
+	@OneToMany(mappedBy = "usuario", targetEntity = Dependentes.class, fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+	private List<Dependentes> dependentes;
 	
 	
 	@Override
@@ -255,6 +263,14 @@ public class Usuario implements Serializable, Cloneable {
 
 	public void setTipoUsuario(ETipoUsuario tipoUsuario) {
 		this.tipoUsuario = tipoUsuario;
+	}
+
+	public List<Dependentes> getDependentes() {
+		return dependentes;
+	}
+
+	public void setDependentes(Dependentes dependentes) {
+		this.dependentes.add(dependentes);
 	}
 	
 }
