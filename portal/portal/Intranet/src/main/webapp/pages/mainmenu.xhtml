@@ -24,7 +24,7 @@
 				<section class="col-lg-12 connectedSortable">
 
 					<div class="row">
-						<div class="col-md-3" >
+						<div class="col-md-2" >
 
 							<!-- Profile Image -->
 							<div class="box box-primary">
@@ -48,77 +48,37 @@
 							</div>
 							<!-- /.box -->
 							
-							<!-- CALENDARIO -->
-							<div class="box box-primary">
-								<div class="box-header with-border">
-									<h3 class="box-title">Calendário</h3>
-								</div>
-								<!-- /.box-header -->
-								<div class="box-body" align="center">
-								  <h:form>
-								    <p:calendar id="inline" value="" mode="inline"  />
-								  </h:form>
-								</div>
-								<!-- /.box-body -->
-							</div>							
-						</div>
-						
-					
+							<!-- CALENDARIO 
+							<p:panel header="Calendário" styleClass="box-primary" style="height: 300px">
+
+							</p:panel>-->
+							<br />							
+						</div>										
 						
 						<!-- /.col -->
-						<div class="col-md-9">
-							<div class="nav-tabs-custom">
-								<ul class="nav nav-tabs">
-									<li class="active"><a href="#activity" data-toggle="tab">Notícias</a></li>
-								</ul>
-								<div class="tab-content">
-									<div class="active tab-pane" id="activity">
-
-										<!-- Post -->
-										<div class="post" id="noticias">
-											<div class="user-block">
-												<div class="box box-default">
-													<!-- /.box-header -->
-													<div class="box-body">
-
-														<!-- Post -->
-														<div class="post clearfix">
-															<h:form id="formpmural">
-																<div class="form-group margin-bottom-none">
-																	<div class="col-sm-10">
-																	  <p:textEditor widgetVar="editor1" value="#{muralMB.entity.texto}" height="100" style="margin-bottom:10px"/>
-
-																	</div>
-																	<div class="col-sm-2">
-                                                                      <p:commandButton value=" Enviar "
-                                                                                       action="#{muralMB.salvar}"
-                                                                                       update="@this"
-                                                                                       ajax="false"                                     
-                                                                                       styleClass="btn btn-danger pull-right btn-block btn-sm" />
-																	</div>
-																</div>
-															</h:form>
-														</div>
-														<!-- /.post -->
-														
-																									
-													</div>
-													<!-- /.box-body -->
-												</div>
-												<!-- /.box -->
-											</div>
-										</div>
+						<div class="col-md-7">
+						  <p:panel header="Noticias" styleClass="post clearfix">
+							<h:form id="formpmural">
+								<div class="form-group margin-bottom-none">
+									<div class="col-sm-10">
+									  <p:textEditor widgetVar="editor1" value="#{muralMB.entity.texto}" height="100" style="margin-bottom:10px"/>
 
 									</div>
-									<!-- /.tab-pane -->
+									<div class="col-sm-2">
+                                       <p:commandButton value=" Enviar "
+                                                        action="#{muralMB.salvar}"
+                                                        update="@this"
+                                                        ajax="false"                                     
+                                                        styleClass="btn btn-danger pull-right btn-block btn-sm" />
+									</div>
 								</div>
-								<!-- /.tab-content -->
-							</div>
-							<!-- /.nav-tabs-custom -->
+							</h:form>						  						  
+						  </p:panel>
+
 							
 							<!-- Post -->
 							<ui:repeat value="#{muralMB.listaEntity}" var="item">
-							  <p:panel style="margin-top: 5px">
+							  <p:panel style="margin-top: 5px" styleClass="card">
 							    <div class="post clearfix">
 								  <div class="user-block">
 								    <img class="img-circle img-bordered-sm"
@@ -144,6 +104,29 @@
 						    </ui:repeat>
 						</div>
 						<!-- /.col -->
+						
+						
+						<div class="col-md-3" >
+
+							<p:panel header="Aniversariantes" styleClass="box-success" style="height: 310px">
+							  <ui:repeat value="#{colaboradorController.listAniversariantes}" var="item">
+							    <img src="../resources/images/icon-gift.png" />&#160;  							  
+							    <p:outputLabel value="#{item.dadosPessoais.dataNascimento}">
+							      <f:convertDateTime pattern="dd/MM/yyyy" />
+							    </p:outputLabel> - 
+							    <p:outputLabel value="#{item.nomeCompleto}" />
+							  </ui:repeat>
+							</p:panel>
+							<br />
+
+							<!-- CALENDARIO -->
+							<p:panel header="Calendário" styleClass="box-danger" style="height: 300px">
+
+							</p:panel>					
+						</div>						
+						
+						
+						
 					</div>
 					<!-- /.row -->
 				</section>
