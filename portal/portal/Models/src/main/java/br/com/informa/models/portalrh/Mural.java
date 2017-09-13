@@ -1,7 +1,9 @@
 package br.com.informa.models.portalrh;
 
 import java.io.Serializable;
+import java.util.Calendar;
 import java.util.Date;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -15,45 +17,49 @@ import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import javax.persistence.Transient;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlRootElement;
 
-import br.com.informa.models.common.Usuario; 
- 
-@Entity 
-@Table(name="tb_mural") 
-@XmlRootElement 
-@XmlAccessorType(XmlAccessType.FIELD) 
-public class Mural implements Serializable {	
- 
+import br.com.informa.models.common.Usuario;
+
+@Entity
+@Table(name = "tb_mural")
+@XmlRootElement
+@XmlAccessorType(XmlAccessType.FIELD)
+public class Mural implements Serializable {
+
 	private static final long serialVersionUID = 1L;
-	
+
 	public Mural() {
 		this.dataCadastro = new Date();
 		this.usuario = new Usuario();
 	}
 
 	@Id
-    @GeneratedValue(strategy=GenerationType.IDENTITY)
-    @Column(name="pk_murcad")
-    private Integer id;
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "pk_murcad")
+	private Integer id;
 
 	@OneToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name="fk_usucad", unique = false, foreignKey=@ForeignKey(name = "fk_murcad_usucad"))
-    private Usuario usuario;
+	@JoinColumn(name = "fk_usucad", unique = false, foreignKey = @ForeignKey(name = "fk_murcad_usucad"))
+	private Usuario usuario;
 
-    @Column(name="dataCadastro", nullable=false, length=0)
-    @Temporal(TemporalType.TIMESTAMP)
-    private Date dataCadastro;
+	@Column(name = "dataCadastro", nullable = false, length = 0)
+	@Temporal(TemporalType.TIMESTAMP)
+	private Date dataCadastro;
 
-    @Lob
-    @Column(name="texto")
-    private String texto;
+	@Lob
+	@Column(name = "texto")
+	private String texto;
 
-    @Lob
-    @Column(name="imagem")
-    private byte[] imagem;
+	@Lob
+	@Column(name = "imagem")
+	private byte[] imagem;
+
+	@Transient
+	private int quantidadeDiasEnviado;
 
 	public Integer getId() {
 		return id;
@@ -93,6 +99,17 @@ public class Mural implements Serializable {
 
 	public void setImagem(byte[] imagem) {
 		this.imagem = imagem;
+	}
+
+	public int getQuantidadeDiasEnviado() {
+		Calendar a = Calendar.getInstance();
+		Calendar b = Calendar.getInstance();
+		
+		a.setTime(new Date());// data maior		
+		b.setTime(this.dataCadastro);// data
+		
+		a.add(Calendar.DATE, 17);
+		return a.get(Calendar.DAY_OF_MONTH);
 	}
 
 }
