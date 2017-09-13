@@ -17,6 +17,14 @@
             width:301px;
             z-index:9999;
         }
+		
+         body {
+           background-image: url("#{request.contextPath}/resources/images/energia.png");
+           background-repeat: no-repeat;
+           background-attachment: fixed;
+           /* e agora a regra de ouro que fará a imagem ocupar todo o viewport */
+           background-size: 100% 100%;
+        }		
     </style> 	
 
 	<!-- Theme style -->
@@ -24,7 +32,8 @@
 		href="#{request.contextPath}/resources/dist/css/AdminLTE.min.css" />
 		
 </h:head>
-<h:body styleClass="hold-transition login-page" >
+<!--<h:body styleClass="hold-transition login-page" > -->
+<h:body>
 	<div class="login-box">
 		<div class="login-box-body">
 			<img src="#{request.contextPath}/resources/images/logomarca.png" alt="" />
