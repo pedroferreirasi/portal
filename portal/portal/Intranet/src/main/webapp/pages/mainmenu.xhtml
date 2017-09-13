@@ -16,6 +16,7 @@
     </ui:define>
 
     <ui:define name="corpo">
+        <script type="text/javascript" src="js/primefaces-locale.js"></script>
 		<!-- Main content -->
 		<section class="content">
 			<!-- Main row -->
@@ -61,7 +62,9 @@
 							<h:form id="formpmural">
 								<div class="form-group margin-bottom-none">
 									<div class="col-sm-10">
-									  <p:textEditor widgetVar="editor1" value="#{muralMB.entity.texto}" height="100" style="margin-bottom:10px"/>
+									  <p:textEditor widgetVar="editor1" value="#{muralMB.entity.texto}" height="100" 
+									                placeholder="Escreva sua postagem"
+									                style="margin-bottom:10px"/>
 
 									</div>
 									<div class="col-sm-2">
@@ -78,7 +81,7 @@
 							
 							<!-- Post -->
 							<ui:repeat value="#{muralMB.listaEntity}" var="item">
-							  <p:panel style="margin-top: 5px" styleClass="card">
+							  <p:panel style="margin-top: 7px" styleClass="card">
 							    <div class="post clearfix">
 								  <div class="user-block">
 								    <img class="img-circle img-bordered-sm"
@@ -100,7 +103,27 @@
 															
 								</div>
 								<!-- /.post -->
+								<f:facet name="footer">
+								  <img src="../resources/images/unlike.png" /> &#160; Curtir &#160; &#160; &#160; &#160;
+								  <img src="../resources/images/descomentar.png" /> &#160; Comentar
+								</f:facet>								
 							  </p:panel>
+							  <!--  <p:panel>
+    <p:textEditor widgetVar="resposta" value="" height="50" style="margin-bottom:10px" placeholder="Escreva um comentário">
+        <f:facet name="toolbar">
+             <span class="ql-formats">
+                <button class="ql-bold"></button>
+                <button class="ql-italic"></button>
+                <button class="ql-underline"></button>
+                <button class="ql-strike"></button>
+            </span>
+            <span class="ql-formats">
+                <select class="ql-font"></select>
+                <select class="ql-size"></select>
+            </span>
+        </f:facet>
+    </p:textEditor>							  
+							  </p:panel>-->
 						    </ui:repeat>
 						</div>
 						<!-- /.col -->
@@ -114,14 +137,19 @@
 							    <p:outputLabel value="#{item.dadosPessoais.dataNascimento}">
 							      <f:convertDateTime pattern="dd/MM/yyyy" />
 							    </p:outputLabel> - 
-							    <p:outputLabel value="#{item.nomeCompleto}" />
+							    <p:outputLabel value="#{item.nomeCompleto}" /><br /><br />
 							  </ui:repeat>
 							</p:panel>
 							<br />
 
 							<!-- CALENDARIO -->
-							<p:panel header="Calendário" styleClass="box-danger" style="height: 300px">
-
+							<p:panel header="Calendário" styleClass="box-danger" >
+							  <div>
+                                <p:schedule id="schedule" value="#{eventoMB.eventModel}" 
+                                            widgetVar="myschedule" 
+                                            locale="pt"
+                                            timeZone="GMT+2"></p:schedule>
+                              </div>
 							</p:panel>					
 						</div>						
 						

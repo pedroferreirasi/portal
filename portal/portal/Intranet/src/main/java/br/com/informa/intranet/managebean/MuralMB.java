@@ -30,5 +30,6 @@ public class MuralMB extends GenericController<Mural, Integer> {
 	public void salvar() {
 		this.entity.setUsuario(Contexto.getUsuarioLogado());
 		super.salvar();
+		this.novo();
 	}
 }

@@ -44,9 +44,10 @@ public class Mural implements Serializable {
     private Usuario usuario;
 
     @Column(name="dataCadastro", nullable=false, length=0)
-    @Temporal(TemporalType.DATE)
+    @Temporal(TemporalType.TIMESTAMP)
     private Date dataCadastro;
 
+    @Lob
     @Column(name="texto")
     private String texto;
 
