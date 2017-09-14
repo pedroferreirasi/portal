@@ -16,81 +16,129 @@
     </ui:define>
 
     <ui:define name="corpo">
-					<div class="row"> 
-						<p:panel class="col-md-3" >
+      <!-- Main content -->
+      <section class="content">
+        <!-- Main row -->
+        <div class="row">
+          <!-- Left col -->
+          <section class="col-lg-12 connectedSortable">
+            <div class="row">
+              
+              <!-- /.PUBLICACAO -->
+              <div class="col-md-7">
+              
+                <!-- DIGITACAO DE PUBLICAÇÃO -->
+                <p:panel header="Noticias" styleClass="post clearfix">
+                  <h:form id="formpmural">
+                    <div class="form-group margin-bottom-none">
+                      <div class="col-sm-12">
+						 <p:inputText id="texto"
+						              style="width: 100%; height: 50px" 
+						              onfocus="PF('dlg').show()"  />
+						 <br /><br />
+                      </div>
+                    </div>
+                  </h:form>						  						  
+                </p:panel>
+							
+                <!-- LISTAGEM PUBLICADA -->
+                <ui:repeat value="#{muralMB.listaEntity}" var="item">
+                  <p:panel style="margin-top: 7px" styleClass="card">
+                    <div class="post clearfix" >
+                      <div class="user-block">
+                        <img class="img-circle img-bordered-sm"
+                             src="#{request.contextPath}/resources/dist/img/avatar5.png"
+                             alt="User Image" /> 
+                        <span class="username"> 
+                          <a href="#">
+                            <p:outputLabel id="usuariom" value="#{item.usuario.nomeUsuario} " />&#160;
+                            <p:outputLabel id="usuariom2" value="#{item.usuario.sobreNome}" />
+                          </a> 
+                          <a href="#" class="pull-right btn-box-tool">
+                            <i class="fa fa-times"></i>
+                          </a>
+                        </span> 
+                        <span class="description">Mensagem enviada - #{item.quantidadeDiasEnviado} dia(s)</span>
+                      </div>
+                      
+                      <h:outputLabel value="#{item.texto}" escape="false" style="display:block;width:135px" />
+                    </div>                    
+                    <f:facet name="footer">
+                      <img src="../resources/images/unlike.png" /> &#160; Curtir &#160; &#160; &#160; &#160;
+                      <img src="../resources/images/descomentar.png" /> &#160; Comentar
+                    </f:facet>								
+                  </p:panel>
+                </ui:repeat>
+              </div>
+					
+              <!-- ANIVERSARIANTES E CALENDARIO -->							
+              <div class="col-md-5" >
+                
+                <!-- ANIVERSARIANTES -->
+                <p:panel header="Aniversariantes" styleClass="box-success" style="height: 310px">
+                  <ui:repeat value="#{colaboradorController.listAniversariantes}" var="item">
+                    <img src="../resources/images/icon-gift.png" />&#160;  							  
+                    <p:outputLabel value="#{item.dadosPessoais.dataNascimento}">
+                      <f:convertDateTime pattern="dd/MM/yyyy" />
+                    </p:outputLabel> - 
+                    <p:outputLabel value="#{item.nomeCompleto}" /><br /><br />
+                  </ui:repeat>
+                </p:panel>
+                <br />
 
-							<!-- Profile Image -->
-							<div class="box box-primary">
-								<div class="box-body box-profile">
-									<img class="profile-user-img img-responsive img-circle"
-										src="#{autenticacaoController.fotoAvatar}"
-										alt="User profile picture" height="128" width="128" />
-
-									<h3 class="profile-username text-center">
-										#{autenticacaoController.entity.nomeUsuario}
-										#{autenticacaoController.entity.sobreNomeUsuario}</h3>
-
-									<p class="text-muted text-center">
-										#{autenticacaoController.entity.cargo.descricao}</p>
-									
-									<h:form>
-									  <a href="#{request.contextPath}/pages/meuperfil.xhtml" class="btn btn-primary btn-block"><b>Editar</b></a>
-									</h:form>
-								</div>
-								<!-- /.box-body -->
-							</div>
-							<!-- /.box -->
-
-						</p:panel>
+                <!-- CALENDARIO -->
+                <p:panel header="Calendário" styleClass="box-danger" >
+                  <div>
+                    <p:schedule id="schedule" value="#{eventoMB.eventModel}" 
+                                              widgetVar="myschedule" 
+                                              locale="pt"
+                                              timeZone="GMT+2"></p:schedule>
+                  </div>
+                </p:panel>					
+              </div>						
 						
-						<p:panel class="col-sm-9" header="Noticias">
+            </div>
+            <!-- /.row -->
+          </section>
+        </div>
+        <!-- /.row (main row) -->
+      </section>
+      <!-- /.content -->
+      
+      <!-- POPOUP DE PUBLICACAO -->
+	 <p:messages id="msg" showDetail="true" globalOnly="false" autoUpdate="true" closable="true" /> 
+     <h:form id="formPrincipal" enctype="multipart/form-data" > 	 	    
+        <p:dialog modal="true" widgetVar="dlg" 
+                  id="dlg"
+                  showEffect="scale" hideEffect="size"
+                  header="Publicar"
+                  appendToBody="true" 
+                  position="center center"
+                  width="1200" 
+                  height="400" 
+                  minimizable="true">     
+          
+          <p:panelGrid id="display" style="width: 100%; border: none; cellspacing: 10px;" >              
+            <div class="form-group margin-bottom-none">
+              <div class="col-sm-12">
+                <p:textEditor widgetVar="editor1" value="#{muralMB.entity.texto}" height="300" 
+                              placeholder="Escreva sua postagem"
+                              style="margin-bottom:10px"/>
 
-															<h:form id="formpmural">
-																<div class="form-group margin-bottom-none">
-																	<div class="col-sm-10">
-																	  <p:textEditor widgetVar="editor1" value="#{muralMB.entity.texto}" height="100" style="margin-bottom:10px"/>
-
-																	</div>
-																	<div class="col-sm-2">
-                                                                      <p:commandButton value=" Enviar "
-                                                                                       action="#{muralMB.salvar}"
-                                                                                       update="@this"
-                                                                                       ajax="false"                                     
-                                                                                       styleClass="btn btn-danger pull-right btn-block btn-sm" />
-																	</div>
-																</div>
-															</h:form>
-						</p:panel>
-						<br /><br />
-						
-						<ui:repeat value="#{muralMB.listaEntity}" var="item">
-						<p:panel class="col-xs-3 col-md-9" >
-														
-														<div class="post clearfix">
-															<div class="user-block">
-																<img class="img-circle img-bordered-sm"
-																	 src="#{request.contextPath}/resources/dist/img/avatar5.png"
-																	 alt="User Image" /> <span class="username"> 
-																	  <a href="#">
-																	    <p:outputLabel id="usuariom" value="#{item.usuario.nomeUsuario} " />&#160;
-																	    <p:outputLabel id="usuariom2" value="#{item.usuario.sobreNome}" />
-																	  </a> 
-																	  <a href="#" class="pull-right btn-box-tool">
-																	    <i class="fa fa-times"></i>
-																	  </a>
-																</span> <span class="description">Sent you a message - 3
-																	days ago</span>
-															</div>
-															<!-- /.user-block -->
-															  <h:outputLabel value="#{item.texto}" escape="false" />
-															
-														</div>
-														<!-- /.post -->
-																				
-						</p:panel>
-						</ui:repeat>
-						
-					</div>                     
+              </div>
+              <div class="col-sm-2">
+                <p:commandButton value=" Publicar "
+                                 action="#{muralMB.salvar}"
+                                 update="@this"
+                                 ajax="false"                                     
+                                 styleClass="btn btn-danger pull-right btn-block btn-sm" />
+              </div>
+            </div>       
+          </p:panelGrid>  
+        </p:dialog>	  
+      </h:form>       
+            
+      
     </ui:define>
 
 </ui:composition>
