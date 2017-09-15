@@ -208,8 +208,6 @@ object FrPrincipal: TFrPrincipal
     Height = 271
     Align = alClient
     TabOrder = 2
-    ExplicitTop = 193
-    ExplicitHeight = 297
     object PageControl1: TPageControl
       Left = 1
       Top = 1
@@ -218,10 +216,8 @@ object FrPrincipal: TFrPrincipal
       ActivePage = TabSheet1
       Align = alClient
       TabOrder = 0
-      ExplicitHeight = 295
       object TabSheet1: TTabSheet
         Caption = 'Principal'
-        ExplicitHeight = 267
         object DBGrid1: TDBGrid
           Left = 0
           Top = 0

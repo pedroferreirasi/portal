@@ -27,28 +27,12 @@ const
                      ' '+#13+#10+
                      '	<ui:define name="titulobotao"> '+#13+#10+
                      '		<ui:param name="entityBean" value="#{{ALIAS_NORMAL}Controller}" /> '+#13+#10+
-                     '		<h:panelGroup layout="block" styleClass="box-header col-md-12"> '+#13+#10+
-                     '			<p:commandButton value="Novo" ajax="true" '+#13+#10+
-                     '				action="#{entityBean.novo}" process="@this" '+#13+#10+
-                     '				update=":formPrincipal:display" oncomplete="PF(''dlg'').show()" '+#13+#10+
-                     '				styleClass="btn btn-primary" />&#160; '+#13+#10+
-                     ' '+#13+#10+
-                     '                  <!--</h:panelGroup> '+#13+#10+
-                     '                  <h:panelGroup layout="block" styleClass="box-header col-md-2 col-md-offset-9" >--> '+#13+#10+
-                     '			<p:commandButton value="Pesquisar" '+#13+#10+
-                     '				action="#{entityBean.getListAll}" ajax="false" update="@form" '+#13+#10+
-                     '				styleClass="btn btn-primary" >&#160; '+#13+#10+
-                     '                     <!-- <f:ajax execute=":TableId" render=":TableId" /> --> '+#13+#10+
-                     '			</p:commandButton> '+#13+#10+
-                     '		</h:panelGroup> '+#13+#10+
                      '	</ui:define> '+#13+#10+
                      ' '+#13+#10+
                      '	</ui:define> '+#13+#10+
                      '	<ui:define name="colunasdogrid"> '+#13+#10+
                      '		<f:facet name="header"> '+#13+#10+
-                     '                            Lista de {ALIAS_NORMAL} '+#13+#10+
-                     '                            <!-- <p:commandButton id="toggler" type="button" value="Columns" style="float:right" icon="ui-icon-calculator" /> '+#13+#10+
-                     '                            <p:columnToggler datasource="TableId" trigger="toggler" />--> '+#13+#10+
+                     '      Lista de {ALIAS_NORMAL} '+#13+#10+
                      '		</f:facet> ';
 
   C_CONTROLLER = 'package br.com.informa.portalrh;'+#13+#10+
@@ -59,14 +43,14 @@ const
                  'import br.com.informa.core.GenericController; '+#13+#10+
                  'import br.com.informa.models.portalrh.{ALIAS_NORMAL}; '+#13+#10+
                  'import br.com.informa.models.dominio.EEstadoForm; '+#13+#10+
-                 'import br.com.informa.services.core.FactoryService; '+#13+#10+
+                 'import br.com.informa.negocio.core.FactoryNegocio; '+#13+#10+
                  ' '+#13+#10+
                  '@ManagedBean(name = "{ALIAS_NORMAL}Controller") '+#13+#10+
                  '@ViewScoped '+#13+#10+
                  'public class {ALIAS_NORMAL}Controller extends GenericController<{ALIAS_NORMAL}, Integer> { '+#13+#10+
                  ' '+#13+#10+
                  '	public {ALIAS_NORMAL}Controller() { '+#13+#10+
-                 '		entityService = FactoryService.getFactory().get{ALIAS_NORMAL}(); '+#13+#10+
+                 '		entityNegocio = FactoryNegocio.getFactory().get{ALIAS_NORMAL}(); '+#13+#10+
                  '		this.novo(); '+#13+#10+
                  '		listaEntity = this.getListAll(); '+#13+#10+
                  '	} '+#13+#10+
@@ -100,16 +84,16 @@ const
                               'public interface {ALIAS_NORMAL}Dao extends IDao<{ALIAS_NORMAL}, Integer> { '+#13+#10+
                               '} ';
 
-  C_SERVICE_INTERFACE = 'package br.com.informa.services.portalrh;'+#13+#10+
+  C_SERVICE_INTERFACE = 'package br.com.informa.negocio.portalrh;'+#13+#10+
                         ''+#13+#10+
                         ''+#13+#10+
                         'import br.com.informa.models.common.{ALIAS_NORMAL}; '+#13+#10+
-                        'import br.com.informa.services.common.IService; '+#13+#10+
+                        'import br.com.informa.negocio.common.INegocio; '+#13+#10+
                         ' '+#13+#10+
-                        'public interface {ALIAS_NORMAL}Service extends IService<{ALIAS_NORMAL}, Integer> { '+#13+#10+
+                        'public interface {ALIAS_NORMAL}Negocio extends INegocio<{ALIAS_NORMAL}, Integer> { '+#13+#10+
                         '} ';
 
-  C_SERVICE_CLASS = 'package br.com.informa.services.portalrh;'+#13+#10+
+  C_SERVICE_CLASS = 'package br.com.informa.negocio.portalrh;'+#13+#10+
                     ''+#13+#10+
                     ''+#13+#10+
                     'import java.util.List; '+#13+#10+
@@ -117,7 +101,7 @@ const
                     'import br.com.informa.repositories.dao.FactoryDao; '+#13+#10+
                     'import br.com.informa.repositories.dao.portalrh.{ALIAS_NORMAL}Dao; '+#13+#10+
                     ' '+#13+#10+
-                    'public class {ALIAS_NORMAL}ServiceImpl implements {ALIAS_NORMAL}Service { '+#13+#10+
+                    'public class {ALIAS_NORMAL}NegocioImpl implements {ALIAS_NORMAL}Negocio { '+#13+#10+
                     ' '+#13+#10+
                     '	@Override '+#13+#10+
                     '	public void Add({ALIAS_NORMAL} entity) { '+#13+#10+
@@ -426,7 +410,7 @@ var
   F: TextFile;
   LRepositoryClass : String;
 begin
-  AssignFile(f,FCaminho+AParametro.alias+'ServiceImpl.java');
+  AssignFile(f,FCaminho+AParametro.alias+'NegocioImpl.java');
   Rewrite(f); //abre o arquivo para escrita
 
   LRepositoryClass := Self.substituirConstantes(C_SERVICE_CLASS, '{ALIAS_NORMAL}', AParametro.alias);
@@ -442,7 +426,7 @@ var
   F: TextFile;
   LRepositoryClass : String;
 begin
-  AssignFile(f,FCaminho+AParametro.alias+'Service.java');
+  AssignFile(f,FCaminho+AParametro.alias+'Negocio.java');
   Rewrite(f); //abre o arquivo para escrita
 
   LRepositoryClass := Self.substituirConstantes(C_SERVICE_INTERFACE, '{ALIAS_NORMAL}', AParametro.alias);
