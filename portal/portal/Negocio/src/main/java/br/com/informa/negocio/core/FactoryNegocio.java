@@ -4,6 +4,10 @@ import br.com.informa.negocio.common.GrupoUsuarioNegocio;
 import br.com.informa.negocio.common.GrupoUsuarioNegocioImpl;
 import br.com.informa.negocio.common.UsuarioNegocio;
 import br.com.informa.negocio.common.UsuarioNegocioImpl;
+import br.com.informa.negocio.portal.AvisoDestinatarioNegocio;
+import br.com.informa.negocio.portal.AvisoDestinatarioNegocioImpl;
+import br.com.informa.negocio.portal.AvisoNegocio;
+import br.com.informa.negocio.portal.AvisoNegocioImpl;
 import br.com.informa.negocio.portal.CargoNegocio;
 import br.com.informa.negocio.portal.CargoNegocioImpl;
 import br.com.informa.negocio.portal.ColaboradorNegocio;
@@ -91,4 +95,12 @@ public class FactoryNegocio {
 	public MuralNegocio getMural() {
 		return new MuralNegocioImpl();
 	}
+	
+	public AvisoNegocio getAviso() {
+		return new AvisoNegocioImpl();
+	}
+	
+	public AvisoDestinatarioNegocio getAvisoDestinatario() {
+		return new AvisoDestinatarioNegocioImpl();
+	}	
 }

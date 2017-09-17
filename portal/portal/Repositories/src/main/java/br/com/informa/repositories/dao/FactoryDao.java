@@ -21,6 +21,10 @@ import br.com.informa.repositories.dao.portalrh.MuralDao;
 import br.com.informa.repositories.dao.portalrh.MuralDaoImpl;
 import br.com.informa.repositories.dao.portalrh.SalaDao;
 import br.com.informa.repositories.dao.portalrh.SalaDaoImpl;
+import br.com.informa.repositories.dao.portalrh.AvisoDao;
+import br.com.informa.repositories.dao.portalrh.AvisoDaoImpl;
+import br.com.informa.repositories.dao.portalrh.AvisoDestinatarioDao;
+import br.com.informa.repositories.dao.portalrh.AvisoDestinatarioDaoImpl;
 import br.com.informa.repositories.dao.portalrh.CargoDao;
 import br.com.informa.repositories.dao.portalrh.ColaboradorDao;
 import br.com.informa.repositories.dao.portalrh.DepartamentoDao;
@@ -98,5 +102,13 @@ public abstract class FactoryDao {
 	
 	public MuralDao getMuralDao() {
 		return new MuralDaoImpl();
+	}
+	
+	public AvisoDao getAvisoDao() {
+		return new AvisoDaoImpl();
+	}
+	
+	public AvisoDestinatarioDao getAvisoDestinatarioDao() {
+		return new AvisoDestinatarioDaoImpl();
 	}	
 }

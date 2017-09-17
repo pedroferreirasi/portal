@@ -39,7 +39,7 @@ public class DadosPessoais implements Serializable {
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
-    @Column(name="pk_pescad", nullable=false, length=10)
+    @Column(name="pk_pescad", nullable=false)
     private Integer id;
 
 	@OneToOne(fetch = FetchType.LAZY)

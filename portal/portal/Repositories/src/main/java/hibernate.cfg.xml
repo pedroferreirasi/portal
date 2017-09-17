@@ -30,7 +30,10 @@
 		<mapping class="br.com.informa.models.portalrh.Equipes" />
 		<mapping class="br.com.informa.models.portalrh.Feriados" />
 		<mapping class="br.com.informa.models.portalrh.Sala" />
-		<mapping class="br.com.informa.models.portalrh.Mural" />    
+		<mapping class="br.com.informa.models.portalrh.Mural" />  
+		<mapping class="br.com.informa.models.portalrh.Aviso" />
+		<mapping class="br.com.informa.models.portalrh.AvisoDestinatario" />		
+		  
 		
 		<listener class="org.hibernate.envers.event.AuditEventListener" type="post-insert" />
 		<listener class="org.hibernate.envers.event.AuditEventListener" type="post-update" />
