@@ -27,7 +27,7 @@
         <!-- Main content -->
         <section class="content col-xs-12">
           <div align="left">
-              <p:panel id="basic" styleClass="box-primary">                       
+              <p:panel id="basic" styleClass="box-success">                       
                 <f:facet name="header">
                   <ui:insert name="titulobotao" />
 		          <p:commandButton value=" Novo" ajax="true"
@@ -35,12 +35,12 @@
 				      actionListener="#{entityBean.novo}" process="@this" 
 				      update=":formPrincipal:display" oncomplete="PF('dlg').show()"
 				      style="width: 140px"
-				      styleClass="btn-primary" />&#160;			                                                                                                                    
+				      styleClass="btn-success" />&#160;			                                                                                                                    
 		          <p:commandButton value="Atualizar"
 			          icon="fa fa-refresh"
 				      actionListener="#{entityBean.getListAll}" ajax="false" update="@form"
 				      style="width: 140px"
-				      styleClass="btn-primary" >&#160;
+				      styleClass="btn-success" >&#160;
 		          </p:commandButton>                  
                 </f:facet>               
                                       						
@@ -79,7 +79,7 @@
                             <div align="rigth">
                               <p:commandButton id="toggler" type="button" value="Colunas" 
                                    style="float:right; width: 140px" icon="ui-icon-calculator"
-                                   styleClass="btn-primary" />
+                                   styleClass="btn-success" />
                               <p:columnToggler datasource="TableId" trigger="toggler" />                            
                             </div>
                             <div align="left">
@@ -99,7 +99,7 @@
                       <p:column headerText="Ações" style="text-align: center;" width="10%" >
 
                         <p:commandButton id="Editar" update=":formPrincipal:display" icon="fa fa-fw fa-edit" 
-                                         styleClass="btn-primary"
+                                         styleClass="btn-success"
                                          process="@this" ajax="true"
                                          title="Editar" oncomplete="PF('dlg').show()"
                                          actionListener="#{entityBean.editar(entity)}">                          
@@ -160,11 +160,11 @@
                              rendered="#{entityBean.exibeBotaoSalvar}"
                              process="@form"
                              style="width: 100px"                                                          
-                             styleClass="btn-primary" >
+                             styleClass="btn-success" >
 
              </p:commandButton>&#160;
 
-             <p:commandButton type="button" value="Cancelar" styleClass="btn-primary" 
+             <p:commandButton type="button" value="Cancelar" styleClass="btn-success" 
                               onclick="PF('dlg').hide()" ajax="false"
                               icon="fa fa-remove"
                               style="width: 100px"

@@ -10,6 +10,8 @@ import javax.persistence.ForeignKey;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.Lob;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -25,6 +27,12 @@ import br.com.informa.models.common.Usuario;
 @XmlAccessorType(XmlAccessType.FIELD) 
 public class Aviso implements Serializable {	
  
+	public Aviso() {
+		usuario = new Usuario();
+		dataCadastro = new Date();
+		lido = false;
+	}
+	
 	private static final long serialVersionUID = 1L;
 
 	@Id
@@ -32,6 +40,7 @@ public class Aviso implements Serializable {
     @Column(name="pk_avicad", nullable=false)
     private Integer id;
 
+	@OneToOne
 	@JoinColumn(name="fk_usucad_envio", unique = false, foreignKey=@ForeignKey(name = "fk_avicad_usucad"))	
     private Usuario usuario;
 
@@ -42,12 +51,16 @@ public class Aviso implements Serializable {
     @Column(name="titulo", nullable=false, length=255)
     private String titulo;
 
-    @Column(name="mensagem", nullable=false, length=-1)
+    @Lob
+    @Column(name="mensagem", nullable=false)
     private String mensagem;
 
     @Column(name="dataValidade", nullable=true, length=0)
     @Temporal(TemporalType.DATE)
     private Date dataValidade;
+    
+    @Column(name="lido", nullable=false)
+    private Boolean lido;
 
 	public Integer getId() {
 		return id;

@@ -47,14 +47,8 @@
 							  </h:form>			
 							  </f:facet>				
 							</p:panel>	
-                <p:panel header="Aniversariantes" styleClass="box-success" style="height: 310px">
-                  <ui:repeat value="#{colaboradorController.listAniversariantes}" var="item">
-                    <img src="../resources/images/icon-gift.png" />&#160;  							  
-                    <p:outputLabel value="#{item.dadosPessoais.dataNascimento}">
-                      <f:convertDateTime pattern="dd/MM/yyyy" />
-                    </p:outputLabel> - 
-                    <p:outputLabel value="#{item.nomeCompleto}" /><br /><br />
-                  </ui:repeat>
+                <p:panel header="Avisos" styleClass="box-success" style="height: 310px">
+
                 </p:panel>                
                 </p:panelGrid>
                 <br />
@@ -74,7 +68,7 @@
               <div class="col-md-8">
               
                 <!-- DIGITACAO DE PUBLICAÇÃO -->
-                <p:panel header="Noticias" styleClass="post clearfix">
+                <p:panel header="Noticias" styleClass="clearfix box-success">
                   <h:form id="formpmural">
                     <div class="form-group margin-bottom-none">
                       <div class="col-sm-12">

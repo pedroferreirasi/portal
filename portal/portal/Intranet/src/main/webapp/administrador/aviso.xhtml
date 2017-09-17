@@ -24,29 +24,33 @@
       Lista de Aviso 
 		</f:facet> 
 		<p:column width="9%" sortBy="#{entity.id}" style="text-align: center" 
-			headerText="id" filterable="#{entityBean.habilitarPesquisa}" 
+			headerText="Código" filterable="#{entityBean.habilitarPesquisa}" 
 			filterBy="#{entity.id}"> 
 			<h:outputText value="#{entity.id}" /> 
 		</p:column> 
-		<p:column width="9%" sortBy="#{entity.usuario}" style="text-align: center" 
-			headerText="usuario" filterable="#{entityBean.habilitarPesquisa}" 
-			filterBy="#{entity.usuario}"> 
-			<h:outputText value="#{entity.usuario}" /> 
+		<p:column width="9%" sortBy="#{entity.usuario.nomeCompleto}" style="text-align: center" 
+			headerText="Usuário" filterable="#{entityBean.habilitarPesquisa}" 
+			filterBy="#{entity.usuario.nomeCompleto}"> 
+			<h:outputText value="#{entity.usuario.nomeCompleto}" /> 
 		</p:column> 
 		<p:column width="9%" sortBy="#{entity.dataCadastro}" style="text-align: center" 
-			headerText="dataCadastro" filterable="#{entityBean.habilitarPesquisa}" 
+			headerText="Cadastro" filterable="#{entityBean.habilitarPesquisa}" 
 			filterBy="#{entity.dataCadastro}"> 
-			<h:outputText value="#{entity.dataCadastro}" /> 
+			<h:outputText value="#{entity.dataCadastro}" >
+			  <f:convertDateTime pattern="dd/MM/yyyy" />
+			</h:outputText> 
 		</p:column> 
 		<p:column width="9%" sortBy="#{entity.titulo}" style="text-align: center" 
-			headerText="titulo" filterable="#{entityBean.habilitarPesquisa}" 
+			headerText="Título" filterable="#{entityBean.habilitarPesquisa}" 
 			filterBy="#{entity.titulo}"> 
 			<h:outputText value="#{entity.titulo}" /> 
 		</p:column> 
 		<p:column width="9%" sortBy="#{entity.dataValidade}" style="text-align: center" 
-			headerText="dataValidade" filterable="#{entityBean.habilitarPesquisa}" 
+			headerText="Validade" filterable="#{entityBean.habilitarPesquisa}" 
 			filterBy="#{entity.dataValidade}"> 
-			<h:outputText value="#{entity.dataValidade}" /> 
+			<h:outputText value="#{entity.dataValidade}" >
+			  <f:convertDateTime pattern="dd/MM/yyyy" />
+			</h:outputText> 
 		</p:column> 
  	</ui:define> 
  
@@ -63,13 +67,27 @@
 				</p:inputText>
 			</p:column>
 			<p:column style="width:80%; border: none">
-				<h:outputText value="Descricao: " />
+				<h:outputText value="Título: " />
 				<h:outputText value=" *" style="color: red" />
-				<p:inputText id="descricao"
-					value=""
-					label="descricao" styleClass="col-md-12" maxlength="100" />
+				<p:inputText id="titutlo"
+					value="#{entityBean.entity.titulo}"
+					label="titulo" styleClass="col-md-12" maxlength="100" />
 			</p:column>
 		</p:row> 
+		<p:row style="border: none">
+			<p:column style="width:20%; border: none" colspan="2">
+				<h:outputText value="Validade: " /><br />
+				<p:calendar id="popup" value="#{entityBean.entity.dataValidade}" pattern="dd/MM/yyyy" >
+				  <f:convertDateTime pattern="dd/MM/yyyy" />
+				</p:calendar>
+			</p:column>
+		</p:row>
+		<p:row style="border: none">
+			<p:column style="width:20%; border: none" colspan="2">
+				<h:outputText value="Mensagem: " /><br />
+				<p:textEditor id="mensagem" value="#{entityBean.entity.mensagem}" height="240" />
+			</p:column>
+		</p:row>						
 	  </p:panelGrid><br/>
 	</ui:define> 
  
