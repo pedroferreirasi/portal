@@ -30,7 +30,6 @@ public class Aviso implements Serializable {
 	public Aviso() {
 		usuario = new Usuario();
 		dataCadastro = new Date();
-		lido = false;
 	}
 	
 	private static final long serialVersionUID = 1L;
@@ -58,9 +57,6 @@ public class Aviso implements Serializable {
     @Column(name="dataValidade", nullable=true, length=0)
     @Temporal(TemporalType.DATE)
     private Date dataValidade;
-    
-    @Column(name="lido", nullable=false)
-    private Boolean lido;
 
 	public Integer getId() {
 		return id;
