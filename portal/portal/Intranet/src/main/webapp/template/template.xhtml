@@ -158,8 +158,11 @@ div[id="growl_container"] {
 
 						</ul></li>
 					<!-- Control Sidebar Toggle Button -->
-					<li><a href="#" data-toggle="control-sidebar"><i
-							class="fa fa-gears"></i></a></li>
+					<li>
+					  <a href="#" data-toggle="control-sidebar">
+					     <i	class="fa fa-gears"></i>
+					  </a>
+					</li>
 				</ul>
 			</div>
 			</nav> </header>
@@ -187,8 +190,8 @@ div[id="growl_container"] {
 						</span>
 					</div>
 				</div>
-				<!-- sidebar menu: : style can be found in sidebar.less --> <ui:include
-					src="framemenu.xhtml" /> </section>
+				<!-- sidebar menu: : style can be found in sidebar.less --> 
+				<ui:include	src="framemenu.xhtml" /> </section>
 				<!-- /.sidebar -->
 			</h:form> </aside>
 
@@ -196,25 +199,6 @@ div[id="growl_container"] {
 			<!-- Content Wrapper. Contains page content -->
 			<div class="content-wrapper">
 				<!-- Content Header (Page header) -->
-				<!--<section class="content-header">
-
-				<h1>
-					<ui:insert name="Titulo" />
-				</h1>
-				 <h:panelGroup id="myDashBoard" class="breadcrumb">
-					<ol class="breadcrumb">
-
-						<li><a href="index.xhtml"><i class="fa fa-dashboard"></i>
-								Home</a></li>
-
-						<li class="active"><ui:insert name="nomeDaPagina" /></li>
-
-					</ol>
-
-				</h:panelGroup>  </section>-->
-
-				<!-- Main content -->
-				
 				<section class="content"> 				  
 				  <h:panelGroup id="myPanel" layout="block">
                     <ui:insert name="corpo" />
@@ -225,49 +209,13 @@ div[id="growl_container"] {
 
 			<!-- Control Sidebar -->
 			<aside class="control-sidebar control-sidebar-dark"> <!-- Tab panes -->
-			<div class="tab-content">
-				<!-- Home tab content -->
-				<div class="tab-pane" id="control-sidebar-home-tab">
+			  <div class="tab-content">
+                <!-- Home tab content -->
+                <div class="tab-pane" id="control-sidebar-home-tab">
 
-
-					<h3 class="control-sidebar-heading">Tasks Progress</h3>
-					<ul class="control-sidebar-menu">
-						<li><a href="javascript::;">
-								<h4 class="control-sidebar-subheading">
-									Custom Template Design <span
-										class="label label-danger pull-right">70%</span>
-								</h4>
-								<div class="progress progress-xxs">
-									<div class="progress-bar progress-bar-danger"
-										style="width: 70%"></div>
-								</div>
-						</a></li>
-						<li><a href="javascript::;">
-								<h4 class="control-sidebar-subheading">
-									Update Resume <span class="label label-success pull-right">95%</span>
-								</h4>
-								<div class="progress progress-xxs">
-									<div class="progress-bar progress-bar-success"
-										style="width: 95%"></div>
-								</div>
-						</a></li>
-						<li><a href="javascript::;">
-								<h4 class="control-sidebar-subheading">
-									Laravel Integration <span
-										class="label label-warning pull-right">50%</span>
-								</h4>
-								<div class="progress progress-xxs">
-									<div class="progress-bar progress-bar-warning"
-										style="width: 50%"></div>
-								</div>
-						</a></li>
-					</ul>
-					<!-- /.control-sidebar-menu -->
-
-				</div>
-				<!-- /.tab-pane -->
-
-			</div>
+                </div>
+                <!-- /.tab-pane -->
+			  </div>
 			</aside>
 			<!-- /.control-sidebar -->
 
@@ -275,6 +223,7 @@ div[id="growl_container"] {
                      immediately after the control sidebar -->
 			<div class="control-sidebar-bg"></div>
 		</div>
+		
 		<!-- ################################################################################ -->
 		<h:outputScript library="bootstrap" name="js/bootstrap.min.js" />
 		<h:outputScript library="dist" name="js/app.js" />
