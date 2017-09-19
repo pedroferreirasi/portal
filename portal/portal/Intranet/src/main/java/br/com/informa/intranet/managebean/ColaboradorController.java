@@ -1,5 +1,6 @@
 package br.com.informa.intranet.managebean;
 
+import java.util.ArrayList;
 import java.util.List;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
@@ -27,6 +28,18 @@ public class ColaboradorController extends GenericController<Usuario, Integer> {
 	public void addDepentes() {
 		this.entity.setDependentes(this.dependente);
 	}
+	
+    public List<String> completeText(String query) {
+    	List<Usuario> resultado = FactoryNegocio.getFactory().getColaborador().getColaboradoresPorNome(query);
+    	
+    	List<String> strings = new ArrayList<>(resultado.size());
+    	
+    	for (Usuario usuario : resultado) {
+    	    strings.add(usuario.getNomeCompleto());
+    	}
+    	
+        return strings;
+    }
 
 	@Override
 	public void novo() {

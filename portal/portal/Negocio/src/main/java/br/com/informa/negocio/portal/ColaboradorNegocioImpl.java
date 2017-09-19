@@ -113,4 +113,28 @@ public class ColaboradorNegocioImpl implements ColaboradorNegocio {
 		return entityDao.getAniversariantesDoMes(mes);
 	}
 
+	@Override
+	public Usuario getUserLogin(String loginName) {
+		ColaboradorDao entityDao = FactoryDao.getFactory().getColaboradorDao();
+		return entityDao.getUserLogin(loginName);
+	}
+
+	@Override
+	public List<Usuario> getColaboradoresPorChefia(Integer idChefia) {
+		ColaboradorDao entityDao = FactoryDao.getFactory().getColaboradorDao();
+		return entityDao.getColaboradoresPorChefia(idChefia);
+	}
+
+	@Override
+	public List<Usuario> getColaboradoresPorCargo(Integer idCargo) {
+		ColaboradorDao entityDao = FactoryDao.getFactory().getColaboradorDao();
+		return entityDao.getColaboradoresPorCargo(idCargo);
+	}
+
+	@Override
+	public List<Usuario> getColaboradoresPorNome(String nome) {
+		ColaboradorDao entityDao = FactoryDao.getFactory().getColaboradorDao();
+		return entityDao.getColaboradoresPorNome(nome);
+	}
+
 }

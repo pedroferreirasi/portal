@@ -114,7 +114,7 @@
                                          styleClass="btn-danger"
                                          action="#{entityBean.delete(entity)}"                                        
                                          oncomplete="PF('msgconfirmacao').show()" >
-                          <p:confirm header="Confirmation" message="Are you sure?" icon="ui-icon-alert" />
+                          <p:confirm header="Confirmation" message="Are you sure?" icon="ui-icon-alert" showEffect="fade" hideEffect="fade"  />
                         </p:commandButton>       
                         
                         <p:confirmDialog global="true" showEffect="fade" hideEffect="fade">
