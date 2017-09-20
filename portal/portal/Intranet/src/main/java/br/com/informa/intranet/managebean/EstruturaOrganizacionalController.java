@@ -1,11 +1,16 @@
 package br.com.informa.intranet.managebean;
 
 import java.io.Serializable;
+import java.util.List;
+
 import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
 import org.primefaces.model.DefaultTreeNode;
 import org.primefaces.model.TreeNode;
+
+import br.com.informa.models.common.Usuario;
+import br.com.informa.negocio.core.FactoryNegocio;
 
 @ViewScoped
 @ManagedBean(name = "estruturaOrganizacionalController")
@@ -36,6 +41,14 @@ public class EstruturaOrganizacionalController implements Serializable {
 		node01.getChildren().add(new DefaultTreeNode("Node 0.1.0"));
 		node10.getChildren().add(new DefaultTreeNode("Node 1.0.0"));
 		root.getChildren().add(new DefaultTreeNode("Node 2"));
+	}
+	
+	public void setRecursivo(TreeNode nodePai, Integer idChefia) {
+		List<Usuario> listaUsuario = FactoryNegocio.getFactory().getColaborador().getColaboradoresPorChefia(idChefia);
+		for (Usuario obj : listaUsuario) {
+			TreeNode node = new DefaultTreeNode(obj.getNomeUsuario(), nodePai);
+			setRecursivo(node, obj.getId());
+		}
 	}
 
 	public TreeNode getRoot() {
