@@ -1,9 +1,10 @@
 package br.com.informa.intranet.managebean;
 
-import java.util.ArrayList;
 import java.util.List;
+
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
+
 import br.com.informa.intranet.core.GenericController;
 import br.com.informa.models.common.Usuario;
 import br.com.informa.models.portalrh.Dependentes;
@@ -16,6 +17,7 @@ public class ColaboradorController extends GenericController<Usuario, Integer> {
 	private static final long serialVersionUID = -6576299296092551298L;
 	private List<Usuario> listAniversariantes;
 	private Dependentes dependente;
+	List<Usuario> resultado;
 
 	public ColaboradorController() {
 		entityService = FactoryNegocio.getFactory().getColaborador();
@@ -29,16 +31,9 @@ public class ColaboradorController extends GenericController<Usuario, Integer> {
 		this.entity.setDependentes(this.dependente);
 	}
 	
-    public List<String> completeText(String query) {
-    	List<Usuario> resultado = FactoryNegocio.getFactory().getColaborador().getColaboradoresPorNome(query);
-    	
-    	List<String> strings = new ArrayList<>(resultado.size());
-    	
-    	for (Usuario usuario : resultado) {
-    	    strings.add(usuario.getNomeCompleto());
-    	}
-    	
-        return strings;
+    public List<Usuario> completeText(String query) {
+    	resultado = FactoryNegocio.getFactory().getColaborador().getColaboradoresPorNome(query);    	
+        return resultado;
     }
 
 	@Override
@@ -46,6 +41,12 @@ public class ColaboradorController extends GenericController<Usuario, Integer> {
 		super.novo();
 		this.entity = new Usuario();
 		this.dependente = new Dependentes();
+	}
+	
+	@Override
+	public void editar(Usuario entity) {
+		resultado = FactoryNegocio.getFactory().getColaborador().getColaboradoresPorNome(""); 
+		super.editar(entity);
 	}
 	
 	public List<Usuario> getAniversariantesDoMes(String mes) {
