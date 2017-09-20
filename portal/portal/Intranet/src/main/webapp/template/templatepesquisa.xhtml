@@ -32,16 +32,18 @@
         <!-- Main content -->
         <section class="content col-xs-12">
           <div align="left">
-              <p:panel id="basic" styleClass="box-success">                       
+              <p:panel id="basic" styleClass="box-primary">                       
                 <f:facet name="header">
                   <ui:insert name="titulobotao" />
 		          <p:commandButton value=" Novo" ajax="true"
-			          icon="fa fa-plus-o"
+			          icon="fa fa-plus"
 				      actionListener="#{entityBean.novo}" process="@this" 
 				      update=":formPrincipal:display" oncomplete="PF('dlg').show()"
+				      styleClass="btn-primary"
 				      style="width: 140px; background: #003B72; color: white" />&#160;			                                                                                                                    
 		          <p:commandButton value="Atualizar"
 			          icon="fa fa-fw fa-refresh"
+			          styleClass="btn-primary"
 				      actionListener="#{entityBean.getListAll}" ajax="false" update="@form"
 				      style="width: 140px; background: #003B72; color: white"  >&#160;
 		          </p:commandButton>                  
@@ -81,7 +83,8 @@
                           <div>
                             <div align="rigth">
                               <p:commandButton id="toggler" type="button" value="Colunas" 
-                                   style="float:right; width: 140px; background: #003B72; color: white" icon="fa-fw ui-icon-calculator" />
+                                               styleClass="btn-primary"
+                                               style="float:right; width: 140px; background: #003B72; color: white" icon="fa-fw ui-icon-calculator" />
                               <p:columnToggler datasource="TableId" trigger="toggler" />                            
                             </div>
                             <div align="left">
@@ -103,6 +106,7 @@
                         <p:commandButton id="Editar" update=":formPrincipal:display" icon="fa fa-fw fa-edit" 
                                          style="background: #003B72"
                                          process="@this" ajax="true"
+                                         styleClass="btn-primary"
                                          title="Editar" oncomplete="PF('dlg').show()"
                                          actionListener="#{entityBean.editar(entity)}">                          
 
