@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:p="http://primefaces.org/ui"
+                xmlns:h="http://java.sun.com/jsf/html"
+                template="/template/template.xhtml"> 
+
+    <ui:define name="titulo"> 
+    </ui:define> 
+
+
+    <ui:define name="nomeDaPagina"> 
+    </ui:define>
+
+    <ui:define name="corpo">
+      <section class="content-header">           
+        <h1>Estrutura Organizacional</h1> 
+        <ol class="breadcrumb"> 
+          <li><a href="mainmenu.xhtml"><i class="fa fa-dashboard"></i> Home</a></li> 
+          <li><a href="#">Institucional</a></li> 
+          <li class="active">Estrutura Organizacional</li> 
+        </ol> 
+      </section>
+      
+      <h:form id="formpesquisa">  
+        <!-- Main content -->
+        <section class="content col-xs-12">
+          <div align="left">      
+            <p:panel styleClass="box-success" style="height: 550px">
+        
+              <p:tree value="#{estruturaOrganizacionalController.root}" var="node" orientation="horizontal" >
+                <p:treeNode>
+                  <h:outputText value="#{node}" />
+                </p:treeNode>
+              </p:tree>
+             
+            </p:panel>
+          </div>
+        </section>
+      </h:form>
+    </ui:define>
+
+</ui:composition>
