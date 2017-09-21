@@ -96,9 +96,9 @@ public class DadosProfissionais implements Serializable {
     @Column(name="conta", length=10)
     private String conta;
     
-   // @OneToOne
-    @Column(name="fk_procad_chefia", length=10)
+    // @OneToOne
 	//@JoinColumn(name="fk_procad_chefia", unique = false, foreignKey=@ForeignKey(name = "fk_procad_procad"))
+    @Column(name="fk_procad_chefia")
     private Integer chefia;
 
 	public Integer getId() {

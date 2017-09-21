@@ -26,8 +26,9 @@ public class EstruturaOrganizacionalController implements Serializable {
 
 	@PostConstruct
 	public void init() {
-		root = new DefaultTreeNode("Root", null);
-		TreeNode node0 = new DefaultTreeNode("Node 0", root);
+		root = new DefaultTreeNode("Thais", null);
+		this.setRecursivo(root, 9);
+		/*TreeNode node0 = new DefaultTreeNode("Node 0", root);
 		TreeNode node1 = new DefaultTreeNode("Node 1", root);
 
 		TreeNode node00 = new DefaultTreeNode("Node 0.0", node0);
@@ -40,7 +41,7 @@ public class EstruturaOrganizacionalController implements Serializable {
 		node00.getChildren().add(new DefaultTreeNode("Node 0.0.1"));
 		node01.getChildren().add(new DefaultTreeNode("Node 0.1.0"));
 		node10.getChildren().add(new DefaultTreeNode("Node 1.0.0"));
-		root.getChildren().add(new DefaultTreeNode("Node 2"));
+		root.getChildren().add(new DefaultTreeNode("Node 2"));*/
 	}
 	
 	public void setRecursivo(TreeNode nodePai, Integer idChefia) {

@@ -45,9 +45,12 @@ public class ColaboradorDaoImpl extends HibernateDao<Usuario, Integer>  implemen
 	@SuppressWarnings("unchecked")
 	@Override
 	public List<Usuario> getColaboradoresPorChefia(Integer idChefia) {
-		Criteria criteria = HibernateSessionFactory.getSession().createCriteria(Usuario.class);
-		criteria.add(Restrictions.eq("dadosProfissionais.chefia.id", idChefia));
-		return criteria.list();
+		String hql = "from Usuario usuario  "+
+                " where usuario.dadosProfissionais.chefia = :parametro ";
+	    Query qry = HibernateSessionFactory.getSession().createQuery(hql);	
+	    qry.setParameter("parametro", idChefia);
+	    
+		return qry.list();
 	}
 
 	@SuppressWarnings("unchecked")
