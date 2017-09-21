@@ -33,9 +33,7 @@ import br.com.informa.models.portalrh.Dependentes;
 @Entity
 @Table(name = "tb_usuario")
 public class Usuario implements Serializable, Cloneable {
-	/**
-	 * 
-	 */
+
 	private static final long serialVersionUID = -5211602883770541991L;
 	
 	public Usuario() {				
@@ -273,5 +271,9 @@ public class Usuario implements Serializable, Cloneable {
 		this.dependentes.add(dependentes);
 	}
 
+	@Override
+	public String toString() {
+		return this.nomeCompleto;
+	}	
 	
 }

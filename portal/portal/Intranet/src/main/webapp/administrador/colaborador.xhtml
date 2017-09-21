@@ -507,10 +507,18 @@
 				<p:column style="width:50%; border: none" colspan="2">
                   <p:outputLabel value="Chefe:" for="acSimple" />
                   <p:autoComplete id="acSimple" 
+                                  value="#{colaboradorController.entity.dadosProfissionais.chefia}" 
+                                  size="75"                                  
+                                  completeMethod="#{colaboradorController.completeText}"
+                                  var="usuarioauto"
+                                  itemLabel="#{usuarioauto.nomeCompleto}"
+                                  itemValue="#{usuarioauto.id}"
+                                  forceSelection="true" />
+                  <!-- <p:autoComplete id="acSimple" 
                                   value="#{colaboradorController.nomeChefeAutoComplete}" 
                                   size="75"                                  
                                   completeMethod="#{colaboradorController.completeText}"
-                                  forceSelection="true" />
+                                  forceSelection="true" /> -->                                  
 				</p:column>													
 			</p:row>				
 			

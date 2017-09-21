@@ -33,8 +33,8 @@ public class ColaboradorController extends GenericController<Usuario, Integer> {
 		this.entity.setDependentes(this.dependente);
 	}
 
-	public List<String> completeText(String query) {
-		setResultado(FactoryNegocio.getFactory().getColaborador().getColaboradoresPorNome(query));
+	public List<Usuario> completeText(String query) {
+		/*setResultado(FactoryNegocio.getFactory().getColaborador().getColaboradoresPorNome(query));
 
 		List<String> strings = new ArrayList<>(getResultado().size());
 
@@ -42,7 +42,9 @@ public class ColaboradorController extends GenericController<Usuario, Integer> {
 			strings.add(usuario.getNomeCompleto());
 		}
 
-		return strings;
+		return strings;*/
+		
+		return FactoryNegocio.getFactory().getColaborador().getColaboradoresPorNome(query); 
 	}
 
 	@Override
@@ -54,18 +56,18 @@ public class ColaboradorController extends GenericController<Usuario, Integer> {
 
 	@Override
 	public void editar(Usuario entity) {
-		if (entity.getDadosProfissionais().getChefia() != null) {
+		/*if (entity.getDadosProfissionais().getChefia() != null) {
 			this.nomeChefeAutoComplete = FactoryNegocio.getFactory().getColaborador()
 					.getById(entity.getDadosProfissionais().getChefia()).getNomeCompleto();
 		} else {
 			this.nomeChefeAutoComplete = "";
-		}
+		}*/
 		super.editar(entity);
 	}
 
 	@Override
 	public void salvar() {
-		if (this.nomeChefeAutoComplete != null) {
+		/*if (this.nomeChefeAutoComplete != null) {
 			resultado = FactoryNegocio.getFactory().getColaborador().getColaboradoresPorNome(this.nomeChefeAutoComplete);
 			for (Usuario o : this.resultado) {
 				if (o.getNomeCompleto().equals(this.nomeChefeAutoComplete)) {
@@ -75,7 +77,7 @@ public class ColaboradorController extends GenericController<Usuario, Integer> {
 			}
 		} else {
 			this.entity.getDadosProfissionais().setChefia(null);
-		}
+		}*/
 		super.salvar();
 	}
 

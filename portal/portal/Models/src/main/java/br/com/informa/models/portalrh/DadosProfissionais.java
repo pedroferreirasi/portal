@@ -96,10 +96,10 @@ public class DadosProfissionais implements Serializable {
     @Column(name="conta", length=10)
     private String conta;
     
-    // @OneToOne
-	//@JoinColumn(name="fk_procad_chefia", unique = false, foreignKey=@ForeignKey(name = "fk_procad_procad"))
-    @Column(name="fk_procad_chefia")
-    private Integer chefia;
+    @OneToOne
+	@JoinColumn(name="fk_procad_chefia", unique = false, foreignKey=@ForeignKey(name = "fk_procad_procad"))
+    //@Column(name="fk_procad_chefia")
+    private Usuario chefia;
 
 	public Integer getId() {
 		return id;
@@ -246,11 +246,11 @@ public class DadosProfissionais implements Serializable {
 		this.conta = conta;
 	}
 
-	public Integer getChefia() {
+	public Usuario getChefia() {
 		return chefia;
 	}
 
-	public void setChefia(Integer chefia) {
+	public void setChefia(Usuario chefia) {
 		this.chefia = chefia;
 	}
 
