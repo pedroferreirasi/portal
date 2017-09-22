@@ -7,6 +7,7 @@ import javax.faces.convert.Converter;
 import javax.faces.convert.ConverterException;
 import javax.faces.convert.FacesConverter;
 
+import br.com.informa.intranet.managebean.ColaboradorController;
 import br.com.informa.models.common.Usuario;
 
 @FacesConverter("colaboradorConverter")
@@ -16,7 +17,13 @@ public class ColaboradorConverter implements Converter {
 	public Object getAsObject(FacesContext fc, UIComponent uic, String value) {
         if(value != null && value.trim().length() > 0) {
             try {
-                return Integer.parseInt(value);
+             	ColaboradorController controller = (ColaboradorController) FacesContext.getCurrentInstance().getViewRoot().getViewMap().get("colaboradorController");
+             	for (Usuario usuario : controller.getResultado()) {
+             		if (usuario.getId() == Integer.parseInt(value)) {
+             			return usuario;
+             		}
+             	}
+                return null;
             } catch(NumberFormatException e) {
                 throw new ConverterException(new FacesMessage(FacesMessage.SEVERITY_ERROR, "Conversion Error", "Not a valid theme."));
             }
