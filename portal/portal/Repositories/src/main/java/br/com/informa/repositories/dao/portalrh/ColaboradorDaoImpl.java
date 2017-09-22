@@ -46,7 +46,7 @@ public class ColaboradorDaoImpl extends HibernateDao<Usuario, Integer>  implemen
 	@Override
 	public List<Usuario> getColaboradoresPorChefia(Integer idChefia) {
 		String hql = "from Usuario usuario  "+
-                " where usuario.dadosProfissionais.chefia = :parametro ";
+                " where usuario.dadosProfissionais.chefia.id = :parametro ";
 	    Query qry = HibernateSessionFactory.getSession().createQuery(hql);	
 	    qry.setParameter("parametro", idChefia);
 	    

@@ -47,7 +47,7 @@ public class EstruturaOrganizacionalController implements Serializable {
 	public void setRecursivo(TreeNode nodePai, Integer idChefia) {
 		List<Usuario> listaUsuario = FactoryNegocio.getFactory().getColaborador().getColaboradoresPorChefia(idChefia);
 		for (Usuario obj : listaUsuario) {
-			TreeNode node = new DefaultTreeNode(obj.getNomeUsuario(), nodePai);
+			TreeNode node = new DefaultTreeNode(obj.getNomeUsuario() + "(" + obj.getCargo().getDescricao() + ")", nodePai);
 			setRecursivo(node, obj.getId());
 		}
 	}

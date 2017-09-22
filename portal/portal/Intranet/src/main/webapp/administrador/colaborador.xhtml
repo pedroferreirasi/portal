@@ -512,8 +512,10 @@
                                   completeMethod="#{colaboradorController.completeText}"
                                   var="usuarioauto"
                                   itemLabel="#{usuarioauto.nomeCompleto}"
-                                  itemValue="#{usuarioauto.id}"
-                                  forceSelection="true" />
+                                  itemValue="#{usuarioauto}"
+                                  converter="colaboradorConverter"
+                                  forceSelection="true" />                                
+                                  
                   <!-- <p:autoComplete id="acSimple" 
                                   value="#{colaboradorController.nomeChefeAutoComplete}" 
                                   size="75"                                  
