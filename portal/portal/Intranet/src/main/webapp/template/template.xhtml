@@ -87,16 +87,16 @@
     </p:dialog>
 
     <div class="wrapper">
-      <header class="main-header"> <!-- Logo --> 
+      <header class="main-header absolute" > <!-- Logo --> 
         <a href="#{request.contextPath}/pages/mainmenu.xhtml" class="logo"> 
           <!-- mini logo for sidebar mini 50x50 pixels -->
-          <span class="logo-mini" style="valign: center">
-            <b>RH</b>
+          <span class="logo-mini" style="valign: top; align: left;">
+            <img src="../resources/images/Icone.png" width="32px" border="true" />
           </span> 
           <!-- logo for regular state and mobile devices -->
           <span class="logo-lg">
             <b>
-              <h:outputText value="#{messages.AppName}" />
+              <img src="../resources/images/marcainforma.png" width="120px" />
             </b>
           </span>
         </a> 
@@ -117,6 +117,67 @@
                   $('.push').html(data);
                 }
               </script>
+              
+				<!-- Messages: style can be found in dropdown.less-->
+				 <li class="dropdown messages-menu"><a href="#"
+					class="dropdown-toggle" data-toggle="dropdown"> <i
+						class="fa fa-envelope-o"></i> <span class="label label-success">4</span>
+				</a>
+					<ul class="dropdown-menu">
+						<li class="header">Você tem 4 mensagens</li>
+						<li>
+							<ul class="menu">
+								<li>
+
+								</li>
+
+								<li><a href="#">
+										<div class="pull-left">
+											<img src="../dist/img/avatar.png" class="img-circle"
+												alt="User Image" />
+										</div>
+										<h4>
+											AdminLTE Design Team <small><i class="fa fa-clock-o"></i>
+												2 hours</small>
+										</h4>
+										<p>Why not buy a new awesome theme?</p>
+								</a></li>
+								<li><a href="#">
+										<div class="pull-left">
+											<img src="../dist/img/avatar04.png" class="img-circle"
+												alt="User Image" />
+										</div>
+										<h4>
+											Developers <small><i class="fa fa-clock-o"></i> Today</small>
+										</h4>
+										<p>Why not buy a new awesome theme?</p>
+								</a></li>
+								<li><a href="#">
+										<div class="pull-left">
+											<img src="#{request.contextPath}/resources/dist/img/avatar2.png"
+												class="img-circle" alt="User Image" />
+										</div>
+										<h4>
+											Sales Department <small><i class="fa fa-clock-o"></i>
+												Yesterday</small>
+										</h4>
+										<p>Why not buy a new awesome theme?</p>
+								</a></li>
+								<li><a href="#">
+										<div class="pull-left">
+											<img src="#{request.contextPath}/resources/dist/img/avatar3.png"
+												class="img-circle" alt="User Image" />
+										</div>
+										<h4>
+											Reviewers <small><i class="fa fa-clock-o"></i> 2 days</small>
+										</h4>
+										<p>Why not buy a new awesome theme?</p>
+								</a></li>
+							</ul>
+						</li>
+						<li class="footer"><a href="#">See All Messages</a></li>
+					</ul></li>
+              
 
               <!-- User Account: style can be found in dropdown.less -->
               <li class="dropdown user user-menu">

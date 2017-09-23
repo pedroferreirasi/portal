@@ -34,6 +34,10 @@ public class Contexto implements Serializable {
 	public static Usuario getUsuarioLogado() {
 		return getAutenticacaoController().getEntity();
 	}
+	
+	public static Object getContextoViewScoped(String managedBean) {
+		return FacesContext.getCurrentInstance().getViewRoot().getViewMap().get(managedBean);
+	}
 		
 	@Deprecated
 	@SuppressWarnings("static-access")

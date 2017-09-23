@@ -35,6 +35,9 @@ public class DadosPessoais implements Serializable {
 	private static final long serialVersionUID = 8033642361287560373L;
 	
 	public DadosPessoais() {
+		this.estado = EEstadosBrasil.PE;
+		this.estadoEmissorRG = "PE";
+		this.tipoLogradouro = ETipoLogradouro.Rua;
 	}
 
 	@Id
@@ -82,7 +85,7 @@ public class DadosPessoais implements Serializable {
     @Column(name="datanascimento", columnDefinition="DATE")
     private Date dataNascimento;
 
-    @Column(name="estadocivil", length=1)
+    @Column(name="estadocivil", length=20)
     @Enumerated(EnumType.STRING)
     private EEstadoCivil estadoCivil;
 

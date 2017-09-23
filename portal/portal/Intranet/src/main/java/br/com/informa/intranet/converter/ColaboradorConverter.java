@@ -8,6 +8,7 @@ import javax.faces.convert.ConverterException;
 import javax.faces.convert.FacesConverter;
 
 import br.com.informa.intranet.managebean.ColaboradorController;
+import br.com.informa.intranet.utils.Contexto;
 import br.com.informa.models.common.Usuario;
 
 @FacesConverter("colaboradorConverter")
@@ -15,9 +16,9 @@ public class ColaboradorConverter implements Converter {
 
 	@Override
 	public Object getAsObject(FacesContext fc, UIComponent uic, String value) {
-        if(value != null && value.trim().length() > 0) {
+        if(value != null && value.trim().length() > 0 && !value.equals("0")) {
             try {
-             	ColaboradorController controller = (ColaboradorController) FacesContext.getCurrentInstance().getViewRoot().getViewMap().get("colaboradorController");
+             	ColaboradorController controller = (ColaboradorController) Contexto.getContextoViewScoped("colaboradorController");
              	for (Usuario usuario : controller.getResultado()) {
              		if (usuario.getId() == Integer.parseInt(value)) {
              			return usuario;

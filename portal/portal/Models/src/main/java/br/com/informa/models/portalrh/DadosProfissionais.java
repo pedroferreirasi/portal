@@ -35,7 +35,7 @@ public class DadosProfissionais implements Serializable {
 	
 	public DadosProfissionais() {
 		flagBatePonto = true;
-		this.dataAdmissao = new Date();
+		this.estadoCTPS = "PE";
 	}
 
 	@Id

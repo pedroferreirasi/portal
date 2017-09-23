@@ -27,10 +27,14 @@
         <section class="content col-xs-12">
           <div align="left">      
             <p:panel styleClass="box-success" style="height: 550px">
-        
+                   
               <p:tree value="#{estruturaOrganizacionalController.root}" var="node" orientation="horizontal" >
                 <p:treeNode>
-                  <h:outputText value="#{node}" />
+                  <p:panel>
+                  <img src="../resources/images/pdf.png" />
+                    <h:outputText value="#{node}" /> <br />
+                    <h:outputText value="(Cargo)" />
+                  </p:panel>
                 </p:treeNode>
               </p:tree>
              
