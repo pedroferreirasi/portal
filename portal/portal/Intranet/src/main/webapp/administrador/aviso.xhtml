@@ -75,35 +75,47 @@
 			</p:column>
 		</p:row> 
 		<p:row style="border: none">
-			<p:column style="width:20%; border: none" colspan="2">
+			<p:column style="width:20%; border: none">
 				<h:outputText value="Validade: " /><br />
 				<p:calendar id="popup" value="#{entityBean.entity.dataValidade}" pattern="dd/MM/yyyy" >
 				  <f:convertDateTime pattern="dd/MM/yyyy" />
 				</p:calendar>
 			</p:column>
+			<p:column style="width:80%; border: none">
+              <h:outputText value="Destinatário (Cargo): " /><br />
+                  <p:autoComplete id="cargoauto" 
+                                  value="#{entityBean.listSelectedUsuario}" 
+                                  size="100"                                  
+                                  completeMethod="#{entityBean.completeText}"
+                                  var="usuarioauto"
+                                  itemLabel="#{usuarioauto.nomeCompleto}"
+                                  itemValue="#{usuarioauto}"
+                                  multiple="true"
+                                  converter="colaboradorConverter"
+                                  forceSelection="true" />                                     
+        			
+			</p:column>
 		</p:row>
 		<p:row style="border: none">
-			<p:column style="width:20%; border: none">
+			<p:column colspan="2" style="width:100%; border: none">
+              <h:outputText value="Destinatário (Colaborador): " /><br />
+                  <p:autoComplete id="acSimple" 
+                                  value="#{entityBean.listSelectedUsuario}" 
+                                  size="500"                                  
+                                  completeMethod="#{entityBean.completeText}"
+                                  var="usuarioauto"
+                                  itemLabel="#{usuarioauto.nomeCompleto}"
+                                  itemValue="#{usuarioauto}"
+                                  multiple="true"
+                                  converter="colaboradorConverter"
+                                  forceSelection="true" />                                     
+        			
+			</p:column>
+		</p:row>		
+		<p:row style="border: none">
+			<p:column colspan="2" style="width:20%; border: none">
 				<h:outputText value="Mensagem: " /><br />
 				<p:textEditor id="mensagem" value="#{entityBean.entity.mensagem}" height="240" />
-			</p:column>
-			<p:column style="width:20%; border: none">
-        
-        <!-- <p:autoComplete id="themes" multiple="true" 
-                        value="#{autoCompleteView.selectedThemes}" 
-                        completeMethod="#{autoCompleteView.completeTheme}"
-                        var="theme" itemLabel="#{theme.displayName}" 
-                        itemValue="#{theme}" converter="themeConverter" 
-                        forceSelection="true">
-            <p:column style="width:10%">
-                <h:outputText styleClass="ui-theme ui-theme-#{theme.name}" />
-            </p:column>
- 
-            <p:column>
-                <h:outputText value="#{theme.displayName}" />
-            </p:column>
-        </p:autoComplete> -->
-        			
 			</p:column>
 		</p:row>
 	  </p:panelGrid><br/>
