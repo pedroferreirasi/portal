@@ -23,7 +23,8 @@ public class ColaboradorController extends GenericController<Usuario, Integer> {
 		this.novo();
 		listaEntity = this.getListAll();
 		this.setWidthModal("900");
-		this.setHeightModal("390");		
+		this.setHeightModal("390");
+		resultado = FactoryNegocio.getFactory().getColaborador().getListAll();
 	}
 
 	public void addDepentes() {

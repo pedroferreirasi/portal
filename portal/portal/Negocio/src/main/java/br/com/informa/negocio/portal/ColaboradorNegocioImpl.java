@@ -17,7 +17,6 @@ public class ColaboradorNegocioImpl implements ColaboradorNegocio {
 		if (validacao(entity)) {
 			try {
 				entity.setTipoUsuario(ETipoUsuario.C);
-				entity.getCargo().setId(1);
 				entity.setSenha(CommonMethods.getInstance().SHA256("informa", entity.getLogin()));
 				ColaboradorDao entityDao = FactoryDao.getFactory().getColaboradorDao();
 				entityDao.Add(entity);

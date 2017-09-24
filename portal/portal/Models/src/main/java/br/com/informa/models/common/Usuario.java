@@ -269,12 +269,6 @@ public class Usuario implements Serializable, Cloneable {
 
 	public void setDependentes(Dependentes dependentes) {
 		this.dependentes.add(dependentes);
-	}
-	
-	@Override
-	public String toString() {
-		return this.nomeCompleto;
-	}
-	
+	}	
 	
 }

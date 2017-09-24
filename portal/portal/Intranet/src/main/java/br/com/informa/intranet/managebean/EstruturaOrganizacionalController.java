@@ -26,14 +26,14 @@ public class EstruturaOrganizacionalController implements Serializable {
 
 	@PostConstruct
 	public void init() {;
-		root = new DefaultTreeNode("Thais", null);
-		this.setRecursivo(root, 7);
+		root = new DefaultTreeNode(new Usuario(), null);
+		this.setRecursivo(root, 8);
 	}
 	
 	public void setRecursivo(TreeNode nodePai, Integer idChefia) {
 		List<Usuario> listaUsuario = FactoryNegocio.getFactory().getColaborador().getColaboradoresPorChefia(idChefia);
 		for (Usuario obj : listaUsuario) {
-			TreeNode node = new DefaultTreeNode(obj.getNomeUsuario(), nodePai);
+			TreeNode node = new DefaultTreeNode(obj, nodePai);
 			setRecursivo(node, obj.getId());
 		}
 	}

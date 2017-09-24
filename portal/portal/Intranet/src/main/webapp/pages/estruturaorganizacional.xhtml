@@ -26,15 +26,23 @@
         <!-- Main content -->
         <section class="content col-xs-12">
           <div align="left">      
-            <p:panel styleClass="box-success" style="height: 550px">
+            <p:panel>
                    
-              <p:tree value="#{estruturaOrganizacionalController.root}" var="node" orientation="horizontal" >
+              <p:tree value="#{estruturaOrganizacionalController.root}" 
+                      var="objeto"                       
+                      orientation="horizontal" >
                 <p:treeNode>
-                  <p:panel>
-                  <img src="../resources/images/pdf.png" />
-                    <h:outputText value="#{node}" /> <br />
-                    <h:outputText value="(Cargo)" />
+                  
+                  <p:panel header="#{objeto.nomeUsuario}" id="painelestrutura" styleClass="panel-padding" style="width: 120px" >
+                    <h:panelGroup>
+                    <center>  
+                      <img src="#{autenticacaoController.fotoAvatar}" class="img-circle" alt="User Image" width="42px" /><br />                    
+                      <!-- <h:outputText value="#{objeto.nomeUsuario}" /> <br /> -->
+                      <p:outputLabel value="(#{objeto.cargo.descricao})" id="cargo"  />
+                    </center>
+                    </h:panelGroup>
                   </p:panel>
+                  
                 </p:treeNode>
               </p:tree>
              
