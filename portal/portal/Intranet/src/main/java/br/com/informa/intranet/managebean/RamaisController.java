@@ -25,6 +25,8 @@ public class RamaisController extends GenericController<Usuario, Integer> {
 		this.setExibeBotaoExcluir(false);
 		this.setExibeBotaoCancelar(false);
 		this.setExibeBotaoSalvar(false);
+		this.setExibeBotaoNovo(false);
+		this.setExibeBotaoAtualizar(false);
 	}
 
 	public void novo() {

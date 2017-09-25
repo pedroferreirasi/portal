@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui:composition xmlns="http://www.w3.org/1999/xhtml"
                 xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:f="http://xmlns.jcp.org/jsf/core"
                 xmlns:p="http://primefaces.org/ui"
                 xmlns:h="http://java.sun.com/jsf/html"
                 template="/template/template.xhtml"> 
@@ -10,9 +11,11 @@
 
 
     <ui:define name="nomeDaPagina"> 
+      
     </ui:define>
 
     <ui:define name="corpo">
+      <ui:param name="entityBean" value="#{estruturaOrganizacionalController}" />
       <section class="content-header">           
         <h1>Estrutura Organizacional</h1> 
         <ol class="breadcrumb"> 
@@ -32,16 +35,23 @@
                       var="objeto"                       
                       orientation="horizontal" >
                 <p:treeNode>
+                  <p:commandLink id="Editar" update=":formPrincipal:display" icon="fa fa-fw fa-edit" 
+                                 style="background: #003B72"
+                                 process="@this" ajax="true"
+                                 styleClass="btn-primary"
+                                 title="Editar" oncomplete="PF('dlg').show()"
+                                 actionListener="#{entityBean.editar(objeto)}">
                   
-                  <p:panel header="#{objeto.nomeUsuario}" id="painelestrutura" styleClass="panel-padding" style="width: 120px" >
-                    <h:panelGroup>
-                    <center>  
-                      <img src="#{autenticacaoController.fotoAvatar}" class="img-circle" alt="User Image" width="42px" /><br />                    
-                      <!-- <h:outputText value="#{objeto.nomeUsuario}" /> <br /> -->
-                      <p:outputLabel value="(#{objeto.cargo.descricao})" id="cargo"  />
-                    </center>
-                    </h:panelGroup>
-                  </p:panel>
+                    <p:panel header="#{objeto.nomeUsuario}" id="painelestrutura" styleClass="panel-padding" style="width: 120px" >
+                      <h:panelGroup>
+                        <center>  
+                          <img src="#{autenticacaoController.fotoAvatar}" class="img-circle" alt="User Image" width="42px" /><br />                    
+                          <!-- <h:outputText value="#{objeto.nomeUsuario}" /> <br /> -->
+                          <p:outputLabel value="(#{objeto.cargo.descricao})" id="cargo"  />
+                        </center>                    
+                      </h:panelGroup>
+                    </p:panel>                  
+                  </p:commandLink>
                   
                 </p:treeNode>
               </p:tree>
@@ -50,6 +60,61 @@
           </div>
         </section>
       </h:form>
+      
+	  <h:form id="formPrincipal" enctype="multipart/form-data" > 	 	    
+        <p:dialog modal="true" widgetVar="dlg" 
+                  id="dlg"
+                  showEffect="scale" hideEffect="size"
+                  header="#{entityBean.tituloTelaDeCadastro}"
+                  appendToBody="true" 
+                  position="center center"
+                  width="#{entityBean.widthModal}" 
+                  height="#{entityBean.heightModal}" 
+                  minimizable="true">                                     
+                     
+      <p:panelGrid id="display" style="width: 100%; border: none; cellspacing: 10px; background-color:navy;" > 	
+		<p:row style="border: none">
+			<p:column style="width:80%; border: none">
+		      <b>#{entityBean.entity.nomeCompleto} </b> <br />
+		      #{entityBean.entity.cargo.descricao} <br /><br />
+		      #{entityBean.entity.email} <br />
+		      (81) 2137-6767 | Ramal: #{entityBean.entity.dadosProfissionais.ramal}<br />
+		      #{entityBean.entity.celular} 		      
+		      <br /><br /><br />
+		      
+		      <b>In Forma Software </b><br />
+		      Rua da Guia, 142 -Sl. 302 - Bairro do Recife<br />
+		      CEP: 50.030-210 | Recife (PE)<br />
+		      <b>www.informa.com.br</b>
+			</p:column>
+			<p:column style="width:20%; border: none; align: center; valign: top" >			  
+			  <img src="../resources/images/qrcode.png" width="90px" />
+			  <br /><br /><br /><br /><br /><br />
+			  <img src="../resources/images/logomarca.png" />
+			</p:column>
+		</p:row> 
+	  </p:panelGrid><br/>   
+			          
+          <f:facet name="footer">
+            <p:commandButton value=" Salvar "
+                             icon="fa fa-save"
+                             action="#{entityBean.salvar}"
+                             rendered="#{entityBean.exibeBotaoSalvar}"
+                             process="@form"
+                             style="width: 100px"                                                          
+                             styleClass="btn-primary" >
+
+             </p:commandButton>&#160;
+
+             <p:commandButton type="button" value="Cancelar" styleClass="btn-primary" 
+                              onclick="PF('dlg').hide()" ajax="false"
+                              icon="fa fa-remove"
+                              style="width: 100px"
+                              rendered="#{entityBean.exibeBotaoCancelar}" />
+          </f:facet>           
+          
+        </p:dialog>	  
+        </h:form>         
     </ui:define>
 
 </ui:composition>

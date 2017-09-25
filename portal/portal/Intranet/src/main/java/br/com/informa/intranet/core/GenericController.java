@@ -18,6 +18,8 @@ public abstract class GenericController<T, TIPOCHAVE extends Serializable> imple
 	protected EEstadoForm estado;
 	protected boolean exibeBotaoExcluir;
 	protected boolean exibeBotaoEditar;
+	private boolean exibeBotaoNovo;
+	private boolean exibeBotaoAtualizar;
 	protected boolean exibeColunaDeAcao;
 	protected boolean exibeBotaoSalvar;
 	protected boolean exibeBotaoCancelar;
@@ -34,6 +36,8 @@ public abstract class GenericController<T, TIPOCHAVE extends Serializable> imple
 		this.exibeColunaDeAcao = true;
 		this.exibeBotaoCancelar = true;
 		this.exibeBotaoSalvar = true;
+		this.exibeBotaoNovo = true;
+		this.exibeBotaoAtualizar = true;
 		percentualGrid = "100";
 		estado = EEstadoForm.Nenhum;
 		this.widthModal = "40%";
@@ -224,6 +228,22 @@ public abstract class GenericController<T, TIPOCHAVE extends Serializable> imple
 
 	public void setTituloTelaDeCadastro(String tituloTelaDeCadastro) {
 		this.tituloTelaDeCadastro = tituloTelaDeCadastro;
+	}
+
+	public boolean isExibeBotaoNovo() {
+		return exibeBotaoNovo;
+	}
+
+	public void setExibeBotaoNovo(boolean exibeBotaoNovo) {
+		this.exibeBotaoNovo = exibeBotaoNovo;
+	}
+
+	public boolean isExibeBotaoAtualizar() {
+		return exibeBotaoAtualizar;
+	}
+
+	public void setExibeBotaoAtualizar(boolean exibeBotaoAtualizar) {
+		this.exibeBotaoAtualizar = exibeBotaoAtualizar;
 	}
 
 }
