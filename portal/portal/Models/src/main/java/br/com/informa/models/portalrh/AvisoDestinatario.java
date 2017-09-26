@@ -2,13 +2,15 @@ package br.com.informa.models.portalrh;
 
 import java.io.Serializable;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.ForeignKey;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.OneToOne;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
@@ -26,20 +28,21 @@ public class AvisoDestinatario implements Serializable {
 		lido = false;
 		this.usuario = new Usuario();
 		this.aviso = new Aviso();
+		
 	}
 	
 	private static final long serialVersionUID = 1L;
 
 	@Id
-    @GeneratedValue
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
     @Column(name="pk_avdcad", nullable=false)
     private Integer id;
 
-	@OneToOne
+	@ManyToOne(cascade=CascadeType.ALL)
 	@JoinColumn(name="fk_usucad", unique = false, foreignKey=@ForeignKey(name = "fk_avdcad_usucad"))
     private Usuario usuario;
 
-	@OneToOne
+	@ManyToOne(cascade=CascadeType.ALL)
 	@JoinColumn(name="fk_avicad", unique = false, foreignKey=@ForeignKey(name = "fk_avdcad_avicad"))
     private Aviso aviso;
 	
