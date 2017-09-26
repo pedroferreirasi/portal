@@ -10,6 +10,7 @@ import br.com.informa.intranet.core.GenericController;
 import br.com.informa.intranet.utils.Contexto;
 import br.com.informa.models.common.Usuario;
 import br.com.informa.models.portalrh.Aviso;
+import br.com.informa.models.portalrh.AvisoDestinatario;
 import br.com.informa.negocio.core.FactoryNegocio;
 
 @ManagedBean(name = "avisoController")
@@ -29,12 +30,28 @@ public class AvisoController extends GenericController<Aviso, Integer> {
 		this.setHeightModal("510");
 		this.listSelectedUsuario = new ArrayList<Usuario>();
 	}
-	
+
 	public List<Usuario> completeText(String query) {
-		setResultado(FactoryNegocio.getFactory().getColaborador().getColaboradoresPorNome(query)); 
-		return getResultado(); 
+		setResultado(FactoryNegocio.getFactory().getColaborador().getColaboradoresPorNome(query));
+		return getResultado();
 	}
 
+	@Override
+	public void salvar() {
+		if (listSelectedUsuario != null) {
+			if (listSelectedUsuario.size() > 0) {
+				for (Usuario usuario : listSelectedUsuario) {
+					AvisoDestinatario objeto = new AvisoDestinatario();
+					objeto.setUsuario(usuario);
+					objeto.setAviso(this.entity);
+					this.entity.getListaDestinatario().add(objeto);
+				}
+			}
+		}
+		super.salvar();
+	}
+
+	@Override
 	public void novo() {
 		super.novo();
 
