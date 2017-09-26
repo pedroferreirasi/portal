@@ -42,11 +42,7 @@
 	</dependencies>
   <modules>
     <module>Models</module>
-    
-    <module>Service</module>
-    <module>Services</module>
-    <module>Repositories</module>
-    <module>PortalRH</module>
+    <module>Repositories</module>    
     <module>Libraries</module>
     <module>Negocio</module>
     <module>Intranet</module>
