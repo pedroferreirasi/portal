@@ -1,6 +1,7 @@
 package br.com.informa.negocio.portal;
 
 import java.util.List;
+
 import br.com.informa.models.portalrh.Aviso;
 import br.com.informa.repositories.dao.FactoryDao;
 import br.com.informa.repositories.dao.portalrh.AvisoDao; 
@@ -48,16 +49,4 @@ public class AvisoNegocioImpl implements AvisoNegocio {
 		// TODO Auto-generated method stub 
 		return true; 
  }
-
-	@Override
-	public List<Aviso> getAvisosNaoLido(Integer idUsuario) {
-		AvisoDao entityDao = FactoryDao.getFactory().getAvisoDao(); 
-		return entityDao.getAvisosNaoLido(idUsuario); 
-	}
-
-	@Override
-	public List<Aviso> getAllAvisos(Integer idUsuario) {
-		AvisoDao entityDao = FactoryDao.getFactory().getAvisoDao(); 
-		return entityDao.getAllAvisos(idUsuario);
-	}
 } 

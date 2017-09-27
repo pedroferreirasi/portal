@@ -65,4 +65,10 @@ public class CargoNegocioImpl implements CargoNegocio {
 
 		return resultado;
 	}
+
+	@Override
+	public List<Cargo> getCargoPorNome(String nome) {
+		CargoDao entityDao = FactoryDao.getFactory().getCargoDao();
+		return entityDao.getCargoPorNome(nome);
+	}
 }

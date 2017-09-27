@@ -11,7 +11,9 @@ import br.com.informa.intranet.utils.Contexto;
 import br.com.informa.models.common.Usuario;
 import br.com.informa.models.portalrh.Aviso;
 import br.com.informa.models.portalrh.AvisoDestinatario;
+import br.com.informa.models.portalrh.Cargo;
 import br.com.informa.negocio.core.FactoryNegocio;
+import br.com.informa.negocio.portal.ColaboradorNegocio;
 
 @ManagedBean(name = "avisoController")
 @ViewScoped
@@ -20,7 +22,9 @@ public class AvisoController extends GenericController<Aviso, Integer> {
 	private static final long serialVersionUID = 1L;
 
 	private List<Usuario> listSelectedUsuario;
+	private List<Cargo> listSelectedCargo;
 	private List<Usuario> resultado;
+	private List<Cargo> resultadoCargo;
 
 	public AvisoController() {
 		entityService = FactoryNegocio.getFactory().getAviso();
@@ -35,16 +39,40 @@ public class AvisoController extends GenericController<Aviso, Integer> {
 		setResultado(FactoryNegocio.getFactory().getColaborador().getColaboradoresPorNome(query));
 		return getResultado();
 	}
+	
+	public List<Cargo> completeTextCargo(String query) {
+		resultadoCargo = FactoryNegocio.getFactory().getCargo().getCargoPorNome(query); 
+		return resultadoCargo; 
+	}
 
 	@Override
 	public void salvar() {
-		if (listSelectedUsuario != null) {
+		ColaboradorNegocio entityNegocioColaborador = FactoryNegocio.getFactory().getColaborador();
+		if (this.listSelectedUsuario != null) {
 			if (listSelectedUsuario.size() > 0) {
 				for (Usuario usuario : listSelectedUsuario) {
 					AvisoDestinatario objeto = new AvisoDestinatario();
 					objeto.setUsuario(usuario);
 					objeto.setAviso(this.entity);
 					this.entity.getListaDestinatario().add(objeto);
+				}
+			}
+		}
+		
+		if (this.listSelectedCargo != null) {
+			if (this.listSelectedCargo.size() > 0) {
+				for (Cargo cargo : this.listSelectedCargo) {
+					List<Usuario> listaUsuario = entityNegocioColaborador.getColaboradoresPorCargo(cargo.getId());
+					if (listaUsuario != null) {
+						if (listaUsuario.size() > 0) {
+							for (Usuario usuario : listaUsuario) {
+								AvisoDestinatario objeto = new AvisoDestinatario();
+								objeto.setUsuario(usuario);
+								objeto.setAviso(this.entity);
+								this.entity.getListaDestinatario().add(objeto);
+							}
+						}
+					}
 				}
 			}
 		}
@@ -73,5 +101,21 @@ public class AvisoController extends GenericController<Aviso, Integer> {
 
 	public void setResultado(List<Usuario> resultado) {
 		this.resultado = resultado;
+	}
+
+	public List<Cargo> getResultadoCargo() {
+		return resultadoCargo;
+	}
+
+	public void setResultadoCargo(List<Cargo> resultadoCargo) {
+		this.resultadoCargo = resultadoCargo;
+	}
+
+	public List<Cargo> getListSelectedCargo() {
+		return listSelectedCargo;
+	}
+
+	public void setListSelectedCargo(List<Cargo> listSelectedCargo) {
+		this.listSelectedCargo = listSelectedCargo;
 	}
 }

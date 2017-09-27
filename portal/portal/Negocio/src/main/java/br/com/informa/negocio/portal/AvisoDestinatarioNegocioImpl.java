@@ -1,8 +1,9 @@
 package br.com.informa.negocio.portal;
 
-import java.util.List; 
-import br.com.informa.models.portalrh.AvisoDestinatario; 
-import br.com.informa.repositories.dao.FactoryDao; 
+import java.util.List;
+
+import br.com.informa.models.portalrh.AvisoDestinatario;
+import br.com.informa.repositories.dao.FactoryDao;
 import br.com.informa.repositories.dao.portalrh.AvisoDestinatarioDao; 
  
 public class AvisoDestinatarioNegocioImpl implements AvisoDestinatarioNegocio { 
@@ -50,8 +51,14 @@ public class AvisoDestinatarioNegocioImpl implements AvisoDestinatarioNegocio {
  }
 
 	@Override
-	public List<AvisoDestinatario> getAvisosPorUsuario(Integer pk) {
+	public List<AvisoDestinatario> getAvisosPorUsuario(Integer idUsuario) {
 		AvisoDestinatarioDao entityDao = FactoryDao.getFactory().getAvisoDestinatarioDao(); 
-		return entityDao.getAvisosPorUsuario(pk);
+		return entityDao.getAvisosPorUsuario(idUsuario);
+	}
+
+	@Override
+	public List<AvisoDestinatario> getAvisosNaoLido(Integer idUsuario) {
+		AvisoDestinatarioDao entityDao = FactoryDao.getFactory().getAvisoDestinatarioDao(); 
+		return entityDao.getAvisosNaoLido(idUsuario);
 	}
 } 

@@ -83,16 +83,16 @@
 			</p:column>
 			<p:column style="width:80%; border: none">
               <h:outputText value="Destinatário (Cargo): " /><br />
-                  <!-- <p:autoComplete id="cargoauto" 
-                                  value="#{entityBean.listSelectedUsuario}" 
+              <p:autoComplete id="cargoauto" 
+                                  value="#{entityBean.listSelectedCargo}" 
                                   size="100"                                  
-                                  completeMethod="#{entityBean.completeText}"
-                                  var="usuarioauto"
-                                  itemLabel="#{usuarioauto.nomeCompleto}"
-                                  itemValue="#{usuarioauto}"
+                                  completeMethod="#{entityBean.completeTextCargo}"
+                                  var="cargoauto"
+                                  itemLabel="#{cargoauto.descricao}"
+                                  itemValue="#{cargoauto}"
                                   multiple="true"
-                                  converter="colaboradorConverter"
-                                  forceSelection="true" /> -->                                     
+                                  converter="cargoConverter"
+                                  forceSelection="true" />                                     
         			
 			</p:column>
 		</p:row>

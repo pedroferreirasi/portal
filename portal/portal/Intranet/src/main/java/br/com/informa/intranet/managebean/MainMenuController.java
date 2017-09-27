@@ -7,9 +7,9 @@ import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
 
 import br.com.informa.intranet.utils.Contexto;
-import br.com.informa.models.portalrh.Aviso;
+import br.com.informa.models.portalrh.AvisoDestinatario;
 import br.com.informa.negocio.core.FactoryNegocio;
-import br.com.informa.negocio.portal.AvisoNegocio;
+import br.com.informa.negocio.portal.AvisoDestinatarioNegocio;
 
 @ManagedBean(name="mainMenuController")
 @ViewScoped
@@ -18,15 +18,16 @@ public class MainMenuController implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	private Integer avisosNaoLidos;
-	private List<Aviso> listaAvisosNaoLidos;
+	private List<AvisoDestinatario> listaAvisosNaoLidos;
 	
 	public MainMenuController() {
-		/*AvisoNegocio entityNegocio = FactoryNegocio.getFactory().getAviso();
+		AvisoDestinatarioNegocio entityNegocio = FactoryNegocio.getFactory().getAvisoDestinatario();
 		listaAvisosNaoLidos = entityNegocio.getAvisosNaoLido(Contexto.getUsuarioLogado().getId());
 		if (listaAvisosNaoLidos != null) {
 			this.avisosNaoLidos = listaAvisosNaoLidos.size();
-		}*/
-		this.avisosNaoLidos = 0;
+		} else {
+			this.avisosNaoLidos = 0;
+		}
 		
 	}
 
@@ -38,11 +39,11 @@ public class MainMenuController implements Serializable {
 		this.avisosNaoLidos = avisosNaoLidos;
 	}
 
-	public List<Aviso> getListaAvisosNaoLidos() {
+	public List<AvisoDestinatario> getListaAvisosNaoLidos() {
 		return listaAvisosNaoLidos;
 	}
 
-	public void setListaAvisosNaoLidos(List<Aviso> listaAvisosNaoLidos) {
+	public void setListaAvisosNaoLidos(List<AvisoDestinatario> listaAvisosNaoLidos) {
 		this.listaAvisosNaoLidos = listaAvisosNaoLidos;
 	}
 	
