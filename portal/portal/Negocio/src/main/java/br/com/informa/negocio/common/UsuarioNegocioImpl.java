@@ -141,6 +141,7 @@ public class UsuarioNegocioImpl implements UsuarioNegocio {
 
 		// Compara a senha digitada criptografada com a senha do banco
 		try {
+			//caa4a63ca517c07e1c4e4345c28220cbb67ffb0a1de29a258d899201199624cc
 			if (!autenticadoPeloWindows) {
 				if (CommonMethods.getInstance().SHA256(entity.getSenha(), entity.getLogin())
 						.equals(entityBanco.getSenha())) {
@@ -155,14 +156,14 @@ public class UsuarioNegocioImpl implements UsuarioNegocio {
 					throw new SenhaInvalidoException();
 				}
 			} else {
-				try {
+				/*try {
 					entity = entityBanco.clone();
 				} catch (CloneNotSupportedException e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
 				entityBanco.setSenha(entity.getSenha());
-				this.Update(entityBanco);
+				this.Update(entityBanco);*/
 				return entityBanco;
 			}
 		} catch (NoSuchAlgorithmException | UnsupportedEncodingException e) {

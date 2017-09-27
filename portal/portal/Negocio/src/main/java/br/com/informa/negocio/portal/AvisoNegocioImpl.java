@@ -48,4 +48,16 @@ public class AvisoNegocioImpl implements AvisoNegocio {
 		// TODO Auto-generated method stub 
 		return true; 
  }
+
+	@Override
+	public List<Aviso> getAvisosNaoLido(Integer idUsuario) {
+		AvisoDao entityDao = FactoryDao.getFactory().getAvisoDao(); 
+		return entityDao.getAvisosNaoLido(idUsuario); 
+	}
+
+	@Override
+	public List<Aviso> getAllAvisos(Integer idUsuario) {
+		AvisoDao entityDao = FactoryDao.getFactory().getAvisoDao(); 
+		return entityDao.getAllAvisos(idUsuario);
+	}
 } 

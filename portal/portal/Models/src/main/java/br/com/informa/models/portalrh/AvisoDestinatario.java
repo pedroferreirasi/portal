@@ -11,6 +11,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
@@ -38,7 +39,7 @@ public class AvisoDestinatario implements Serializable {
     @Column(name="pk_avdcad", nullable=false)
     private Integer id;
 
-	@ManyToOne(cascade=CascadeType.ALL)
+	@OneToOne
 	@JoinColumn(name="fk_usucad", unique = false, foreignKey=@ForeignKey(name = "fk_avdcad_usucad"))
     private Usuario usuario;
 
