@@ -15,30 +15,43 @@
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 	</properties>
-	
-  <dependencies>
-    <dependency>
-      <groupId>junit</groupId>
-      <artifactId>junit</artifactId>
-      <version>3.8.1</version>
-      <scope>test</scope>
-    </dependency>
-    
-    <dependency>
-    	<groupId>${project.parent.groupId}</groupId>
-    	<artifactId>Models</artifactId>
-    	<version>${project.parent.versao}</version>
-    </dependency>
 
-    <dependency>
-    	<groupId>${project.parent.groupId}</groupId>
-    	<artifactId>Repositories</artifactId>
-    	<version>${project.parent.versao}</version>
-    </dependency>
-    <dependency>
-    	<groupId>${project.parent.groupId}</groupId>
-    	<artifactId>Libraries</artifactId>
-    	<version>${project.parent.versao}</version>
-    </dependency>
-  </dependencies>	
+	<dependencies>
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>3.8.1</version>
+			<scope>test</scope>
+		</dependency>
+		<!-- https://mvnrepository.com/artifact/org.springframework/spring-core -->
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-core</artifactId>
+			<version>5.0.0.RELEASE</version>
+		</dependency>
+		<!-- https://mvnrepository.com/artifact/org.springframework/spring-context -->
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-context</artifactId>
+			<version>5.0.0.RELEASE</version>
+		</dependency>
+
+
+		<dependency>
+			<groupId>${project.parent.groupId}</groupId>
+			<artifactId>Models</artifactId>
+			<version>${project.parent.versao}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>${project.parent.groupId}</groupId>
+			<artifactId>Repositories</artifactId>
+			<version>${project.parent.versao}</version>
+		</dependency>
+		<dependency>
+			<groupId>${project.parent.groupId}</groupId>
+			<artifactId>Libraries</artifactId>
+			<version>${project.parent.versao}</version>
+		</dependency>
+	</dependencies>
 </project>

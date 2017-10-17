@@ -1,5 +1,7 @@
 package br.com.informa.negocio.core;
 
+import org.springframework.context.support.ClassPathXmlApplicationContext;
+
 import br.com.informa.negocio.common.GrupoUsuarioNegocio;
 import br.com.informa.negocio.common.GrupoUsuarioNegocioImpl;
 import br.com.informa.negocio.common.UsuarioNegocio;
@@ -53,7 +55,8 @@ public class FactoryNegocio {
 	}
 	
 	public CargoNegocio getCargo() {
-		return new CargoNegocioImpl();
+		ClassPathXmlApplicationContext contexto = new ClassPathXmlApplicationContext("applicationContext.xml");
+		return contexto.getBean(CargoNegocioImpl.class);
 	}
 	
 	public DepartamentoNegocio getDepartamento() {
