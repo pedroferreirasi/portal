@@ -18,6 +18,7 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 
 import br.com.informa.models.common.Usuario; 
@@ -41,63 +42,82 @@ public class DadosProfissionais implements Serializable {
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
     @Column(name="pk_procad", length=10)
+	@XmlElement
     private Integer id;
 
 	@OneToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name="fk_usucad", unique = false, foreignKey=@ForeignKey(name = "fk_procad_usucad"))
+	@XmlElement
     private Usuario usuario;
 
     @Column(name="nuCTPS", length=10)
+    @XmlElement
     private String CTPS;
 
     @Column(name="serieCTPS", length=10)
+    @XmlElement
     private String serieCTPS;
 
     @Column(name="ufCTPS", length=2)
+    @XmlElement
     private String estadoCTPS;
 
     @Column(name="nuPIS", length=15)
+    @XmlElement
     private String PIS;
 
     @Column(name="emailprofissional", length=70)
+    @XmlElement
     private String emailProfissional;
 
     @Column(name="telefoneprofissional", length=20)
+    @XmlElement
     private String telefoneProfissional;
 
     @Column(name="ramal", length=10)
+    @XmlElement
     private String ramal;
 
     @Column(name="celularprofissional", length=20)
+    @XmlElement
     private String celularProfissional;
 
     @Column(name="numatricula", length=30)
+    @XmlElement
     private String matricula;
 
     @Column(name="codigopontoeletronico", length=30)
+    @XmlElement
     private String codigoPontoEletronico;
 
     @Column(name="flbateponto")
+    @XmlElement
     private Boolean flagBatePonto;
 
     @Column(name="dataadminissao")
     @Temporal(TemporalType.DATE)
+    @XmlElement
     private Date dataAdmissao;
 
     @Column(name="cargahoraria", length=10)
+    @XmlElement
     private Integer cargaHoraria;
     
     @Column(name="banco", length=45)
+    @XmlElement
     private String banco;
     
     @Column(name="agencia", length=10)
+    @XmlElement
     private String agencia;
     
     @Column(name="conta", length=10)
+    @XmlElement
     private String conta;
     
     @OneToOne
 	@JoinColumn(name="fk_procad_chefia", unique = false, foreignKey=@ForeignKey(name = "fk_procad_procad"))
+    @XmlElement
     //@Column(name="fk_procad_chefia")
     private Usuario chefia;
 

@@ -14,7 +14,8 @@ import javax.persistence.FetchType;
 import javax.persistence.ForeignKey;
 import javax.persistence.GeneratedValue; 
 import javax.xml.bind.annotation.XmlAccessType; 
-import javax.xml.bind.annotation.XmlAccessorType; 
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 import br.com.informa.models.common.Usuario;
 import br.com.informa.models.dominio.EParentesco;
@@ -38,24 +39,30 @@ public class Dependentes implements Serializable {
 	@Id
     @GeneratedValue
     @Column(name="pk_depcad", nullable=false, length=10)
+	@XmlElement
     private Integer id;
 
 	@OneToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "fk_usucad", foreignKey=@ForeignKey(name = "fk_depcad_usucad"))
+	@XmlElement
     private Usuario usuario;
 
     @Column(name="nome", nullable=true, length=70)
+    @XmlElement
     private String nome;
 
     @Column(name="parentesco", nullable=true, length=45)
     @Enumerated(EnumType.STRING)
+    @XmlElement
     private EParentesco parentesco;
 
     @Column(name="datanascimento", nullable=true)
     @Temporal(TemporalType.DATE)
+    @XmlElement
     private Date dataNascimento;
 
     @Column(name="documento", nullable=true, length=20)
+    @XmlElement
     private String documento;
 
 	public Integer getId() {

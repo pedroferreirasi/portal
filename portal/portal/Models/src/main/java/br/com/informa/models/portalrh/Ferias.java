@@ -18,6 +18,7 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 
 import br.com.informa.models.common.Usuario;
@@ -39,32 +40,40 @@ public class Ferias implements Serializable {
 	@Id
     @GeneratedValue(strategy=GenerationType.IDENTITY)
     @Column(name="pk_fercad", nullable=false)
+	@XmlElement
     private Integer id;
 
 	@OneToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name="fk_usucad", unique = false)
+	@XmlElement
     private Usuario usuario;
 
     @Column(name="data_lancamento", nullable=true)
     @Temporal(TemporalType.DATE)
+    @XmlElement
     private Date dataLancamento;
 
     @Column(name="data_inicial", nullable=true)
     @Temporal(TemporalType.DATE)
+    @XmlElement
     private Date dataInicial;
 
     @Column(name="data_final", nullable=true)
     @Temporal(TemporalType.DATE)
+    @XmlElement
     private Date dataFinal;
 
     @Column(name="dias", nullable=true, length=10)
+    @XmlElement
     private long dias;
 
     @Enumerated(EnumType.STRING)
     @Column(name="status", nullable=true)
+    @XmlElement
     private EStatusFerias status;
 
     @Column(name="aprovacao_gerencia", nullable=true)
+    @XmlElement
     private String aprovacaoGerencia;
 
 	public Integer getId() {

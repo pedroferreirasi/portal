@@ -20,6 +20,7 @@ import javax.persistence.TemporalType;
 import javax.persistence.Transient;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 
 import br.com.informa.models.common.Usuario;
@@ -40,22 +41,27 @@ public class Mural implements Serializable {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "pk_murcad")
+	@XmlElement
 	private Integer id;
 
 	@OneToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "fk_usucad", unique = false, foreignKey = @ForeignKey(name = "fk_murcad_usucad"))
+	@XmlElement
 	private Usuario usuario;
 
 	@Column(name = "dataCadastro", nullable = false, length = 0)
 	@Temporal(TemporalType.TIMESTAMP)
+	@XmlElement
 	private Date dataCadastro;
 
 	@Lob
 	@Column(name = "texto")
+	@XmlElement
 	private String texto;
 
 	@Lob
 	@Column(name = "imagem")
+	@XmlElement
 	private byte[] imagem;
 
 	@Transient

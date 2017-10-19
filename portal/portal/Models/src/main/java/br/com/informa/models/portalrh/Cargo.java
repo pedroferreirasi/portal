@@ -6,7 +6,8 @@ import javax.persistence.Column;
 import javax.persistence.Entity; 
 import javax.persistence.GeneratedValue; 
 import javax.xml.bind.annotation.XmlAccessType; 
-import javax.xml.bind.annotation.XmlAccessorType; 
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement; 
 import java.io.Serializable; 
  
@@ -24,9 +25,11 @@ public class Cargo implements Serializable {
 	@Id
     @GeneratedValue
     @Column(name="id", nullable=false, length=10)
+	@XmlElement
     private Integer id;
 
     @Column(name="descricao", nullable=false, length=70)
+    @XmlElement
     private String descricao;
 
     public Integer getId() {

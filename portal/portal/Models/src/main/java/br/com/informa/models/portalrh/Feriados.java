@@ -14,6 +14,7 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement; 
  
 @Entity 
@@ -27,23 +28,29 @@ public class Feriados implements Serializable {
 	@Id
     @GeneratedValue(strategy=GenerationType.IDENTITY)
 	@Column(name="pk_fercad")
+	@XmlElement
 	private int id;
 
 	@Column(name="nome", nullable=true, length=50)
+	@XmlElement
     private String descricao;
 
     @Column(name="data_feriado", nullable=false, length=0)
     @Temporal(TemporalType.DATE)
+    @XmlElement
     private Date dataFeriado;
 
     @Column(name="meiodia", nullable=false, length=3)
     @Temporal(TemporalType.DATE)
+    @XmlElement
     private Date meioDia;
 
     @Column(name="horas_consideradas", nullable=false, length=10)
+    @XmlElement
     private Integer horasConsideradas;
 
     @Column(name="minutos_considerados", nullable=false, length=10)
+    @XmlElement
     private Integer minutosConsiderados;
 
 	public String getDescricao() {

@@ -23,6 +23,7 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 
 import br.com.informa.models.common.Usuario; 
@@ -44,28 +45,35 @@ public class Aviso implements Serializable {
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
     @Column(name="pk_avicad", nullable=false)
+	@XmlElement
     private Integer id;
 
 	@OneToOne
-	@JoinColumn(name="fk_usucad_envio", unique = false, foreignKey=@ForeignKey(name = "fk_avicad_usucad"))	
+	@JoinColumn(name="fk_usucad_envio", unique = false, foreignKey=@ForeignKey(name = "fk_avicad_usucad"))
+	@XmlElement
     private Usuario usuario;
 
     @Column(name="dataCadastro", nullable=false, length=0)
     @Temporal(TemporalType.DATE)
+    @XmlElement
     private Date dataCadastro;
 
     @Column(name="titulo", nullable=false, length=255)
+    @XmlElement
     private String titulo;
 
     @Lob
     @Column(name="mensagem", nullable=false)
+    @XmlElement
     private String mensagem;
 
     @Column(name="dataValidade", nullable=true, length=0)
     @Temporal(TemporalType.DATE)
+    @XmlElement
     private Date dataValidade;
     
     @OneToMany(mappedBy = "aviso", targetEntity = AvisoDestinatario.class, fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @XmlElement
     private List<AvisoDestinatario> listaDestinatario;
 
 	public Integer getId() {

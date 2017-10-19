@@ -15,6 +15,7 @@ import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 
 import br.com.informa.models.common.Usuario; 
@@ -35,21 +36,26 @@ public class DocumentoInterno implements Serializable {
 	@Id
     @GeneratedValue(strategy=GenerationType.IDENTITY)
     @Column(name="pk_docint", nullable=false, length=10)
+	@XmlElement
     private Integer id;
 
 	@OneToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name="fk_tdicad", unique = false)
+	@XmlElement
     private TipoDocumentoInterno tipoDocumentoInterno;
 
 	@OneToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name="fk_usucad", unique = false)
+	@XmlElement
     private Usuario usuario;
 
     @Column(name="datacadastro")
+    @XmlElement
     private Date dataCadastro;
 
     @Lob
     @Column(name="texto", nullable=true, columnDefinition="mediumblob")
+    @XmlElement
     private byte[] texto;
 
 	public Integer getId() {

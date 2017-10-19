@@ -10,7 +10,8 @@ import javax.persistence.FetchType;
 import javax.persistence.ForeignKey;
 import javax.persistence.GeneratedValue; 
 import javax.xml.bind.annotation.XmlAccessType; 
-import javax.xml.bind.annotation.XmlAccessorType; 
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 import br.com.informa.models.common.Usuario; 
 import java.io.Serializable; 
@@ -31,12 +32,14 @@ public class Equipes implements Serializable {
     @GeneratedValue    
 	@OneToOne(cascade = CascadeType.REFRESH, fetch = FetchType.EAGER)
 	@JoinColumn(name="cod_gerente_fk", unique = false, foreignKey=@ForeignKey(name = "fk_eqpcad_usucad_1"))	
+	@XmlElement
     private Usuario gerente;
 
     @Id
     @GeneratedValue    
 	@OneToOne(cascade = CascadeType.REFRESH, fetch = FetchType.EAGER)
 	@JoinColumn(name="cod_subordinado_fk", unique = false, foreignKey=@ForeignKey(name = "fk_eqpcad_usucad_2"))
+    @XmlElement
     private Usuario usuario;
 
 	public Usuario getGerente() {

@@ -21,6 +21,10 @@ import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
 
 import br.com.informa.models.dominio.ESexo;
 import br.com.informa.models.dominio.ETipoUsuario;
@@ -32,6 +36,8 @@ import br.com.informa.models.portalrh.Dependentes;
 
 @Entity
 @Table(name = "tb_usuario")
+@XmlRootElement
+@XmlAccessorType(XmlAccessType.FIELD)
 public class Usuario implements Serializable, Cloneable {
 
 	private static final long serialVersionUID = -5211602883770541991L;
@@ -54,60 +60,77 @@ public class Usuario implements Serializable, Cloneable {
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	@Column(name="pk_usucad")
+	@XmlElement
 	private int id;
 	
 	@Column(name="login", nullable=false, length=30, unique=true)
+	@XmlElement
 	private String login;	
 	
 	@Column(name="senha", nullable=false, length=255)
+	@XmlElement
 	private String senha;
 	
 	@Column(name="nomecompleto", length=100)
+	@XmlElement
 	private String nomeCompleto;
 
 	@Column(name="nome", length=30)
+	@XmlElement
 	private String nomeUsuario;
 
 	@Column(name="sobrenome", length=30)
+	@XmlElement
 	private String sobreNome;	
 	
 	@Column(name="email", nullable=false, length=70)
+	@XmlElement
 	private String email;
 	
 	@Column(name="sexo", length=1)
 	@Enumerated(EnumType.STRING)
+	@XmlElement
 	private ESexo sexo;
 	
 	@Column(name="celular", length=25)
+	@XmlElement
 	private String celular;	
 
 	@Temporal(TemporalType.DATE)
 	@Column(name="dataCadastro", nullable=false)
+	@XmlElement
 	private Date dataCadastro;	
 	
 	@Column(name="ativo", nullable=false)
+	@XmlElement
 	private Boolean ativo;
 	
 	@Enumerated(EnumType.STRING)
 	@Column(name="tipousuario", nullable=false, length=15)
+	@XmlElement
 	private ETipoUsuario tipoUsuario;	
 	
 	@OneToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name="fk_usgcad", unique = false, foreignKey=@ForeignKey(name = "fk_usucad_usgcad"))
+	@XmlElement
 	private GrupoUsuario grupoUsuario;	
 
 	@OneToOne(cascade = CascadeType.PERSIST, fetch = FetchType.LAZY)
 	@JoinColumn(name="fk_depcad", unique = false, nullable=true, foreignKey=@ForeignKey(name = "fk_usucad_depcad"))
+	@XmlElement
 	private Departamento departamento;
 	
 	@OneToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name="fk_carcad", unique = false, foreignKey=@ForeignKey(name = "fk_usucad_carcad"))
+	@XmlElement
 	private Cargo cargo;
 	
 	@OneToOne(mappedBy="usuario", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+	@XmlElement
 	private DadosPessoais dadosPessoais;	
 
 	@OneToOne(mappedBy="usuario", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+	@XmlElement
 	private DadosProfissionais dadosProfissionais;
 	
 	@OneToMany(mappedBy = "usuario", targetEntity = Dependentes.class, fetch = FetchType.LAZY, cascade = CascadeType.ALL)

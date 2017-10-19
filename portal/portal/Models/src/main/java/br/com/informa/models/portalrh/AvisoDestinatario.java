@@ -15,6 +15,7 @@ import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 
 import br.com.informa.models.common.Usuario; 
@@ -37,17 +38,21 @@ public class AvisoDestinatario implements Serializable {
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
     @Column(name="pk_avdcad", nullable=false)
+	@XmlElement
     private Integer id;
 
 	@OneToOne
 	@JoinColumn(name="fk_usucad", unique = false, foreignKey=@ForeignKey(name = "fk_avdcad_usucad"))
+	@XmlElement
     private Usuario usuario;
 
 	@ManyToOne(cascade=CascadeType.ALL)
 	@JoinColumn(name="fk_avicad", unique = false, foreignKey=@ForeignKey(name = "fk_avdcad_avicad"))
+	@XmlElement
     private Aviso aviso;
 	
     @Column(name="lido", nullable=false)
+    @XmlElement
     private Boolean lido;	
     
 	public Integer getId() {

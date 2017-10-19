@@ -6,7 +6,8 @@ import javax.persistence.Column;
 import javax.persistence.Entity; 
 import javax.persistence.GeneratedValue; 
 import javax.xml.bind.annotation.XmlAccessType; 
-import javax.xml.bind.annotation.XmlAccessorType; 
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;  
 import java.io.Serializable; 
  
@@ -24,12 +25,15 @@ public class Departamento implements Serializable {
 	@Id
     @GeneratedValue
     @Column(name="pk_depcad")
+	@XmlElement
     private Integer id;
 
     @Column(name="descricao", length=70)
+    @XmlElement
     private String descricao;
 
     @Column(name="ativo")
+    @XmlElement
     private boolean ativo;
 
 	public Integer getId() {
