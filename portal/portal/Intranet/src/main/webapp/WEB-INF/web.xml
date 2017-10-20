@@ -5,18 +5,26 @@
 	xmlns:jsp="http://java.sun.com/xml/ns/javaee/jsp" 
 	version="3.1">
 	
+	<!-- Titulo do projeto -->
 	<display-name>Intranet</display-name>
 	
+	<!-- Páginna inicial do projeto -->
 	<welcome-file-list>
 		<welcome-file>login.xhtml</welcome-file>
 	</welcome-file-list>	
 
+	<!-- Configuração de sessão -->
     <session-config>
-      <session-timeout>30</session-timeout>
+      <session-timeout>30</session-timeout> <!-- Invalida a sessao em 30 minutos -->
       <tracking-mode>COOKIE</tracking-mode>
     </session-config>		
 	
-	<context-param>
+	<!-- Estágio do projeto, que podem ser:  -->
+	<!--Development -->
+	<!--UnitTest -->
+	<!--SystemTest -->
+	<!--Production -->
+	<context-param> 
 		<param-name>javax.faces.PROJECT_STAGE</param-name>
 		<param-value>Development</param-value>
 	</context-param>
@@ -26,6 +34,7 @@
       <param-value>true</param-value>
     </context-param>	
 
+	<!-- Thema do primefaces que será utilizado -->
 	<context-param>
 		<param-name>primefaces.THEME</param-name>
 		<param-value>admin</param-value>
@@ -38,62 +47,58 @@
         <param-value>true</param-value>
     </context-param>	
     
+    <!-- A configuração abaixo permite efetuar comentários dentro das paginas jsf -->
     <context-param>
        <param-name>javax.faces.FACELETS_SKIP_COMMENTS</param-name>
        <param-value>true</param-value>
     </context-param>    
     
+    <!-- Habilitando a renderização de filhos de componentes UIInput and UIOutput, 
+         a partir da versão 2.0 essa configuração se faz necessária mas não obrigatória. -->
     <context-param>
   	  <param-name>com.sun.faces.allowTextChildren</param-name>
   	  <param-value>true</param-value>
     </context-param>    
     
+    <!-- Define período para atualizar no deploy as mudanças realizadas no fonte. -->
     <context-param>
           <param-name>javax.faces.FACELETS_REFRESH_PERIOD</param-name>
           <param-value>0</param-value> <!-- Segundos -->
     </context-param> 
     
+    <!-- Define a lista de extensões de paginas que o projeto irá suportar. -->
     <context-param>
   	     <param-name>javax.faces.DEFAULT_SUFFIX</param-name>
   	     <param-value>.xhtml .html .jsp</param-value> 
     </context-param>  
     
+	<!-- Declaração do filter para Upload de arquivos em PrimeFaces -->
+    <filter>
+        <filter-name>PrimeFaces FileUpload Filter</filter-name>
+        <filter-class>org.primefaces.webapp.filter.FileUploadFilter</filter-class>
+    </filter>
+    
     <context-param>
 	  <param-name>primefaces.UPLOADER</param-name>
 	  <param-value>commons</param-value>
-	</context-param>
-	
-<filter>
-  <filter-name>FileUploadFilter</filter-name>
-  <filter-class>org.primefaces.webapp.filter.FileUploadFilter</filter-class>
-  <init-param>
-    <param-name>thresholdSize</param-name>
-    <param-value>10240</param-value>
-  </init-param>
-  <init-param>
-    <param-name>uploadDirectory</param-name>
-    <param-value>/resources/images/</param-value>
-  </init-param>
-</filter>
- 
-<filter-mapping>
-  <filter-name>FileUploadFilter</filter-name>
-  <servlet-name>FacesServlet</servlet-name>
-</filter-mapping>	        
-
+	</context-param>	
+	   
+	<!-- Declaração do mapeamento do filter para upload de arquivos com PrimeFaces -->
     <filter-mapping>
-		<filter-name>FileUploadFilter</filter-name>
-		<servlet-name>Faces Servlet</servlet-name>
-		<url-pattern>*.jsf</url-pattern> 
-		<url-pattern>*.xhtml</url-pattern>
-	</filter-mapping>
+      <filter-name>PrimeFaces FileUpload Filter</filter-name>
+      <servlet-name>Faces Servlet</servlet-name>
+   	  <url-pattern>*.jsf</url-pattern> 
+	  <url-pattern>*.xhtml</url-pattern>
+    </filter-mapping>	            
 
+	<!-- Declaração do FacesServlet do JSF. -->
     <servlet>
       <servlet-name>Faces Servlet</servlet-name>
       <servlet-class>javax.faces.webapp.FacesServlet</servlet-class>
       <load-on-startup>1</load-on-startup>
     </servlet>
     
+    <!-- Declaração do mapeamento do FacesServlet do JSF. -->
     <servlet-mapping>
       <servlet-name>Faces Servlet</servlet-name>
       <url-pattern>*.xhtml</url-pattern>
