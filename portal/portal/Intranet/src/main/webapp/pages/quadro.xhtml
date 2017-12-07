@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:p="http://primefaces.org/ui"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:f="http://java.sun.com/jsf/core"
+                template="/template/template.xhtml"> 
+
+    <ui:define name="Titulo">
+        Home
+    </ui:define>
+
+
+    <ui:define name="nomeDaPagina">
+
+    </ui:define>
+
+    <ui:define name="corpo">
+      <!-- Main content -->
+      <section class="content">
+      
+<script type="text/javascript">
+    function handleDrop(event, ui) {
+        var droppedCar = ui.draggable;
+ 
+        droppedCar.fadeOut('fast');
+    }
+</script>
+
+<h:form id="carForm">
+    <p:fieldset id="availableCarsField" legend="AvailableCars">
+        
+        <p:dataGrid id="availableCars" var="car" value="#{dndCarsView.cars}" columns="3">
+            <p:panel id="pnl" header="#{car.id}" style="text-align:center">
+                <h:panelGrid columns="1" style="width:100%">
+                    teste
+                </h:panelGrid>
+            </p:panel>
+ 
+            <p:draggable for="pnl" revert="true" handle=".ui-panel-titlebar" stack=".ui-panel"/>
+        </p:dataGrid>
+        
+    </p:fieldset>
+    
+    
+    
+</h:form>
+
+      
+
+      </section>      
+    </ui:define>
+
+</ui:composition>
